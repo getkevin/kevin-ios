@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  KevinDemo
+
+  Created by Edgar Žigis on 8/1/21.
+  Copyright © 2021 kevin.. All rights reserved.
+  
+*/
+
+"action_ok" = "OK";
+
+"link_account" = "LINK ACCOUNT";
+"make_bank_payment" = "MAKE BANK PAYMENT";
+"make_card_payment" = "MAKE CARD PAYMENT";
+
+"error_alert_title" = "Oops!";
+"error_alert_description" = "Something went wrong! Please debug the code for more details..";
+
+"payment_was_canceled" = "Payment was canceled by the user!";
+"account_linking_was_canceled" = "Account linking was canceled by the user!";
+
+"success_alert_title" = "Success!";
+"success_alert_description" = "Token: %@";

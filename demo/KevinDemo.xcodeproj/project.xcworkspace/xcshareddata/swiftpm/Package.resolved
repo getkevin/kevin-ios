@@ -1,0 +1,61 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Alamofire",
+        "repositoryURL": "https://github.com/Alamofire/Alamofire",
+        "state": {
+          "branch": null,
+          "revision": "f96b619bcb2383b43d898402283924b80e2c4bae",
+          "version": "5.4.3"
+        }
+      },
+      {
+        "package": "JWTDecode",
+        "repositoryURL": "https://github.com/auth0/JWTDecode.swift",
+        "state": {
+          "branch": null,
+          "revision": "22e3d174e9df2962f0268a31dac45e5ea54a6e62",
+          "version": "2.6.1"
+        }
+      },
+      {
+        "package": "Kevin",
+        "repositoryURL": "https://github.com/getkevin/kevin-ios",
+        "state": {
+          "branch": null,
+          "revision": "95764a3d4bee4a26786cb248e478fc55c7a1bf5a",
+          "version": "1.0.0"
+        }
+      },
+      {
+        "package": "Localize_Swift",
+        "repositoryURL": "https://github.com/marmelroy/Localize-Swift",
+        "state": {
+          "branch": null,
+          "revision": "0aa221fed0512772eaad04171d966b8d77b15212",
+          "version": "3.2.0"
+        }
+      },
+      {
+        "package": "ObjectMapper",
+        "repositoryURL": "https://github.com/tristanhimmelman/ObjectMapper",
+        "state": {
+          "branch": null,
+          "revision": "0b96a734de3ea1c87374ae677064f86adb0716ec",
+          "version": "4.2.0"
+        }
+      },
+      {
+        "package": "PromiseKit",
+        "repositoryURL": "https://github.com/mxcl/PromiseKit",
+        "state": {
+          "branch": null,
+          "revision": "d2f7ba14bcdc45e18f4f60ad9df883fb9055f081",
+          "version": "6.15.3"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
