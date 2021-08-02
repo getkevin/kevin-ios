@@ -1,0 +1,11 @@
+.DS_Store
+.idea
+
+build/*
+profile
+DerivedData
+
+xcuserdata/
+
+.build
+.swiftpm
