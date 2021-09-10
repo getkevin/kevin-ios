@@ -11,7 +11,7 @@ import Foundation
 internal class KevinApiClient {
     
     private let apiVersion = "1.0.0"
-    private let apiURL = URL(string: "https://api.getkevin.eu/")!
+    private let apiURL = URL(string: "https://api.kevin.eu/")!
     private let urlSession = URLSession(configuration: URLSessionConfiguration.default)
     
     internal static let shared = KevinApiClient()
