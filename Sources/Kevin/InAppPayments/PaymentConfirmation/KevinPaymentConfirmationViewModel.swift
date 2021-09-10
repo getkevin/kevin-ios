@@ -10,8 +10,8 @@ import Foundation
 
 internal class KevinPaymentConfirmationViewModel : KevinViewModel<KevinPaymentConfirmationState, KevinPaymentConfirmationIntent> {
     
-    private let bankPaymentUrl = "https://psd2.getkevin.eu/login/%@/%@/preview"
-    private let cardPaymentUrl = "https://psd2.getkevin.eu/card-details/%@"
+    private let bankPaymentUrl = "https://psd2.kevin.eu/login/%@/%@/preview"
+    private let cardPaymentUrl = "https://psd2.kevin.eu/card-details/%@"
     
     override func offer(intent: KevinPaymentConfirmationIntent) {
         if let intent = intent as? KevinPaymentConfirmationIntent.Initialize {

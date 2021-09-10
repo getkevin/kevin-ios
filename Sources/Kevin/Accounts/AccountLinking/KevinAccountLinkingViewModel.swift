@@ -10,7 +10,7 @@ import Foundation
 
 internal class KevinAccountLinkingViewModel : KevinViewModel<KevinAccountLinkingState, KevinAccountLinkingIntent> {
     
-    private let bankLinkingUrl = "https://psd2.getkevin.eu/login/%@/%@/preview"
+    private let bankLinkingUrl = "https://psd2.kevin.eu/login/%@/%@/preview"
     
     override func offer(intent: KevinAccountLinkingIntent) {
         if let intent = intent as? KevinAccountLinkingIntent.Initialize {
