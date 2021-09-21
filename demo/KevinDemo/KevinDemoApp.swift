@@ -15,12 +15,12 @@ struct KevinDemoApp: App {
     init() {
         KevinAccountsPlugin.shared.configure(
             KevinAccountsConfiguration.Builder(
-                callbackUrl: URL(string: "https://redirect.getkevin.eu/authorization.html")!
+                callbackUrl: URL(string: "https://redirect.kevin.eu/authorization.html")!
             ).build()
         )
         KevinInAppPaymentsPlugin.shared.configure(
             KevinInAppPaymentsConfiguration.Builder(
-                callbackUrl: URL(string: "https://redirect.getkevin.eu/payment.html")!
+                callbackUrl: URL(string: "https://redirect.kevin.eu/payment.html")!
             ).build()
         )
     }
