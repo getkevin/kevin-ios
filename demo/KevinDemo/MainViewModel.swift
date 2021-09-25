@@ -48,8 +48,7 @@ class MainViewModel: ObservableObject, KevinAccountLinkingSessionDelegate, Kevin
                 KevinPaymentSession.shared.delegate = self
                 try KevinPaymentSession.shared.initiatePayment(
                     configuration: KevinPaymentSessionConfiguration.Builder(
-                        paymentId: state.id,
-                        paymentType: .bank
+                        paymentId: state.id
                     )
                     .setPreselectedCountry(.lithuania)
                     .setSkipBankSelection(false)
@@ -70,9 +69,10 @@ class MainViewModel: ObservableObject, KevinAccountLinkingSessionDelegate, Kevin
                 KevinPaymentSession.shared.delegate = self
                 try KevinPaymentSession.shared.initiatePayment(
                     configuration: KevinPaymentSessionConfiguration.Builder(
-                        paymentId: state.id,
-                        paymentType: .card
-                    ).build()
+                        paymentId: state.id
+                    )
+                    .setPaymentType(.card)
+                    .build()
                 )
             } catch {
                 self.parseError(error)

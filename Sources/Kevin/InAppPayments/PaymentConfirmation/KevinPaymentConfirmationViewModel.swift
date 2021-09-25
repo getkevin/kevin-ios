@@ -11,6 +11,7 @@ import Foundation
 internal class KevinPaymentConfirmationViewModel : KevinViewModel<KevinPaymentConfirmationState, KevinPaymentConfirmationIntent> {
     
     private let bankPaymentUrl = "https://psd2.kevin.eu/login/%@/%@/preview"
+    private let bankPaymentAuthenticatedUrl = "https://psd2.kevin.eu/payments/%@/processing"
     private let cardPaymentUrl = "https://psd2.kevin.eu/card-details/%@"
     
     override func offer(intent: KevinPaymentConfirmationIntent) {
@@ -23,19 +24,17 @@ internal class KevinPaymentConfirmationViewModel : KevinViewModel<KevinPaymentCo
     }
     
     private func initialize(_ configuration: KevinPaymentConfirmationConfiguration) {
+        var confirmationUrl: URL!
         if configuration.paymentType == .card {
-            onStateChanged(
-                KevinPaymentConfirmationState(
-                    url: URL(string: String(format: cardPaymentUrl, configuration.paymentId))!
-                )
-            )
+            confirmationUrl = URL(string: String(format: cardPaymentUrl, configuration.paymentId))!
         } else if configuration.paymentType == .bank {
-            onStateChanged(
-                KevinPaymentConfirmationState(
-                    url: URL(string: String(format: bankPaymentUrl, configuration.paymentId, configuration.selectedBank!))!
-                )
-            )
+            if configuration.skipAuthentication {
+                confirmationUrl = URL(string: String(format: bankPaymentAuthenticatedUrl, configuration.paymentId))!
+            } else {
+                confirmationUrl = URL(string: String(format: bankPaymentUrl, configuration.paymentId, configuration.selectedBank!))!
+            }
         }
+        onStateChanged(KevinPaymentConfirmationState(url: confirmationUrl))
     }
     
     private func notifyPaymentCompletion(callbackUrl: URL, error: Error?) {
