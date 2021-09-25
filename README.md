@@ -54,14 +54,14 @@ try KevinAccountLinkingSession.shared.initiateAccountLinking(
 ## In-App Payments
 1. Customize payment flow by tweaking our configuration:
 ```swift
-let configuration = KevinPaymentSessionConfiguration.Builder(
-    paymentId: state.id,
-    paymentType: .bank  //  it can be .bank or .card
-)   .setPreselectedCountry(.lithuania)  //  optional option to preselect country
+let configuration = KevinPaymentSessionConfiguration.Builder(paymentId: payment.id)   
+    .setPaymentType(.bank)  // set payment type (bank or card)
+    .setPreselectedCountry(.lithuania)  //  optional option to preselect country
     .setCountryFilter([.lithuania, .latvia, .estonia])   //  optional option to supply country list
     .setDisableCountrySelection(false)  //  optional option to disable country selection
     .setPreselectedBank("SOME_BANK_ID") //  optional option to preselect bank
     .setSkipBankSelection(false)    //  optional skip of bank selection (should be used with preselectedBank)
+    .setSkipAuthentication(false)   //  optional skip of authentication steps (payment needs to be initialized with linked account token)
     .build()
 ```
 2. Implement KevinPaymentSessionDelegate protocol. Make sure you show returned UIViewController somewhere:
