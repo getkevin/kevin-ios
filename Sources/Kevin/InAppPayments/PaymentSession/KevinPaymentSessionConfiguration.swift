@@ -18,6 +18,7 @@ public class KevinPaymentSessionConfiguration {
     let countryFilter: Array<KevinCountry>
     let preselectedBank: String?
     let skipBankSelection: Bool
+    let skipAuthentication: Bool
     
     init(
         paymentId: String,
@@ -26,7 +27,8 @@ public class KevinPaymentSessionConfiguration {
         disableCountrySelection: Bool,
         countryFilter: Array<KevinCountry>,
         preselectedBank: String?,
-        skipBankSelection: Bool
+        skipBankSelection: Bool,
+        skipAuthentication: Bool
     ) throws {
         self.paymentId = paymentId
         self.paymentType = paymentType
@@ -35,7 +37,11 @@ public class KevinPaymentSessionConfiguration {
         self.countryFilter = countryFilter
         self.preselectedBank = preselectedBank
         self.skipBankSelection = skipBankSelection
+        self.skipAuthentication = skipAuthentication
         
+        if skipAuthentication && paymentType == .card {
+            throw KevinError(description: "Skipping authentication is only allowed for bank payments!")
+        }
         if skipBankSelection && preselectedBank == nil {
             throw KevinError(description: "If skipBankSelection is true, preselectedBank must be provided!")
         }
@@ -52,21 +58,29 @@ public class KevinPaymentSessionConfiguration {
     public class Builder {
         
         private let paymentId: String
-        private let paymentType: KevinPaymentType
+        private var paymentType = KevinPaymentType.bank
         private var preselectedCountry: KevinCountry? = nil
         private var disableCountrySelection: Bool = false
         private var countryFilter: Array<KevinCountry> = []
         private var preselectedBank: String? = nil
         private var skipBankSelection: Bool = false
+        private var skipAuthentication: Bool = false
         
         /// Creates an instance with the given paymentid and payment type.
         ///
         /// - Parameters:
         ///   - paymentId: paymentId value to be handled
-        ///   - paymentType: payment type which can be bank or card
-        public init(paymentId: String, paymentType: KevinPaymentType) {
+        public init(paymentId: String) {
             self.paymentId = paymentId
+        }
+        
+        /// Sets payment type
+        ///
+        /// - Parameters:
+        ///   - paymentType: desired payment type
+        public func setPaymentType(_ paymentType: KevinPaymentType) -> Builder {
             self.paymentType = paymentType
+            return self
         }
         
         /// Sets a default country
@@ -116,6 +130,16 @@ public class KevinPaymentSessionConfiguration {
             return self
         }
         
+        /// Skips authentication if set to true
+        ///
+        /// - Parameters:
+        ///   - skip: if set to true, then skips authentication part
+        ///     Works only with KevinPaymentType.bank.
+        public func setSkipAuthentication(_ skip: Bool) -> Builder {
+            self.skipAuthentication = skip
+            return self
+        }
+        
         public func build() throws -> KevinPaymentSessionConfiguration {
             return try KevinPaymentSessionConfiguration(
                 paymentId: paymentId,
@@ -124,7 +148,8 @@ public class KevinPaymentSessionConfiguration {
                 disableCountrySelection: disableCountrySelection,
                 countryFilter: countryFilter,
                 preselectedBank: preselectedBank,
-                skipBankSelection: skipBankSelection
+                skipBankSelection: skipBankSelection,
+                skipAuthentication: skipAuthentication
             )
         }
     }

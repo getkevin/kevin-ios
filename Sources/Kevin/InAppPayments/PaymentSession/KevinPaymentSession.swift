@@ -38,7 +38,11 @@ final public class KevinPaymentSession {
     }
     
     private func initiateBankPayment(configuration: KevinPaymentSessionConfiguration) {
-        if configuration.skipBankSelection {
+        if configuration.skipAuthentication {
+            self.delegate?.onKevinPaymentInitiationStarted(
+                controller: self.initializePaymentConfirmation(configuration: configuration)
+            )
+        } else if configuration.skipBankSelection {
             getPreselectedBank(bankCode: configuration.preselectedBank!, configuration: configuration) { [weak self] bank in
                 if bank == nil {
                     self?.delegate?.onKevinPaymentCanceled(error: KevinError(description: "Preselected bank is not available!"))
@@ -101,7 +105,8 @@ final public class KevinPaymentSession {
         controller.configuration = KevinPaymentConfirmationConfiguration(
             paymentId: configuration.paymentId,
             paymentType: configuration.paymentType,
-            selectedBank: configuration.preselectedBank
+            selectedBank: configuration.preselectedBank,
+            skipAuthentication: configuration.skipAuthentication
         )
         return KevinNavigationViewController(rootViewController: controller)
     }
@@ -114,7 +119,8 @@ final public class KevinPaymentSession {
         controller.configuration = KevinPaymentConfirmationConfiguration(
             paymentId: configuration.paymentId,
             paymentType: configuration.paymentType,
-            selectedBank: selectedBank ?? configuration.preselectedBank
+            selectedBank: selectedBank ?? configuration.preselectedBank,
+            skipAuthentication: configuration.skipAuthentication
         )
         return controller
     }
