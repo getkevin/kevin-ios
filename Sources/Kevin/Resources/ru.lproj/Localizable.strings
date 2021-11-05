@@ -1,0 +1,48 @@
+/*
+  Localizable.strings
+  KevinAccounts
+
+ Created by Edgar Žigis on 11/5/21.
+ Copyright © 2021 kevin.. All rights reserved.
+ 
+*/
+
+"country_name_at" = "Австрия";
+"country_name_be" = "Бельгия";
+"country_name_bg" = "Болгария";
+"country_name_cz" = "Чехия";
+"country_name_de" = "Германия";
+"country_name_dk" = "Дания";
+"country_name_ee" = "Эстония";
+"country_name_es" = "Испания";
+"country_name_fi" = "Финляндия";
+"country_name_fr" = "Франция";
+"country_name_gb" = "Великобритания";
+"country_name_it" = "Италия";
+"country_name_lt" = "Литва";
+"country_name_lu" = "Люксембург";
+"country_name_lv" = "Латвия";
+"country_name_nl" = "Нидерланды";
+"country_name_no" = "Норвегия";
+"country_name_pl" = "Польша";
+"country_name_pt" = "Португалия";
+"country_name_ro" = "Румыния";
+"country_name_se" = "Швеция";
+"country_name_hu" = "Венгрия";
+"country_name_ie" = "Ирландия";
+"country_name_si" = "Словения";
+"country_name_sk" = "Словакия";
+"country_name_mt" = "Мальта";
+"country_name_cy" = "Кипр";
+"country_name_hr" = "Хорватия";
+
+"window_account_linking_title" = "Связывание аккаунта";
+"window_country_selection_title" = "Выберите страну";
+"window_bank_selection_title" = "Выберите bank";
+"window_bank_selection_select_country_label" = "Выберите страну";
+"window_bank_selection_select_bank_label" = "Выберите bank";
+"error_bank_not_selected" = "Банк должен быть выбран";
+
+"window_payment_confirmation_title" = "Подтверждение оплаты";
+
+"action_continue" = "Продолжить";
