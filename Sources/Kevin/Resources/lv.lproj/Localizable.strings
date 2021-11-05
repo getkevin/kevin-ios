@@ -1,0 +1,48 @@
+/*
+  Localizable.strings
+  KevinAccounts
+
+ Created by Edgar Žigis on 11/5/21.
+ Copyright © 2021 kevin.. All rights reserved.
+ 
+*/
+
+"country_name_at" = "Austria";
+"country_name_be" = "Beļģija";
+"country_name_bg" = "Bulgārija";
+"country_name_cz" = "Čehija";
+"country_name_de" = "Vācija";
+"country_name_dk" = "Dānija";
+"country_name_ee" = "Igaunija";
+"country_name_es" = "Spānija";
+"country_name_fi" = "Somija";
+"country_name_fr" = "Francija";
+"country_name_gb" = "Apvienotā Karaliste";
+"country_name_it" = "Itālija";
+"country_name_lt" = "Lietuva";
+"country_name_lu" = "Luksemburga";
+"country_name_lv" = "Latvija";
+"country_name_nl" = "Nīderlande";
+"country_name_no" = "Norvēģija";
+"country_name_pl" = "Polija";
+"country_name_pt" = "Portugāle";
+"country_name_ro" = "Rumānija";
+"country_name_se" = "Zviedrija";
+"country_name_hu" = "Ungārija";
+"country_name_ie" = "Īrija";
+"country_name_si" = "Slovēnija";
+"country_name_sk" = "Slovākija";
+"country_name_mt" = "Malta";
+"country_name_cy" = "Kipra";
+"country_name_hr" = "Horvātija";
+
+"window_account_linking_title" = "Bankas konta piesaistīšana";
+"window_country_selection_title" = "Izvēlēties valsti";
+"window_bank_selection_title" = "Izvēlēties banku";
+"window_bank_selection_select_country_label" = "Izvēlēties valsti";
+"window_bank_selection_select_bank_label" = "Izvēlēties banku";
+"error_bank_not_selected" = "Bankai ir jābūt izvēlētai";
+
+"window_payment_confirmation_title" = "Maksājuma apstiprinājums";
+
+"action_continue" = "Turpināt";
