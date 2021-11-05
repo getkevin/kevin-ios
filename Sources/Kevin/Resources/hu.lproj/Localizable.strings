@@ -1,0 +1,48 @@
+/*
+  Localizable.strings
+  KevinAccounts
+
+ Created by Edgar Žigis on 8/1/21.
+ Copyright © 2021 kevin.. All rights reserved.
+ 
+*/
+
+"country_name_at" = "Ausztria";
+"country_name_be" = "Belgium";
+"country_name_bg" = "Bulgária";
+"country_name_cz" = "Csehország";
+"country_name_de" = "Németország";
+"country_name_dk" = "Dánia";
+"country_name_ee" = "Észtország";
+"country_name_es" = "Spanyolország";
+"country_name_fi" = "Finnország";
+"country_name_fr" = "Franciaország";
+"country_name_gb" = "Egyesült Királyság";
+"country_name_it" = "Olaszország";
+"country_name_lt" = "Litvánia";
+"country_name_lu" = "Luxemburg";
+"country_name_lv" = "Lettország";
+"country_name_nl" = "Hollandia";
+"country_name_no" = "Norvégia";
+"country_name_pl" = "Lengyelország";
+"country_name_pt" = "Portugália";
+"country_name_ro" = "Románia";
+"country_name_se" = "Svédország";
+"country_name_hu" = "Magyarország";
+"country_name_ie" = "Írország";
+"country_name_si" = "Szlovénia";
+"country_name_sk" = "Szlovákia";
+"country_name_mt" = "Málta";
+"country_name_cy" = "Ciprus";
+"country_name_hr" = "Horvátország";
+
+"window_account_linking_title" = "Fiók összekapcsolása";
+"window_country_selection_title" = "Válassz országot";
+"window_bank_selection_title" = "Válassza ki a bankot";
+"window_bank_selection_select_country_label" = "Válassz országot";
+"window_bank_selection_select_bank_label" = "Válassza ki a bankot";
+"error_bank_not_selected" = "Bankot kell választani";
+
+"window_payment_confirmation_title" = "Fizetési visszaigazolás";
+
+"action_continue" = "Folytatni";

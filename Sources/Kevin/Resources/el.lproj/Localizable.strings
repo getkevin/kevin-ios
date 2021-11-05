@@ -1,0 +1,48 @@
+/*
+  Localizable.strings
+  KevinAccounts
+
+ Created by Edgar Žigis on 8/1/21.
+ Copyright © 2021 kevin.. All rights reserved.
+ 
+*/
+
+"country_name_at" = "Αυστρία";
+"country_name_be" = "Βέλγιο";
+"country_name_bg" = "Βουλγαρία";
+"country_name_cz" = "Τσεχία";
+"country_name_de" = "Γερμανία";
+"country_name_dk" = "Δανία";
+"country_name_ee" = "Εσθονία";
+"country_name_es" = "Ισπανία";
+"country_name_fi" = "Φινλανδία";
+"country_name_fr" = "Γαλλία";
+"country_name_gb" = "Ηνωμένο Βασίλειο";
+"country_name_it" = "Ιταλία";
+"country_name_lt" = "Λιθουανία";
+"country_name_lu" = "Λουξεμβούργο";
+"country_name_lv" = "Λετονία";
+"country_name_nl" = "Ολλανδία";
+"country_name_no" = "Νορβηγία";
+"country_name_pl" = "Πολωνία";
+"country_name_pt" = "Πορτογαλία";
+"country_name_ro" = "Ρουμανία";
+"country_name_se" = "Σουηδία";
+"country_name_hu" = "Ουγγαρία";
+"country_name_ie" = "Ιρλανδία";
+"country_name_si" = "Σλοβενία";
+"country_name_sk" = "Σλοβακία";
+"country_name_mt" = "Μάλτα";
+"country_name_cy" = "Κύπρος";
+"country_name_hr" = "την Κροατία";
+
+"window_account_linking_title" = "Account linking";
+"window_country_selection_title" = "Select country";
+"window_bank_selection_title" = "Bank selection";
+"window_bank_selection_select_country_label" = "Select country";
+"window_bank_selection_select_bank_label" = "Select bank";
+"error_bank_not_selected" = "Bank has to be selected";
+
+"window_payment_confirmation_title" = "Επιβεβαίωση πληρωμής";
+
+"action_continue" = "Να συνεχίσει";
