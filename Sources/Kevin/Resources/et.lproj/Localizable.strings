@@ -1,0 +1,48 @@
+/*
+  Localizable.strings
+  KevinAccounts
+
+ Created by Edgar Žigis on 11/5/21.
+ Copyright © 2021 kevin.. All rights reserved.
+ 
+*/
+
+"country_name_at" = "Austria";
+"country_name_be" = "Belgia";
+"country_name_bg" = "Bulgaaria";
+"country_name_cz" = "Tšehhi";
+"country_name_de" = "Saksamaa";
+"country_name_dk" = "Taani";
+"country_name_ee" = "Eesti";
+"country_name_es" = "Hispaania";
+"country_name_fi" = "Soome";
+"country_name_fr" = "Prantsusmaa";
+"country_name_gb" = "Ühendkuningriik";
+"country_name_it" = "Itaalia";
+"country_name_lt" = "Leedu";
+"country_name_lu" = "Luksemburg";
+"country_name_lv" = "Läti";
+"country_name_nl" = "Holland";
+"country_name_no" = "Norra";
+"country_name_pl" = "Poola";
+"country_name_pt" = "Portugal";
+"country_name_ro" = "Rumeenia";
+"country_name_se" = "Rootsi";
+"country_name_hu" = "Ungari";
+"country_name_ie" = "Iirimaa";
+"country_name_si" = "Sloveenia";
+"country_name_sk" = "Slovakkia";
+"country_name_mt" = "Malta";
+"country_name_cy" = "Küpros";
+"country_name_hr" = "Horvaatia";
+
+"window_account_linking_title" = "Konto linkimine";
+"window_country_selection_title" = "Vali riik";
+"window_bank_selection_title" = "Valige pank";
+"window_bank_selection_select_country_label" = "Vali riik";
+"window_bank_selection_select_bank_label" = "Valige pank";
+"error_bank_not_selected" = "Pank tuleb valida";
+
+"window_payment_confirmation_title" = "Maksekinnitus";
+
+"action_continue" = "Jätka";

@@ -1,0 +1,48 @@
+/*
+  Localizable.strings
+  KevinAccounts
+
+ Created by Edgar Žigis on 11/5/21.
+ Copyright © 2021 kevin.. All rights reserved.
+ 
+*/
+
+"country_name_at" = "Austria";
+"country_name_be" = "Belgia";
+"country_name_bg" = "Bułgaria";
+"country_name_cz" = "Czechy";
+"country_name_de" = "Niemcy";
+"country_name_dk" = "Dania";
+"country_name_ee" = "Estonia";
+"country_name_es" = "Hiszpania";
+"country_name_fi" = "Finlandia";
+"country_name_fr" = "Francja";
+"country_name_gb" = "Zjednoczone Królestwo";
+"country_name_it" = "Włochy";
+"country_name_lt" = "Litwa";
+"country_name_lu" = "Luksemburg";
+"country_name_lv" = "Łotwa";
+"country_name_nl" = "Holandia";
+"country_name_no" = "Norwegia";
+"country_name_pl" = "Polska";
+"country_name_pt" = "Portugalia";
+"country_name_ro" = "Rumunia";
+"country_name_se" = "Szwecja";
+"country_name_hu" = "Węgry";
+"country_name_ie" = "Irlandia";
+"country_name_si" = "Słowenia";
+"country_name_sk" = "Słowacja";
+"country_name_mt" = "Malta";
+"country_name_cy" = "Cypr";
+"country_name_hr" = "Chorwacja";
+
+"window_account_linking_title" = "Łączenie konta";
+"window_country_selection_title" = "Wybierz kraj";
+"window_bank_selection_title" = "Wybierz bank";
+"window_bank_selection_select_country_label" = "Wybierz kraj";
+"window_bank_selection_select_bank_label" = "Wybierz bank";
+"error_bank_not_selected" = "Bank musi być wybrany";
+
+"window_payment_confirmation_title" = "Potwierdzenie płatności";
+
+"action_continue" = "Kontynuować";
