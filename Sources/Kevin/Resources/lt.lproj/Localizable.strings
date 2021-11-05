@@ -1,0 +1,48 @@
+/*
+  Localizable.strings
+  KevinAccounts
+
+ Created by Edgar Žigis on 11/5/21.
+ Copyright © 2021 kevin.. All rights reserved.
+ 
+*/
+
+"country_name_at" = "Austrija";
+"country_name_be" = "Belgija";
+"country_name_bg" = "Bulgarija";
+"country_name_cz" = "Čekija";
+"country_name_de" = "Vokietija";
+"country_name_dk" = "Danija";
+"country_name_ee" = "Estija";
+"country_name_es" = "Ispanija";
+"country_name_fi" = "Suomija";
+"country_name_fr" = "Prancūzija";
+"country_name_gb" = "Jungtinė Karalystė";
+"country_name_it" = "Italija";
+"country_name_lt" = "Lietuva";
+"country_name_lu" = "Liuksemburgas";
+"country_name_lv" = "Latvija";
+"country_name_nl" = "Nyderlandai";
+"country_name_no" = "Norvegija";
+"country_name_pl" = "Lenkija";
+"country_name_pt" = "Portugalija";
+"country_name_ro" = "Rumunija";
+"country_name_se" = "Švedija";
+"country_name_hu" = "Vengrija";
+"country_name_ie" = "Airija";
+"country_name_si" = "Slovėnija";
+"country_name_sk" = "Slovakija";
+"country_name_mt" = "Malta";
+"country_name_cy" = "Kipras";
+"country_name_hr" = "Kroatija";
+
+"window_account_linking_title" = "Sąskaitos susiejimas";
+"window_country_selection_title" = "Pasirinkite šalį";
+"window_bank_selection_title" = "Pasirinkite banką";
+"window_bank_selection_select_country_label" = "Pasirinkite šalį";
+"window_bank_selection_select_bank_label" = "Pasirinkite banką";
+"error_bank_not_selected" = "Bankas turi būti pasirinktas";
+
+"window_payment_confirmation_title" = "Mokėjimo patvirtinimas";
+
+"action_continue" = "Tęsti";
