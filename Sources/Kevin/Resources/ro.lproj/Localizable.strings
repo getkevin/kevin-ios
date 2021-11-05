@@ -1,0 +1,48 @@
+/*
+  Localizable.strings
+  KevinAccounts
+
+ Created by Edgar Žigis on 8/1/21.
+ Copyright © 2021 kevin.. All rights reserved.
+ 
+*/
+
+"country_name_at" = "Austria";
+"country_name_be" = "Belgia";
+"country_name_bg" = "Bulgaria";
+"country_name_cz" = "Cehia";
+"country_name_de" = "Germania";
+"country_name_dk" = "Danemarca";
+"country_name_ee" = "Estonia";
+"country_name_es" = "Spania";
+"country_name_fi" = "Finlanda";
+"country_name_fr" = "Franţa";
+"country_name_gb" = "Regatul Unit";
+"country_name_it" = "Italia";
+"country_name_lt" = "Lituania";
+"country_name_lu" = "Luxemburg";
+"country_name_lv" = "Letonia";
+"country_name_nl" = "Olanda";
+"country_name_no" = "Norvegia";
+"country_name_pl" = "Polonia";
+"country_name_pt" = "Portugalia";
+"country_name_ro" = "România";
+"country_name_se" = "Suedia";
+"country_name_hu" = "Ungaria";
+"country_name_ie" = "Irlanda";
+"country_name_si" = "Slovenia";
+"country_name_sk" = "Slovacia";
+"country_name_mt" = "Malta";
+"country_name_cy" = "Cipru";
+"country_name_hr" = "Croaţia";
+
+"window_account_linking_title" = "Conectarea contului";
+"window_country_selection_title" = "Selecteaza tara";
+"window_bank_selection_title" = "Selectați banca";
+"window_bank_selection_select_country_label" = "Selecteaza tara";
+"window_bank_selection_select_bank_label" = "Selectați banca";
+"error_bank_not_selected" = "Banca trebuie selectată";
+
+"window_payment_confirmation_title" = "Confirmarea platii";
+
+"action_continue" = "Continua";

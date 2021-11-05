@@ -1,0 +1,48 @@
+/*
+  Localizable.strings
+  KevinAccounts
+
+ Created by Edgar Žigis on 8/1/21.
+ Copyright © 2021 kevin.. All rights reserved.
+ 
+*/
+
+"country_name_at" = "Австрия";
+"country_name_be" = "Белгия";
+"country_name_bg" = "България";
+"country_name_cz" = "Чехия";
+"country_name_de" = "Германия";
+"country_name_dk" = "Дания";
+"country_name_ee" = "Естония";
+"country_name_es" = "Испания";
+"country_name_fi" = "Финландия";
+"country_name_fr" = "Франция";
+"country_name_gb" = "Великобритания";
+"country_name_it" = "Италия";
+"country_name_lt" = "Литва";
+"country_name_lu" = "Люксембург";
+"country_name_lv" = "Латвия";
+"country_name_nl" = "Холандия";
+"country_name_no" = "Норвегия";
+"country_name_pl" = "Полша";
+"country_name_pt" = "Португалия";
+"country_name_ro" = "Румъния";
+"country_name_se" = "Швеция";
+"country_name_hu" = "Унгария";
+"country_name_ie" = "Ирландия";
+"country_name_si" = "Словения";
+"country_name_sk" = "Словакия";
+"country_name_mt" = "Малта";
+"country_name_cy" = "Кипър";
+"country_name_hr" = "Хърватия";
+
+"window_account_linking_title" = "Свързване на акаунти";
+"window_country_selection_title" = "Изберете държава";
+"window_bank_selection_title" = "Изберете банка";
+"window_bank_selection_select_country_label" = "Изберете държава";
+"window_bank_selection_select_bank_label" = "Изберете банка";
+"error_bank_not_selected" = "Банката трябва да бъде избрана";
+
+"window_payment_confirmation_title" = "Потвърждение за плащане";
+
+"action_continue" = "Продължи";
