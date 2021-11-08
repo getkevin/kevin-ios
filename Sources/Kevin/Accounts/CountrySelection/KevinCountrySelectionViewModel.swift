@@ -42,11 +42,21 @@ internal class KevinCountrySelectionViewModel : KevinViewModel<KevinCountrySelec
                 self?.onStateChanged(
                     KevinCountrySelectionState(
                         selectedCountry: configuration.selectedCountry,
-                        supportedCountries: supportedCountries,
+                        supportedCountries: self?.getSortedSupportedCountries(codes: supportedCountries) ?? [],
                         isLoading: false
                     )
                 )
             }
         }
+    }
+    
+    private func getSortedSupportedCountries(codes: Array<String>) -> Array<String> {
+        return codes.sorted {
+            getLocalisedCountry(code: $0) < getLocalisedCountry(code: $1)
+        }
+    }
+    
+    private func getLocalisedCountry(code: String) -> String {
+        return NSLocalizedString("country_name_\(code.lowercased())", bundle: Bundle.module, comment: "")
     }
 }

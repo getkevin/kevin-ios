@@ -35,6 +35,9 @@
 "country_name_mt" = "Malta";
 "country_name_cy" = "Cypr";
 "country_name_hr" = "Chorwacja";
+"country_name_gr" = "Grecja";
+"country_name_is" = "Islandia";
+"country_name_li" = "Liechtenstein";
 
 "window_account_linking_title" = "Łączenie konta";
 "window_country_selection_title" = "Wybierz kraj";

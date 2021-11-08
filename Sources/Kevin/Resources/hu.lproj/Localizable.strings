@@ -35,6 +35,9 @@
 "country_name_mt" = "Málta";
 "country_name_cy" = "Ciprus";
 "country_name_hr" = "Horvátország";
+"country_name_gr" = "Görögország";
+"country_name_is" = "Izland";
+"country_name_li" = "Liechtenstein";
 
 "window_account_linking_title" = "Fiók összekapcsolása";
 "window_country_selection_title" = "Válassz országot";
