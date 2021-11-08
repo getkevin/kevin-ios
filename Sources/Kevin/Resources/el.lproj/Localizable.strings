@@ -35,6 +35,9 @@
 "country_name_mt" = "Μάλτα";
 "country_name_cy" = "Κύπρος";
 "country_name_hr" = "την Κροατία";
+"country_name_gr" = "Ελλάδα";
+"country_name_is" = "Ισλανδία";
+"country_name_li" = "Λιχτενστάιν";
 
 "window_account_linking_title" = "Account linking";
 "window_country_selection_title" = "Select country";

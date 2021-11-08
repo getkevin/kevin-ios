@@ -35,6 +35,9 @@
 "country_name_mt" = "Malta";
 "country_name_cy" = "Kipra";
 "country_name_hr" = "Horvātija";
+"country_name_gr" = "Grieķija";
+"country_name_is" = "Islande";
+"country_name_li" = "Lihtenšteina";
 
 "window_account_linking_title" = "Bankas konta piesaistīšana";
 "window_country_selection_title" = "Izvēlēties valsti";
