@@ -49,3 +49,9 @@
 "window_payment_confirmation_title" = "Fizetési visszaigazolás";
 
 "action_continue" = "Folytatni";
+
+"yes" = "Igen";
+"no" = "Nem";
+"dialog_exit_confirmation_title" = "Figyelem!";
+"dialog_exit_confirmation_accounts_message" = "Biztosan megszakítja a fiókok összekapcsolását?";
+"dialog_exit_confirmation_payments_message" = "Biztosan törölni szeretné ezt a fizetést?";

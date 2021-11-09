@@ -41,7 +41,7 @@
 
 "window_account_linking_title" = "Kontolänkning";
 "window_country_selection_title" = "Välj land";
-"window_bank_selection_title" = Välj bank";
+"window_bank_selection_title" = "Välj bank";
 "window_bank_selection_select_country_label" = "Välj land";
 "window_bank_selection_select_bank_label" = "Välj bank";
 "error_bank_not_selected" = "Bank måste väljas";
@@ -49,3 +49,9 @@
 "window_payment_confirmation_title" = "Betalningsbekräftelse";
 
 "action_continue" = "Fortsätta";
+
+"yes" = "Ja";
+"no" = "Nej";
+"dialog_exit_confirmation_title" = "Varning!";
+"dialog_exit_confirmation_accounts_message" = "Är du säker på att du vill avbryta kontolänkningen?";
+"dialog_exit_confirmation_payments_message" = "Är du säker på att du vill avbryta den här betalningen?";

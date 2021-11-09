@@ -49,3 +49,9 @@
 "window_payment_confirmation_title" = "Maksuvahvistus";
 
 "action_continue" = "Jatkaa";
+
+"yes" = "Joo";
+"no" = "Ei";
+"dialog_exit_confirmation_title" = "Varoitus!";
+"dialog_exit_confirmation_accounts_message" = "Haluatko varmasti keskeyttää tilin linkityksen?";
+"dialog_exit_confirmation_payments_message" = "Haluatko varmasti peruuttaa tämän maksun?";

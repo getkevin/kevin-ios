@@ -49,3 +49,9 @@
 "window_payment_confirmation_title" = "Confirmation de paiement";
 
 "action_continue" = "Continuer";
+
+"yes" = "Oui";
+"no" = "Non";
+"dialog_exit_confirmation_title" = "Avertissement!";
+"dialog_exit_confirmation_accounts_message" = "Voulez-vous vraiment annuler l'association de compte?";
+"dialog_exit_confirmation_payments_message" = "Voulez-vous vraiment annuler ce paiement?";

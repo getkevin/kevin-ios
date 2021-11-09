@@ -49,3 +49,9 @@
 "window_payment_confirmation_title" = "Потвърждение за плащане";
 
 "action_continue" = "Продължи";
+
+"yes" = "Да";
+"no" = "Не";
+"dialog_exit_confirmation_title" = "Внимание!";
+"dialog_exit_confirmation_accounts_message" = "Наистина ли искате да прекратите свързването на акаунти?";
+"dialog_exit_confirmation_payments_message" = "Наистина ли искате да анулирате това плащане?";

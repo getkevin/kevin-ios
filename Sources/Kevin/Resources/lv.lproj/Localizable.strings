@@ -49,3 +49,9 @@
 "window_payment_confirmation_title" = "Maksājuma apstiprinājums";
 
 "action_continue" = "Turpināt";
+
+"yes" = "Jā";
+"no" = "Nē";
+"dialog_exit_confirmation_title" = "Brīdinājums!";
+"dialog_exit_confirmation_accounts_message" = "Vai tiešām vēlaties pārtraukt konta saistīšanu?";
+"dialog_exit_confirmation_payments_message" = "Vai tiešām vēlaties atcelt šo maksājumu?";

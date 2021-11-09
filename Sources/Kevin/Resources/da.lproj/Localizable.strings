@@ -49,3 +49,9 @@
 "window_payment_confirmation_title" = "Betalingsbekræftelse";
 
 "action_continue" = "Blive ved";
+
+"yes" = "Ja";
+"no" = "Ingen";
+"dialog_exit_confirmation_title" = "Advarsel!";
+"dialog_exit_confirmation_accounts_message" = "Er du sikker på, at du vil afbryde kontotilknytning?";
+"dialog_exit_confirmation_payments_message" = "Er du sikker på, at du vil annullere denne betaling?";

@@ -49,3 +49,9 @@
 "window_payment_confirmation_title" = "Potrdilo plačila";
 
 "action_continue" = "Nadaljuj";
+
+"yes" = "Da";
+"no" = "Št";
+"dialog_exit_confirmation_title" = "Opozorilo!";
+"dialog_exit_confirmation_accounts_message" = "Ali ste prepričani, da želite prekiniti povezavo računa?";
+"dialog_exit_confirmation_payments_message" = "Ali ste prepričani, da želite preklicati to plačilo?";

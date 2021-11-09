@@ -49,3 +49,9 @@
 "window_payment_confirmation_title" = "Betalingsbevestiging";
 
 "action_continue" = "Doorgaan met";
+
+"yes" = "Ja";
+"no" = "Nee";
+"dialog_exit_confirmation_title" = "Waarschuwing!";
+"dialog_exit_confirmation_accounts_message" = "Weet u zeker dat u het koppelen van uw account wilt afbreken?";
+"dialog_exit_confirmation_payments_message" = "Weet u zeker dat u deze betaling wilt annuleren?";

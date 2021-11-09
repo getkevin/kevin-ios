@@ -49,3 +49,9 @@
 "window_payment_confirmation_title" = "Mokėjimo patvirtinimas";
 
 "action_continue" = "Tęsti";
+
+"yes" = "Taip";
+"no" = "Ne";
+"dialog_exit_confirmation_title" = "Dėmesio!";
+"dialog_exit_confirmation_accounts_message" = "Ar tikrai norite nutraukti sąskaitos susiejimą?";
+"dialog_exit_confirmation_payments_message" = "Ar tikrai norite nutraukti šį mokėjimą?";

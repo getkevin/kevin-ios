@@ -49,3 +49,9 @@
 "window_payment_confirmation_title" = "Potvrzení platby";
 
 "action_continue" = "Pokračovat";
+
+"yes" = "Ano";
+"no" = "Ne";
+"dialog_exit_confirmation_title" = "Varování!";
+"dialog_exit_confirmation_accounts_message" = "Opravdu chcete zrušit tuto platbu?";
+"dialog_exit_confirmation_payments_message" = "Opravdu chcete zrušit propojení účtů?";

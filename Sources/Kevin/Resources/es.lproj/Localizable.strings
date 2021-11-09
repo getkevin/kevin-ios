@@ -49,3 +49,9 @@
 "window_payment_confirmation_title" = "Confirmación de pago";
 
 "action_continue" = "Continuar";
+
+"yes" = "Sí";
+"no" = "No";
+"dialog_exit_confirmation_title" = "Advertencia!";
+"dialog_exit_confirmation_accounts_message" = "Estás seguro de que deseas cancelar el enlace de la cuenta?";
+"dialog_exit_confirmation_payments_message" = "Estás seguro de que deseas cancelar este pago?";
