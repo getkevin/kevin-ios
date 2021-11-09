@@ -1,21 +1,21 @@
-# kevin. iOS SDK
+![kevin.](./images/logo.png)
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![License](https://shields.io/badge/license-MIT-green)](https://github.com/getkevin/kevin-ios/blob/master/LICENSE)
+[![License](https://shields.io/badge/license-MIT-blue)](https://github.com/getkevin/kevin-ios/blob/master/LICENSE)
 
 The kevin. iOS SDK enables to easily integrate AIS and PIS services in your mobile application. We provide neat, customisable UI screens so integration would be as quick as possible. We also expose the low-level APIs that power those UIs so that you can build fully custom experiences.
 
-Get started with our [SDK reference](https://kevin-eu-1.gitbook.io/kevin.-sdk/) and checkout our [Demo App](https://github.com/getkevin/kevin-ios/tree/master/demo).
+Get started with our [SDK reference](https://developer.kevin.eu/mobile/) and checkout our [Demo App](https://github.com/getkevin/kevin-ios/tree/master/demo).
 
 ## Features
 
-- **Account linking** - we provide an easy solution to authenticate user bank accounts and manage their information.
-- **Bank payments** - we provide a possibility to integrate bank payments in your app with rich both full and no SCA options.
-- **Card payments** - we also support card payments.
+- **Account linking** - we provide an easy solution to authenticate and manage user bank accounts.
+- **Bank payments** - we provide a possibility to integrate bank payments in your app with both SCA and non-SCA options.
+- **Card payments** - we also provide card payments with a hybrid payment support, so the payment would be performed via bank if we detect that the card belongs to one of our supported banks.
 
 ## Documentation
 
-- SDK documentation can be found [here](https://developer.kevin.eu/)
+- SDK documentation can be found [here](https://developer.kevin.eu/mobile/)
 - The API reference is located [here](https://docs.kevin.eu/)
 
 ## Contributing
