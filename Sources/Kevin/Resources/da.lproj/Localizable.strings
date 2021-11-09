@@ -1,0 +1,51 @@
+/*
+  Localizable.strings
+  KevinAccounts
+
+ Created by Edgar Žigis on 11/9/21.
+ Copyright © 2021 kevin.. All rights reserved.
+ 
+*/
+
+"country_name_at" = "Østrig";
+"country_name_be" = "Belgien";
+"country_name_bg" = "Bulgarien";
+"country_name_cz" = "Tjekkiet";
+"country_name_de" = "Tyskland";
+"country_name_dk" = "Danmark";
+"country_name_ee" = "Estland";
+"country_name_es" = "Spanien";
+"country_name_fi" = "Finland";
+"country_name_fr" = "Frankrig";
+"country_name_gb" = "Det Forenede Kongerige";
+"country_name_it" = "Italien";
+"country_name_lt" = "Litauen";
+"country_name_lu" = "Luxembourg";
+"country_name_lv" = "Letland";
+"country_name_nl" = "Holland";
+"country_name_no" = "Norge";
+"country_name_pl" = "Polen";
+"country_name_pt" = "Portugal";
+"country_name_ro" = "Rumænien";
+"country_name_se" = "Sverige";
+"country_name_hu" = "Ungarn";
+"country_name_ie" = "Irland";
+"country_name_si" = "Slovenien";
+"country_name_sk" = "Slovakiet";
+"country_name_mt" = "Malta";
+"country_name_cy" = "Cypern";
+"country_name_hr" = "Kroatien";
+"country_name_gr" = "Grækenland";
+"country_name_is" = "Island";
+"country_name_li" = "Liechtenstein";
+
+"window_account_linking_title" = "Kontotilknytning";
+"window_country_selection_title" = "Vælg land";
+"window_bank_selection_title" = "Vælg bank";
+"window_bank_selection_select_country_label" = "Vælg land";
+"window_bank_selection_select_bank_label" = "Vælg bank";
+"error_bank_not_selected" = "Bank skal vælges";
+
+"window_payment_confirmation_title" = "Betalingsbekræftelse";
+
+"action_continue" = "Blive ved";
