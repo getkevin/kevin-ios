@@ -1,0 +1,51 @@
+/*
+  Localizable.strings
+  KevinAccounts
+
+ Created by Edgar Žigis on 11/9/21.
+ Copyright © 2021 kevin.. All rights reserved.
+ 
+*/
+
+"country_name_at" = "L'Autriche";
+"country_name_be" = "La Belgique";
+"country_name_bg" = "Bulgarie";
+"country_name_cz" = "République Tchèque";
+"country_name_de" = "Allemagne";
+"country_name_dk" = "Danemark";
+"country_name_ee" = "Estonie";
+"country_name_es" = "Espagne";
+"country_name_fi" = "Finlande";
+"country_name_fr" = "La France";
+"country_name_gb" = "Royaume-Uni";
+"country_name_it" = "Italie";
+"country_name_lt" = "Lituanie";
+"country_name_lu" = "Luxembourg";
+"country_name_lv" = "Lettonie";
+"country_name_nl" = "Pays-Bas";
+"country_name_no" = "Norvège";
+"country_name_pl" = "Pologne";
+"country_name_pt" = "Le Portugal";
+"country_name_ro" = "Roumanie";
+"country_name_se" = "Suède";
+"country_name_hu" = "Hongrie";
+"country_name_ie" = "Irlande";
+"country_name_si" = "Slovénie";
+"country_name_sk" = "Slovaquie";
+"country_name_mt" = "Malte";
+"country_name_cy" = "Chypre";
+"country_name_hr" = "Croatie";
+"country_name_gr" = "Grèce";
+"country_name_is" = "Islande";
+"country_name_li" = "Liechtenstein";
+
+"window_account_linking_title" = "Liaison de compte";
+"window_country_selection_title" = "Choisissez le pays";
+"window_bank_selection_title" = "Sélectionnez la banque";
+"window_bank_selection_select_country_label" = "Choisissez le pays";
+"window_bank_selection_select_bank_label" = "Sélectionnez la banque";
+"error_bank_not_selected" = "La banque doit être sélectionnée";
+
+"window_payment_confirmation_title" = "Confirmation de paiement";
+
+"action_continue" = "Continuer";
