@@ -49,3 +49,9 @@
 "window_payment_confirmation_title" = "Conferma di pagamento";
 
 "action_continue" = "Continua";
+
+"yes" = "Sì";
+"no" = "No";
+"dialog_exit_confirmation_title" = "Avvertimento!";
+"dialog_exit_confirmation_accounts_message" = "Sei sicuro di voler interrompere il collegamento dell'account?";
+"dialog_exit_confirmation_payments_message" = "Sei sicuro di voler annullare questo pagamento?";

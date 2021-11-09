@@ -49,3 +49,9 @@
 "window_payment_confirmation_title" = "Confirmarea platii";
 
 "action_continue" = "Continua";
+
+"yes" = "Da";
+"no" = "Nu";
+"dialog_exit_confirmation_title" = "Avertizare!";
+"dialog_exit_confirmation_accounts_message" = "Sigur doriți să anulați conectarea contului?";
+"dialog_exit_confirmation_payments_message" = "Sigur doriți să anulați această plată?";

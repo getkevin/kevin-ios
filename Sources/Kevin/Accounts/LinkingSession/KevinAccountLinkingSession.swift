@@ -71,7 +71,8 @@ final public class KevinAccountLinkingSession {
             isCountrySelectionDisabled: configuration.disableCountrySelection,
             countryFilter: configuration.countryFilter,
             selectedBankId: configuration.preselectedBank,
-            authState: configuration.state
+            authState: configuration.state,
+            exitSlug: "dialog_exit_confirmation_accounts_message"
         )
         controller.onContinuation = { [weak self] bankId in
             controller.show(

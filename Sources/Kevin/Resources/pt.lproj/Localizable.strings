@@ -49,3 +49,9 @@
 "window_payment_confirmation_title" = "Confirmação de pagamento";
 
 "action_continue" = "Prosseguir";
+
+"yes" = "Sim";
+"no" = "Não";
+"dialog_exit_confirmation_title" = "Aviso!";
+"dialog_exit_confirmation_accounts_message" = "Tem certeza de que deseja cancelar a vinculação da conta?";
+"dialog_exit_confirmation_payments_message" = "Tem certeza que deseja cancelar este pagamento?";

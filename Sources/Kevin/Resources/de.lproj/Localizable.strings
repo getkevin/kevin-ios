@@ -49,3 +49,9 @@
 "window_payment_confirmation_title" = "Zahlungsbestätigung";
 
 "action_continue" = "Weitermachen";
+
+"yes" = "Ja";
+"no" = "Nein";
+"dialog_exit_confirmation_title" = "Warnung!";
+"dialog_exit_confirmation_accounts_message" = "Möchten Sie die Kontoverknüpfung wirklich abbrechen?";
+"dialog_exit_confirmation_payments_message" = "Möchten Sie diese Zahlung wirklich stornieren?";

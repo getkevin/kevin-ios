@@ -49,3 +49,9 @@
 "window_payment_confirmation_title" = "Maksekinnitus";
 
 "action_continue" = "Jätka";
+
+"yes" = "Jah";
+"no" = "Ei";
+"dialog_exit_confirmation_title" = "Hoiatus!";
+"dialog_exit_confirmation_accounts_message" = "Kas olete kindel, et soovite konto linkimise katkestada?";
+"dialog_exit_confirmation_payments_message" = "Kas olete kindel, et soovite selle makse tühistada?";
