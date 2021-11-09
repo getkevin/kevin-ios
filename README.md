@@ -1,120 +1,23 @@
-# kevin. iOS SDK
+![kevin.](./images/logo.png)
 
-> iOS integration for kevin. account linking and bank/card in-app payments.
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![License](https://shields.io/badge/license-MIT-blue)](https://github.com/getkevin/kevin-ios/blob/master/LICENSE)
 
-## Prerequisites
+The kevin. iOS SDK enables to easily integrate AIS and PIS services in your mobile application. We provide neat, customisable UI screens so integration would be as quick as possible. We also expose the low-level APIs that power those UIs so that you can build fully custom experiences.
 
-- iOS minimum version 9.0
+Get started with our [SDK reference](https://developer.kevin.eu/mobile/) and checkout our [Demo App](https://github.com/getkevin/kevin-ios/tree/master/demo).
 
-## Getting Started
-1. Import library with ***Swift Package Manager*** or ***Carthage***
-2. Initialize plugins you will use in the App or AppDelegate:
+## Features
 
-```swift
-import Kevin
+- **Account linking** - we provide an easy solution to authenticate and manage user bank accounts.
+- **Bank payments** - we provide a possibility to integrate bank payments in your app with both SCA and non-SCA options.
+- **Card payments** - we also provide card payments with a hybrid payment support, so the payment would be performed via bank if we detect that the card belongs to one of our supported banks.
 
-Kevin.shared.theme = KevinTheme()   //  your custom theme extending KevinTheme
-KevinAccountsPlugin.shared.configure(
-    KevinAccountsConfiguration.Builder(
-        callbackUrl: URL(string: "https://your.callback.url")!    //  callback is mandatory
-    ).build()
-)
-KevinInAppPaymentsPlugin.shared.configure(
-    KevinInAppPaymentsConfiguration.Builder(
-        callbackUrl: URL(string: "https://your.callback.url")!    //  callback is mandatory
-    ).build()
-)
-```
-## Account Linking
-1. Customize linking flow by tweaking our configuration:
-```swift
-let configuration = KevinAccountLinkingSessionConfiguration.Builder(state: state.state)
-    .setPreselectedCountry(.lithuania)  //  optional option to preselect country
-    .setCountryFilter([.lithuania, .latvia, .estonia])   //  optional option to supply country list
-    .setDisableCountrySelection(false)  //  optional option to disable country selection
-    .setPreselectedBank("SOME_BANK_ID") //  optional option to preselect bank
-    .setSkipBankSelection(false)    //  optional skip of bank selection (should be used with preselectedBank)
-    .build()
-```
-2. Implement KevinAccountLinkingSessionDelegate protocol. Make sure you show returned UIViewController somewhere:
-```swift
-protocol KevinAccountLinkingSessionDelegate: AnyObject {
-    func onKevinAccountLinkingStarted(controller: UIViewController)
-    func onKevinAccountLinkingCanceled(error: Error?)
-    func onKevinAccountLinkingSucceeded(requestId: String, code: String)
-}
-```
-3. Call KevinAccountLinkingSession and listen to delegate:
-```swift
-KevinAccountLinkingSession.shared.delegate = self
-try KevinAccountLinkingSession.shared.initiateAccountLinking(
-    configuration: configuration
-)
-```
-## In-App Payments
-1. Customize payment flow by tweaking our configuration:
-```swift
-let configuration = KevinPaymentSessionConfiguration.Builder(paymentId: payment.id)   
-    .setPaymentType(.bank)  // set payment type (bank or card)
-    .setPreselectedCountry(.lithuania)  //  optional option to preselect country
-    .setCountryFilter([.lithuania, .latvia, .estonia])   //  optional option to supply country list
-    .setDisableCountrySelection(false)  //  optional option to disable country selection
-    .setPreselectedBank("SOME_BANK_ID") //  optional option to preselect bank
-    .setSkipBankSelection(false)    //  optional skip of bank selection (should be used with preselectedBank)
-    .setSkipAuthentication(false)   //  optional skip of authentication steps (payment needs to be initialized with linked account token)
-    .build()
-```
-2. Implement KevinPaymentSessionDelegate protocol. Make sure you show returned UIViewController somewhere:
-```swift
-protocol KevinPaymentSessionDelegate: AnyObject {
-    func onKevinPaymentInitiationStarted(controller: UIViewController)
-    func onKevinPaymentCanceled(error: Error?)
-    func onKevinPaymentSucceeded(paymentId: String)
-}
-```
-3. Call KevinPaymentSession and listen to delegate:
-```swift
-KevinPaymentSession.shared.delegate = self
-try KevinPaymentSession.shared.initiatePayment(
-    configuration: configuration
-)
-```
-## UI customization
-Built-in windows can be widely customised. Override ***KevinTheme*** and control a wide array of properties:
-```swift
-open class KevinTheme {
-    open var primaryBackgroundColor = UIColor.white
-    open var secondaryBackgroundColor = UIColor.white
-    
-    open var selectedOnPrimaryColor = UIColor(rgb: 0xF0F5FC)
-    open var selectedOnSecondaryColor = UIColor(rgb: 0xF0F5FC)
-    
-    open var errorTextColor = UIColor(rgb: 0xFF0020)
-    open var primaryTextColor = UIColor(rgb: 0x0B1E42)
-    open var secondaryTextColor = UIColor(rgb: 0x949AA3)
-    
-    open var navigationBarTitleColor = UIColor.white
-    open var navigationBarTintColor = UIColor.white
-    open var navigationBarBackgroundColor = UIColor(rgb: 0xFF0020)
-    
-    open var buttonBackgroundColor = UIColor(rgb: 0xFF0020)
-    open var buttonLabelTextColor = UIColor.white
-    open var buttonHeight: CGFloat = 50
-    open var buttonCornerRadius: CGFloat = 25
-    open var buttonShadowRadius: CGFloat = 2
-    open var buttonShadowOpacity: Float = 0.6
-    open var buttonShadowOffset = CGSize(width: 1.0, height: 1.0)
-    open var buttonFont = UIFont.systemFont(ofSize: 15)
-    
-    open var backButtonImage = UIImage(named: "backButtonIcon", in: Bundle.module, compatibleWith: nil)
-    open var closeButtonImage = UIImage(named: "closeButtonIcon", in: Bundle.module, compatibleWith: nil)
-    
-    open var smallFont = UIFont.systemFont(ofSize: 14)
-    open var mediumFont = UIFont.systemFont(ofSize: 15)
-    open var largeFont = UIFont.systemFont(ofSize: 16)
-}
-```
+## Documentation
 
-## Examples
+- SDK documentation can be found [here](https://developer.kevin.eu/mobile/)
+- The API reference is located [here](https://docs.kevin.eu/)
 
-The ./demo folder contains a project showing how kevin. can be used.
+## Contributing
+
+We welcome contributions of any kind including new features, bug fixes, and documentation improvements. Please first open an issue describing what you want to build if it is a major change so that we can discuss how to move forward. Otherwise, go ahead and open a pull request for minor changes such as typo fixes and one liners.
