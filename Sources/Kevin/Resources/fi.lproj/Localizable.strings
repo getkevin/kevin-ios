@@ -1,0 +1,51 @@
+/*
+  Localizable.strings
+  KevinAccounts
+
+ Created by Edgar Žigis on 11/9/21.
+ Copyright © 2021 kevin.. All rights reserved.
+ 
+*/
+
+"country_name_at" = "Itävalta";
+"country_name_be" = "Belgia";
+"country_name_bg" = "Bulgaria";
+"country_name_cz" = "Tšekin tasavalta";
+"country_name_de" = "Saksa";
+"country_name_dk" = "Tanska";
+"country_name_ee" = "Viro";
+"country_name_es" = "Espanja";
+"country_name_fi" = "Suomi";
+"country_name_fr" = "Ranska";
+"country_name_gb" = "Yhdistynyt kuningaskunta";
+"country_name_it" = "Italia";
+"country_name_lt" = "Liettua";
+"country_name_lu" = "Luxemburg";
+"country_name_lv" = "Latvia";
+"country_name_nl" = "Alankomaat";
+"country_name_no" = "Norja";
+"country_name_pl" = "Puola";
+"country_name_pt" = "Portugali";
+"country_name_ro" = "Romania";
+"country_name_se" = "Ruotsi";
+"country_name_hu" = "Unkari";
+"country_name_ie" = "Irlanti";
+"country_name_si" = "Slovenia";
+"country_name_sk" = "Slovakia";
+"country_name_mt" = "Malta";
+"country_name_cy" = "Kypros";
+"country_name_hr" = "Kroatia";
+"country_name_gr" = "Kreikka";
+"country_name_is" = "Islanti";
+"country_name_li" = "Liechtenstein";
+
+"window_account_linking_title" = "Tilin linkittäminen";
+"window_country_selection_title" = "Valitse maa";
+"window_bank_selection_title" = "Valitse pankki";
+"window_bank_selection_select_country_label" = "Valitse maa";
+"window_bank_selection_select_bank_label" = "Valitse pankki";
+"error_bank_not_selected" = "Pankki on valittava";
+
+"window_payment_confirmation_title" = "Maksuvahvistus";
+
+"action_continue" = "Jatkaa";
