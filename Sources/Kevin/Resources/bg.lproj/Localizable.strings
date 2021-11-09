@@ -35,6 +35,9 @@
 "country_name_mt" = "Малта";
 "country_name_cy" = "Кипър";
 "country_name_hr" = "Хърватия";
+"country_name_gr" = "Гърция";
+"country_name_is" = "Исландия";
+"country_name_li" = "Лихтенщайн";
 
 "window_account_linking_title" = "Свързване на акаунти";
 "window_country_selection_title" = "Изберете държава";
@@ -46,3 +49,9 @@
 "window_payment_confirmation_title" = "Потвърждение за плащане";
 
 "action_continue" = "Продължи";
+
+"yes" = "Да";
+"no" = "Не";
+"dialog_exit_confirmation_title" = "Внимание!";
+"dialog_exit_confirmation_accounts_message" = "Наистина ли искате да прекратите свързването на акаунти?";
+"dialog_exit_confirmation_payments_message" = "Наистина ли искате да анулирате това плащане?";

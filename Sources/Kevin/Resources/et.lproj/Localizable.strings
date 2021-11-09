@@ -35,6 +35,9 @@
 "country_name_mt" = "Malta";
 "country_name_cy" = "Küpros";
 "country_name_hr" = "Horvaatia";
+"country_name_gr" = "Kreeka";
+"country_name_is" = "Island";
+"country_name_li" = "Liechtenstein";
 
 "window_account_linking_title" = "Konto linkimine";
 "window_country_selection_title" = "Vali riik";
@@ -46,3 +49,9 @@
 "window_payment_confirmation_title" = "Maksekinnitus";
 
 "action_continue" = "Jätka";
+
+"yes" = "Jah";
+"no" = "Ei";
+"dialog_exit_confirmation_title" = "Hoiatus!";
+"dialog_exit_confirmation_accounts_message" = "Kas olete kindel, et soovite konto linkimise katkestada?";
+"dialog_exit_confirmation_payments_message" = "Kas olete kindel, et soovite selle makse tühistada?";

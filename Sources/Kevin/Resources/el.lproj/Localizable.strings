@@ -35,6 +35,9 @@
 "country_name_mt" = "Μάλτα";
 "country_name_cy" = "Κύπρος";
 "country_name_hr" = "την Κροατία";
+"country_name_gr" = "Ελλάδα";
+"country_name_is" = "Ισλανδία";
+"country_name_li" = "Λιχτενστάιν";
 
 "window_account_linking_title" = "Account linking";
 "window_country_selection_title" = "Select country";
@@ -46,3 +49,9 @@
 "window_payment_confirmation_title" = "Επιβεβαίωση πληρωμής";
 
 "action_continue" = "Να συνεχίσει";
+
+"yes" = "Ναί";
+"no" = "Οχι";
+"dialog_exit_confirmation_title" = "Προειδοποίηση!";
+"dialog_exit_confirmation_accounts_message" = "Είστε βέβαιοι ότι θέλετε να ακυρώσετε τη σύνδεση λογαριασμού;";
+"dialog_exit_confirmation_payments_message" = "Είστε βέβαιοι ότι θέλετε να ακυρώσετε αυτήν την πληρωμή;";

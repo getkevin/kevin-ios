@@ -1,0 +1,57 @@
+/*
+  Localizable.strings
+  KevinAccounts
+
+ Created by Edgar Žigis on 11/9/21.
+ Copyright © 2021 kevin.. All rights reserved.
+ 
+*/
+
+"country_name_at" = "Österrike";
+"country_name_be" = "Belgien";
+"country_name_bg" = "Bulgarien";
+"country_name_cz" = "Tjeckien";
+"country_name_de" = "Tyskland";
+"country_name_dk" = "Danmark";
+"country_name_ee" = "Estland";
+"country_name_es" = "Spanien";
+"country_name_fi" = "Finland";
+"country_name_fr" = "Frankrike";
+"country_name_gb" = "Storbritannien";
+"country_name_it" = "Italien";
+"country_name_lt" = "Litauen";
+"country_name_lu" = "Luxemburg";
+"country_name_lv" = "Lettland";
+"country_name_nl" = "Nederländerna";
+"country_name_no" = "Norge";
+"country_name_pl" = "Polen";
+"country_name_pt" = "Portugal";
+"country_name_ro" = "Rumänien";
+"country_name_se" = "Sverige";
+"country_name_hu" = "Ungern";
+"country_name_ie" = "Irland";
+"country_name_si" = "Slovenien";
+"country_name_sk" = "Slovakien";
+"country_name_mt" = "Malta";
+"country_name_cy" = "Cypern";
+"country_name_hr" = "Kroatien";
+"country_name_gr" = "Grekland";
+"country_name_is" = "Island";
+"country_name_li" = "Liechtenstein";
+
+"window_account_linking_title" = "Kontolänkning";
+"window_country_selection_title" = "Välj land";
+"window_bank_selection_title" = "Välj bank";
+"window_bank_selection_select_country_label" = "Välj land";
+"window_bank_selection_select_bank_label" = "Välj bank";
+"error_bank_not_selected" = "Bank måste väljas";
+
+"window_payment_confirmation_title" = "Betalningsbekräftelse";
+
+"action_continue" = "Fortsätta";
+
+"yes" = "Ja";
+"no" = "Nej";
+"dialog_exit_confirmation_title" = "Varning!";
+"dialog_exit_confirmation_accounts_message" = "Är du säker på att du vill avbryta kontolänkningen?";
+"dialog_exit_confirmation_payments_message" = "Är du säker på att du vill avbryta den här betalningen?";

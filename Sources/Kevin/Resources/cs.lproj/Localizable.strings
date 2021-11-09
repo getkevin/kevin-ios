@@ -1,0 +1,57 @@
+/*
+  Localizable.strings
+  KevinAccounts
+
+ Created by Edgar Žigis on 11/9/21.
+ Copyright © 2021 kevin.. All rights reserved.
+ 
+*/
+
+"country_name_at" = "Rakousko";
+"country_name_be" = "Belgie";
+"country_name_bg" = "Bulharsko";
+"country_name_cz" = "Česká republika";
+"country_name_de" = "Německo";
+"country_name_dk" = "Dánsko";
+"country_name_ee" = "Estonsko";
+"country_name_es" = "Španělsko";
+"country_name_fi" = "Finsko";
+"country_name_fr" = "Francie";
+"country_name_gb" = "Spojené království";
+"country_name_it" = "Itálie";
+"country_name_lt" = "Litva";
+"country_name_lu" = "Lucembursko";
+"country_name_lv" = "Lotyšsko";
+"country_name_nl" = "Holandsko";
+"country_name_no" = "Norsko";
+"country_name_pl" = "Polsko";
+"country_name_pt" = "Portugalsko";
+"country_name_ro" = "Rumunsko";
+"country_name_se" = "Švédsko";
+"country_name_hu" = "Maďarsko";
+"country_name_ie" = "Irsko";
+"country_name_si" = "Slovinsko";
+"country_name_sk" = "Slovensko";
+"country_name_mt" = "Malta";
+"country_name_cy" = "Kypr";
+"country_name_hr" = "Chorvatsko";
+"country_name_gr" = "Řecko";
+"country_name_is" = "Lichtenštejnsko";
+"country_name_li" = "Island";
+
+"window_account_linking_title" = "Propojení účtů";
+"window_country_selection_title" = "Vyberte zemi";
+"window_bank_selection_title" = "Vyberte banku";
+"window_bank_selection_select_country_label" = "Vyberte zemi";
+"window_bank_selection_select_bank_label" = "Vyberte banku";
+"error_bank_not_selected" = "Je třeba vybrat banku";
+
+"window_payment_confirmation_title" = "Potvrzení platby";
+
+"action_continue" = "Pokračovat";
+
+"yes" = "Ano";
+"no" = "Ne";
+"dialog_exit_confirmation_title" = "Varování!";
+"dialog_exit_confirmation_accounts_message" = "Opravdu chcete zrušit tuto platbu?";
+"dialog_exit_confirmation_payments_message" = "Opravdu chcete zrušit propojení účtů?";

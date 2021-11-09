@@ -35,6 +35,9 @@
 "country_name_mt" = "Мальта";
 "country_name_cy" = "Кипр";
 "country_name_hr" = "Хорватия";
+"country_name_gr" = "Греция";
+"country_name_is" = "Исландия";
+"country_name_li" = "Лихтенштейн";
 
 "window_account_linking_title" = "Связывание аккаунта";
 "window_country_selection_title" = "Выберите страну";
@@ -46,3 +49,9 @@
 "window_payment_confirmation_title" = "Подтверждение оплаты";
 
 "action_continue" = "Продолжить";
+
+"yes" = "Да";
+"no" = "Нет";
+"dialog_exit_confirmation_title" = "Предупреждение!";
+"dialog_exit_confirmation_accounts_message" = "Вы уверены, что хотите отменить привязку учетной записи?";
+"dialog_exit_confirmation_payments_message" = "Вы уверены, что хотите отменить этот платеж?";

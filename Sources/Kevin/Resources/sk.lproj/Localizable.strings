@@ -1,0 +1,57 @@
+/*
+  Localizable.strings
+  KevinAccounts
+
+ Created by Edgar Žigis on 11/9/21.
+ Copyright © 2021 kevin.. All rights reserved.
+ 
+*/
+
+"country_name_at" = "Rakúsko";
+"country_name_be" = "Belgicko";
+"country_name_bg" = "Bulharsko";
+"country_name_cz" = "Česká republika";
+"country_name_de" = "Nemecko";
+"country_name_dk" = "Dánsko";
+"country_name_ee" = "Estónsko";
+"country_name_es" = "Španielsko";
+"country_name_fi" = "Fínsko";
+"country_name_fr" = "Francúzsko";
+"country_name_gb" = "Spojene kralovstvo";
+"country_name_it" = "Taliansko";
+"country_name_lt" = "Litva";
+"country_name_lu" = "Luxembursko";
+"country_name_lv" = "Lotyšsko";
+"country_name_nl" = "Holandsko";
+"country_name_no" = "Nórsko";
+"country_name_pl" = "Poľsko";
+"country_name_pt" = "Portugalsko";
+"country_name_ro" = "Rumunsko";
+"country_name_se" = "Švédsko";
+"country_name_hu" = "Maďarsko";
+"country_name_ie" = "Írsko";
+"country_name_si" = "Slovinsko";
+"country_name_sk" = "Slovensko";
+"country_name_mt" = "Malta";
+"country_name_cy" = "Cyprus";
+"country_name_hr" = "Chorvátsko";
+"country_name_gr" = "Grécko";
+"country_name_is" = "Island";
+"country_name_li" = "Lichtenštajnsko";
+
+"window_account_linking_title" = "Prepojenie účtov";
+"window_country_selection_title" = "Vyberte krajinu";
+"window_bank_selection_title" = "Vyberte banku";
+"window_bank_selection_select_country_label" = "Vyberte krajinu";
+"window_bank_selection_select_bank_label" = "Vyberte banku";
+"error_bank_not_selected" = "Je potrebné vybrať banku";
+
+"window_payment_confirmation_title" = "Potvrdenie platby";
+
+"action_continue" = "Ďalej";
+
+"yes" = "Áno";
+"no" = "Nie";
+"dialog_exit_confirmation_title" = "Výstraha!";
+"dialog_exit_confirmation_accounts_message" = "Naozaj chcete zrušiť prepojenie účtu?";
+"dialog_exit_confirmation_payments_message" = "Naozaj chcete zrušiť túto platbu?";

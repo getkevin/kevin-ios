@@ -35,6 +35,9 @@
 "country_name_mt" = "Malta";
 "country_name_cy" = "Kipra";
 "country_name_hr" = "Horvātija";
+"country_name_gr" = "Grieķija";
+"country_name_is" = "Islande";
+"country_name_li" = "Lihtenšteina";
 
 "window_account_linking_title" = "Bankas konta piesaistīšana";
 "window_country_selection_title" = "Izvēlēties valsti";
@@ -46,3 +49,9 @@
 "window_payment_confirmation_title" = "Maksājuma apstiprinājums";
 
 "action_continue" = "Turpināt";
+
+"yes" = "Jā";
+"no" = "Nē";
+"dialog_exit_confirmation_title" = "Brīdinājums!";
+"dialog_exit_confirmation_accounts_message" = "Vai tiešām vēlaties pārtraukt konta saistīšanu?";
+"dialog_exit_confirmation_payments_message" = "Vai tiešām vēlaties atcelt šo maksājumu?";

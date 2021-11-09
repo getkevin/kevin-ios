@@ -1,0 +1,57 @@
+/*
+  Localizable.strings
+  KevinAccounts
+
+ Created by Edgar Žigis on 11/9/21.
+ Copyright © 2021 kevin.. All rights reserved.
+ 
+*/
+
+"country_name_at" = "Avstrija";
+"country_name_be" = "Belgija";
+"country_name_bg" = "Bolgarija";
+"country_name_cz" = "Češka";
+"country_name_de" = "Nemčija";
+"country_name_dk" = "Danska";
+"country_name_ee" = "Estonija";
+"country_name_es" = "Španija";
+"country_name_fi" = "Finska";
+"country_name_fr" = "Francija";
+"country_name_gb" = "Združeno kraljestvo";
+"country_name_it" = "Italija";
+"country_name_lt" = "Litva";
+"country_name_lu" = "Luksemburg";
+"country_name_lv" = "Latvija";
+"country_name_nl" = "Nizozemska";
+"country_name_no" = "Norveška";
+"country_name_pl" = "Poljska";
+"country_name_pt" = "Portugalska";
+"country_name_ro" = "Romunija";
+"country_name_se" = "Švedska";
+"country_name_hu" = "Madžarska";
+"country_name_ie" = "Irska";
+"country_name_si" = "Slovenija";
+"country_name_sk" = "Slovaška";
+"country_name_mt" = "Malta";
+"country_name_cy" = "Ciper";
+"country_name_hr" = "Hrvaška";
+"country_name_gr" = "Grčija";
+"country_name_is" = "Islandija";
+"country_name_li" = "Liechtenstein";
+
+"window_account_linking_title" = "Povezovanje računa";
+"window_country_selection_title" = "Izberite državo";
+"window_bank_selection_title" = "Izberite banko";
+"window_bank_selection_select_country_label" = "Izberite državo";
+"window_bank_selection_select_bank_label" = "Izberite banko";
+"error_bank_not_selected" = "Banko je treba izbrati";
+
+"window_payment_confirmation_title" = "Potrdilo plačila";
+
+"action_continue" = "Nadaljuj";
+
+"yes" = "Da";
+"no" = "Št";
+"dialog_exit_confirmation_title" = "Opozorilo!";
+"dialog_exit_confirmation_accounts_message" = "Ali ste prepričani, da želite prekiniti povezavo računa?";
+"dialog_exit_confirmation_payments_message" = "Ali ste prepričani, da želite preklicati to plačilo?";

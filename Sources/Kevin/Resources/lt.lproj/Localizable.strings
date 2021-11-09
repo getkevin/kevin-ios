@@ -35,6 +35,9 @@
 "country_name_mt" = "Malta";
 "country_name_cy" = "Kipras";
 "country_name_hr" = "Kroatija";
+"country_name_gr" = "Graikija";
+"country_name_is" = "Islandija";
+"country_name_li" = "Lichtenšteinas";
 
 "window_account_linking_title" = "Sąskaitos susiejimas";
 "window_country_selection_title" = "Pasirinkite šalį";
@@ -46,3 +49,9 @@
 "window_payment_confirmation_title" = "Mokėjimo patvirtinimas";
 
 "action_continue" = "Tęsti";
+
+"yes" = "Taip";
+"no" = "Ne";
+"dialog_exit_confirmation_title" = "Dėmesio!";
+"dialog_exit_confirmation_accounts_message" = "Ar tikrai norite nutraukti sąskaitos susiejimą?";
+"dialog_exit_confirmation_payments_message" = "Ar tikrai norite nutraukti šį mokėjimą?";

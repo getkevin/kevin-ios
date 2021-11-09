@@ -35,6 +35,9 @@
 "country_name_mt" = "Málta";
 "country_name_cy" = "Ciprus";
 "country_name_hr" = "Horvátország";
+"country_name_gr" = "Görögország";
+"country_name_is" = "Izland";
+"country_name_li" = "Liechtenstein";
 
 "window_account_linking_title" = "Fiók összekapcsolása";
 "window_country_selection_title" = "Válassz országot";
@@ -46,3 +49,9 @@
 "window_payment_confirmation_title" = "Fizetési visszaigazolás";
 
 "action_continue" = "Folytatni";
+
+"yes" = "Igen";
+"no" = "Nem";
+"dialog_exit_confirmation_title" = "Figyelem!";
+"dialog_exit_confirmation_accounts_message" = "Biztosan megszakítja a fiókok összekapcsolását?";
+"dialog_exit_confirmation_payments_message" = "Biztosan törölni szeretné ezt a fizetést?";

@@ -10,7 +10,7 @@
 "country_name_at" = "Austria";
 "country_name_be" = "Belgium";
 "country_name_bg" = "Bulgaria";
-"country_name_cz" = "Czechia";
+"country_name_cz" = "Czech Republic";
 "country_name_de" = "Germany";
 "country_name_dk" = "Denmark";
 "country_name_ee" = "Estonia";
@@ -35,6 +35,9 @@
 "country_name_mt" = "Malta";
 "country_name_cy" = "Cyprus";
 "country_name_hr" = "Croatia";
+"country_name_gr" = "Greece";
+"country_name_is" = "Iceland";
+"country_name_li" = "Liechtenstein";
 
 "window_account_linking_title" = "Account linking";
 "window_country_selection_title" = "Select country";
@@ -46,3 +49,9 @@
 "window_payment_confirmation_title" = "Payment confirmation";
 
 "action_continue" = "Continue";
+
+"yes" = "Yes";
+"no" = "No";
+"dialog_exit_confirmation_title" = "Warning!";
+"dialog_exit_confirmation_accounts_message" = "Are you sure you want to abort account linking?";
+"dialog_exit_confirmation_payments_message" = "Are you sure you want to cancel this payment?";
