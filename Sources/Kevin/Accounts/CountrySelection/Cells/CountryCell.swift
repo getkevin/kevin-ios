@@ -47,8 +47,6 @@ internal class CountryCell : UITableViewCell {
         titleLabel.leftAnchor.constraint(equalTo: iconImageView.rightAnchor, constant: 16).isActive = true
         titleLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.5).isActive = true
         titleLabel.heightAnchor.constraint(equalTo: contentView.heightAnchor).isActive = true
-        
-        contentView.backgroundColor = 
     }
     
     required init?(coder aDecoder: NSCoder) {
