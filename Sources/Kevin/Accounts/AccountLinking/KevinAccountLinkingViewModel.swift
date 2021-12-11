@@ -17,7 +17,7 @@ internal class KevinAccountLinkingViewModel : KevinViewModel<KevinAccountLinking
             initialize(intent.configuration)
         }
         if let intent = intent as? KevinAccountLinkingIntent.HandleLinkingCompleted {
-            notifyLinkingCompletion(callbackUrl: intent.url, error: intent.error)
+            notifyLinkingCompletion(callbackUrl: intent.url, error: intent.error, configuration: intent.configuration)
         }
     }
     
@@ -29,7 +29,11 @@ internal class KevinAccountLinkingViewModel : KevinViewModel<KevinAccountLinking
         )
     }
     
-    private func notifyLinkingCompletion(callbackUrl: URL, error: Error?) {
+    private func notifyLinkingCompletion(
+        callbackUrl: URL,
+        error: Error?,
+        configuration: KevinAccountLinkingConfiguration
+    ) {
         if let error = error {
             KevinAccountLinkingSession.shared.notifyAccountLinkingCancelation(error: error)
             return
@@ -38,10 +42,14 @@ internal class KevinAccountLinkingViewModel : KevinViewModel<KevinAccountLinking
             return
         }
         if status == "success" {
-            if let requestId = callbackUrl["requestId"], let code = callbackUrl["code"] {
+            if let code = callbackUrl["code"] {
                 KevinAccountLinkingSession.shared.notifyAccountLinkingCompletion(
-                    requestId: requestId,
-                    code: code
+                    authorizationCode: code,
+                    bankId: configuration.selectedBankId
+                )
+            } else {
+                KevinAccountLinkingSession.shared.notifyAccountLinkingCancelation(
+                    error: KevinError(description: "Account authorizationCode has not been returned!")
                 )
             }
         } else {

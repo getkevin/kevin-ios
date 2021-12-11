@@ -29,7 +29,7 @@ extension KevinAccountLinkingViewController: KevinAccountLinkingViewDelegate {
     func onAccountLinkingCompleted(callbackUrl: URL, error: Error?) {
         navigationController?.dismiss(animated: true, completion: {
             self.offerIntent(
-                KevinAccountLinkingIntent.HandleLinkingCompleted(url: callbackUrl, error: error)
+                KevinAccountLinkingIntent.HandleLinkingCompleted(url: callbackUrl, error: error, configuration: self.configuration)
             )
         })
     }

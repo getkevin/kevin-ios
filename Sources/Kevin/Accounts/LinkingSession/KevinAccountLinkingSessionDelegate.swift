@@ -12,5 +12,5 @@ import Foundation
 public protocol KevinAccountLinkingSessionDelegate: AnyObject {
     func onKevinAccountLinkingStarted(controller: UIViewController)
     func onKevinAccountLinkingCanceled(error: Error?)
-    func onKevinAccountLinkingSucceeded(requestId: String, code: String)
+    func onKevinAccountLinkingSucceeded(authorizationCode: String, bank: ApiBank)
 }
