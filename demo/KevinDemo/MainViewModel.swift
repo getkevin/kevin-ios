@@ -114,11 +114,11 @@ class MainViewModel: ObservableObject, KevinAccountLinkingSessionDelegate, Kevin
         }
     }
     
-    func onKevinAccountLinkingSucceeded(requestId: String, code: String) {
+    func onKevinAccountLinkingSucceeded(authorizationCode: String, bank: ApiBank) {
         self.viewState = MainViewState(
             showMessage: true,
             messageTitle: "success_alert_title".localized(),
-            messageDescription: String(format: "success_alert_description".localized(), " requestId - \(requestId); code - \(code)")
+            messageDescription: String(format: "success_alert_description".localized(), " authorizationCode - \(authorizationCode)")
         )
     }
     

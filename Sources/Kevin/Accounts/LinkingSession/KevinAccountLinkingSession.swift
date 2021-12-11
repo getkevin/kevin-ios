@@ -15,10 +15,21 @@ final public class KevinAccountLinkingSession {
     
     public static let shared = KevinAccountLinkingSession()
     
+    private var configuration: KevinAccountLinkingSessionConfiguration!
+    
     private init() { }
     
-    internal func notifyAccountLinkingCompletion(requestId: String, code: String) {
-        delegate?.onKevinAccountLinkingSucceeded(requestId: requestId, code: code)
+    internal func notifyAccountLinkingCompletion(authorizationCode: String, bankId: String) {
+        getPreselectedBank(bankCode: bankId, configuration: configuration) { [weak self] bank in
+            if bank == nil {
+                self?.delegate?.onKevinAccountLinkingCanceled(error: KevinError(description: "Preselected bank is not available!"))
+            } else {
+                self?.delegate?.onKevinAccountLinkingSucceeded(
+                    authorizationCode: authorizationCode,
+                    bank: bank!
+                )
+            }
+        }
     }
     
     internal func notifyAccountLinkingCancelation(error: Error?) {
@@ -30,6 +41,7 @@ final public class KevinAccountLinkingSession {
     /// - Parameters:
     ///   - configuration: account linking session configuration
     public func initiateAccountLinking(configuration: KevinAccountLinkingSessionConfiguration) {
+        self.configuration = configuration
         if configuration.skipBankSelection {
             getPreselectedBank(bankCode: configuration.preselectedBank!, configuration: configuration) { [weak self] bank in
                 if bank == nil {
