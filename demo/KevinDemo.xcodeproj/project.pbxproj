@@ -37,6 +37,7 @@
 		27C35100267372FB00A3A17F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27C350FF267372FB00A3A17F /* Preview Assets.xcassets */; };
 		27C3510B267372FB00A3A17F /* KevinDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C3510A267372FB00A3A17F /* KevinDemoTests.swift */; };
 		27C35116267372FB00A3A17F /* KevinDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C35115267372FB00A3A17F /* KevinDemoUITests.swift */; };
+		27D384FD27651C13001395C0 /* DemoKevinTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D384FC27651C13001395C0 /* DemoKevinTheme.swift */; };
 		27EF25D726B673580085FDC7 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EF25D626B673580085FDC7 /* ModalView.swift */; };
 		27EF269026B806D90085FDC7 /* .kevin in Frameworks */ = {isa = PBXBuildFile; productRef = 27EF268F26B806D90085FDC7 /* .kevin */; };
 /* End PBXBuildFile section */
@@ -90,6 +91,7 @@
 		27C35111267372FB00A3A17F /* KevinDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KevinDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		27C35115267372FB00A3A17F /* KevinDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KevinDemoUITests.swift; sourceTree = "<group>"; };
 		27C35117267372FB00A3A17F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		27D384FC27651C13001395C0 /* DemoKevinTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoKevinTheme.swift; sourceTree = "<group>"; };
 		27EF25D626B673580085FDC7 /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -128,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				272CA8E226B426D000978AA7 /* MainButtonStyle.swift */,
+				27D384FC27651C13001395C0 /* DemoKevinTheme.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 				27C350FB267372FA00A3A17F /* MainView.swift in Sources */,
 				27B180A526807E1E001E0C50 /* ApiError.swift in Sources */,
 				27B180B52680805B001E0C50 /* ApiAuthState.swift in Sources */,
+				27D384FD27651C13001395C0 /* DemoKevinTheme.swift in Sources */,
 				27C350F9267372FA00A3A17F /* KevinDemoApp.swift in Sources */,
 				27B1809E26807984001E0C50 /* URLRequestHeader.swift in Sources */,
 				27B180B9268080E2001E0C50 /* DemoApiClient.swift in Sources */,

@@ -13,6 +13,7 @@ import Kevin
 struct KevinDemoApp: App {
     
     init() {
+        Kevin.shared.theme = DemoKevinTheme()
         KevinAccountsPlugin.shared.configure(
             KevinAccountsConfiguration.Builder(
                 callbackUrl: URL(string: "https://redirect.kevin.eu/authorization.html")!
