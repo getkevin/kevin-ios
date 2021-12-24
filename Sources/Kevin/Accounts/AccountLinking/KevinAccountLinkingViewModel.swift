@@ -45,7 +45,8 @@ internal class KevinAccountLinkingViewModel : KevinViewModel<KevinAccountLinking
             if let code = callbackUrl["code"] {
                 KevinAccountLinkingSession.shared.notifyAccountLinkingCompletion(
                     authorizationCode: code,
-                    bankId: configuration.selectedBankId
+                    bankId: configuration.selectedBankId,
+                    country: configuration.selectedCountry
                 )
             } else {
                 KevinAccountLinkingSession.shared.notifyAccountLinkingCancelation(

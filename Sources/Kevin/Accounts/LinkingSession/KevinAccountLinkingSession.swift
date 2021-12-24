@@ -19,8 +19,16 @@ final public class KevinAccountLinkingSession {
     
     private init() { }
     
-    internal func notifyAccountLinkingCompletion(authorizationCode: String, bankId: String) {
-        getPreselectedBank(bankCode: bankId, configuration: configuration) { [weak self] bank in
+    internal func notifyAccountLinkingCompletion(
+        authorizationCode: String,
+        bankId: String,
+        country: KevinCountry?
+    ) {
+        getPreselectedBank(
+            state: configuration.state,
+            bankCode: bankId,
+            country: country
+        ) { [weak self] bank in
             if bank == nil {
                 self?.delegate?.onKevinAccountLinkingCanceled(error: KevinError(description: "Preselected bank is not available!"))
             } else {
@@ -43,7 +51,11 @@ final public class KevinAccountLinkingSession {
     public func initiateAccountLinking(configuration: KevinAccountLinkingSessionConfiguration) {
         self.configuration = configuration
         if configuration.skipBankSelection {
-            getPreselectedBank(bankCode: configuration.preselectedBank!, configuration: configuration) { [weak self] bank in
+            getPreselectedBank(
+                state: configuration.state,
+                bankCode: configuration.preselectedBank!,
+                country: configuration.preselectedCountry
+            ) { [weak self] bank in
                 if bank == nil {
                     self?.delegate?.onKevinAccountLinkingCanceled(error: KevinError(description: "Preselected bank is not available!"))
                 } else {
@@ -58,13 +70,14 @@ final public class KevinAccountLinkingSession {
     }
     
     private func getPreselectedBank(
+        state: String,
         bankCode: String,
-        configuration: KevinAccountLinkingSessionConfiguration,
+        country: KevinCountry?,
         completion: @escaping (ApiBank?) -> Void
     ) {
         KevinAccountsApiClient.shared.getSupportedBanks(
-            token: configuration.state,
-            country: configuration.preselectedCountry?.rawValue
+            token: state,
+            country: country?.rawValue
         ) { [weak self] response, error in
             if let error = error {
                 self?.delegate?.onKevinAccountLinkingCanceled(error: error)
@@ -79,16 +92,20 @@ final public class KevinAccountLinkingSession {
     ) -> UIViewController {
         let controller = KevinBankSelectionViewController()
         controller.configuration = KevinBankSelectionConfiguration(
-            selectedCountry: configuration.preselectedCountry,
+            selectedCountry: configuration.preselectedCountry ?? KevinCountry.lithuania,
             isCountrySelectionDisabled: configuration.disableCountrySelection,
             countryFilter: configuration.countryFilter,
             selectedBankId: configuration.preselectedBank,
             authState: configuration.state,
             exitSlug: "dialog_exit_confirmation_accounts_message"
         )
-        controller.onContinuation = { [weak self] bankId in
+        controller.onContinuation = { [weak self] bankId, country in
             controller.show(
-                self!.initializeAccountLinkingConfirmationController(configuration: configuration, selectedBank: bankId),
+                self!.initializeAccountLinkingConfirmationController(
+                    configuration: configuration,
+                    selectedBank: bankId,
+                    selectedCountry: country
+                ),
                 sender: nil
             )
         }
@@ -103,19 +120,22 @@ final public class KevinAccountLinkingSession {
         let controller = KevinAccountLinkingViewController()
         controller.configuration = KevinAccountLinkingConfiguration(
             state: configuration.state,
-            selectedBankId: configuration.preselectedBank!
+            selectedBankId: configuration.preselectedBank!,
+            selectedCountry: configuration.preselectedCountry
         )
         return KevinNavigationViewController(rootViewController: controller)
     }
     
     private func initializeAccountLinkingConfirmationController(
         configuration: KevinAccountLinkingSessionConfiguration,
-        selectedBank: String? = nil
+        selectedBank: String? = nil,
+        selectedCountry: KevinCountry?
     ) -> UIViewController {
         let controller = KevinAccountLinkingViewController()
         controller.configuration = KevinAccountLinkingConfiguration(
             state: configuration.state,
-            selectedBankId: selectedBank ?? configuration.preselectedBank!
+            selectedBankId: selectedBank ?? configuration.preselectedBank!,
+            selectedCountry: selectedCountry
         )
         return controller
     }
