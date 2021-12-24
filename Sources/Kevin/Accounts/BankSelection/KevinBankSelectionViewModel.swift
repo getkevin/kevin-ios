@@ -17,7 +17,7 @@ internal class KevinBankSelectionViewModel : KevinViewModel<KevinBankSelectionSt
     }
     
     private func initialize(_ configuration: KevinBankSelectionConfiguration) {
-        let country = configuration.selectedCountry?.rawValue ?? "lt"
+        let country = configuration.selectedCountry.rawValue
         onStateChanged(
             KevinBankSelectionState(
                 selectedCountry: country,

@@ -14,7 +14,7 @@ internal class KevinBankSelectionViewController :
     
     public var configuration: KevinBankSelectionConfiguration!
     
-    public var onContinuation: ((String) -> ())?
+    public var onContinuation: ((String, KevinCountry?) -> ())?
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +54,7 @@ extension KevinBankSelectionViewController: KevinBankSelectionViewDelegate {
         controller.delegate = self
         controller.modalPresentationStyle = .overCurrentContext
         controller.configuration = KevinCountrySelectionConfiguration(
-            selectedCountry: configuration.selectedCountry!.rawValue,
+            selectedCountry: configuration.selectedCountry.rawValue,
             countryFilter: configuration.countryFilter,
             authState: configuration.authState
         )
@@ -62,14 +62,14 @@ extension KevinBankSelectionViewController: KevinBankSelectionViewDelegate {
     }
     
     func invokeContinuation(bankId: String) {
-        onContinuation?(bankId)
+        onContinuation?(bankId, configuration.selectedCountry)
     }
 }
 
 extension KevinBankSelectionViewController: KevinCountrySelectionViewControllerDelegate {
     
     func onCountrySelected(countryCode: String) {
-        configuration.selectedCountry = KevinCountry(rawValue: countryCode.lowercased())
+        configuration.selectedCountry = KevinCountry(rawValue: countryCode.lowercased())!
         self.offerIntent(
             KevinBankSelectionIntent.Initialize(
                 configuration: configuration

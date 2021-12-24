@@ -81,14 +81,14 @@ final public class KevinPaymentSession {
     ) -> UIViewController {
         let controller = KevinBankSelectionViewController()
         controller.configuration = KevinBankSelectionConfiguration(
-            selectedCountry: configuration.preselectedCountry,
+            selectedCountry: configuration.preselectedCountry ?? KevinCountry.lithuania,
             isCountrySelectionDisabled: configuration.disableCountrySelection,
             countryFilter: configuration.countryFilter,
             selectedBankId: configuration.preselectedBank,
             authState: configuration.paymentId,
             exitSlug: "dialog_exit_confirmation_payments_message"
         )
-        controller.onContinuation = { [weak self] bankId in
+        controller.onContinuation = { [weak self] bankId, _ in
             controller.show(
                 self!.initializePaymentConfirmationController(configuration: configuration, selectedBank: bankId),
                 sender: nil

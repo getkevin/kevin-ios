@@ -10,7 +10,7 @@ import Foundation
 
 internal struct KevinBankSelectionConfiguration {
     
-    public var selectedCountry: KevinCountry?
+    public var selectedCountry: KevinCountry
     public let isCountrySelectionDisabled: Bool
     public let countryFilter: Array<KevinCountry>
     public let selectedBankId: String?
@@ -18,7 +18,7 @@ internal struct KevinBankSelectionConfiguration {
     public let exitSlug: String
     
     public init(
-        selectedCountry: KevinCountry?,
+        selectedCountry: KevinCountry,
         isCountrySelectionDisabled: Bool,
         countryFilter: Array<KevinCountry>,
         selectedBankId: String?,
