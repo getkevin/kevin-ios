@@ -109,6 +109,9 @@ final public class KevinAccountLinkingSession {
                 sender: nil
             )
         }
+        controller.onExit = { [weak self] in
+            self?.delegate?.onKevinAccountLinkingCanceled(error: KevinError(description: "User has canceled the flow!"))
+        }
         return KevinNavigationViewController(rootViewController: controller)
     }
     
