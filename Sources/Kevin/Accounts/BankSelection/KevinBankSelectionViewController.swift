@@ -15,6 +15,7 @@ internal class KevinBankSelectionViewController :
     public var configuration: KevinBankSelectionConfiguration!
     
     public var onContinuation: ((String, KevinCountry?) -> ())?
+    public var onExit: (() -> ())?
     
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +42,7 @@ internal class KevinBankSelectionViewController :
             style: .default,
             handler: { _ in
                 self.dismiss(animated: true, completion: nil)
+                self.onExit?()
             }
         ))
         present(alert, animated: true)
