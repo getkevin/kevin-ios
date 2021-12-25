@@ -59,4 +59,18 @@ extension KevinAccountLinkingView: WKNavigationDelegate {
             delegate?.onAccountLinkingCompleted(callbackUrl: url, error: error)
         }
     }
+    
+    func webView(
+        _ webView: WKWebView,
+        decidePolicyFor navigationAction: WKNavigationAction,
+        decisionHandler: @escaping (WKNavigationActionPolicy) -> Void
+    ) {
+        let scheme = navigationAction.request.url?.scheme
+        if scheme == "tel" || scheme == "mailto" {
+            UIApplication.shared.openURL(navigationAction.request.url!)
+            decisionHandler(.cancel)
+        } else {
+            decisionHandler(.allow)
+        }
+    }
 }

@@ -37,16 +37,17 @@ internal class KevinPaymentConfirmationViewModel : KevinViewModel<KevinPaymentCo
         onStateChanged(KevinPaymentConfirmationState(url: confirmationUrl))
     }
     
-    private func notifyPaymentCompletion(callbackUrl: URL, error: Error?) {
+    private func notifyPaymentCompletion(callbackUrl: URL?, error: Error?) {
         if let error = error {
             KevinPaymentSession.shared.notifyPaymentCancelation(error: error)
             return
         }
-        guard let statusGroup = callbackUrl["statusGroup"] else {
+        guard let statusGroup = callbackUrl?["statusGroup"] else {
+            KevinPaymentSession.shared.notifyPaymentCancelation(error: KevinError(description: "Payment was canceled!"))
             return
         }
         if statusGroup == "completed" {
-            if let paymentId = callbackUrl["paymentId"] {
+            if let paymentId = callbackUrl?["paymentId"] {
                 KevinPaymentSession.shared.notifyPaymentCompletion(paymentId: paymentId)
             }
         } else {
