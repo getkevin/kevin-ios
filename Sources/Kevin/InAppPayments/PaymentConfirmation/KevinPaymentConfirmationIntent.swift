@@ -21,10 +21,10 @@ internal class KevinPaymentConfirmationIntent: IKevinIntent {
 
     internal class HandlePaymentCompleted: KevinPaymentConfirmationIntent {
         
-        public let url: URL
+        public let url: URL?
         public let error: Error?
         
-        init(url: URL, error: Error?) {
+        init(url: URL?, error: Error?) {
             self.url = url
             self.error = error
         }
