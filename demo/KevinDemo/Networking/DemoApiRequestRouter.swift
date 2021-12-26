@@ -11,36 +11,42 @@ import Foundation
 
 enum DemoApiRequestRouter {
     
-    case getAuthState
-    case initializeBankPayment
-    case initializeCardPayment
+    case getAuthState(request: GetAuthStateRequest)
+    case initializeBankPayment(request: InitiatePaymentRequest)
+    case initializeCardPayment(request: InitiatePaymentRequest)
     
     // MARK: - Declarations
-    private static let baseURL = URL(string: "https://your.base.url/")!
+    private static let baseURL = URL(string: "https://your.kevin.url/")!
     
     private var method: HTTPMethod {
         switch self {
         case .getAuthState,
              .initializeBankPayment,
              .initializeCardPayment:
-            return .get
+            return .post
         }
     }
     
     private var path: String {
         switch self {
             
-        case .getAuthState:
-            return "examples/auth_example.php"
-        case .initializeBankPayment:
-            return "examples/bank_card_example.php"
-        case .initializeCardPayment:
-            return "examples/card_example.php"
+        case .getAuthState( _):
+            return "auth/initiate/"
+        case .initializeBankPayment( _):
+            return "payments/bank/"
+        case .initializeCardPayment( _):
+            return "payments/card/"
         }
     }
     
     private var parameters: Parameters? {
         switch self {
+        case .getAuthState(let request):
+            return request.toJSON()
+        case .initializeBankPayment(let request):
+            return request.toJSON()
+        case .initializeCardPayment(let request):
+            return request.toJSON()
         default:
             return nil
         }

@@ -12,6 +12,8 @@
 		272CA8EF26B456A500978AA7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 272CA8ED26B456A500978AA7 /* Localizable.strings */; };
 		272CA8F226B4575200978AA7 /* Localize_Swift in Frameworks */ = {isa = PBXBuildFile; productRef = 272CA8F126B4575200978AA7 /* Localize_Swift */; };
 		272CA8F426B45E4E00978AA7 /* MainViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272CA8F326B45E4E00978AA7 /* MainViewState.swift */; };
+		2782B44E2778912D004A9E05 /* GetAuthStateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2782B44D2778912D004A9E05 /* GetAuthStateRequest.swift */; };
+		2782B450277892D6004A9E05 /* InitiatePaymentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2782B44F277892D6004A9E05 /* InitiatePaymentRequest.swift */; };
 		27B1808A26807338001E0C50 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B1808926807338001E0C50 /* MainViewModel.swift */; };
 		27B1809226807898001E0C50 /* PromiseKit in Frameworks */ = {isa = PBXBuildFile; productRef = 27B1809126807898001E0C50 /* PromiseKit */; };
 		27B18095268078CE001E0C50 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 27B18094268078CE001E0C50 /* Alamofire */; };
@@ -64,6 +66,8 @@
 		272CA8E526B4404F00978AA7 /* KevinViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KevinViewControllerRepresentable.swift; sourceTree = "<group>"; };
 		272CA8EE26B456A500978AA7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
 		272CA8F326B45E4E00978AA7 /* MainViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewState.swift; sourceTree = "<group>"; };
+		2782B44D2778912D004A9E05 /* GetAuthStateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAuthStateRequest.swift; sourceTree = "<group>"; };
+		2782B44F277892D6004A9E05 /* InitiatePaymentRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitiatePaymentRequest.swift; sourceTree = "<group>"; };
 		27B1808926807338001E0C50 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		27B1809926807920001E0C50 /* BaseApiRequestAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApiRequestAdapter.swift; sourceTree = "<group>"; };
 		27B1809B26807949001E0C50 /* RequestHeaders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHeaders.swift; sourceTree = "<group>"; };
@@ -161,11 +165,21 @@
 			path = en.lproj;
 			sourceTree = "<group>";
 		};
+		2782B44C27789115004A9E05 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				2782B44D2778912D004A9E05 /* GetAuthStateRequest.swift */,
+				2782B44F277892D6004A9E05 /* InitiatePaymentRequest.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
 		27B1808B26807606001E0C50 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
 				27B1809F26807BFB001E0C50 /* Base */,
 				27B180B32680803F001E0C50 /* Entities */,
+				2782B44C27789115004A9E05 /* Requests */,
 				27B180B8268080E2001E0C50 /* DemoApiClient.swift */,
 				27B180A026807C13001E0C50 /* DemoApiRequestRouter.swift */,
 				27B180BA26808147001E0C50 /* DemoApiClientFactory.swift */,
@@ -442,6 +456,7 @@
 				27B180AB26807EF3001E0C50 /* JWTCredentials.swift in Sources */,
 				27B1809C26807949001E0C50 /* RequestHeaders.swift in Sources */,
 				27B1809A26807920001E0C50 /* BaseApiRequestAdapter.swift in Sources */,
+				2782B44E2778912D004A9E05 /* GetAuthStateRequest.swift in Sources */,
 				272CA8F426B45E4E00978AA7 /* MainViewState.swift in Sources */,
 				27B180A326807D78001E0C50 /* BaseApiClient.swift in Sources */,
 				27B180B026807F86001E0C50 /* TokenRefresherProtocol.swift in Sources */,
@@ -450,6 +465,7 @@
 				27C350FB267372FA00A3A17F /* MainView.swift in Sources */,
 				27B180A526807E1E001E0C50 /* ApiError.swift in Sources */,
 				27B180B52680805B001E0C50 /* ApiAuthState.swift in Sources */,
+				2782B450277892D6004A9E05 /* InitiatePaymentRequest.swift in Sources */,
 				27D384FD27651C13001395C0 /* DemoKevinTheme.swift in Sources */,
 				27C350F9267372FA00A3A17F /* KevinDemoApp.swift in Sources */,
 				27B1809E26807984001E0C50 /* URLRequestHeader.swift in Sources */,
