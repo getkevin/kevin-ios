@@ -11,14 +11,20 @@ import PromiseKit
 public class DemoApiClient: PSBaseApiClient {
     
     public func getAuthState() -> Promise<ApiAuthState> {
-        doRequest(requestRouter: DemoApiRequestRouter.getAuthState)
+        doRequest(requestRouter: DemoApiRequestRouter.getAuthState(
+            request: GetAuthStateRequest(scopes: ["payments"]))
+        )
     }
     
     public func initializeBankPayment() -> Promise<ApiPayment> {
-        doRequest(requestRouter: DemoApiRequestRouter.initializeBankPayment)
+        doRequest(requestRouter: DemoApiRequestRouter.initializeBankPayment(
+            request: InitiatePaymentRequest(amount: "0.01")
+        ))
     }
     
     public func initializeCardPayment() -> Promise<ApiPayment> {
-        doRequest(requestRouter: DemoApiRequestRouter.initializeCardPayment)
+        doRequest(requestRouter: DemoApiRequestRouter.initializeCardPayment(
+            request: InitiatePaymentRequest(amount: "0.01")
+        ))
     }
 }
