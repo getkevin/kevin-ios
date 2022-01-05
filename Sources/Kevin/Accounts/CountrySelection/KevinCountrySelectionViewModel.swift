@@ -57,6 +57,6 @@ internal class KevinCountrySelectionViewModel : KevinViewModel<KevinCountrySelec
     }
     
     private func getLocalisedCountry(code: String) -> String {
-        return NSLocalizedString("country_name_\(code.lowercased())", bundle: Bundle.module, comment: "")
+        return "country_name_\(code.lowercased())".localized(for: Kevin.shared.locale.identifier)
     }
 }

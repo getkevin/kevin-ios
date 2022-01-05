@@ -16,7 +16,7 @@ internal class KevinPaymentConfirmationViewController :
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = NSLocalizedString("window_payment_confirmation_title", bundle: Bundle.module, comment: "")
+        title = "window_payment_confirmation_title".localized(for: Kevin.shared.locale.identifier)
         getView().delegate = self
         self.offerIntent(
             KevinPaymentConfirmationIntent.Initialize(configuration: configuration)
@@ -25,17 +25,17 @@ internal class KevinPaymentConfirmationViewController :
     
     override func onCloseTapped() {
         let alert = UIAlertController(
-            title: NSLocalizedString("dialog_exit_confirmation_title", bundle: Bundle.module, comment: ""),
-            message: NSLocalizedString("dialog_exit_confirmation_payments_message", bundle: Bundle.module, comment: ""),
+            title: "dialog_exit_confirmation_title".localized(for: Kevin.shared.locale.identifier),
+            message: "dialog_exit_confirmation_payments_message".localized(for: Kevin.shared.locale.identifier),
             preferredStyle: .alert
         )
         alert.addAction(UIAlertAction(
-            title: NSLocalizedString("no", bundle: Bundle.module, comment: ""),
+            title: "no".localized(for: Kevin.shared.locale.identifier),
             style: .cancel,
             handler: nil
         ))
         alert.addAction(UIAlertAction(
-            title: NSLocalizedString("yes", bundle: Bundle.module, comment: ""),
+            title: "yes".localized(for: Kevin.shared.locale.identifier),
             style: .default,
             handler: { _ in
                 self.dismiss(animated: true, completion: nil)

@@ -11,6 +11,7 @@ import Foundation
 final public class Kevin {
     
     public var theme = KevinTheme()
+    public var locale = Locale(identifier: "en")
 
     public static let shared = Kevin()
     
