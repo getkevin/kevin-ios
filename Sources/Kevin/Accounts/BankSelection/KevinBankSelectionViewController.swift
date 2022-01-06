@@ -17,6 +17,8 @@ internal class KevinBankSelectionViewController :
     public var onContinuation: ((String, KevinCountry?) -> ())?
     public var onExit: (() -> ())?
     
+    private var flowHasBeenProcessed = false
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
         title = NSLocalizedString("window_bank_selection_title", bundle: Bundle.module, comment: "")
@@ -24,6 +26,20 @@ internal class KevinBankSelectionViewController :
         self.offerIntent(
             KevinBankSelectionIntent.Initialize(configuration: configuration)
         )
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        flowHasBeenProcessed = false
+    }
+    
+    public override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if let navigationController = navigationController, !flowHasBeenProcessed {
+            if !(navigationController is KevinNavigationViewController) {
+                self.onExit?()
+            }
+        }
     }
     
     override func onCloseTapped() {
@@ -41,6 +57,7 @@ internal class KevinBankSelectionViewController :
             title: NSLocalizedString("yes", bundle: Bundle.module, comment: ""),
             style: .default,
             handler: { _ in
+                self.flowHasBeenProcessed = true
                 self.dismiss(animated: true, completion: nil)
                 self.onExit?()
             }
@@ -64,6 +81,7 @@ extension KevinBankSelectionViewController: KevinBankSelectionViewDelegate {
     }
     
     func invokeContinuation(bankId: String) {
+        flowHasBeenProcessed = true
         onContinuation?(bankId, configuration.selectedCountry)
     }
 }

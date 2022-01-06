@@ -10,7 +10,7 @@ import UIKit
 import Foundation
 
 public protocol KevinAccountLinkingSessionDelegate: AnyObject {
-    func onKevinAccountLinkingStarted(controller: UIViewController)
+    func onKevinAccountLinkingStarted(controller: UINavigationController)
     func onKevinAccountLinkingCanceled(error: Error?)
     func onKevinAccountLinkingSucceeded(authorizationCode: String, bank: ApiBank)
 }
