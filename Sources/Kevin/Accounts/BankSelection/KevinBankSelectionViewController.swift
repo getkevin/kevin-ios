@@ -21,7 +21,7 @@ internal class KevinBankSelectionViewController :
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        title = NSLocalizedString("window_bank_selection_title", bundle: Bundle.module, comment: "")
+        title = "window_bank_selection_title".localized(for: Kevin.shared.locale.identifier)
         getView().delegate = self
         self.offerIntent(
             KevinBankSelectionIntent.Initialize(configuration: configuration)
@@ -44,17 +44,17 @@ internal class KevinBankSelectionViewController :
     
     override func onCloseTapped() {
         let alert = UIAlertController(
-            title: NSLocalizedString("dialog_exit_confirmation_title", bundle: Bundle.module, comment: ""),
-            message: NSLocalizedString(configuration.exitSlug, bundle: Bundle.module, comment: ""),
+            title: "dialog_exit_confirmation_title".localized(for: Kevin.shared.locale.identifier),
+            message: configuration.exitSlug.localized(for: Kevin.shared.locale.identifier),
             preferredStyle: .alert
         )
         alert.addAction(UIAlertAction(
-            title: NSLocalizedString("no", bundle: Bundle.module, comment: ""),
+            title: "no".localized(for: Kevin.shared.locale.identifier),
             style: .cancel,
             handler: nil
         ))
         alert.addAction(UIAlertAction(
-            title: NSLocalizedString("yes", bundle: Bundle.module, comment: ""),
+            title: "yes".localized(for: Kevin.shared.locale.identifier),
             style: .default,
             handler: { _ in
                 self.flowHasBeenProcessed = true

@@ -24,7 +24,7 @@ internal class KevinBankSelectionView : KevinView<KevinBankSelectionState> {
     
     public override func render(state: KevinBankSelectionState) {
         countrySelectionIconView.image = UIImage(named: "flag\(state.selectedCountry.uppercased())", in: Bundle.module, compatibleWith: nil)
-        countrySelectionCountryLabel.text = NSLocalizedString("country_name_\(state.selectedCountry)", bundle: Bundle.module, comment: "")
+        countrySelectionCountryLabel.text = "country_name_\(state.selectedCountry)".localized(for: Kevin.shared.locale.identifier)
         self.bankItems = state.bankItems
         self.selectedBankId = state.selectedBankId
         bankTableView.reloadData()
@@ -50,7 +50,7 @@ internal class KevinBankSelectionView : KevinView<KevinBankSelectionState> {
     
     private func initCountrySelection() {
         let countrySelectionLabel = UILabel()
-        countrySelectionLabel.text = NSLocalizedString("window_bank_selection_select_country_label", bundle: Bundle.module, comment: "")
+        countrySelectionLabel.text = "window_bank_selection_select_country_label".localized(for: Kevin.shared.locale.identifier)
         countrySelectionLabel.font = Kevin.shared.theme.smallFont
         countrySelectionLabel.textColor = Kevin.shared.theme.secondaryTextColor
         addSubview(countrySelectionLabel)
@@ -100,7 +100,7 @@ internal class KevinBankSelectionView : KevinView<KevinBankSelectionState> {
     
     private func initBankSelection() {
         let bankSelectionLabel = UILabel()
-        bankSelectionLabel.text = NSLocalizedString("window_bank_selection_select_bank_label", bundle: Bundle.module, comment: "")
+        bankSelectionLabel.text = "window_bank_selection_select_bank_label".localized(for: Kevin.shared.locale.identifier)
         bankSelectionLabel.font = Kevin.shared.theme.smallFont
         bankSelectionLabel.textColor = Kevin.shared.theme.secondaryTextColor
         addSubview(bankSelectionLabel)
@@ -133,7 +133,7 @@ internal class KevinBankSelectionView : KevinView<KevinBankSelectionState> {
         continueButton.backgroundColor = Kevin.shared.theme.buttonBackgroundColor
         continueButton.titleLabel?.font = Kevin.shared.theme.buttonFont
         continueButton.setTitleColor(Kevin.shared.theme.buttonLabelTextColor, for: .normal)
-        continueButton.setTitle(NSLocalizedString("action_continue", bundle: Bundle.module, comment: "").uppercased(), for: .normal)
+        continueButton.setTitle("action_continue".localized(for: Kevin.shared.locale.identifier).uppercased(), for: .normal)
         addSubview(continueButton)
         
         continueButton.translatesAutoresizingMaskIntoConstraints = false

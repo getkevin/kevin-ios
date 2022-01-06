@@ -45,7 +45,7 @@ internal class KevinCountrySelectionView : KevinModalView<KevinCountrySelectionS
     }
     
     private func initTitleLabel() {
-        titleLabel.text = NSLocalizedString("window_country_selection_title", bundle: Bundle.module, comment: "")
+        titleLabel.text = "window_country_selection_title".localized(for: Kevin.shared.locale.identifier)
         titleLabel.font = Kevin.shared.theme.largeFont
         titleLabel.textColor = Kevin.shared.theme.primaryTextColor
         containerView.addSubview(titleLabel)
@@ -80,7 +80,7 @@ extension KevinCountrySelectionView: UITableViewDataSource {
         
         cell!.backgroundOverlay.isHidden = !(countryItems[indexPath.row].uppercased() == selectedCountry.uppercased())
         cell!.iconImageView.image = UIImage(named: "flag\(countryItems[indexPath.row].uppercased())", in: Bundle.module, compatibleWith: nil)
-        cell!.titleLabel.text = NSLocalizedString("country_name_\(countryItems[indexPath.row].lowercased())", bundle: Bundle.module, comment: "")
+        cell!.titleLabel.text = "country_name_\(countryItems[indexPath.row].lowercased())".localized(for: Kevin.shared.locale.identifier)
         
         return cell!
     }
