@@ -1,17 +1,19 @@
 //
-//  String+Localization.swift
-//  
+//  UIColor+Hex.swift
+//  kevin.iOS
 //
-//  Created by Daniel Klinge on 05/01/2022.
+//  Created by Daniels Klinge on 1/5/21.
+//  Copyright © 2022 kevin.. All rights reserved.
 //
 
 import Foundation
 
 extension String {
+    
     func localized(for lang: String) -> String {
-        let path = Bundle.module.path(forResource: lang, ofType: "lproj")
-        let bundle = Bundle(path: path!)
-
-        return NSLocalizedString(self, tableName: nil, bundle: bundle!, value: "", comment: "")
+        if let path = Bundle.module.path(forResource: lang, ofType: "lproj") {
+            return NSLocalizedString(self, tableName: nil, bundle: Bundle(path: path)!, value: "", comment: "")
+        }
+        return self
     }
 }
