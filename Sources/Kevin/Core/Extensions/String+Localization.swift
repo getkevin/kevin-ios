@@ -1,5 +1,5 @@
 //
-//  UIColor+Hex.swift
+//  String+Localization.swift
 //  kevin.iOS
 //
 //  Created by Daniels Klinge on 1/5/21.
