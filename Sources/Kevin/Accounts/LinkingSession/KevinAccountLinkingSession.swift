@@ -89,7 +89,7 @@ final public class KevinAccountLinkingSession {
     
     private func initializeBankSelection(
         configuration: KevinAccountLinkingSessionConfiguration
-    ) -> UIViewController {
+    ) -> UINavigationController {
         let controller = KevinBankSelectionViewController()
         controller.configuration = KevinBankSelectionConfiguration(
             selectedCountry: configuration.preselectedCountry ?? KevinCountry.lithuania,
@@ -119,7 +119,7 @@ final public class KevinAccountLinkingSession {
     
     private func initializeAccountLinkingConfirmation(
         configuration: KevinAccountLinkingSessionConfiguration
-    ) -> UIViewController {
+    ) -> UINavigationController {
         let controller = KevinAccountLinkingViewController()
         controller.configuration = KevinAccountLinkingConfiguration(
             state: configuration.state,

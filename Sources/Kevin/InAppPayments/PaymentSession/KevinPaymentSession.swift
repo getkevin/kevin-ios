@@ -78,7 +78,7 @@ final public class KevinPaymentSession {
     
     private func initializeBankSelection(
         configuration: KevinPaymentSessionConfiguration
-    ) -> UIViewController {
+    ) -> UINavigationController {
         let controller = KevinBankSelectionViewController()
         controller.configuration = KevinBankSelectionConfiguration(
             selectedCountry: configuration.preselectedCountry ?? KevinCountry.lithuania,
@@ -104,7 +104,7 @@ final public class KevinPaymentSession {
     
     private func initializePaymentConfirmation(
         configuration: KevinPaymentSessionConfiguration
-    ) -> UIViewController {
+    ) -> UINavigationController {
         let controller = KevinPaymentConfirmationViewController()
         controller.configuration = KevinPaymentConfirmationConfiguration(
             paymentId: configuration.paymentId,

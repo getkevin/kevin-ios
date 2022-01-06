@@ -10,7 +10,7 @@ import UIKit
 import Foundation
 
 public protocol KevinPaymentSessionDelegate: AnyObject {
-    func onKevinPaymentInitiationStarted(controller: UIViewController)
+    func onKevinPaymentInitiationStarted(controller: UINavigationController)
     func onKevinPaymentCanceled(error: Error?)
     func onKevinPaymentSucceeded(paymentId: String)
 }
