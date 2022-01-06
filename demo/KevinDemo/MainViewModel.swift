@@ -101,7 +101,7 @@ class MainViewModel: ObservableObject, KevinAccountLinkingSessionDelegate, Kevin
     
     //MARK: KevinAccountLinkingSessionDelegate
     
-    func onKevinAccountLinkingStarted(controller: UIViewController) {
+    func onKevinAccountLinkingStarted(controller: UINavigationController) {
         self.kevinController = controller
         self.viewState = MainViewState(openKevin: true)
     }
@@ -124,7 +124,7 @@ class MainViewModel: ObservableObject, KevinAccountLinkingSessionDelegate, Kevin
     
     //MARK: KevinPaymentSessionDelegate
     
-    func onKevinPaymentInitiationStarted(controller: UIViewController) {
+    func onKevinPaymentInitiationStarted(controller: UINavigationController) {
         self.kevinController = controller
         self.viewState = MainViewState(openKevin: true)
     }
