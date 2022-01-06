@@ -10,6 +10,26 @@ import UIKit
 
 extension UIViewController {
     
+    internal func findRootViewController() -> UIViewController? {
+        return UIApplication.shared.windows.filter {
+            $0.isKeyWindow
+        }.first?.rootViewController
+    }
+    
+    internal func findNestedNavigationController() -> UINavigationController? {
+        if let navigationController = self as? UINavigationController {
+            return navigationController
+        } else if let tabBarController = self as? UITabBarController {
+            return tabBarController.selectedViewController?.findNestedNavigationController()
+        }
+
+        for child in children {
+            return child.findNestedNavigationController()
+        }
+
+        return nil
+    }
+    
     internal func createBackButtonItem(
         with customAction: Selector? = #selector(onBackTapped),
         tintColor: UIColor? = nil

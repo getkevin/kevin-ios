@@ -14,6 +14,9 @@ internal class KevinPaymentConfirmationViewModel : KevinViewModel<KevinPaymentCo
     private let bankPaymentAuthenticatedUrl = "https://psd2.kevin.eu/payments/%@/processing"
     private let cardPaymentUrl = "https://psd2.kevin.eu/card-details/%@"
     
+    private let lockQueue = DispatchQueue(label: String(describing: KevinPaymentConfirmationViewModel.self), attributes: [])
+    private var flowHasBeenProcessed = false
+    
     override func offer(intent: KevinPaymentConfirmationIntent) {
         if let intent = intent as? KevinPaymentConfirmationIntent.Initialize {
             initialize(intent.configuration)
@@ -38,20 +41,26 @@ internal class KevinPaymentConfirmationViewModel : KevinViewModel<KevinPaymentCo
     }
     
     private func notifyPaymentCompletion(callbackUrl: URL?, error: Error?) {
-        if let error = error {
-            KevinPaymentSession.shared.notifyPaymentCancelation(error: error)
-            return
-        }
-        guard let statusGroup = callbackUrl?["statusGroup"] else {
-            KevinPaymentSession.shared.notifyPaymentCancelation(error: KevinError(description: "Payment was canceled!"))
-            return
-        }
-        if statusGroup == "completed" {
-            if let paymentId = callbackUrl?["paymentId"] {
-                KevinPaymentSession.shared.notifyPaymentCompletion(paymentId: paymentId)
+        lockQueue.sync {
+            guard !flowHasBeenProcessed else {
+                return
             }
-        } else {
-            KevinPaymentSession.shared.notifyPaymentCancelation(error: KevinError(description: "Payment was canceled!"))
+            if let error = error {
+                KevinPaymentSession.shared.notifyPaymentCancelation(error: error)
+                return
+            }
+            guard let statusGroup = callbackUrl?["statusGroup"] else {
+                KevinPaymentSession.shared.notifyPaymentCancelation(error: KevinError(description: "Payment was canceled!"))
+                return
+            }
+            if statusGroup == "completed" {
+                if let paymentId = callbackUrl?["paymentId"] {
+                    KevinPaymentSession.shared.notifyPaymentCompletion(paymentId: paymentId)
+                }
+            } else {
+                KevinPaymentSession.shared.notifyPaymentCancelation(error: KevinError(description: "Payment was canceled!"))
+            }
+            flowHasBeenProcessed = true
         }
     }
 }

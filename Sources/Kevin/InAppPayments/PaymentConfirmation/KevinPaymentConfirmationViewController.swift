@@ -23,6 +23,22 @@ internal class KevinPaymentConfirmationViewController :
         )
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if let navigationController = navigationController {
+            if !(navigationController is KevinNavigationViewController) && isMovingFromParent {
+                if configuration.skipAuthentication {
+                    self.offerIntent(
+                        KevinPaymentConfirmationIntent.HandlePaymentCompleted(
+                            url: nil,
+                            error: KevinError(description: "Payment was canceled!")
+                        )
+                    )
+                }
+            }
+        }
+    }
+    
     override func onCloseTapped() {
         let alert = UIAlertController(
             title: "dialog_exit_confirmation_title".localized(for: Kevin.shared.locale.identifier),
@@ -54,10 +70,23 @@ internal class KevinPaymentConfirmationViewController :
 extension KevinPaymentConfirmationViewController: KevinPaymentConfirmationViewDelegate {
     
     func onPaymentCompleted(callbackUrl: URL, error: Error?) {
-        navigationController?.dismiss(animated: true, completion: {
+        guard let navigationController = navigationController else {
             self.offerIntent(
                 KevinPaymentConfirmationIntent.HandlePaymentCompleted(url: callbackUrl, error: error)
             )
-        })
+            return
+        }
+        if navigationController is KevinNavigationViewController {
+            navigationController.dismiss(animated: true, completion: {
+                self.offerIntent(
+                    KevinPaymentConfirmationIntent.HandlePaymentCompleted(url: callbackUrl, error: error)
+                )
+            })
+        } else {
+            findRootViewController()?.findNestedNavigationController()?.popToRootViewController(animated: true)
+            self.offerIntent(
+                KevinPaymentConfirmationIntent.HandlePaymentCompleted(url: callbackUrl, error: error)
+            )
+        }
     }
 }
