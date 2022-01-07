@@ -27,7 +27,7 @@ internal class KevinPaymentConfirmationViewController :
         super.viewWillDisappear(animated)
         if let navigationController = navigationController {
             if !(navigationController is KevinNavigationViewController) && isMovingFromParent {
-                if configuration.skipAuthentication {
+                if configuration.skipAuthentication || configuration.paymentType == .card {
                     self.offerIntent(
                         KevinPaymentConfirmationIntent.HandlePaymentCompleted(
                             url: nil,

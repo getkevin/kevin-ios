@@ -27,10 +27,23 @@ internal class KevinAccountLinkingViewController :
 extension KevinAccountLinkingViewController: KevinAccountLinkingViewDelegate {
     
     func onAccountLinkingCompleted(callbackUrl: URL, error: Error?) {
-        navigationController?.dismiss(animated: true, completion: {
+        guard let navigationController = navigationController else {
             self.offerIntent(
                 KevinAccountLinkingIntent.HandleLinkingCompleted(url: callbackUrl, error: error, configuration: self.configuration)
             )
-        })
+            return
+        }
+        if navigationController is KevinNavigationViewController {
+            navigationController.dismiss(animated: true, completion: {
+                self.offerIntent(
+                    KevinAccountLinkingIntent.HandleLinkingCompleted(url: callbackUrl, error: error, configuration: self.configuration)
+                )
+            })
+        } else {
+            findRootViewController()?.findNestedNavigationController()?.popToRootViewController(animated: true)
+            self.offerIntent(
+                KevinAccountLinkingIntent.HandleLinkingCompleted(url: callbackUrl, error: error, configuration: self.configuration)
+            )
+        }
     }
 }
