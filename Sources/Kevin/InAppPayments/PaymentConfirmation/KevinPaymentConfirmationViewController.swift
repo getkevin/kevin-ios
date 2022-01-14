@@ -15,6 +15,8 @@ internal class KevinPaymentConfirmationViewController :
     var configuration: KevinPaymentConfirmationConfiguration!
     
     private var isCancellationInvoked = false
+    private var previousNavigationBarBackgroundColor: UIColor?
+    private var previousStatusBarBackgroundColor: UIColor?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,11 +25,14 @@ internal class KevinPaymentConfirmationViewController :
         self.offerIntent(
             KevinPaymentConfirmationIntent.Initialize(configuration: configuration)
         )
-        
-        findRootViewController()?.findNestedNavigationController()?.navigationBar.backgroundColor = Kevin.shared.theme.navigationBarBackgroundColor
-        if #available(iOS 12.0, *) {
-            if UIScreen.main.traitCollection.userInterfaceStyle == .light {
-                UIApplication.shared.statusBarUIView?.backgroundColor = Kevin.shared.theme.navigationBarBackgroundColor
+        previousNavigationBarBackgroundColor = navigationController?.navigationBar.backgroundColor
+        previousStatusBarBackgroundColor = UIApplication.shared.statusBarUIView?.backgroundColor
+        if !(navigationController is KevinNavigationViewController) {
+            findRootViewController()?.findNestedNavigationController()?.navigationBar.backgroundColor = Kevin.shared.theme.navigationBarBackgroundColor
+            if #available(iOS 12.0, *) {
+                if UIScreen.main.traitCollection.userInterfaceStyle == .light {
+                    UIApplication.shared.statusBarUIView?.backgroundColor = Kevin.shared.theme.navigationBarBackgroundColor
+                }
             }
         }
     }
@@ -49,8 +54,8 @@ internal class KevinPaymentConfirmationViewController :
                 )
             }
         }
-        findRootViewController()?.findNestedNavigationController()?.navigationBar.backgroundColor = .clear
-        UIApplication.shared.statusBarUIView?.backgroundColor = .clear
+        findRootViewController()?.findNestedNavigationController()?.navigationBar.backgroundColor = previousNavigationBarBackgroundColor
+        UIApplication.shared.statusBarUIView?.backgroundColor = previousStatusBarBackgroundColor
     }
     
     override func onCloseTapped() {

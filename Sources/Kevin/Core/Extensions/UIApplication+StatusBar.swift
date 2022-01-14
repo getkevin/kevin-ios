@@ -12,7 +12,7 @@ extension UIApplication {
     var statusBarUIView: UIView? {
         if #available(iOS 13.0, *) {
             let tag = 38482
-            let keyWindow = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+            let keyWindow = UIApplication.shared.windows.filter { $0.isKeyWindow }.first
             
             if let statusBar = keyWindow?.viewWithTag(tag) {
                 return statusBar
