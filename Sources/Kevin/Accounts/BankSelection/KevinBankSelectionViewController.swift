@@ -17,10 +17,7 @@ internal class KevinBankSelectionViewController :
     public var onContinuation: ((String, KevinCountry?) -> ())?
     public var onExit: (() -> ())?
     
-    private var flowHasBeenProcessed = false
-    private var isCancellationInvoked = false
-    private var previousNavigationBarBackgroundColor: UIColor?
-    private var previousStatusBarBackgroundColor: UIColor?
+    private var uiStateHandler: KevinUIStateHandler!
 
     public override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,35 +26,21 @@ internal class KevinBankSelectionViewController :
         self.offerIntent(
             KevinBankSelectionIntent.Initialize(configuration: configuration)
         )
-        previousNavigationBarBackgroundColor = navigationController?.navigationBar.backgroundColor
-        previousStatusBarBackgroundColor = UIApplication.shared.statusBarUIView?.backgroundColor
-        if !(navigationController is KevinNavigationViewController) {
-            findRootViewController()?.findNestedNavigationController()?.navigationBar.backgroundColor = Kevin.shared.theme.navigationBarBackgroundColor
-            if #available(iOS 12.0, *) {
-                if UIScreen.main.traitCollection.userInterfaceStyle == .light {
-                    UIApplication.shared.statusBarUIView?.backgroundColor = Kevin.shared.theme.navigationBarBackgroundColor
-                }
-            }
-        }
+        uiStateHandler = KevinUIStateHandler(navigationController: navigationController)
+        uiStateHandler.setNavigationBarColor(Kevin.shared.theme.navigationBarBackgroundColor)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        flowHasBeenProcessed = false
-    }
-        
-    public override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        isCancellationInvoked = !(navigationController is KevinNavigationViewController) && !flowHasBeenProcessed
+        uiStateHandler.flowHasBeenProcessed = false
     }
 
     public override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        if isCancellationInvoked {
+        if uiStateHandler.isCancellationInvoked {
             self.onExit?()
         }
-        findRootViewController()?.findNestedNavigationController()?.navigationBar.backgroundColor = previousNavigationBarBackgroundColor
-        UIApplication.shared.statusBarUIView?.backgroundColor = previousStatusBarBackgroundColor
+        uiStateHandler.revertNavigationBarColor()
     }
     
     override func onCloseTapped() {
@@ -75,7 +58,7 @@ internal class KevinBankSelectionViewController :
             title: "yes".localized(for: Kevin.shared.locale.identifier),
             style: .default,
             handler: { _ in
-                self.flowHasBeenProcessed = true
+                self.uiStateHandler.flowHasBeenProcessed = true
                 self.dismiss(animated: true, completion: nil)
                 self.onExit?()
             }
@@ -99,7 +82,7 @@ extension KevinBankSelectionViewController: KevinBankSelectionViewDelegate {
     }
     
     func invokeContinuation(bankId: String) {
-        flowHasBeenProcessed = true
+        uiStateHandler.flowHasBeenProcessed = true
         onContinuation?(bankId, configuration.selectedCountry)
     }
 }

@@ -14,9 +14,7 @@ internal class KevinPaymentConfirmationViewController :
     
     var configuration: KevinPaymentConfirmationConfiguration!
     
-    private var isCancellationInvoked = false
-    private var previousNavigationBarBackgroundColor: UIColor?
-    private var previousStatusBarBackgroundColor: UIColor?
+    private var uiStateHandler: KevinUIStateHandler!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,26 +23,13 @@ internal class KevinPaymentConfirmationViewController :
         self.offerIntent(
             KevinPaymentConfirmationIntent.Initialize(configuration: configuration)
         )
-        previousNavigationBarBackgroundColor = navigationController?.navigationBar.backgroundColor
-        previousStatusBarBackgroundColor = UIApplication.shared.statusBarUIView?.backgroundColor
-        if !(navigationController is KevinNavigationViewController) {
-            findRootViewController()?.findNestedNavigationController()?.navigationBar.backgroundColor = Kevin.shared.theme.navigationBarBackgroundColor
-            if #available(iOS 12.0, *) {
-                if UIScreen.main.traitCollection.userInterfaceStyle == .light {
-                    UIApplication.shared.statusBarUIView?.backgroundColor = Kevin.shared.theme.navigationBarBackgroundColor
-                }
-            }
-        }
-    }
-    
-    public override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        isCancellationInvoked = !(navigationController is KevinNavigationViewController) && isMovingFromParent
+        uiStateHandler = KevinUIStateHandler(navigationController: navigationController)
+        uiStateHandler.setNavigationBarColor(Kevin.shared.theme.navigationBarBackgroundColor)
     }
     
     public override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        if isCancellationInvoked {
+        if uiStateHandler.isCancellationInvoked {
             if configuration.skipAuthentication || configuration.paymentType == .card {
                 self.offerIntent(
                     KevinPaymentConfirmationIntent.HandlePaymentCompleted(
@@ -54,8 +39,7 @@ internal class KevinPaymentConfirmationViewController :
                 )
             }
         }
-        findRootViewController()?.findNestedNavigationController()?.navigationBar.backgroundColor = previousNavigationBarBackgroundColor
-        UIApplication.shared.statusBarUIView?.backgroundColor = previousStatusBarBackgroundColor
+        uiStateHandler.revertNavigationBarColor()
     }
     
     override func onCloseTapped() {
