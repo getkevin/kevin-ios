@@ -18,7 +18,8 @@ internal class KevinBankSelectionViewController :
     public var onExit: (() -> ())?
     
     private var flowHasBeenProcessed = false
-    
+    private var isCancellationInvoked = false
+
     public override func viewDidLoad() {
         super.viewDidLoad()
         title = "window_bank_selection_title".localized(for: Kevin.shared.locale.identifier)
@@ -26,20 +27,32 @@ internal class KevinBankSelectionViewController :
         self.offerIntent(
             KevinBankSelectionIntent.Initialize(configuration: configuration)
         )
+        
+        navigationController?.navigationBar.backgroundColor = Kevin.shared.theme.navigationBarBackgroundColor
+        if #available(iOS 12.0, *) {
+            if UIScreen.main.traitCollection.userInterfaceStyle == .light {
+                UIApplication.shared.statusBarUIView?.backgroundColor = Kevin.shared.theme.navigationBarBackgroundColor
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         flowHasBeenProcessed = false
     }
-    
+        
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        if let navigationController = navigationController, !flowHasBeenProcessed {
-            if !(navigationController is KevinNavigationViewController) {
-                self.onExit?()
-            }
+        isCancellationInvoked = !(navigationController is KevinNavigationViewController) && !flowHasBeenProcessed
+    }
+
+    public override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        if isCancellationInvoked {
+            self.onExit?()
         }
+        findRootViewController()?.findNestedNavigationController()?.navigationBar.backgroundColor = .clear
+        UIApplication.shared.statusBarUIView?.backgroundColor = .clear
     }
     
     override func onCloseTapped() {

@@ -14,6 +14,8 @@ internal class KevinPaymentConfirmationViewController :
     
     var configuration: KevinPaymentConfirmationConfiguration!
     
+    private var isCancellationInvoked = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "window_payment_confirmation_title".localized(for: Kevin.shared.locale.identifier)
@@ -21,22 +23,34 @@ internal class KevinPaymentConfirmationViewController :
         self.offerIntent(
             KevinPaymentConfirmationIntent.Initialize(configuration: configuration)
         )
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        if let navigationController = navigationController {
-            if !(navigationController is KevinNavigationViewController) && isMovingFromParent {
-                if configuration.skipAuthentication || configuration.paymentType == .card {
-                    self.offerIntent(
-                        KevinPaymentConfirmationIntent.HandlePaymentCompleted(
-                            url: nil,
-                            error: KevinError(description: "Payment was canceled!")
-                        )
-                    )
-                }
+        
+        findRootViewController()?.findNestedNavigationController()?.navigationBar.backgroundColor = Kevin.shared.theme.navigationBarBackgroundColor
+        if #available(iOS 12.0, *) {
+            if UIScreen.main.traitCollection.userInterfaceStyle == .light {
+                UIApplication.shared.statusBarUIView?.backgroundColor = Kevin.shared.theme.navigationBarBackgroundColor
             }
         }
+    }
+    
+    public override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        isCancellationInvoked = !(navigationController is KevinNavigationViewController) && isMovingFromParent
+    }
+    
+    public override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        if isCancellationInvoked {
+            if configuration.skipAuthentication || configuration.paymentType == .card {
+                self.offerIntent(
+                    KevinPaymentConfirmationIntent.HandlePaymentCompleted(
+                        url: nil,
+                        error: KevinCancelationError(description: "Payment was canceled!")
+                    )
+                )
+            }
+        }
+        findRootViewController()?.findNestedNavigationController()?.navigationBar.backgroundColor = .clear
+        UIApplication.shared.statusBarUIView?.backgroundColor = .clear
     }
     
     override func onCloseTapped() {
@@ -58,7 +72,7 @@ internal class KevinPaymentConfirmationViewController :
                 self.offerIntent(
                     KevinPaymentConfirmationIntent.HandlePaymentCompleted(
                         url: nil,
-                        error: KevinError(description: "Payment was canceled!")
+                        error: KevinCancelationError(description: "Payment was canceled!")
                     )
                 )
             }
