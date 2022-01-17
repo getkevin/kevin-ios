@@ -1,8 +1,9 @@
 //
-//  File.swift
-//  
+//  KevinLocaleManager.swift
+//  kevin.iOS
 //
-//  Created by Edgar Žigis on 2022-01-06.
+//  Created by Edgar Žigis on 1/6/22.
+//  Copyright © 2021 kevin.. All rights reserved.
 //
 
 import Foundation

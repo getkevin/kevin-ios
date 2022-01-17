@@ -17,8 +17,8 @@ internal class KevinBankSelectionViewController :
     public var onContinuation: ((String, KevinCountry?) -> ())?
     public var onExit: (() -> ())?
     
-    private var flowHasBeenProcessed = false
-    
+    private var uiStateHandler: KevinUIStateHandler!
+
     public override func viewDidLoad() {
         super.viewDidLoad()
         title = "window_bank_selection_title".localized(for: Kevin.shared.locale.identifier)
@@ -26,19 +26,20 @@ internal class KevinBankSelectionViewController :
         self.offerIntent(
             KevinBankSelectionIntent.Initialize(configuration: configuration)
         )
+        uiStateHandler = KevinUIStateHandler(navigationController: navigationController)
+        uiStateHandler.setNavigationBarColor(Kevin.shared.theme.navigationBarBackgroundColor)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        flowHasBeenProcessed = false
+        uiStateHandler.forceStopCancellation = false
     }
-    
-    public override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        if let navigationController = navigationController, !flowHasBeenProcessed {
-            if !(navigationController is KevinNavigationViewController) {
-                self.onExit?()
-            }
+
+    public override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        if uiStateHandler.isCancellationInvoked {
+            self.onExit?()
+            uiStateHandler.resetState()
         }
     }
     
@@ -57,7 +58,7 @@ internal class KevinBankSelectionViewController :
             title: "yes".localized(for: Kevin.shared.locale.identifier),
             style: .default,
             handler: { _ in
-                self.flowHasBeenProcessed = true
+                self.uiStateHandler.forceStopCancellation = true
                 self.dismiss(animated: true, completion: nil)
                 self.onExit?()
             }
@@ -81,7 +82,7 @@ extension KevinBankSelectionViewController: KevinBankSelectionViewDelegate {
     }
     
     func invokeContinuation(bankId: String) {
-        flowHasBeenProcessed = true
+        uiStateHandler.forceStopCancellation = true
         onContinuation?(bankId, configuration.selectedCountry)
     }
 }

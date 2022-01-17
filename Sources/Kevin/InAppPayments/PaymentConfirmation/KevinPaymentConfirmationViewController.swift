@@ -14,6 +14,8 @@ internal class KevinPaymentConfirmationViewController :
     
     var configuration: KevinPaymentConfirmationConfiguration!
     
+    private var uiStateHandler: KevinUIStateHandler?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "window_payment_confirmation_title".localized(for: Kevin.shared.locale.identifier)
@@ -21,20 +23,23 @@ internal class KevinPaymentConfirmationViewController :
         self.offerIntent(
             KevinPaymentConfirmationIntent.Initialize(configuration: configuration)
         )
+        if configuration.skipAuthentication || configuration.paymentType == .card {
+            uiStateHandler = KevinUIStateHandler(navigationController: navigationController)
+            uiStateHandler?.setNavigationBarColor(Kevin.shared.theme.navigationBarBackgroundColor)
+        }
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        if let navigationController = navigationController {
-            if !(navigationController is KevinNavigationViewController) && isMovingFromParent {
-                if configuration.skipAuthentication || configuration.paymentType == .card {
-                    self.offerIntent(
-                        KevinPaymentConfirmationIntent.HandlePaymentCompleted(
-                            url: nil,
-                            error: KevinError(description: "Payment was canceled!")
-                        )
+    public override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        if uiStateHandler?.isCancellationInvoked ?? false {
+            if configuration.skipAuthentication || configuration.paymentType == .card {
+                self.offerIntent(
+                    KevinPaymentConfirmationIntent.HandlePaymentCompleted(
+                        url: nil,
+                        error: KevinCancelationError(description: "Payment was canceled!")
                     )
-                }
+                )
+                uiStateHandler?.resetState()
             }
         }
     }
@@ -58,7 +63,7 @@ internal class KevinPaymentConfirmationViewController :
                 self.offerIntent(
                     KevinPaymentConfirmationIntent.HandlePaymentCompleted(
                         url: nil,
-                        error: KevinError(description: "Payment was canceled!")
+                        error: KevinCancelationError(description: "Payment was canceled!")
                     )
                 )
             }

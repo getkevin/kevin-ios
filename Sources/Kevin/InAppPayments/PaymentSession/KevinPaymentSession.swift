@@ -95,7 +95,7 @@ final public class KevinPaymentSession {
             )
         }
         controller.onExit = { [weak self] in
-            self?.delegate?.onKevinPaymentCanceled(error: KevinError(description: "User has canceled the flow!"))
+            self?.delegate?.onKevinPaymentCanceled(error: KevinCancelationError(description: "User has canceled the flow!"))
         }
         return KevinNavigationViewController(rootViewController: controller)
     }
