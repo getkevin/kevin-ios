@@ -32,15 +32,15 @@ internal class KevinBankSelectionViewController :
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        uiStateHandler.flowHasBeenProcessed = false
+        uiStateHandler.forceStopCancellation = false
     }
 
     public override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         if uiStateHandler.isCancellationInvoked {
             self.onExit?()
+            uiStateHandler.resetState()
         }
-        uiStateHandler.revertNavigationBarColor()
     }
     
     override func onCloseTapped() {
@@ -58,7 +58,7 @@ internal class KevinBankSelectionViewController :
             title: "yes".localized(for: Kevin.shared.locale.identifier),
             style: .default,
             handler: { _ in
-                self.uiStateHandler.flowHasBeenProcessed = true
+                self.uiStateHandler.forceStopCancellation = true
                 self.dismiss(animated: true, completion: nil)
                 self.onExit?()
             }
@@ -82,7 +82,7 @@ extension KevinBankSelectionViewController: KevinBankSelectionViewDelegate {
     }
     
     func invokeContinuation(bankId: String) {
-        uiStateHandler.flowHasBeenProcessed = true
+        uiStateHandler.forceStopCancellation = true
         onContinuation?(bankId, configuration.selectedCountry)
     }
 }

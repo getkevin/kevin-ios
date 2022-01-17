@@ -14,7 +14,7 @@ internal class KevinPaymentConfirmationViewController :
     
     var configuration: KevinPaymentConfirmationConfiguration!
     
-    private var uiStateHandler: KevinUIStateHandler!
+    private var uiStateHandler: KevinUIStateHandler?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,13 +23,15 @@ internal class KevinPaymentConfirmationViewController :
         self.offerIntent(
             KevinPaymentConfirmationIntent.Initialize(configuration: configuration)
         )
-        uiStateHandler = KevinUIStateHandler(navigationController: navigationController)
-        uiStateHandler.setNavigationBarColor(Kevin.shared.theme.navigationBarBackgroundColor)
+        if configuration.skipAuthentication || configuration.paymentType == .card {
+            uiStateHandler = KevinUIStateHandler(navigationController: navigationController)
+            uiStateHandler?.setNavigationBarColor(Kevin.shared.theme.navigationBarBackgroundColor)
+        }
     }
     
     public override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        if uiStateHandler.isCancellationInvoked {
+        if uiStateHandler?.isCancellationInvoked ?? false {
             if configuration.skipAuthentication || configuration.paymentType == .card {
                 self.offerIntent(
                     KevinPaymentConfirmationIntent.HandlePaymentCompleted(
@@ -37,9 +39,9 @@ internal class KevinPaymentConfirmationViewController :
                         error: KevinCancelationError(description: "Payment was canceled!")
                     )
                 )
+                uiStateHandler?.resetState()
             }
         }
-        uiStateHandler.revertNavigationBarColor()
     }
     
     override func onCloseTapped() {

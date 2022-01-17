@@ -9,17 +9,19 @@
 import UIKit
 
 internal class KevinUIStateHandler {
-    let navigationController: UINavigationController?
     
-    var flowHasBeenProcessed = false
+    var forceStopCancellation = false
     var isCancellationInvoked: Bool {
         get {
-            return !(navigationController is KevinNavigationViewController) && (navigationController?.isMovingFromParent ?? false || !flowHasBeenProcessed)
+            return !(navigationController is KevinNavigationViewController) &&
+            (navigationController?.isMovingFromParent ?? false || !forceStopCancellation)
         }
     }
 
     private var previousNavigationBarBackgroundColor: UIColor?
     private var previousStatusBarBackgroundColor: UIColor?
+    
+    private let navigationController: UINavigationController?
 
     init(navigationController: UINavigationController?) {
         self.navigationController = navigationController
@@ -31,7 +33,7 @@ internal class KevinUIStateHandler {
         setNavigationBarColor(navigationBarColor: color, statusBarColor: color)
     }
     
-    func revertNavigationBarColor() {
+    func resetState() {
         setNavigationBarColor(
             navigationBarColor: previousNavigationBarBackgroundColor,
             statusBarColor: previousStatusBarBackgroundColor
