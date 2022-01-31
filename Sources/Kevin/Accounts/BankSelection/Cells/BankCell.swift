@@ -37,8 +37,10 @@ internal class BankCell : UITableViewCell {
         leftAsset.isUserInteractionEnabled = true
         leftAsset.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(leftAsset)
-        leftAsset.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16).isActive = true
-        leftAsset.widthAnchor.constraint(equalToConstant: (rowWidth - 48) / 2).isActive = true
+        leftAsset.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: Kevin.shared.theme.leftInset).isActive = true
+        leftAsset.widthAnchor.constraint(
+            equalToConstant: (rowWidth - 16 - Kevin.shared.theme.leftInset - Kevin.shared.theme.rightInset) / 2
+        ).isActive = true
         leftAsset.heightAnchor.constraint(equalToConstant: 54).isActive = true
         
         leftOverlay.topAnchor.constraint(equalTo: leftAsset.topAnchor).isActive = true
@@ -58,8 +60,10 @@ internal class BankCell : UITableViewCell {
         rightAsset.isUserInteractionEnabled = true
         rightAsset.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(rightAsset)
-        rightAsset.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -16).isActive = true
-        rightAsset.widthAnchor.constraint(equalToConstant: (rowWidth - 48) / 2).isActive = true
+        rightAsset.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -Kevin.shared.theme.rightInset).isActive = true
+        rightAsset.widthAnchor.constraint(
+            equalToConstant: (rowWidth - 16 - Kevin.shared.theme.leftInset - Kevin.shared.theme.rightInset) / 2
+        ).isActive = true
         rightAsset.heightAnchor.constraint(equalToConstant: 54).isActive = true
         
         rightOverlay.topAnchor.constraint(equalTo: rightAsset.topAnchor).isActive = true

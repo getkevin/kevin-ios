@@ -55,8 +55,8 @@ internal class KevinBankSelectionView : KevinView<KevinBankSelectionState> {
         countrySelectionLabel.textColor = Kevin.shared.theme.secondaryTextColor
         addSubview(countrySelectionLabel)
         countrySelectionLabel.translatesAutoresizingMaskIntoConstraints = false
-        countrySelectionLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 24).isActive = true
-        countrySelectionLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 16).isActive = true
+        countrySelectionLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: Kevin.shared.theme.topInset).isActive = true
+        countrySelectionLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: Kevin.shared.theme.leftInset).isActive = true
         countrySelectionLabel.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
         countrySelectionLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
         
@@ -66,8 +66,8 @@ internal class KevinBankSelectionView : KevinView<KevinBankSelectionState> {
         addSubview(countrySelectionContainer)
         countrySelectionContainer.translatesAutoresizingMaskIntoConstraints = false
         countrySelectionContainer.topAnchor.constraint(equalTo: countrySelectionLabel.bottomAnchor, constant: 16).isActive = true
-        countrySelectionContainer.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 16).isActive = true
-        countrySelectionContainer.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -16).isActive = true
+        countrySelectionContainer.leftAnchor.constraint(equalTo: self.leftAnchor, constant: Kevin.shared.theme.leftInset).isActive = true
+        countrySelectionContainer.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -Kevin.shared.theme.rightInset).isActive = true
         countrySelectionContainer.heightAnchor.constraint(equalToConstant: 54).isActive = true
         
         countrySelectionContainer.addSubview(countrySelectionIconView)
@@ -106,7 +106,7 @@ internal class KevinBankSelectionView : KevinView<KevinBankSelectionState> {
         addSubview(bankSelectionLabel)
         bankSelectionLabel.translatesAutoresizingMaskIntoConstraints = false
         bankSelectionLabel.topAnchor.constraint(equalTo: countrySelectionContainer.bottomAnchor, constant: 16).isActive = true
-        bankSelectionLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 16).isActive = true
+        bankSelectionLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: Kevin.shared.theme.leftInset).isActive = true
         bankSelectionLabel.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
         bankSelectionLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
         
@@ -137,10 +137,10 @@ internal class KevinBankSelectionView : KevinView<KevinBankSelectionState> {
         addSubview(continueButton)
         
         continueButton.translatesAutoresizingMaskIntoConstraints = false
-        continueButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -25).isActive = true
-        continueButton.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 32).isActive = true
-        continueButton.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -32).isActive = true
+        continueButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -Kevin.shared.theme.bottomInset).isActive = true
+        continueButton.widthAnchor.constraint(equalToConstant: Kevin.shared.theme.buttonWidth).isActive = true
         continueButton.heightAnchor.constraint(equalToConstant: Kevin.shared.theme.buttonHeight).isActive = true
+        continueButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         
         continueButton.addTarget(self, action: #selector(self.onContinueClicked(_:)), for: .touchUpInside)
     }
