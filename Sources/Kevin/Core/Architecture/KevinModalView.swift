@@ -18,7 +18,7 @@ internal class KevinModalView<S : IKevinState> : KevinView<S> {
     public weak var modalDelegate: KevinModalViewDelegate?
 
     private let defaultHeight: CGFloat = UIScreen.main.bounds.height * 0.8
-    private let dismissibleHeight: CGFloat = 200
+    private let dismissibleHeight: CGFloat = UIScreen.main.bounds.height * 0.67
     private let maximumContainerHeight: CGFloat = UIScreen.main.bounds.height - 64
     private var currentContainerHeight: CGFloat = UIScreen.main.bounds.height * 0.8
     
@@ -49,8 +49,13 @@ internal class KevinModalView<S : IKevinState> : KevinView<S> {
     }
     
     override func viewDidAppear() {
-        animateShowDimmedView()
+        super.viewDidAppear()
         animatePresentContainer()
+    }
+    
+    override func viewWillAppear() {
+        super.viewWillAppear()
+        animateShowDimmedView()
     }
     
     override func viewDidLoad() {
@@ -137,28 +142,28 @@ internal class KevinModalView<S : IKevinState> : KevinView<S> {
     
     private func animateShowDimmedView() {
         dimmedView.alpha = 0
-        UIView.animate(withDuration: 0.35) {
+        UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseOut, animations: {
             self.dimmedView.alpha = self.maxDimmedAlpha
-        }
+        }, completion: nil)
     }
     
     public func animateDismissView() {
         dimmedView.alpha = maxDimmedAlpha
-        UIView.animate(withDuration: 0.35) {
+        UIView.animate(withDuration: 0.25) {
             self.dimmedView.alpha = 0
         } completion: { _ in
             self.modalDelegate?.onDismiss()
         }
-        UIView.animate(withDuration: 0.25) {
+        UIView.animate(withDuration: 0.2) {
             self.containerViewBottomConstraint?.constant = self.defaultHeight
             self.layoutIfNeeded()
         }
     }
     
     private func animatePresentContainer() {
-        UIView.animate(withDuration: 0.25) {
+        UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseInOut, animations: {
             self.containerViewBottomConstraint?.constant = 0
             self.layoutIfNeeded()
-        }
+        }, completion: nil)
     }
 }
