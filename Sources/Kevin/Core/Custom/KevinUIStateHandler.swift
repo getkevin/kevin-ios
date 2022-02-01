@@ -47,13 +47,7 @@ internal class KevinUIStateHandler {
         if !(navigationController is KevinNavigationViewController) {
             navigationController?.navigationBar.backgroundColor = navigationBarColor
             if #available(iOS 13.0, *) {
-                let interfaceStyle = UIApplication.shared.keyWindow?.overrideUserInterfaceStyle == .unspecified ?
-                    UIScreen.main.traitCollection.userInterfaceStyle :
-                    UIApplication.shared.keyWindow?.overrideUserInterfaceStyle ?? .light
-
-                if interfaceStyle == .light {
-                    UIApplication.shared.statusBarUIView?.backgroundColor = statusBarColor
-                }
+                UIApplication.shared.statusBarUIView?.backgroundColor = statusBarColor
             }
         }
     }

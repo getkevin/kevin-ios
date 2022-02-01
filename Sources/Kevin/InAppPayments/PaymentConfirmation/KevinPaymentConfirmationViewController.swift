@@ -30,7 +30,11 @@ internal class KevinPaymentConfirmationViewController :
         super.viewWillAppear(animated)
         if configuration.skipAuthentication || configuration.paymentType == .card {
             uiStateHandler?.setNavigationController(navigationController: navigationController)
-            uiStateHandler?.setNavigationBarColor(Kevin.shared.theme.navigationBarBackgroundColor)
+            uiStateHandler?.setNavigationBarColor(
+                UIApplication.shared.isLightThemedInterface ?
+                    Kevin.shared.theme.navigationBarBackgroundColorLight :
+                    Kevin.shared.theme.navigationBarBackgroundColorDark
+            )
         }
     }
     
