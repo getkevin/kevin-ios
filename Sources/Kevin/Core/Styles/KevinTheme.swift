@@ -22,8 +22,9 @@ open class KevinTheme {
     
     open var navigationBarTitleColor = UIColor.white
     open var navigationBarTintColor = UIColor.white
-    open var navigationBarBackgroundColor = UIColor(rgb: 0xFF0020)
-    
+    open var navigationBarBackgroundColorLight = UIColor(rgb: 0xFF0020)
+    open var navigationBarBackgroundColorDark = UIColor(rgb: 0xFF0020)
+
     open var buttonBackgroundColor = UIColor(rgb: 0xFF0020)
     open var buttonLabelTextColor = UIColor.white
     open var buttonHeight: CGFloat = 50
