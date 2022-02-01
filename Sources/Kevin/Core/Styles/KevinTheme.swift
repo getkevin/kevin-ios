@@ -32,6 +32,7 @@ open class KevinTheme {
     open var buttonShadowOpacity: Float = 0.6
     open var buttonShadowOffset = CGSize(width: 1.0, height: 1.0)
     open var buttonFont = UIFont.systemFont(ofSize: 15)
+    open var buttonWidth = UIScreen.main.bounds.width - 64
     
     open var backButtonImage = UIImage(named: "backButtonIcon", in: Bundle.module, compatibleWith: nil)
     open var closeButtonImage = UIImage(named: "closeButtonIcon", in: Bundle.module, compatibleWith: nil)
@@ -39,6 +40,11 @@ open class KevinTheme {
     open var smallFont = UIFont.systemFont(ofSize: 14)
     open var mediumFont = UIFont.systemFont(ofSize: 15)
     open var largeFont = UIFont.systemFont(ofSize: 16)
+    
+    open var leftInset: CGFloat = 16
+    open var topInset: CGFloat = 24
+    open var rightInset: CGFloat = 16
+    open var bottomInset: CGFloat = 25
     
     public init() { }
 }
