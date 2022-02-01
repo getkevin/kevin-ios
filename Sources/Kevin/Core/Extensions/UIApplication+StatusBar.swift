@@ -35,7 +35,6 @@ extension UIApplication {
             let interfaceStyle = UIApplication.shared.keyWindow?.overrideUserInterfaceStyle == .unspecified ?
                 UIScreen.main.traitCollection.userInterfaceStyle :
                 UIApplication.shared.keyWindow?.overrideUserInterfaceStyle ?? .light
-
             return interfaceStyle == .light
         } else {
             return true
