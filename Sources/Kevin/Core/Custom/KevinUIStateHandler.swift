@@ -14,16 +14,19 @@ internal class KevinUIStateHandler {
     var isCancellationInvoked: Bool {
         get {
             return !(navigationController is KevinNavigationViewController) &&
-            (navigationController?.isMovingFromParent ?? false || !forceStopCancellation)
+            (navigationController?.isMovingFromParent ?? false || !forceStopCancellation) &&
+            !(navigationController?.viewControllers.last is KevinPaymentConfirmationViewController ||
+              navigationController?.viewControllers.last is KevinAccountLinkingViewController)
+            
         }
     }
 
     private var previousNavigationBarBackgroundColor: UIColor?
     private var previousStatusBarBackgroundColor: UIColor?
     
-    private let navigationController: UINavigationController?
-
-    init(navigationController: UINavigationController?) {
+    private var navigationController: UINavigationController?
+    
+    func setNavigationController(navigationController: UINavigationController?) {
         self.navigationController = navigationController
     }
     

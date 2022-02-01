@@ -26,12 +26,13 @@ internal class KevinBankSelectionViewController :
         self.offerIntent(
             KevinBankSelectionIntent.Initialize(configuration: configuration)
         )
-        uiStateHandler = KevinUIStateHandler(navigationController: navigationController)
-        uiStateHandler.setNavigationBarColor(Kevin.shared.theme.navigationBarBackgroundColor)
+        uiStateHandler = KevinUIStateHandler()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        uiStateHandler.setNavigationController(navigationController: navigationController)
+        uiStateHandler.setNavigationBarColor(Kevin.shared.theme.navigationBarBackgroundColor)
         uiStateHandler.forceStopCancellation = false
     }
 

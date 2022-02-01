@@ -23,13 +23,18 @@ internal class KevinPaymentConfirmationViewController :
         self.offerIntent(
             KevinPaymentConfirmationIntent.Initialize(configuration: configuration)
         )
+        uiStateHandler = KevinUIStateHandler()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         if configuration.skipAuthentication || configuration.paymentType == .card {
-            uiStateHandler = KevinUIStateHandler(navigationController: navigationController)
+            uiStateHandler?.setNavigationController(navigationController: navigationController)
             uiStateHandler?.setNavigationBarColor(Kevin.shared.theme.navigationBarBackgroundColor)
         }
     }
     
-    public override func viewDidDisappear(_ animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         if uiStateHandler?.isCancellationInvoked ?? false {
             if configuration.skipAuthentication || configuration.paymentType == .card {
