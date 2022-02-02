@@ -34,7 +34,7 @@ internal class CountryCell : UITableViewCell {
         iconImageView.contentMode = .scaleAspectFit
         iconImageView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(iconImageView)
-        iconImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16).isActive = true
+        iconImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: Kevin.shared.theme.leftInset).isActive = true
         iconImageView.widthAnchor.constraint(equalToConstant: 32).isActive = true
         iconImageView.heightAnchor.constraint(equalToConstant: 32).isActive = true
         iconImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
@@ -44,7 +44,7 @@ internal class CountryCell : UITableViewCell {
         contentView.addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
-        titleLabel.leftAnchor.constraint(equalTo: iconImageView.rightAnchor, constant: 16).isActive = true
+        titleLabel.leftAnchor.constraint(equalTo: iconImageView.rightAnchor, constant: Kevin.shared.theme.leftInset).isActive = true
         titleLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.5).isActive = true
         titleLabel.heightAnchor.constraint(equalTo: contentView.heightAnchor).isActive = true
     }
