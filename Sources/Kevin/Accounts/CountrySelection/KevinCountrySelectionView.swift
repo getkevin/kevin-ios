@@ -62,7 +62,7 @@ internal class KevinCountrySelectionView : KevinModalView<KevinCountrySelectionS
     }
     
     private func initCountrySelection() {
-        countryTableView.backgroundColor = Kevin.shared.theme.primaryBackgroundColor
+        countryTableView.backgroundColor = Kevin.shared.theme.secondaryBackgroundColor
         countryTableView.rowHeight = 62
         countryTableView.dataSource = self
         countryTableView.delegate = self

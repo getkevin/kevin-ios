@@ -20,10 +20,10 @@ internal class CountryCell : UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        contentView.backgroundColor = Kevin.shared.theme.primaryBackgroundColor
+        contentView.backgroundColor = Kevin.shared.theme.secondaryBackgroundColor
         
         backgroundOverlay.isHidden = true
-        backgroundOverlay.backgroundColor = Kevin.shared.theme.selectedOnPrimaryColor
+        backgroundOverlay.backgroundColor = Kevin.shared.theme.selectedOnSecondaryColor
         backgroundOverlay.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(backgroundOverlay)
         backgroundOverlay.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true

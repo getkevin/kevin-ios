@@ -40,8 +40,9 @@ open class KevinTheme {
     open var closeButtonImage = UIImage(named: "closeButtonIcon", in: Bundle.module, compatibleWith: nil)
     open var chevronImage = UIImage(named: "chevronIcon", in: Bundle.module, compatibleWith: nil)
     
-    open var countrySelectionBackgroundColor = UIColor(rgb: 0xF0F5FC)
-    open var countrySelectionBorderWidth: CGFloat = 0
+    open var highlightBackgroundColor = UIColor(rgb: 0xF0F5FC)
+    open var highlightBorderWidth: CGFloat = 0
+    open var highlightTextColor = UIColor(rgb: 0x0B1E42)
     
     open var smallFont = UIFont.systemFont(ofSize: 12, weight: .semibold)
     open var mediumFont = UIFont.systemFont(ofSize: 14, weight: .medium)

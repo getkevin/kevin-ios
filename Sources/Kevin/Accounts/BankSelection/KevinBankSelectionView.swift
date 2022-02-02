@@ -61,8 +61,8 @@ internal class KevinBankSelectionView : KevinView<KevinBankSelectionState> {
         countrySelectionLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
         
         countrySelectionContainer.layer.cornerRadius = 11
-        countrySelectionContainer.layer.borderWidth = Kevin.shared.theme.countrySelectionBorderWidth
-        countrySelectionContainer.backgroundColor = Kevin.shared.theme.countrySelectionBackgroundColor
+        countrySelectionContainer.layer.borderWidth = Kevin.shared.theme.highlightBorderWidth
+        countrySelectionContainer.backgroundColor = Kevin.shared.theme.highlightBackgroundColor
         countrySelectionContainer.layer.borderColor = Kevin.shared.theme.primaryTextColor.cgColor
         addSubview(countrySelectionContainer)
         countrySelectionContainer.translatesAutoresizingMaskIntoConstraints = false
@@ -79,7 +79,7 @@ internal class KevinBankSelectionView : KevinView<KevinBankSelectionState> {
         countrySelectionIconView.heightAnchor.constraint(equalToConstant: 32).isActive = true
         
         countrySelectionCountryLabel.font = Kevin.shared.theme.largeFont
-        countrySelectionCountryLabel.textColor = Kevin.shared.theme.primaryTextColor
+        countrySelectionCountryLabel.textColor = Kevin.shared.theme.highlightTextColor
         countrySelectionContainer.addSubview(countrySelectionCountryLabel)
         countrySelectionCountryLabel.translatesAutoresizingMaskIntoConstraints = false
         countrySelectionCountryLabel.centerYAnchor.constraint(equalTo: countrySelectionContainer.centerYAnchor).isActive = true
@@ -153,7 +153,7 @@ internal class KevinBankSelectionView : KevinView<KevinBankSelectionState> {
         }, completion: { [weak self] _ in
             self?.delegate?.openCountrySelection()
             UIView.animate(withDuration: 0.20, delay: 0.0, options: .curveEaseOut, animations: {
-                self?.countrySelectionContainer.backgroundColor = Kevin.shared.theme.countrySelectionBackgroundColor
+                self?.countrySelectionContainer.backgroundColor = Kevin.shared.theme.highlightBackgroundColor
             }, completion: nil)
         })
     }
