@@ -50,7 +50,7 @@ internal class KevinBankSelectionView : KevinView<KevinBankSelectionState> {
     
     private func initCountrySelection() {
         let countrySelectionLabel = UILabel()
-        countrySelectionLabel.text = "window_bank_selection_select_country_label".localized(for: Kevin.shared.locale.identifier)
+        countrySelectionLabel.text = "window_bank_selection_select_country_label".localized(for: Kevin.shared.locale.identifier).uppercased()
         countrySelectionLabel.font = Kevin.shared.theme.smallFont
         countrySelectionLabel.textColor = Kevin.shared.theme.secondaryTextColor
         addSubview(countrySelectionLabel)
@@ -60,8 +60,9 @@ internal class KevinBankSelectionView : KevinView<KevinBankSelectionState> {
         countrySelectionLabel.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
         countrySelectionLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
         
-        countrySelectionContainer.layer.cornerRadius = 10
-        countrySelectionContainer.layer.borderWidth = 1
+        countrySelectionContainer.layer.cornerRadius = 11
+        countrySelectionContainer.layer.borderWidth = Kevin.shared.theme.countrySelectionBorderWidth
+        countrySelectionContainer.backgroundColor = Kevin.shared.theme.countrySelectionBackgroundColor
         countrySelectionContainer.layer.borderColor = Kevin.shared.theme.primaryTextColor.cgColor
         addSubview(countrySelectionContainer)
         countrySelectionContainer.translatesAutoresizingMaskIntoConstraints = false
@@ -77,7 +78,7 @@ internal class KevinBankSelectionView : KevinView<KevinBankSelectionState> {
         countrySelectionIconView.widthAnchor.constraint(equalToConstant: 32).isActive = true
         countrySelectionIconView.heightAnchor.constraint(equalToConstant: 32).isActive = true
         
-        countrySelectionCountryLabel.font = Kevin.shared.theme.mediumFont
+        countrySelectionCountryLabel.font = Kevin.shared.theme.largeFont
         countrySelectionCountryLabel.textColor = Kevin.shared.theme.primaryTextColor
         countrySelectionContainer.addSubview(countrySelectionCountryLabel)
         countrySelectionCountryLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -86,13 +87,13 @@ internal class KevinBankSelectionView : KevinView<KevinBankSelectionState> {
         countrySelectionCountryLabel.widthAnchor.constraint(equalTo: countrySelectionContainer.widthAnchor, multiplier: 0.5).isActive = true
         countrySelectionCountryLabel.heightAnchor.constraint(equalTo: countrySelectionContainer.heightAnchor).isActive = true
         
-        let chevron = UIImageView(image: UIImage(named: "chevronIcon", in: Bundle.module, compatibleWith: nil))
+        let chevron = UIImageView(image: Kevin.shared.theme.chevronImage)
         countrySelectionContainer.addSubview(chevron)
         chevron.translatesAutoresizingMaskIntoConstraints = false
         chevron.centerYAnchor.constraint(equalTo: countrySelectionContainer.centerYAnchor).isActive = true
-        chevron.rightAnchor.constraint(equalTo: countrySelectionContainer.rightAnchor, constant: -20).isActive = true
-        chevron.widthAnchor.constraint(equalToConstant: 12).isActive = true
-        chevron.heightAnchor.constraint(equalToConstant: 12).isActive = true
+        chevron.rightAnchor.constraint(equalTo: countrySelectionContainer.rightAnchor, constant: -18).isActive = true
+        chevron.widthAnchor.constraint(equalToConstant: 14).isActive = true
+        chevron.heightAnchor.constraint(equalToConstant: 14).isActive = true
         
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.onCountrySelectionClicked(_:)))
         countrySelectionContainer.addGestureRecognizer(tapRecognizer)
@@ -100,12 +101,12 @@ internal class KevinBankSelectionView : KevinView<KevinBankSelectionState> {
     
     private func initBankSelection() {
         let bankSelectionLabel = UILabel()
-        bankSelectionLabel.text = "window_bank_selection_select_bank_label".localized(for: Kevin.shared.locale.identifier)
+        bankSelectionLabel.text = "window_bank_selection_select_bank_label".localized(for: Kevin.shared.locale.identifier).uppercased()
         bankSelectionLabel.font = Kevin.shared.theme.smallFont
         bankSelectionLabel.textColor = Kevin.shared.theme.secondaryTextColor
         addSubview(bankSelectionLabel)
         bankSelectionLabel.translatesAutoresizingMaskIntoConstraints = false
-        bankSelectionLabel.topAnchor.constraint(equalTo: countrySelectionContainer.bottomAnchor, constant: 16).isActive = true
+        bankSelectionLabel.topAnchor.constraint(equalTo: countrySelectionContainer.bottomAnchor, constant: 25).isActive = true
         bankSelectionLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: Kevin.shared.theme.leftInset).isActive = true
         bankSelectionLabel.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
         bankSelectionLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
@@ -119,7 +120,7 @@ internal class KevinBankSelectionView : KevinView<KevinBankSelectionState> {
         addSubview(bankTableView)
         
         bankTableView.translatesAutoresizingMaskIntoConstraints = false
-        bankTableView.topAnchor.constraint(equalTo: bankSelectionLabel.bottomAnchor, constant: 20).isActive = true
+        bankTableView.topAnchor.constraint(equalTo: bankSelectionLabel.bottomAnchor, constant: 16).isActive = true
         bankTableView.bottomAnchor.constraint(equalTo: continueButton.topAnchor, constant: -20).isActive = true
         bankTableView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
     }
@@ -129,6 +130,7 @@ internal class KevinBankSelectionView : KevinView<KevinBankSelectionState> {
         continueButton.layer.shadowOpacity = Kevin.shared.theme.buttonShadowOpacity
         continueButton.layer.shadowOffset = Kevin.shared.theme.buttonShadowOffset
         continueButton.layer.shadowRadius = Kevin.shared.theme.buttonShadowRadius
+        continueButton.layer.shadowColor = Kevin.shared.theme.buttonShadowColor.cgColor
         continueButton.layer.cornerRadius = Kevin.shared.theme.buttonCornerRadius
         continueButton.backgroundColor = Kevin.shared.theme.buttonBackgroundColor
         continueButton.titleLabel?.font = Kevin.shared.theme.buttonFont
@@ -147,11 +149,11 @@ internal class KevinBankSelectionView : KevinView<KevinBankSelectionState> {
     
     @objc private func onCountrySelectionClicked(_ recognizer: UITapGestureRecognizer) {
         UIView.animate(withDuration: 0.20, delay: 0.0, options: .curveEaseOut, animations: {
-            self.countrySelectionContainer.backgroundColor = Kevin.shared.theme.selectedOnPrimaryColor
+            self.countrySelectionContainer.backgroundColor = Kevin.shared.theme.selectedOnSecondaryColor
         }, completion: { [weak self] _ in
             self?.delegate?.openCountrySelection()
             UIView.animate(withDuration: 0.20, delay: 0.0, options: .curveEaseOut, animations: {
-                self?.countrySelectionContainer.backgroundColor = Kevin.shared.theme.primaryBackgroundColor
+                self?.countrySelectionContainer.backgroundColor = Kevin.shared.theme.countrySelectionBackgroundColor
             }, completion: nil)
         })
     }
