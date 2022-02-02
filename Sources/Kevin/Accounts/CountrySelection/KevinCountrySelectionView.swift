@@ -57,7 +57,7 @@ internal class KevinCountrySelectionView : KevinModalView<KevinCountrySelectionS
         containerView.addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 28).isActive = true
-        titleLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 16).isActive = true
+        titleLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: Kevin.shared.theme.leftInset).isActive = true
         titleLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
     }
     
