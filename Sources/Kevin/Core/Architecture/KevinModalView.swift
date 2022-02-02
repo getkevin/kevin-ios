@@ -126,7 +126,7 @@ internal class KevinModalView<S : IKevinState> : KevinView<S> {
         }
     }
     
-    @objc private func handleCloseAction() {
+    @objc func handleCloseAction() {
         animateDismissView()
     }
     
