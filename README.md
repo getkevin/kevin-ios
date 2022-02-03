@@ -18,6 +18,10 @@ Get started with our [SDK reference](https://developer.kevin.eu/mobile/) and che
 - SDK documentation can be found [here](https://developer.kevin.eu/mobile/)
 - The API reference is located [here](https://docs.kevin.eu/)
 
+## Cross-platform support
+
+At the moment **Flutter** and **React Native** integrations are supported. Please check our [docs](https://developer.kevin.eu/mobile/) for a tutorial on how to do it.
+
 ## Contributing
 
 We welcome contributions of any kind including new features, bug fixes, and documentation improvements. Please first open an issue describing what you want to build if it is a major change so that we can discuss how to move forward. Otherwise, go ahead and open a pull request for minor changes such as typo fixes and one liners.
