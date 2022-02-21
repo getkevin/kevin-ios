@@ -43,7 +43,7 @@ struct KevinSelectionRowView<Value>: View where Value : View {
         .padding([.top, .bottom], 18.0)
         .padding(.leading, 16.0)
         .padding(.trailing, 20.0)
-        .background(Color.white)
+        .background(Color.init("SecondaryBackgroundColor"))
         .cornerRadius(11)
     }
 }

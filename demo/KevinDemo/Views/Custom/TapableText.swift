@@ -14,17 +14,13 @@ struct TextLabelWithHyperLink: UIViewRepresentable {
     @State var hyperLinkItems: Set<HyperLinkItem>
     private var _attributedString: NSMutableAttributedString
     private var openLink: (HyperLinkItem) -> Void
-    private var textColor: UIColor
-    private var font: UIFont
 
     init (
         linkTintColor: UIColor,
         string: String,
         attributes: [NSAttributedString.Key : Any] = [:],
         hyperLinkItems: Set<HyperLinkItem>,
-        openLink: @escaping (HyperLinkItem) -> Void,
-        textColor: UIColor,
-        font: UIFont
+        openLink: @escaping (HyperLinkItem) -> Void
     ) {
         self.linkTintColor = linkTintColor
         self.hyperLinkItems = hyperLinkItems
@@ -33,8 +29,6 @@ struct TextLabelWithHyperLink: UIViewRepresentable {
             attributes: attributes
         )
         self.openLink = openLink
-        self.textColor = textColor
-        self.font = font
     }
     
     
@@ -47,8 +41,6 @@ struct TextLabelWithHyperLink: UIViewRepresentable {
         textView.delegate = context.coordinator
         textView.isScrollEnabled = false
         textView.backgroundColor = .clear
-        textView.textColor = self.textColor
-        textView.font = self.font
         textView.textAlignment = .center
         
         return textView

@@ -58,7 +58,8 @@ class MainViewModel: ObservableObject, KevinPaymentSessionDelegate {
         viewState.isDonateButtonDisabled =
             !(viewState.isAgreementChecked &&
             !viewState.email.isEmpty &&
-            viewState.amountString != "" &&
+            viewState.email.isValidEmail() &&
+            viewState.amountString != "0.00" &&
             viewState.selectedCharity != nil)
     }
     
@@ -99,7 +100,7 @@ class MainViewModel: ObservableObject, KevinPaymentSessionDelegate {
     func invokeBankPaymentInitiationSession() {
         viewState.isPaymentInProgress = true
         apiClient.initializeBankPayment(
-            amount: String(format: "%.2f", viewState.amount!),
+            amount: viewState.amountString,
             email: viewState.email,
             iban: viewState.selectedCharity!.iban,
             creditorName: viewState.selectedCharity!.name
@@ -125,7 +126,7 @@ class MainViewModel: ObservableObject, KevinPaymentSessionDelegate {
     func invokeCardPaymentInitiationSession() {
         viewState.isPaymentInProgress = true
         apiClient.initializeCardPayment(
-            amount: String(format: "%.2f", viewState.amount!),
+            amount: viewState.amountString,
             email: viewState.email,
             iban: viewState.selectedCharity!.iban,
             creditorName: viewState.selectedCharity!.name
@@ -186,8 +187,7 @@ class MainViewModel: ObservableObject, KevinPaymentSessionDelegate {
             getCharityList(forCountryCode: "LT")
         }
         viewState.email = ""
-        viewState.amount = 0.0
-        viewState.amountString = ""
+        viewState.amountString = "0.00"
         viewState.isAgreementChecked = false
         viewState.showMessage = true
         viewState.messageTitle = "success_alert_title".localized()

@@ -22,8 +22,10 @@ struct KevinTextField: View {
                 }
                 .textContentType(textContentType)
                 .keyboardType(keyboardType)
+                .autocapitalization(UITextAutocapitalizationType.none)
+                .disableAutocorrection(true)
                 .padding(12.0)
-                .background(Color.white)
+                .background(Color.init("SecondaryBackgroundColor"))
                 .cornerRadius(10)
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)

@@ -29,6 +29,10 @@ struct KevinAgreementChackmark: View {
                         "terms_and_conditions".localized(),
                         "privacy_policy".localized()
                     ),
+                    attributes: [
+                        NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.regular),
+                        NSAttributedString.Key.foregroundColor: UIColor(TextStyle.agreement.color)
+                    ],
                     hyperLinkItems: [
                         .init(
                             subText: "terms_and_conditions".localized(),
@@ -41,9 +45,7 @@ struct KevinAgreementChackmark: View {
                     ],
                     openLink: { linkItem in
                         openLink(linkItem.url)
-                    },
-                    textColor: UIColor(TextStyle.agreement.color),
-                    font: UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.regular)
+                    }
                 ).padding([.top, .bottom], 16.0)
             }
         }

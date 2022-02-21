@@ -40,14 +40,13 @@ struct MainView: View {
                         )
                         .frame(minWidth: 0, maxWidth: .infinity)
                         .padding(.top, 24.0)
-                        .padding(.bottom, 24.0)
+                        .padding(.bottom, 32.0)
                         
                         Section(
                             header: Text("country_section_title".localized())
                                 .style(.sectionHeader)
                                 .frame(
                                     width: reader.size.width,
-                                    height: 50,
                                     alignment: .leading
                                 )
                         ) {
@@ -75,6 +74,8 @@ struct MainView: View {
                                     
                                     Spacer()
                                 } else {
+                                    Spacer(minLength: 0.0)
+
                                     ForEach(viewModel.viewState.charities, id: \.id) { charity in
                                         KevinCharityView(
                                             logoUrlString: charity.logo,
@@ -85,6 +86,8 @@ struct MainView: View {
                                         )
                                         .padding(.trailing, viewModel.viewState.charities.last?.id == charity.id ? 0.0 : 16.0)
                                     }
+                                    
+                                    Spacer(minLength: 0.0)
                                 }
                             }
                             .frame(height: 51.0)
@@ -121,12 +124,12 @@ struct MainView: View {
                             ZStack(alignment: .trailing) {
                                 KevinTextField(
                                     onChange: {
-                                        viewModel.viewState.amount = Double(viewModel.viewState.amountString)
+                                        viewModel.viewState.amountString = viewModel.viewState.amountString.toCurrencyFormat()
                                         viewModel.updateDonateButtonState()
                                     },
                                     textBinding: $viewModel.viewState.amountString,
                                     text: viewModel.viewState.amountString,
-                                    keyboardType: .decimalPad
+                                    keyboardType: .numberPad
                                 )
                                 
                                 Text("currency_eur".localized())
@@ -150,7 +153,7 @@ struct MainView: View {
                         }) {
                             Text(String(
                                 format: "donate_button_title".localized(),
-                                viewModel.viewState.amount != nil ? String(format: "%.2f", viewModel.viewState.amount!) : "0.00",
+                                viewModel.viewState.amountString,
                                 "currency_eur".localized())
                             ).style(.buttonTitle)
                         }
@@ -187,6 +190,7 @@ struct MainView: View {
                 )
             },
             configuration: HalfASheetConfiguration(
+                appearanceAnimationDuration: 0.2,
                 backgroundColor: .white,
                 height: .proportional(0.7),
                 contentInsets: EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0),
