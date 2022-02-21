@@ -10,56 +10,206 @@ import Localize_Swift
 import Kevin
 import SwiftUI
 import UIKit
+import HalfASheet
 
 struct MainView: View {
-
+    
     @ObservedObject var viewModel: MainViewModel
-
+    
     var body: some View {
-        VStack(spacing: 20) {
-            Image("Logo")
-                .resizable()
-                .frame(width: 100, height: 100)
-            Spacer()
-            
-            Button {
-                viewModel.invokeAccountLinkingSession()
-            } label: {
-                Text("link_account".localized())
-            }.buttonStyle(MainButtonStyle())
-            
-            Button {
-                viewModel.invokeBankPaymentInitiationSession()
-            } label: {
-                Text("make_bank_payment".localized())
-            }.buttonStyle(MainButtonStyle())
-            
-            Button {
-                viewModel.invokeCardPaymentInitiationSession()
-            } label: {
-                Text("make_card_payment".localized())
-            }.buttonStyle(MainButtonStyle())
-        
-            
-            .sheet(isPresented: $viewModel.viewState.openKevin, content: {
-                if let controller = viewModel.kevinController {
-                    KevinViewControllerRepresentable(controller: controller)
-                        .presentation(canDismissSheet: false)
+        GeometryReader { reader in
+            ZStack {
+                Color.init("PrimaryBackgroundColor").ignoresSafeArea()
+                
+                ScrollView {
+                    VStack(alignment: .leading) {
+                        KevinScreenTitle()
+                        
+                        SegmentedControlView(
+                            selectedValue: $viewModel.viewState.selectedPaymentType,
+                            elements: [
+                                SegmentedControlElement(
+                                    title: "payment_type_bank".localized(),
+                                    value: PaymentType.bank
+                                ),
+                                SegmentedControlElement(
+                                    title: "payment_type_card".localized(),
+                                    value: PaymentType.card
+                                )
+                            ]
+                        )
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                        .padding(.top, 24.0)
+                        .padding(.bottom, 24.0)
+                        
+                        Section(
+                            header: Text("country_section_title".localized())
+                                .style(.sectionHeader)
+                                .frame(
+                                    width: reader.size.width,
+                                    height: 50,
+                                    alignment: .leading
+                                )
+                        ) {
+                            Button(action: {
+                                viewModel.presentCountrySelector()
+                            }) {
+                                KevinSelectionRowView(
+                                    title: "country".localized(),
+                                    value: viewModel.viewState.isCountryLoading ?
+                                        ProgressView()
+                                            .padding(.trailing, 16.0)
+                                            .toAnyView() :
+                                        Text("country_name_\(viewModel.viewState.selectedCountryCode!.lowercased())".localized())
+                                            .style(.selectionText)
+                                            .padding(.trailing, 16.0)
+                                            .toAnyView()
+                                )
+                            }
+                                          
+                            HStack(spacing: 0.0) {
+                                if viewModel.viewState.isCharityLoading {
+                                    Spacer()
+                                    
+                                    ProgressView()
+                                    
+                                    Spacer()
+                                } else {
+                                    ForEach(viewModel.viewState.charities, id: \.id) { charity in
+                                        KevinCharityView(
+                                            logoUrlString: charity.logo,
+                                            isSelected: viewModel.viewState.selectedCharity?.id == charity.id,
+                                            onTap: {
+                                                viewModel.viewState.selectedCharity = charity
+                                            }
+                                        )
+                                        .padding(.trailing, viewModel.viewState.charities.last?.id == charity.id ? 0.0 : 16.0)
+                                    }
+                                }
+                            }
+                            .frame(height: 51.0)
+                        }
+                        .padding(.bottom, 14.0)
+                        
+                        Section(
+                            header: Text("details_section_title".localized())
+                                .style(.sectionHeader)
+                                .frame(
+                                    width: reader.size.width,
+                                    height: 50,
+                                    alignment: .leading
+                                )
+                        ) {
+                            Text("email".localized())
+                                .style(.textFieldName)
+                                .padding(.top, 8.0)
+                            
+                            KevinTextField(
+                                onChange: {
+                                    viewModel.updateDonateButtonState()
+                                },
+                                textBinding: $viewModel.viewState.email,
+                                text: viewModel.viewState.email,
+                                textContentType: .emailAddress,
+                                keyboardType: .emailAddress
+                            )
+                            
+                            Text("amount".localized())
+                                .style(.textFieldName)
+                                .padding(.top, 20.0)
+                            
+                            ZStack(alignment: .trailing) {
+                                KevinTextField(
+                                    onChange: {
+                                        viewModel.viewState.amount = Double(viewModel.viewState.amountString)
+                                        viewModel.updateDonateButtonState()
+                                    },
+                                    textBinding: $viewModel.viewState.amountString,
+                                    text: viewModel.viewState.amountString,
+                                    keyboardType: .decimalPad
+                                )
+                                
+                                Text("currency_eur".localized())
+                                    .style(.currencyHint)
+                                    .padding(.trailing, 14.0)
+                            }
+                        }
+                        
+                        KevinAgreementChackmark(
+                            isAgreementChecked: viewModel.viewState.isAgreementChecked,
+                            toggleAgreement: {
+                                viewModel.toggleAgreement()
+                            },
+                            openLink: { linkString in
+                                viewModel.openLink(linkString)
+                            }
+                        )
+                        
+                        Button(action: {
+                            viewModel.onDonateButtonTapped()
+                        }) {
+                            Text(String(
+                                format: "donate_button_title".localized(),
+                                viewModel.viewState.amount != nil ? String(format: "%.2f", viewModel.viewState.amount!) : "0.00",
+                                "currency_eur".localized())
+                            ).style(.buttonTitle)
+                        }
+                        .frame(
+                            minWidth: 200,
+                            maxWidth: .infinity,
+                            minHeight: 48.0,
+                            maxHeight: 48.0,
+                            alignment: .center
+                        )
+                        .background(viewModel.viewState.isDonateButtonDisabled ? Color.init("DisabledButton") : Color.init("AccentColor"))
+                        .cornerRadius(10)
+                        .disabled(viewModel.viewState.isDonateButtonDisabled)
+                    }
+                    .frame(
+                        minWidth: 0,
+                        maxWidth: .infinity,
+                        minHeight: 0,
+                        maxHeight: .infinity,
+                        alignment: .topLeading
+                    )
+                    .padding(16)
                 }
-            })
-            
-            .alert(isPresented: $viewModel.viewState.showMessage, content: {
-                Alert(
-                    title: Text(viewModel.viewState.messageTitle!),
-                    message: Text(viewModel.viewState.messageDescription!),
-                    dismissButton: .default(Text("action_ok".localized()))
-                )
-            })
-            
-            ProgressView().padding(30).opacity(viewModel.viewState.isLoading ? 1 : 0)
-            Spacer()
+            }
         }
-        .padding(20)
+        .halfASheet(
+            isPresented: $viewModel.viewState.isCountrySelectorPresented,
+            content: {
+                KevinCountrySelector(
+                    countyCodes: viewModel.viewState.countryCodes,
+                    onCountrySelected: { selectedCountryCode in
+                        viewModel.onCounrtyCodeSelected(selectedCountryCode)
+                    }
+                )
+            },
+            configuration: HalfASheetConfiguration(
+                backgroundColor: .white,
+                height: .proportional(0.7),
+                contentInsets: EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0),
+                allowsDraggingToDismiss: false,
+                allowsButtonDismiss: false
+            )
+        )
+        .onTapGesture {
+            viewModel.endTextInput()
+        }
+        .sheet(isPresented: $viewModel.viewState.openKevin, content: {
+            if let controller = viewModel.kevinController {
+                KevinViewControllerRepresentable(controller: controller)
+                    .presentation(canDismissSheet: false)
+            }
+        })
+        .alert(isPresented: $viewModel.viewState.showMessage, content: {
+            Alert(
+                title: Text(viewModel.viewState.messageTitle!),
+                message: Text(viewModel.viewState.messageDescription!),
+                dismissButton: .default(Text("action_ok".localized()))
+            )
+        })
     }
 }
 

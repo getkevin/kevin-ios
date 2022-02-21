@@ -17,6 +17,11 @@ public class DemoKevinTheme : KevinTheme {
         self.primaryBackgroundColor = UIColor(Color("PrimaryBackgroundColor", bundle: nil))
         self.secondaryBackgroundColor = UIColor(Color("SecondaryBackgroundColor", bundle: nil))
         self.selectedOnSecondaryColor = UIColor(Color("SelectedOnSecondaryColor", bundle: nil))
+        
+        self.navigationBarBackgroundColorLight = UIColor(Color("AccentColor", bundle: nil))
+        self.navigationBarBackgroundColorDark = UIColor(Color("AccentColor", bundle: nil))
+        self.buttonBackgroundColor = UIColor(Color("AccentColor", bundle: nil))
+        self.buttonShadowColor = UIColor(Color("AccentColor", bundle: nil))
         //  for more properties check KevinTheme class
     }
 }

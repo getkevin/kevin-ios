@@ -1,0 +1,51 @@
+//
+//  KevinAgreementChackmark.swift
+//  KevinDemo
+//
+//  Created by Daniel Klinge on 11/02/2022.
+//
+
+import SwiftUI
+
+struct KevinAgreementChackmark: View {
+    var isAgreementChecked: Bool
+    let toggleAgreement: () -> Void
+    let openLink: (String) -> Void
+    
+    var body: some View {
+        return VStack(alignment: .leading) {
+            HStack(alignment: .center) {
+                Image(systemName: isAgreementChecked ? "checkmark.square.fill" : "square")
+                    .foregroundColor(isAgreementChecked ? Color(UIColor.systemBlue) : Color.secondary)
+                    .onTapGesture {
+                        toggleAgreement()
+                    }
+                    .padding(.trailing, 4.0)
+
+                TextLabelWithHyperLink(
+                    linkTintColor: UIColor(TextStyle.agreementLink.color),
+                    string: String(
+                        format: "agreement_checkmark".localized(),
+                        "terms_and_conditions".localized(),
+                        "privacy_policy".localized()
+                    ),
+                    hyperLinkItems: [
+                        .init(
+                            subText: "terms_and_conditions".localized(),
+                            url: "https://www.kevin.eu/docs/EN/terms-and-conditions/"
+                        ),
+                        .init(
+                            subText: "privacy_policy".localized(),
+                            url: "https://www.kevin.eu/docs/EN/privacy-policy/"
+                        )
+                    ],
+                    openLink: { linkItem in
+                        openLink(linkItem.url)
+                    },
+                    textColor: UIColor(TextStyle.agreement.color),
+                    font: UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.regular)
+                ).padding([.top, .bottom], 16.0)
+            }
+        }
+    }
+}
