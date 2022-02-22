@@ -1,5 +1,5 @@
 //
-//  KevinAgreementChackmark.swift
+//  KevinAgreementCheckMark.swift
 //  KevinDemo
 //
 //  Created by Daniel Klinge on 11/02/2022.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct KevinAgreementChackmark: View {
+struct KevinAgreementCheckMark: View {
     var isAgreementChecked: Bool
     let toggleAgreement: () -> Void
     let openLink: (String) -> Void

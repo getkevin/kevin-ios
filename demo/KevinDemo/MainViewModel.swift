@@ -20,8 +20,6 @@ class MainViewModel: ObservableObject, KevinPaymentSessionDelegate {
     private let apiClient = DemoApiClientFactory.createDemoApiClient(headers: RequestHeaders())
     
     init() {
-        print("init called")
-
         getCountryList()
     }
         
@@ -37,10 +35,6 @@ class MainViewModel: ObservableObject, KevinPaymentSessionDelegate {
         viewState.selectedCountryCode = selectedCountryCode
         getCharityList(forCountryCode: selectedCountryCode)
         viewState.isCountrySelectorPresented = false
-    }
-
-    func endTextInput() {
-        UIApplication.shared.endEditing()
     }
     
     func openLink(_ urlString: String) {
@@ -63,9 +57,7 @@ class MainViewModel: ObservableObject, KevinPaymentSessionDelegate {
             viewState.selectedCharity != nil)
     }
     
-    func onDonateButtonTapped() {
-        endTextInput()
-        
+    func onDonateButtonTapped() {        
         if viewState.selectedPaymentType == PaymentType.bank {
             invokeBankPaymentInitiationSession()
         } else {

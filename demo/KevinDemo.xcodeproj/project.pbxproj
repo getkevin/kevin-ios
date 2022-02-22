@@ -25,7 +25,7 @@
 		0C14501227C3C63C00FB3A3E /* HalfASheet in Frameworks */ = {isa = PBXBuildFile; productRef = 0C14501127C3C63C00FB3A3E /* HalfASheet */; };
 		0CE4995B27B67A09005E32D4 /* KevinScreenTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE4995A27B67A09005E32D4 /* KevinScreenTitle.swift */; };
 		0CE4995D27B67AC8005E32D4 /* KevinTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE4995C27B67AC8005E32D4 /* KevinTextField.swift */; };
-		0CE4996027B67D1F005E32D4 /* KevinAgreementChackmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE4995F27B67D1F005E32D4 /* KevinAgreementChackmark.swift */; };
+		0CE4996027B67D1F005E32D4 /* KevinAgreementCheckMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE4995F27B67D1F005E32D4 /* KevinAgreementCheckMark.swift */; };
 		0CE4996227BA659C005E32D4 /* KevinCharityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE4996127BA659C005E32D4 /* KevinCharityView.swift */; };
 		0CE4996527BA65D8005E32D4 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0CE4996427BA65D8005E32D4 /* SDWebImageSwiftUI */; };
 		0CE4996A27BA9EC4005E32D4 /* KevinCountrySelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE4996927BA9EC4005E32D4 /* KevinCountrySelector.swift */; };
@@ -102,7 +102,7 @@
 		0C14500E27C3B74900FB3A3E /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		0CE4995A27B67A09005E32D4 /* KevinScreenTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KevinScreenTitle.swift; sourceTree = "<group>"; };
 		0CE4995C27B67AC8005E32D4 /* KevinTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KevinTextField.swift; sourceTree = "<group>"; };
-		0CE4995F27B67D1F005E32D4 /* KevinAgreementChackmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KevinAgreementChackmark.swift; sourceTree = "<group>"; };
+		0CE4995F27B67D1F005E32D4 /* KevinAgreementCheckMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KevinAgreementCheckMark.swift; sourceTree = "<group>"; };
 		0CE4996127BA659C005E32D4 /* KevinCharityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KevinCharityView.swift; sourceTree = "<group>"; };
 		0CE4996927BA9EC4005E32D4 /* KevinCountrySelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KevinCountrySelector.swift; sourceTree = "<group>"; };
 		0CE4996C27BBE0F8005E32D4 /* PaymentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentType.swift; sourceTree = "<group>"; };
@@ -211,7 +211,7 @@
 			children = (
 				27EF25D526B6734D0085FDC7 /* Custom */,
 				272CA8E426B4402200978AA7 /* Representables */,
-				0CE4995F27B67D1F005E32D4 /* KevinAgreementChackmark.swift */,
+				0CE4995F27B67D1F005E32D4 /* KevinAgreementCheckMark.swift */,
 				0CE4996127BA659C005E32D4 /* KevinCharityView.swift */,
 				0CE4996927BA9EC4005E32D4 /* KevinCountrySelector.swift */,
 				0CE4995A27B67A09005E32D4 /* KevinScreenTitle.swift */,
@@ -561,7 +561,7 @@
 				27B180B72680809B001E0C50 /* ApiPayment.swift in Sources */,
 				0C08545427B289B70036EE48 /* SegmentedControlView.swift in Sources */,
 				27B180AB26807EF3001E0C50 /* JWTCredentials.swift in Sources */,
-				0CE4996027B67D1F005E32D4 /* KevinAgreementChackmark.swift in Sources */,
+				0CE4996027B67D1F005E32D4 /* KevinAgreementCheckMark.swift in Sources */,
 				27B1809C26807949001E0C50 /* RequestHeaders.swift in Sources */,
 				27B1809A26807920001E0C50 /* BaseApiRequestAdapter.swift in Sources */,
 				2782B44E2778912D004A9E05 /* GetAuthStateRequest.swift in Sources */,

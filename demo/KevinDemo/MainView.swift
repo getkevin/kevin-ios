@@ -138,7 +138,7 @@ struct MainView: View {
                             }
                         }
                         
-                        KevinAgreementChackmark(
+                        KevinAgreementCheckMark(
                             isAgreementChecked: viewModel.viewState.isAgreementChecked,
                             toggleAgreement: {
                                 viewModel.toggleAgreement()
@@ -149,6 +149,7 @@ struct MainView: View {
                         )
                         
                         Button(action: {
+                            UIApplication.shared.endEditing()
                             viewModel.onDonateButtonTapped()
                         }) {
                             Text(String(
@@ -199,7 +200,7 @@ struct MainView: View {
             )
         )
         .onTapGesture {
-            viewModel.endTextInput()
+            UIApplication.shared.endEditing()
         }
         .sheet(isPresented: $viewModel.viewState.openKevin, content: {
             if let controller = viewModel.kevinController {
