@@ -149,7 +149,7 @@ struct MainView: View {
                         )
                         
                         Button(action: {
-                            UIApplication.shared.endEditing()
+                            hideKeyboard()
                             viewModel.onDonateButtonTapped()
                         }) {
                             Text(String(
@@ -200,7 +200,7 @@ struct MainView: View {
             )
         )
         .onTapGesture {
-            UIApplication.shared.endEditing()
+            hideKeyboard()
         }
         .sheet(isPresented: $viewModel.viewState.openKevin, content: {
             if let controller = viewModel.kevinController {

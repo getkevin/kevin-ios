@@ -13,7 +13,6 @@
 		0C08545727B28A360036EE48 /* RectPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08545627B28A360036EE48 /* RectPreferences.swift */; };
 		0C08545927B28AAE0036EE48 /* SegmentedControlUnderlineModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08545827B28AAE0036EE48 /* SegmentedControlUnderlineModifier.swift */; };
 		0C08545C27B3E1270036EE48 /* KevinSelectionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08545B27B3E1270036EE48 /* KevinSelectionRowView.swift */; };
-		0C08546027B50FB60036EE48 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08545F27B50FB60036EE48 /* UIApplication+Extensions.swift */; };
 		0C08546227B52C610036EE48 /* TapableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08546127B52C610036EE48 /* TapableText.swift */; };
 		0C08546427B557FE0036EE48 /* ApiCountries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08546327B557FE0036EE48 /* ApiCountries.swift */; };
 		0C08546627B55AA70036EE48 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08546527B55AA70036EE48 /* View+Extensions.swift */; };
@@ -91,7 +90,6 @@
 		0C08545627B28A360036EE48 /* RectPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectPreferences.swift; sourceTree = "<group>"; };
 		0C08545827B28AAE0036EE48 /* SegmentedControlUnderlineModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlUnderlineModifier.swift; sourceTree = "<group>"; };
 		0C08545B27B3E1270036EE48 /* KevinSelectionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KevinSelectionRowView.swift; sourceTree = "<group>"; };
-		0C08545F27B50FB60036EE48 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
 		0C08546127B52C610036EE48 /* TapableText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapableText.swift; sourceTree = "<group>"; };
 		0C08546327B557FE0036EE48 /* ApiCountries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCountries.swift; sourceTree = "<group>"; };
 		0C08546527B55AA70036EE48 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
@@ -180,7 +178,6 @@
 			isa = PBXGroup;
 			children = (
 				0C08544F27B268220036EE48 /* Text+Extensions.swift */,
-				0C08545F27B50FB60036EE48 /* UIApplication+Extensions.swift */,
 				0C08546527B55AA70036EE48 /* View+Extensions.swift */,
 				0C14500E27C3B74900FB3A3E /* String+Extensions.swift */,
 			);
@@ -585,7 +582,6 @@
 				27D384FD27651C13001395C0 /* DemoKevinTheme.swift in Sources */,
 				27C350F9267372FA00A3A17F /* KevinDemoApp.swift in Sources */,
 				27B1809E26807984001E0C50 /* URLRequestHeader.swift in Sources */,
-				0C08546027B50FB60036EE48 /* UIApplication+Extensions.swift in Sources */,
 				27B180B9268080E2001E0C50 /* DemoApiClient.swift in Sources */,
 				27B180AD26807F14001E0C50 /* ApiRequest.swift in Sources */,
 				272CA8E326B426D000978AA7 /* MainButtonStyle.swift in Sources */,
