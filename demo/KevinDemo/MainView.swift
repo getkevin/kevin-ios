@@ -53,16 +53,9 @@ struct MainView: View {
                             Button(action: {
                                 viewModel.presentCountrySelector()
                             }) {
-                                KevinSelectionRowView(
+                                KevinCountrySelectionRowView(
                                     title: "country".localized(),
-                                    value: viewModel.viewState.isCountryLoading ?
-                                        ProgressView()
-                                            .padding(.trailing, 16.0)
-                                            .toAnyView() :
-                                        Text("country_name_\(viewModel.viewState.selectedCountryCode!.lowercased())".localized())
-                                            .style(.selectionText)
-                                            .padding(.trailing, 16.0)
-                                            .toAnyView()
+                                    countryCode: viewModel.viewState.selectedCountryCode
                                 )
                             }
                                           

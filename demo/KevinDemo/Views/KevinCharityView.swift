@@ -36,7 +36,7 @@ struct KevinCharityView: View {
             .scaledToFit()
             .padding(9.0)
             .frame(width: width, height: 51.0)
-            .background(Color.init("SecondaryBackgroundColor"))
+            .background(Color.white)
             .cornerRadius(11.0)
             .overlay(
                 RoundedRectangle(cornerRadius: 11)

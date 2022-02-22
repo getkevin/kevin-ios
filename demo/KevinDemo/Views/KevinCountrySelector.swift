@@ -30,8 +30,10 @@ struct KevinCountrySelector: View {
                             onCountrySelected(countyCode)
                         }) {
                             HStack {
-                                Text("country_name_\(countyCode)".lowercased().localized())
+                                Image("flag\(countyCode)")
                                     .padding()
+
+                                Text("country_name_\(countyCode)".lowercased().localized())
                                     .foregroundColor(Color.black)
 
                                 Spacer()

@@ -12,7 +12,7 @@
 		0C08545427B289B70036EE48 /* SegmentedControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08545327B289B70036EE48 /* SegmentedControlView.swift */; };
 		0C08545727B28A360036EE48 /* RectPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08545627B28A360036EE48 /* RectPreferences.swift */; };
 		0C08545927B28AAE0036EE48 /* SegmentedControlUnderlineModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08545827B28AAE0036EE48 /* SegmentedControlUnderlineModifier.swift */; };
-		0C08545C27B3E1270036EE48 /* KevinSelectionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08545B27B3E1270036EE48 /* KevinSelectionRowView.swift */; };
+		0C08545C27B3E1270036EE48 /* KevinCountrySelectionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08545B27B3E1270036EE48 /* KevinCountrySelectionRowView.swift */; };
 		0C08546227B52C610036EE48 /* TapableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08546127B52C610036EE48 /* TapableText.swift */; };
 		0C08546427B557FE0036EE48 /* ApiCountries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08546327B557FE0036EE48 /* ApiCountries.swift */; };
 		0C08546627B55AA70036EE48 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08546527B55AA70036EE48 /* View+Extensions.swift */; };
@@ -89,7 +89,7 @@
 		0C08545327B289B70036EE48 /* SegmentedControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControlView.swift; sourceTree = "<group>"; };
 		0C08545627B28A360036EE48 /* RectPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectPreferences.swift; sourceTree = "<group>"; };
 		0C08545827B28AAE0036EE48 /* SegmentedControlUnderlineModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlUnderlineModifier.swift; sourceTree = "<group>"; };
-		0C08545B27B3E1270036EE48 /* KevinSelectionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KevinSelectionRowView.swift; sourceTree = "<group>"; };
+		0C08545B27B3E1270036EE48 /* KevinCountrySelectionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KevinCountrySelectionRowView.swift; sourceTree = "<group>"; };
 		0C08546127B52C610036EE48 /* TapableText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapableText.swift; sourceTree = "<group>"; };
 		0C08546327B557FE0036EE48 /* ApiCountries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCountries.swift; sourceTree = "<group>"; };
 		0C08546527B55AA70036EE48 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
@@ -212,7 +212,7 @@
 				0CE4996127BA659C005E32D4 /* KevinCharityView.swift */,
 				0CE4996927BA9EC4005E32D4 /* KevinCountrySelector.swift */,
 				0CE4995A27B67A09005E32D4 /* KevinScreenTitle.swift */,
-				0C08545B27B3E1270036EE48 /* KevinSelectionRowView.swift */,
+				0C08545B27B3E1270036EE48 /* KevinCountrySelectionRowView.swift */,
 				0CE4995C27B67AC8005E32D4 /* KevinTextField.swift */,
 			);
 			path = Views;
@@ -553,7 +553,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0CE4997327BBE974005E32D4 /* SegmentedControlButtonView.swift in Sources */,
-				0C08545C27B3E1270036EE48 /* KevinSelectionRowView.swift in Sources */,
+				0C08545C27B3E1270036EE48 /* KevinCountrySelectionRowView.swift in Sources */,
 				0CE4996A27BA9EC4005E32D4 /* KevinCountrySelector.swift in Sources */,
 				27B180B72680809B001E0C50 /* ApiPayment.swift in Sources */,
 				0C08545427B289B70036EE48 /* SegmentedControlView.swift in Sources */,

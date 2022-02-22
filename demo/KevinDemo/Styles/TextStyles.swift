@@ -64,6 +64,8 @@ public enum TextStyle {
             return Color.init("AccentColor")
         case .buttonTitle:
             return Color.white
+        case .selectionText:
+            return Color.black
         default:
             return Color.init("PrimaryTextColor")
         }
