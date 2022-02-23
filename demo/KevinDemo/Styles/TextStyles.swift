@@ -33,7 +33,7 @@ public enum TextStyle {
         case .sectionHeader:
             return .system(size: 17).weight(.semibold)
         case .selectionText:
-            return .system(size: 16).weight(.medium)
+            return .system(size: 16).weight(.regular)
         case .textFieldName:
             return .system(size: 14).weight(.regular)
         case .currencyHint:
@@ -55,11 +55,13 @@ public enum TextStyle {
     
     public var color: Color {
         switch self {
-        case .subtitle,
-             .segmentedPickerUnselected,
-             .textFieldName,
-             .currencyHint:
+        case .sectionHeader:
             return Color.init("SecondaryTextColor")
+        case .subtitle,
+             .currencyHint,
+             .textFieldName,
+             .segmentedPickerUnselected:
+            return Color.init("GreyTextColor")
         case .agreementLink:
             return Color.init("AccentColor")
         case .buttonTitle:

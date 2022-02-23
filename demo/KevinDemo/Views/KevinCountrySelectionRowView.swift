@@ -29,7 +29,8 @@ struct KevinCountrySelectionRowView: View {
                 Image("flag\(countryCode)")
                     .resizable()
                     .scaledToFit()
-                    .frame(height: 42.0)
+                    .frame(width: 30.0, height: 30.0)
+                    .padding([.top, .bottom], 4.0)
 
                 Text("\(title)")
                     .style(.selectionText)
@@ -43,7 +44,7 @@ struct KevinCountrySelectionRowView: View {
                 Spacer()
                 
                 ProgressView()
-                    .frame(height: 42.0)
+                    .frame(height: 38.0)
 
                 Spacer()
             }
@@ -54,7 +55,7 @@ struct KevinCountrySelectionRowView: View {
                     .foregroundColor(Color.gray)
             }
         }
-        .padding([.top, .bottom], 4.0)
+        .padding([.top, .bottom], 8.0)
         .padding(.leading, 16.0)
         .padding(.trailing, 20.0)
         .background(Color.white)

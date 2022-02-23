@@ -29,12 +29,14 @@ struct KevinCountrySelector: View {
                         Button(action: {
                             onCountrySelected(countyCode)
                         }) {
-                            HStack {
+                            HStack(spacing: 0.0) {
                                 Image("flag\(countyCode)")
+                                    .resizable()
+                                    .frame(width: 40.0, height: 40.0)
                                     .padding()
 
                                 Text("country_name_\(countyCode)".lowercased().localized())
-                                    .foregroundColor(Color.black)
+                                    .foregroundColor(Color("PrimaryTextColor"))
 
                                 Spacer()
                             }

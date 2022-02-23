@@ -175,6 +175,7 @@ struct MainView: View {
         }
         .halfASheet(
             isPresented: $viewModel.viewState.isCountrySelectorPresented,
+            title: "select_country".localized(),
             content: {
                 KevinCountrySelector(
                     countyCodes: viewModel.viewState.countryCodes,
@@ -185,7 +186,7 @@ struct MainView: View {
             },
             configuration: HalfASheetConfiguration(
                 appearanceAnimationDuration: 0.2,
-                backgroundColor: .white,
+                backgroundColor: Color("SecondaryBackgroundColor"),
                 height: .proportional(0.7),
                 contentInsets: EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0),
                 allowsDraggingToDismiss: false,

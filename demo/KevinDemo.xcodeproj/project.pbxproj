@@ -21,7 +21,7 @@
 		0C08546C27B55ED60036EE48 /* ApiCharities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08546B27B55ED60036EE48 /* ApiCharities.swift */; };
 		0C14500527C369CE00FB3A3E /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C14500427C369CD00FB3A3E /* ModalView.swift */; };
 		0C14500F27C3B74900FB3A3E /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C14500E27C3B74900FB3A3E /* String+Extensions.swift */; };
-		0C14501227C3C63C00FB3A3E /* HalfASheet in Frameworks */ = {isa = PBXBuildFile; productRef = 0C14501127C3C63C00FB3A3E /* HalfASheet */; };
+		0C83906627C6489A005BF384 /* HalfASheet in Frameworks */ = {isa = PBXBuildFile; productRef = 0C83906527C6489A005BF384 /* HalfASheet */; };
 		0CE4995B27B67A09005E32D4 /* KevinScreenTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE4995A27B67A09005E32D4 /* KevinScreenTitle.swift */; };
 		0CE4995D27B67AC8005E32D4 /* KevinTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE4995C27B67AC8005E32D4 /* KevinTextField.swift */; };
 		0CE4996027B67D1F005E32D4 /* KevinAgreementCheckMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE4995F27B67D1F005E32D4 /* KevinAgreementCheckMark.swift */; };
@@ -153,7 +153,7 @@
 				272CA8F226B4575200978AA7 /* Localize_Swift in Frameworks */,
 				27B180A826807EA2001E0C50 /* JWTDecode in Frameworks */,
 				27B1809226807898001E0C50 /* PromiseKit in Frameworks */,
-				0C14501227C3C63C00FB3A3E /* HalfASheet in Frameworks */,
+				0C83906627C6489A005BF384 /* HalfASheet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,7 +427,7 @@
 				272CA8F126B4575200978AA7 /* Localize_Swift */,
 				27EF268F26B806D90085FDC7 /* .kevin */,
 				0CE4996427BA65D8005E32D4 /* SDWebImageSwiftUI */,
-				0C14501127C3C63C00FB3A3E /* HalfASheet */,
+				0C83906527C6489A005BF384 /* HalfASheet */,
 			);
 			productName = KevinDemo;
 			productReference = 27C350F5267372FA00A3A17F /* KevinDemo.app */;
@@ -508,7 +508,7 @@
 				272CA8F026B4575200978AA7 /* XCRemoteSwiftPackageReference "Localize-Swift" */,
 				27EF268E26B806D90085FDC7 /* XCRemoteSwiftPackageReference "kevin-ios" */,
 				0CE4996327BA65D8005E32D4 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
-				0C14501027C3C63C00FB3A3E /* XCRemoteSwiftPackageReference "HalfASheet" */,
+				0C83906427C64899005BF384 /* XCRemoteSwiftPackageReference "HalfASheet" */,
 			);
 			productRefGroup = 27C350F6267372FA00A3A17F /* Products */;
 			projectDirPath = "";
@@ -923,7 +923,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		0C14501027C3C63C00FB3A3E /* XCRemoteSwiftPackageReference "HalfASheet" */ = {
+		0C83906427C64899005BF384 /* XCRemoteSwiftPackageReference "HalfASheet" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/PocketDaniel/HalfASheet";
 			requirement = {
@@ -990,9 +990,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		0C14501127C3C63C00FB3A3E /* HalfASheet */ = {
+		0C83906527C6489A005BF384 /* HalfASheet */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0C14501027C3C63C00FB3A3E /* XCRemoteSwiftPackageReference "HalfASheet" */;
+			package = 0C83906427C64899005BF384 /* XCRemoteSwiftPackageReference "HalfASheet" */;
 			productName = HalfASheet;
 		};
 		0CE4996427BA65D8005E32D4 /* SDWebImageSwiftUI */ = {

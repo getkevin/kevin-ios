@@ -15,6 +15,7 @@
 
 "country_section_title" = "Select country and charity";
 "country" = "Country";
+"select_country" = "Select country";
 "country_name_at" = "Austria";
 "country_name_be" = "Belgium";
 "country_name_bg" = "Bulgaria";
