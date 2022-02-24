@@ -19,6 +19,7 @@ public enum TextStyle {
     case agreement
     case agreementLink
     case buttonTitle
+    case countrySelectorTitle
 
     public var font: Font {
         switch self {
@@ -43,6 +44,8 @@ public enum TextStyle {
             return .system(size: 12).weight(.regular)
         case .buttonTitle:
             return .system(size: 17).weight(.semibold)
+        case .countrySelectorTitle:
+            return .system(size: 22)
         }
     }
     
@@ -55,19 +58,15 @@ public enum TextStyle {
     
     public var color: Color {
         switch self {
-        case .sectionHeader:
-            return Color.init("SecondaryTextColor")
         case .subtitle,
              .currencyHint,
              .textFieldName,
              .segmentedPickerUnselected:
-            return Color.init("GreyTextColor")
+            return Color.init("SecondaryTextColor")
         case .agreementLink:
             return Color.init("AccentColor")
         case .buttonTitle:
             return Color.white
-        case .selectionText:
-            return Color.black
         default:
             return Color.init("PrimaryTextColor")
         }

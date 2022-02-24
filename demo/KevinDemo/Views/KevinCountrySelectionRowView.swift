@@ -58,7 +58,7 @@ struct KevinCountrySelectionRowView: View {
         .padding([.top, .bottom], 8.0)
         .padding(.leading, 16.0)
         .padding(.trailing, 20.0)
-        .background(Color.white)
+        .background(Color.init("SecondaryBackgroundColor"))
         .cornerRadius(11)
     }
 }
