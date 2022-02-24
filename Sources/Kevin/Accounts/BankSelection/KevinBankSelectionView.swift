@@ -175,7 +175,7 @@ extension KevinBankSelectionView : UITableViewDataSource {
         let rightIndex = indexPath.row * 2 + 1
         
         let leftAsset = bankItems[leftIndex]
-        cell!.leftAsset.loadImageUsingCache(withUrl: leftAsset.imageUri)
+        cell!.leftAsset.loadImageUsingCache(withUrl: getBankLogo(for: leftAsset))
         cell!.leftAsset.tag = leftIndex
         cell!.leftOverlay.isHidden = !(leftAsset.id == self.selectedBankId)
         
@@ -185,7 +185,7 @@ extension KevinBankSelectionView : UITableViewDataSource {
         
         if rightIndex < bankItems.count {
             let rightAsset = bankItems[rightIndex]
-            cell!.rightAsset.loadImageUsingCache(withUrl: rightAsset.imageUri)
+            cell!.rightAsset.loadImageUsingCache(withUrl: getBankLogo(for: rightAsset))
             cell!.rightAsset.tag = rightIndex
             cell!.rightOverlay.isHidden = !(rightAsset.id == self.selectedBankId)
             
@@ -208,5 +208,19 @@ extension KevinBankSelectionView : UITableViewDataSource {
     @objc private func onBankSelected(_ recognizer: UITapGestureRecognizer) {
         self.selectedBankId = self.bankItems[recognizer.view?.tag ?? 0].id
         bankTableView.reloadData()
+    }
+    
+    private func getBankLogo(for bank: ApiBank) -> String {
+        var originalUri = bank.imageUri
+        
+        if !UIApplication.shared.isLightThemedInterface {
+            let imageUriParts = originalUri.components(separatedBy: "images/")
+            
+            if imageUriParts.count > 1 {
+                originalUri = "\(imageUriParts.first!)images/white/\(imageUriParts.last!)"
+            }
+        }
+        
+        return originalUri
     }
 }
