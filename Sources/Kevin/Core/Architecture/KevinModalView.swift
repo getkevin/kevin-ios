@@ -27,8 +27,8 @@ internal class KevinModalView<S : IKevinState> : KevinView<S> {
     
     public lazy var containerView: UIView = {
         let view = UIView()
-        view.backgroundColor = Kevin.shared.theme.secondaryBackgroundColor
-        view.layer.cornerRadius = 10
+        view.backgroundColor = Kevin.shared.theme.sheetPresentationStyle.backgroundColor
+        view.layer.cornerRadius = Kevin.shared.theme.sheetPresentationStyle.cornerRadius
         view.clipsToBounds = true
         return view
     }()
@@ -45,7 +45,7 @@ internal class KevinModalView<S : IKevinState> : KevinView<S> {
     override func layoutSubviews() {
         super.layoutSubviews()
         containerView.layer.cornerRadius = 0
-        containerView.roundCorners(corners: [.topLeft, .topRight], radius: 10.0)
+        containerView.roundCorners(corners: [.topLeft, .topRight], radius: Kevin.shared.theme.sheetPresentationStyle.cornerRadius)
     }
     
     override func viewDidAppear() {

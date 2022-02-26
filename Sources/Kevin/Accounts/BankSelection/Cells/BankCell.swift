@@ -21,15 +21,30 @@ internal class BankCell : UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.backgroundColor = Kevin.shared.theme.primaryBackgroundColor
+        contentView.backgroundColor = Kevin.shared.theme.generalStyle.primaryBackgroundColor
         configureLeftAsset()
         configureRightAsset()
     }
     
+    func selectLeftItem(_ isSelected: Bool) {
+        if isSelected {
+            leftOverlay.backgroundColor = Kevin.shared.theme.gridTableStyle.cellSelectedBackgroundColor
+        } else {
+            leftOverlay.backgroundColor = Kevin.shared.theme.gridTableStyle.cellBackgroundColor
+        }
+    }
+    
+    func selectRightItem(_ isSelected: Bool) {
+        if isSelected {
+            rightOverlay.backgroundColor = Kevin.shared.theme.gridTableStyle.cellSelectedBackgroundColor
+        } else {
+            rightOverlay.backgroundColor = Kevin.shared.theme.gridTableStyle.cellBackgroundColor
+        }
+    }
+    
     private func configureLeftAsset() {
-        leftOverlay.isHidden = true
-        leftOverlay.backgroundColor = Kevin.shared.theme.selectedOnPrimaryColor
-        leftOverlay.layer.cornerRadius = 10
+        leftOverlay.backgroundColor = Kevin.shared.theme.gridTableStyle.cellSelectedBackgroundColor
+        leftOverlay.layer.cornerRadius = Kevin.shared.theme.gridTableStyle.cellCornerRadius
         leftOverlay.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(leftOverlay)
 
@@ -37,11 +52,11 @@ internal class BankCell : UITableViewCell {
         leftAsset.isUserInteractionEnabled = true
         leftAsset.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(leftAsset)
-        leftAsset.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: Kevin.shared.theme.leftInset).isActive = true
+        leftAsset.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: Kevin.shared.theme.insets.left).isActive = true
         leftAsset.widthAnchor.constraint(
-            equalToConstant: (rowWidth - 16 - Kevin.shared.theme.leftInset - Kevin.shared.theme.rightInset) / 2
+            equalToConstant: (rowWidth - 16 - Kevin.shared.theme.insets.left - Kevin.shared.theme.insets.right) / 2
         ).isActive = true
-        leftAsset.heightAnchor.constraint(equalToConstant: 54).isActive = true
+        leftAsset.heightAnchor.constraint(equalToConstant: 60).isActive = true
         
         leftOverlay.topAnchor.constraint(equalTo: leftAsset.topAnchor).isActive = true
         leftOverlay.leftAnchor.constraint(equalTo: leftAsset.leftAnchor).isActive = true
@@ -50,9 +65,8 @@ internal class BankCell : UITableViewCell {
     }
     
     private func configureRightAsset() {
-        rightOverlay.isHidden = true
-        rightOverlay.backgroundColor = Kevin.shared.theme.selectedOnPrimaryColor
-        rightOverlay.layer.cornerRadius = 10
+        rightOverlay.backgroundColor = Kevin.shared.theme.gridTableStyle.cellSelectedBackgroundColor
+        rightOverlay.layer.cornerRadius = Kevin.shared.theme.gridTableStyle.cellCornerRadius
         rightOverlay.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(rightOverlay)
         
@@ -60,11 +74,11 @@ internal class BankCell : UITableViewCell {
         rightAsset.isUserInteractionEnabled = true
         rightAsset.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(rightAsset)
-        rightAsset.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -Kevin.shared.theme.rightInset).isActive = true
+        rightAsset.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -Kevin.shared.theme.insets.right).isActive = true
         rightAsset.widthAnchor.constraint(
-            equalToConstant: (rowWidth - 16 - Kevin.shared.theme.leftInset - Kevin.shared.theme.rightInset) / 2
+            equalToConstant: (rowWidth - 16 - Kevin.shared.theme.insets.left - Kevin.shared.theme.insets.right) / 2
         ).isActive = true
-        rightAsset.heightAnchor.constraint(equalToConstant: 54).isActive = true
+        rightAsset.heightAnchor.constraint(equalToConstant: 60).isActive = true
         
         rightOverlay.topAnchor.constraint(equalTo: rightAsset.topAnchor).isActive = true
         rightOverlay.leftAnchor.constraint(equalTo: rightAsset.leftAnchor).isActive = true

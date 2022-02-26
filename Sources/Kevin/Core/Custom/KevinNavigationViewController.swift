@@ -35,16 +35,16 @@ internal class KevinNavigationViewController: UINavigationController {
             let appearance = UINavigationBarAppearance()
             appearance.configureWithOpaqueBackground()
             appearance.backgroundColor = UIApplication.shared.isLightThemedInterface ?
-                Kevin.shared.theme.navigationBarBackgroundColorLight :
-                Kevin.shared.theme.navigationBarBackgroundColorDark
-            appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: Kevin.shared.theme.navigationBarTitleColor]
+            Kevin.shared.theme.navigationBarStyle.backgroundColorLightMode :
+            Kevin.shared.theme.navigationBarStyle.backgroundColorDarkMode
+            appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: Kevin.shared.theme.navigationBarStyle.titleColor]
             navigationBar.standardAppearance = appearance
             navigationBar.scrollEdgeAppearance = navigationBar.standardAppearance
         } else {
             navigationBar.barTintColor = UIApplication.shared.isLightThemedInterface ?
-                Kevin.shared.theme.navigationBarBackgroundColorLight :
-                Kevin.shared.theme.navigationBarBackgroundColorDark
-            navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: Kevin.shared.theme.navigationBarTitleColor]
+            Kevin.shared.theme.navigationBarStyle.backgroundColorLightMode :
+            Kevin.shared.theme.navigationBarStyle.backgroundColorDarkMode
+            navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: Kevin.shared.theme.navigationBarStyle.titleColor]
         }
     }
 }

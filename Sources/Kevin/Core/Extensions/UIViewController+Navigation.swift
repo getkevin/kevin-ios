@@ -34,20 +34,20 @@ extension UIViewController {
         with customAction: Selector? = #selector(onBackTapped),
         tintColor: UIColor? = nil
     ) {
-        let button = UIBarButtonItem(image: Kevin.shared.theme.backButtonImage, style: .plain, target: self, action: customAction)
+        let button = UIBarButtonItem(image: Kevin.shared.theme.navigationBarStyle.backButtonImage, style: .plain, target: self, action: customAction)
         
         self.navigationItem.leftBarButtonItem = button
-        self.navigationController?.navigationBar.tintColor = Kevin.shared.theme.navigationBarTintColor
+        self.navigationController?.navigationBar.tintColor = Kevin.shared.theme.navigationBarStyle.tintColor
     }
     
     internal func createCloseButtonItem(
         with customAction: Selector? = #selector(onCloseTapped),
         tintColor: UIColor? = nil
     ) {
-        let button = UIBarButtonItem(image: Kevin.shared.theme.closeButtonImage, style: .plain, target: self, action: customAction)
+        let button = UIBarButtonItem(image: Kevin.shared.theme.navigationBarStyle.closeButtonImage, style: .plain, target: self, action: customAction)
         
         self.navigationItem.leftBarButtonItem = button
-        self.navigationController?.navigationBar.tintColor = Kevin.shared.theme.navigationBarTintColor
+        self.navigationController?.navigationBar.tintColor = Kevin.shared.theme.navigationBarStyle.tintColor
     }
     
     @objc internal func onBackTapped() {
