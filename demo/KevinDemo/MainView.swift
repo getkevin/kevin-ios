@@ -19,8 +19,7 @@ struct MainView: View {
     var body: some View {
         GeometryReader { reader in
             ZStack {
-                Color.init("PrimaryBackgroundColor").ignoresSafeArea()
-                
+                Color("PrimaryBackgroundColor").ignoresSafeArea()
                 ScrollView {
                     VStack(alignment: .leading) {
                         KevinScreenTitle()
@@ -145,7 +144,7 @@ struct MainView: View {
                         
                         Button(action: {
                             hideKeyboard()
-                            viewModel.onDonateButtonTapped()
+                            viewModel.initiateDonation()
                         }) {
                             Text(String(
                                 format: "donate_button_title".localized(),
@@ -160,7 +159,7 @@ struct MainView: View {
                             maxHeight: 48.0,
                             alignment: .center
                         )
-                        .background(viewModel.viewState.isDonateButtonDisabled ? Color.init("DisabledButton") : Color.init("AccentColor"))
+                        .background(viewModel.viewState.isDonateButtonDisabled ? Color("DisabledButton") : Color("AccentColor"))
                         .cornerRadius(10)
                         .disabled(viewModel.viewState.isDonateButtonDisabled)
                     }
@@ -181,7 +180,7 @@ struct MainView: View {
                 KevinCountrySelector(
                     countyCodes: viewModel.viewState.countryCodes,
                     onCountrySelected: { selectedCountryCode in
-                        viewModel.onCounrtyCodeSelected(selectedCountryCode)
+                        viewModel.selectCountry(selectedCountryCode)
                     }
                 )
             },
@@ -209,12 +208,5 @@ struct MainView: View {
                 dismissButton: .default(Text("action_ok".localized()))
             )
         })
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    
-    static var previews: some View {
-        MainView(viewModel: MainViewModel())
     }
 }

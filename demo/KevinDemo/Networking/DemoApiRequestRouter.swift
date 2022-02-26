@@ -38,9 +38,9 @@ enum DemoApiRequestRouter {
         case .getCharityList:
             return Self.kevinDemoBaseUrl.appendingPathComponent("creditors")
         case .initializeBankPayment( _):
-            return Self.kevinMobileDemoBaseUrl.appendingPathComponent("/payments/bank/")
+            return Self.kevinMobileDemoBaseUrl.appendingPathComponent("payments/bank/")
         case .initializeCardPayment( _):
-            return Self.kevinMobileDemoBaseUrl.appendingPathComponent("/payments/card/")
+            return Self.kevinMobileDemoBaseUrl.appendingPathComponent("payments/card/")
         }
     }
     

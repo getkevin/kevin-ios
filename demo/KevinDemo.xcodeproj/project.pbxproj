@@ -31,7 +31,6 @@
 		0CE4996F27BBE8A3005E32D4 /* SegmentedControlElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE4996E27BBE8A3005E32D4 /* SegmentedControlElement.swift */; };
 		0CE4997327BBE974005E32D4 /* SegmentedControlButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE4997227BBE974005E32D4 /* SegmentedControlButtonView.swift */; };
 		0CE7379C27C781BA0010C934 /* HalfASheet in Frameworks */ = {isa = PBXBuildFile; productRef = 0CE7379B27C781BA0010C934 /* HalfASheet */; };
-		272CA8E326B426D000978AA7 /* MainButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272CA8E226B426D000978AA7 /* MainButtonStyle.swift */; };
 		272CA8E626B4404F00978AA7 /* KevinViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272CA8E526B4404F00978AA7 /* KevinViewControllerRepresentable.swift */; };
 		272CA8EF26B456A500978AA7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 272CA8ED26B456A500978AA7 /* Localizable.strings */; };
 		272CA8F226B4575200978AA7 /* Localize_Swift in Frameworks */ = {isa = PBXBuildFile; productRef = 272CA8F126B4575200978AA7 /* Localize_Swift */; };
@@ -64,6 +63,7 @@
 		27C35116267372FB00A3A17F /* KevinDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C35115267372FB00A3A17F /* KevinDemoUITests.swift */; };
 		27D384FD27651C13001395C0 /* DemoKevinTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D384FC27651C13001395C0 /* DemoKevinTheme.swift */; };
 		27EF269026B806D90085FDC7 /* .kevin in Frameworks */ = {isa = PBXBuildFile; productRef = 27EF268F26B806D90085FDC7 /* .kevin */; };
+		27F1220F27CA488200D1DFFB /* StyleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F1220E27CA488200D1DFFB /* StyleModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,7 +106,6 @@
 		0CE4996C27BBE0F8005E32D4 /* PaymentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentType.swift; sourceTree = "<group>"; };
 		0CE4996E27BBE8A3005E32D4 /* SegmentedControlElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlElement.swift; sourceTree = "<group>"; };
 		0CE4997227BBE974005E32D4 /* SegmentedControlButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlButtonView.swift; sourceTree = "<group>"; };
-		272CA8E226B426D000978AA7 /* MainButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButtonStyle.swift; sourceTree = "<group>"; };
 		272CA8E526B4404F00978AA7 /* KevinViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KevinViewControllerRepresentable.swift; sourceTree = "<group>"; };
 		272CA8EE26B456A500978AA7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
 		272CA8F326B45E4E00978AA7 /* MainViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewState.swift; sourceTree = "<group>"; };
@@ -139,6 +138,7 @@
 		27C35115267372FB00A3A17F /* KevinDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KevinDemoUITests.swift; sourceTree = "<group>"; };
 		27C35117267372FB00A3A17F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		27D384FC27651C13001395C0 /* DemoKevinTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoKevinTheme.swift; sourceTree = "<group>"; };
+		27F1220E27CA488200D1DFFB /* StyleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,9 +177,9 @@
 		0C08544E27B2680C0036EE48 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				0C14500E27C3B74900FB3A3E /* String+Extensions.swift */,
 				0C08544F27B268220036EE48 /* Text+Extensions.swift */,
 				0C08546527B55AA70036EE48 /* View+Extensions.swift */,
-				0C14500E27C3B74900FB3A3E /* String+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -210,9 +210,9 @@
 				272CA8E426B4402200978AA7 /* Representables */,
 				0CE4995F27B67D1F005E32D4 /* KevinAgreementCheckMark.swift */,
 				0CE4996127BA659C005E32D4 /* KevinCharityView.swift */,
+				0C08545B27B3E1270036EE48 /* KevinCountrySelectionRowView.swift */,
 				0CE4996927BA9EC4005E32D4 /* KevinCountrySelector.swift */,
 				0CE4995A27B67A09005E32D4 /* KevinScreenTitle.swift */,
-				0C08545B27B3E1270036EE48 /* KevinCountrySelectionRowView.swift */,
 				0CE4995C27B67AC8005E32D4 /* KevinTextField.swift */,
 			);
 			path = Views;
@@ -229,8 +229,8 @@
 		272CA8E126B426C300978AA7 /* Styles */ = {
 			isa = PBXGroup;
 			children = (
-				272CA8E226B426D000978AA7 /* MainButtonStyle.swift */,
 				27D384FC27651C13001395C0 /* DemoKevinTheme.swift */,
+				27F1220E27CA488200D1DFFB /* StyleModifier.swift */,
 				0C08545127B268830036EE48 /* TextStyles.swift */,
 			);
 			path = Styles;
@@ -265,9 +265,9 @@
 		2782B44C27789115004A9E05 /* Requests */ = {
 			isa = PBXGroup;
 			children = (
+				0C08546927B55C680036EE48 /* CharityListRequest.swift */,
 				2782B44D2778912D004A9E05 /* GetAuthStateRequest.swift */,
 				2782B44F277892D6004A9E05 /* InitiatePaymentRequest.swift */,
-				0C08546927B55C680036EE48 /* CharityListRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -279,8 +279,8 @@
 				27B180B32680803F001E0C50 /* Entities */,
 				2782B44C27789115004A9E05 /* Requests */,
 				27B180B8268080E2001E0C50 /* DemoApiClient.swift */,
-				27B180A026807C13001E0C50 /* DemoApiRequestRouter.swift */,
 				27B180BA26808147001E0C50 /* DemoApiClientFactory.swift */,
+				27B180A026807C13001E0C50 /* DemoApiRequestRouter.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -290,8 +290,8 @@
 			children = (
 				27B180A926807EB2001E0C50 /* Entities */,
 				27B180AE26807F72001E0C50 /* Protocols */,
-				27B1809926807920001E0C50 /* BaseApiRequestAdapter.swift */,
 				27B180A226807D78001E0C50 /* BaseApiClient.swift */,
+				27B1809926807920001E0C50 /* BaseApiRequestAdapter.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -302,8 +302,8 @@
 				27B180A426807E1E001E0C50 /* ApiError.swift */,
 				27B180AC26807F14001E0C50 /* ApiRequest.swift */,
 				27B180AA26807EF3001E0C50 /* JWTCredentials.swift */,
-				27B1809D26807984001E0C50 /* URLRequestHeader.swift */,
 				27B1809B26807949001E0C50 /* RequestHeaders.swift */,
+				27B1809D26807984001E0C50 /* URLRequestHeader.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -311,8 +311,8 @@
 		27B180AE26807F72001E0C50 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				27B180AF26807F86001E0C50 /* TokenRefresherProtocol.swift */,
 				27B180B126807FA3001E0C50 /* LoggerProtocol.swift */,
+				27B180AF26807F86001E0C50 /* TokenRefresherProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -321,10 +321,10 @@
 			isa = PBXGroup;
 			children = (
 				27B180B42680805B001E0C50 /* ApiAuthState.swift */,
-				27B180B62680809B001E0C50 /* ApiPayment.swift */,
-				0C08546327B557FE0036EE48 /* ApiCountries.swift */,
-				0C08546727B55BA30036EE48 /* ApiCharity.swift */,
 				0C08546B27B55ED60036EE48 /* ApiCharities.swift */,
+				0C08546727B55BA30036EE48 /* ApiCharity.swift */,
+				0C08546327B557FE0036EE48 /* ApiCountries.swift */,
+				27B180B62680809B001E0C50 /* ApiPayment.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -362,8 +362,8 @@
 				0CE4995927B679E9005E32D4 /* Views */,
 				27C350F8267372FA00A3A17F /* KevinDemoApp.swift */,
 				27C350FA267372FA00A3A17F /* MainView.swift */,
-				272CA8F326B45E4E00978AA7 /* MainViewState.swift */,
 				27B1808926807338001E0C50 /* MainViewModel.swift */,
+				272CA8F326B45E4E00978AA7 /* MainViewState.swift */,
 			);
 			path = KevinDemo;
 			sourceTree = "<group>";
@@ -584,7 +584,6 @@
 				27B1809E26807984001E0C50 /* URLRequestHeader.swift in Sources */,
 				27B180B9268080E2001E0C50 /* DemoApiClient.swift in Sources */,
 				27B180AD26807F14001E0C50 /* ApiRequest.swift in Sources */,
-				272CA8E326B426D000978AA7 /* MainButtonStyle.swift in Sources */,
 				0C08546627B55AA70036EE48 /* View+Extensions.swift in Sources */,
 				27B1808A26807338001E0C50 /* MainViewModel.swift in Sources */,
 				0C08545927B28AAE0036EE48 /* SegmentedControlUnderlineModifier.swift in Sources */,
@@ -597,6 +596,7 @@
 				0C08546427B557FE0036EE48 /* ApiCountries.swift in Sources */,
 				0C08545027B268220036EE48 /* Text+Extensions.swift in Sources */,
 				0CE4996F27BBE8A3005E32D4 /* SegmentedControlElement.swift in Sources */,
+				27F1220F27CA488200D1DFFB /* StyleModifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -766,6 +766,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"KevinDemo/Preview Content\"";
+				DEVELOPMENT_TEAM = QB5T5787CS;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = KevinDemo/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -787,6 +788,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"KevinDemo/Preview Content\"";
+				DEVELOPMENT_TEAM = QB5T5787CS;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = KevinDemo/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;

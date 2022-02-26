@@ -12,7 +12,7 @@ public final class CharityListRequest: Mappable {
     public var countryCode: String!
     
     public init(countryCode: String) {
-        self.countryCode = countryCode.uppercased() == "LT" ? "LT" : "EE"
+        self.countryCode = countryCode
     }
     
     required public init?(map: Map) { }

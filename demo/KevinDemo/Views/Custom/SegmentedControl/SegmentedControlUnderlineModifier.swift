@@ -9,6 +9,7 @@ import SwiftUI
 
 /// This modifier provides an animated underscore for the SegmentedControl.
 struct SegmentedControlUnderlineModifier<T: Hashable>: ViewModifier {
+    
     var selectedValue: T
     var color: Color
     let frames: [T: CGRect]
@@ -16,20 +17,17 @@ struct SegmentedControlUnderlineModifier<T: Hashable>: ViewModifier {
 
     private func getLowerMostMinX(_ frames: [T: CGRect]) -> CGFloat {
         var minX = frames.values.first?.minX ?? 0.0
-        
         frames.values.forEach({ frame in
             if frame.minX < minX {
                 minX = frame.minX
             }
         })
-        
         return minX
     }
 
     func body(content: Content) -> some View {
         let frameWidth = frames[selectedValue]?.width ?? 0.0
         let frameMinX = frames[selectedValue]?.minX ?? 0.0
-
         return content
             .background(
                 Rectangle()

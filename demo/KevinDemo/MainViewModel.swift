@@ -23,7 +23,7 @@ class MainViewModel: ObservableObject, KevinPaymentSessionDelegate {
         getCountryList()
     }
         
-    func paymentTypeSelected(type newType: PaymentType) {
+    func selectPaymentType(type newType: PaymentType) {
         viewState.selectedPaymentType = newType
     }
     
@@ -31,21 +31,21 @@ class MainViewModel: ObservableObject, KevinPaymentSessionDelegate {
         viewState.isCountrySelectorPresented = true
     }
     
-    func onCounrtyCodeSelected(_ selectedCountryCode: String) {
+    func selectCountry(_ selectedCountryCode: String) {
         viewState.selectedCountryCode = selectedCountryCode
         getCharityList(forCountryCode: selectedCountryCode)
         viewState.isCountrySelectorPresented = false
+    }
+    
+    func toggleAgreement() {
+        viewState.isAgreementChecked = !viewState.isAgreementChecked
+        updateDonateButtonState()
     }
     
     func openLink(_ urlString: String) {
         if let url = URL(string: urlString) {
             UIApplication.shared.open(url)
         }
-    }
-    
-    func toggleAgreement() {
-        viewState.isAgreementChecked = !viewState.isAgreementChecked
-        updateDonateButtonState()
     }
     
     func updateDonateButtonState() {
@@ -57,7 +57,7 @@ class MainViewModel: ObservableObject, KevinPaymentSessionDelegate {
             viewState.selectedCharity != nil)
     }
     
-    func onDonateButtonTapped() {        
+    func initiateDonation() {
         if viewState.selectedPaymentType == PaymentType.bank {
             invokeBankPaymentInitiationSession()
         } else {
@@ -65,7 +65,7 @@ class MainViewModel: ObservableObject, KevinPaymentSessionDelegate {
         }
     }
 
-    func getCountryList() {
+    private func getCountryList() {
         viewState.isCountryLoading = true
         viewState.isCharityLoading = true
         apiClient.getCountryList().done { apiCountries in
@@ -78,9 +78,13 @@ class MainViewModel: ObservableObject, KevinPaymentSessionDelegate {
         }
     }
     
-    func getCharityList(forCountryCode countryCode: String) {
+    private func getCharityList(forCountryCode countryCode: String) {
+        var targetCountryCode = countryCode.uppercased()
+        if targetCountryCode != "LT" {
+            targetCountryCode = "EE"
+        }
         viewState.isCharityLoading = true
-        apiClient.getCharityList(forCountryCode: countryCode).done { apiCharities in
+        apiClient.getCharityList(forCountryCode: targetCountryCode).done { apiCharities in
             self.viewState.charities = apiCharities.list
             self.viewState.selectedCharity = apiCharities.list.first
             self.viewState.isCharityLoading = false
@@ -89,7 +93,7 @@ class MainViewModel: ObservableObject, KevinPaymentSessionDelegate {
         }
     }
     
-    func invokeBankPaymentInitiationSession() {
+    private func invokeBankPaymentInitiationSession() {
         viewState.isPaymentInProgress = true
         apiClient.initializeBankPayment(
             amount: viewState.amountString,
@@ -115,7 +119,7 @@ class MainViewModel: ObservableObject, KevinPaymentSessionDelegate {
         }
     }
     
-    func invokeCardPaymentInitiationSession() {
+    private func invokeCardPaymentInitiationSession() {
         viewState.isPaymentInProgress = true
         apiClient.initializeCardPayment(
             amount: viewState.amountString,

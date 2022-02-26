@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SegmentedControlButtonView<T: Hashable>: View {
+    
     @Binding internal var selectedValue: T
     @Binding internal var frames: [T : CGRect]
     @Binding internal var backgroundFrame: CGRect

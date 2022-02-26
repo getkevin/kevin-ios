@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SegmentedControlElement<T: Hashable> {
+    
     var title: String
     var value: T
     

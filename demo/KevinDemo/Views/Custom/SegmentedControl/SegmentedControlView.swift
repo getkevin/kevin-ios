@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SegmentedControlView<T: Hashable>: View {
+    
     @Binding private var selectedValue: T
 
     @State private var frames = [T : CGRect]()
@@ -49,8 +50,7 @@ struct SegmentedControlView<T: Hashable>: View {
         )
     }
 
-    private func setBackgroundFrame(frame: CGRect)
-    {
+    private func setBackgroundFrame(frame: CGRect) {
         backgroundFrame = frame
     }
 }

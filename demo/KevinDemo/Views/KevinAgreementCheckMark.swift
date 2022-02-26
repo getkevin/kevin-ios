@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct KevinAgreementCheckMark: View {
+    
     var isAgreementChecked: Bool
     let toggleAgreement: () -> Void
     let openLink: (String) -> Void
