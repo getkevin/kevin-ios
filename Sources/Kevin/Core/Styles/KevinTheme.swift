@@ -24,7 +24,6 @@ open class KevinTheme {
         public var primaryBackgroundColor = UIColor(red: 242/255, green: 242/255, blue: 247/255, alpha: 1)
         public var primaryTextColor = UIColor(rgb: 0x0B1E42)
         public var secondaryTextColor = UIColor(red: 124/255, green: 136/255, blue: 148/255, alpha: 1)
-        public var chevronImage = UIImage(named: "chevronIcon", in: Bundle.module, compatibleWith: nil)
         
         public init() { }
     }
@@ -69,6 +68,7 @@ open class KevinTheme {
         public var cellBackgroundColor = UIColor.white
         public var cellSelectedBackgroundColor = UIColor(red: 226/255, green: 225/255, blue: 234/255, alpha: 1)
         public var titleLabelFont = UIFont.systemFont(ofSize: 15, weight: .semibold)
+        public var chevronImage: UIImage? = UIImage(named: "chevronIcon", in: Bundle.module, compatibleWith: nil)
         
         public init() { }
     }
@@ -80,7 +80,7 @@ open class KevinTheme {
         public var cornerRadius: CGFloat = 10
         public var borderWidth: CGFloat = 0
         public var borderColor = UIColor(red: 226/255, green: 225/255, blue: 234/255, alpha: 1)
-        public var chevronImage = UIImage(named: "chevronIcon", in: Bundle.module, compatibleWith: nil)
+        public var chevronImage: UIImage? = UIImage(named: "chevronIcon", in: Bundle.module, compatibleWith: nil)
         
         public init() { }
     }

@@ -73,6 +73,7 @@ internal class KevinCountrySelectionView : KevinModalView<KevinCountrySelectionS
         countryTableView.delegate = self
         countryTableView.estimatedRowHeight = 62
         countryTableView.separatorStyle = .none
+        countryTableView.showsVerticalScrollIndicator = false
         containerView.addSubview(countryTableView)
         
         countryTableView.translatesAutoresizingMaskIntoConstraints = false
@@ -80,7 +81,7 @@ internal class KevinCountrySelectionView : KevinModalView<KevinCountrySelectionS
         countryTableView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
         
         var leftInset = Kevin.shared.theme.insets.left
-        var rightInset = Kevin.shared.theme.insets.left
+        var rightInset = Kevin.shared.theme.insets.right
         if Kevin.shared.theme.listTableStyle.isOccupyingFullWidth {
             leftInset = 0
             rightInset = 0

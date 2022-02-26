@@ -45,6 +45,14 @@ internal class CountryCell : UITableViewCell {
         titleLabel.leftAnchor.constraint(equalTo: iconImageView.rightAnchor, constant: Kevin.shared.theme.insets.left).isActive = true
         titleLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.5).isActive = true
         titleLabel.heightAnchor.constraint(equalTo: contentView.heightAnchor).isActive = true
+        
+        let chevron = UIImageView(image: Kevin.shared.theme.listTableStyle.chevronImage)
+        contentView.addSubview(chevron)
+        chevron.translatesAutoresizingMaskIntoConstraints = false
+        chevron.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+        chevron.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -18).isActive = true
+        chevron.widthAnchor.constraint(equalToConstant: 14).isActive = true
+        chevron.heightAnchor.constraint(equalToConstant: 14).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {

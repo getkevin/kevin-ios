@@ -191,6 +191,7 @@ extension KevinBankSelectionView : UITableViewDataSource {
             
             let rightRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.onBankSelected(_:)))
             cell!.rightAsset.gestureRecognizers?.removeAll()
+            cell!.rightOverlay.isHidden = false
             cell!.rightAsset.addGestureRecognizer(rightRecognizer)
         } else {
             cell!.rightAsset.image = nil
