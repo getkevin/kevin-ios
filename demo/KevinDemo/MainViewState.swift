@@ -20,7 +20,7 @@ struct MainViewState {
     var charities: [ApiCharity] = []
     var selectedCharity: ApiCharity? 
     var email: String = ""
-    var amountString: String = "0.00"
+    var amountString: String = ""
     var isAgreementChecked: Bool = false
     var isDonateButtonDisabled: Bool = true
     var openKevin: Bool = false

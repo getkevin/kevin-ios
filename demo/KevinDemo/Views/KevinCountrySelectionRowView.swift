@@ -33,12 +33,12 @@ struct KevinCountrySelectionRowView: View {
                     .padding([.top, .bottom], 4.0)
 
                 Text("\(title)")
-                    .style(.selectionText)
+                    .style(.countrySelectorItemTitle)
 
                 Spacer()
      
                 Text("country_name_\(countryCode)".lowercased().localized())
-                    .style(.selectionText)
+                    .style(.countrySelectorItemTitle)
                     .padding(.trailing, 16.0)
             } else {
                 Spacer()
@@ -50,7 +50,7 @@ struct KevinCountrySelectionRowView: View {
             }
             
             if chevronVisible {
-                Image(systemName: "chevron.right")
+                Image("chevronIcon")
                     .frame(width: 8.0, height: 14.0, alignment: .center)
                     .foregroundColor(Color.gray)
             }

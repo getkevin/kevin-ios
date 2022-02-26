@@ -14,7 +14,7 @@ struct KevinScreenTitle: View {
             Text("screen_title".localized())
                 .style(.title)
                 .padding(.top, 16)
-                .padding(.bottom, 1)
+                .padding(.bottom, 0)
             Text("screen_subtitle".localized())
                 .style(.subtitle)
                 .padding(.top, 0)

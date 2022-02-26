@@ -51,7 +51,7 @@ struct MainView: View {
                                 )
                         ) {
                             Button(action: {
-                                viewModel.presentCountrySelector()
+                                viewModel.openCountrySelection()
                             }) {
                                 KevinCountrySelectionRowView(
                                     title: "country".localized(),
@@ -95,7 +95,7 @@ struct MainView: View {
                                     height: 20.0,
                                     alignment: .leading
                                 )
-                                .padding(.top)
+                                .padding(.top, 8.0)
                         ) {
                             Text("email".localized())
                                 .style(.textFieldName)
@@ -123,7 +123,7 @@ struct MainView: View {
                                     },
                                     textBinding: $viewModel.viewState.amountString,
                                     text: viewModel.viewState.amountString,
-                                    keyboardType: .numberPad
+                                    keyboardType: .decimalPad
                                 )
                                 
                                 Text("currency_eur".localized())
@@ -138,13 +138,13 @@ struct MainView: View {
                                 viewModel.toggleAgreement()
                             },
                             openLink: { linkString in
-                                viewModel.openLink(linkString)
+                                viewModel.openAgreementLink(linkString)
                             }
                         )
                         
                         Button(action: {
                             hideKeyboard()
-                            viewModel.initiateDonation()
+                            viewModel.makeDonation()
                         }) {
                             Text(String(
                                 format: "donate_button_title".localized(),
@@ -178,7 +178,8 @@ struct MainView: View {
             isPresented: $viewModel.viewState.isCountrySelectorPresented,
             content: {
                 KevinCountrySelector(
-                    countyCodes: viewModel.viewState.countryCodes,
+                    countryCodes: viewModel.viewState.countryCodes,
+                    selectedCountry: viewModel.viewState.selectedCountryCode!,
                     onCountrySelected: { selectedCountryCode in
                         viewModel.selectCountry(selectedCountryCode)
                     }
@@ -187,9 +188,9 @@ struct MainView: View {
             configuration: HalfASheetConfiguration(
                 appearanceAnimationDuration: 0.2,
                 backgroundColor: Color("PrimaryBackgroundColor"),
-                height: .proportional(0.75),
+                height: .proportional(0.85),
                 contentInsets: EdgeInsets(top: 16, leading: 16, bottom: 0, trailing: 16),
-                allowsDraggingToDismiss: false
+                allowsDraggingToDismiss: true
             )
         )
         .onTapGesture {

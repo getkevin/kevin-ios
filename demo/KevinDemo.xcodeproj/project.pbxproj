@@ -218,12 +218,12 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		0CE4996B27BBE06B005E32D4 /* Constants */ = {
+		0CE4996B27BBE06B005E32D4 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
 				0CE4996C27BBE0F8005E32D4 /* PaymentType.swift */,
 			);
-			path = Constants;
+			path = Enums;
 			sourceTree = "<group>";
 		};
 		272CA8E126B426C300978AA7 /* Styles */ = {
@@ -353,7 +353,7 @@
 		27C350F7267372FA00A3A17F /* KevinDemo */ = {
 			isa = PBXGroup;
 			children = (
-				0CE4996B27BBE06B005E32D4 /* Constants */,
+				0CE4996B27BBE06B005E32D4 /* Enums */,
 				0C08544E27B2680C0036EE48 /* Extensions */,
 				27B1808B26807606001E0C50 /* Networking */,
 				0C08545527B28A210036EE48 /* Preferences */,

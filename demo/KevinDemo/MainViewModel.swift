@@ -27,7 +27,7 @@ class MainViewModel: ObservableObject, KevinPaymentSessionDelegate {
         viewState.selectedPaymentType = newType
     }
     
-    func presentCountrySelector() {
+    func openCountrySelection() {
         viewState.isCountrySelectorPresented = true
     }
     
@@ -42,7 +42,7 @@ class MainViewModel: ObservableObject, KevinPaymentSessionDelegate {
         updateDonateButtonState()
     }
     
-    func openLink(_ urlString: String) {
+    func openAgreementLink(_ urlString: String) {
         if let url = URL(string: urlString) {
             UIApplication.shared.open(url)
         }
@@ -51,19 +51,20 @@ class MainViewModel: ObservableObject, KevinPaymentSessionDelegate {
     func updateDonateButtonState() {
         viewState.isDonateButtonDisabled =
             !(viewState.isAgreementChecked &&
-            !viewState.email.isEmpty &&
             viewState.email.isValidEmail() &&
-            viewState.amountString != "0.00" &&
+            Double(viewState.amountString) != nil &&
             viewState.selectedCharity != nil)
     }
     
-    func initiateDonation() {
+    func makeDonation() {
         if viewState.selectedPaymentType == PaymentType.bank {
             invokeBankPaymentInitiationSession()
         } else {
             invokeCardPaymentInitiationSession()
         }
     }
+    
+    //  MARK: Network requests
 
     private func getCountryList() {
         viewState.isCountryLoading = true
@@ -162,7 +163,7 @@ class MainViewModel: ObservableObject, KevinPaymentSessionDelegate {
         self.viewState.messageDescription = errorMessage ?? "error_alert_description".localized()
     }
         
-    //MARK: KevinPaymentSessionDelegate
+    //  MARK: KevinPaymentSessionDelegate
     
     func onKevinPaymentInitiationStarted(controller: UINavigationController) {
         self.kevinController = controller
@@ -183,7 +184,7 @@ class MainViewModel: ObservableObject, KevinPaymentSessionDelegate {
             getCharityList(forCountryCode: "LT")
         }
         viewState.email = ""
-        viewState.amountString = "0.00"
+        viewState.amountString = ""
         viewState.isAgreementChecked = false
         viewState.showMessage = true
         viewState.messageTitle = "success_alert_title".localized()

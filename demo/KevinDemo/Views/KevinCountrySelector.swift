@@ -10,50 +10,55 @@ import HalfASheet
 
 struct KevinCountrySelector: View {
     
-    private let countyCodes: [String]
+    private let countryCodes: [String]
+    private let selectedCountry: String
     private let onCountrySelected: (String) -> Void
 
     init(
-        countyCodes: [String],
+        countryCodes: [String],
+        selectedCountry: String,
         onCountrySelected: @escaping (String) -> Void
     ) {
-        self.countyCodes = countyCodes
+        self.countryCodes = countryCodes
+        self.selectedCountry = selectedCountry
         self.onCountrySelected = onCountrySelected
     }
     
     var body: some View {
-        return GeometryReader { geoReader in
+        return GeometryReader { geometryReader in
             VStack(alignment: .leading) {
                 Text("select_country".localized())
                     .style(.countrySelectorTitle)
                 
                 ScrollView(showsIndicators: false) {
                     VStack {
-                        ForEach(countyCodes, id: \.self) { countyCode in
+                        ForEach(countryCodes, id: \.self) { countryCode in
+                            let isCountrySelected = countryCode == selectedCountry
                             Button(action: {
-                                onCountrySelected(countyCode)
+                                onCountrySelected(countryCode)
                             }) {
                                 HStack(spacing: 0.0) {
-                                    Image("flag\(countyCode)")
+                                    Image("flag\(countryCode)")
                                         .resizable()
                                         .frame(width: 40.0, height: 40.0)
                                         .padding([.leading, .trailing])
                                         .padding([.top, .bottom], 12.0)
 
-                                    Text("country_name_\(countyCode)".lowercased().localized())
+                                    Text("country_name_\(countryCode)".lowercased().localized())
                                         .foregroundColor(Color("PrimaryTextColor"))
+                                        .style(.countrySelectorItemTitle)
 
                                     Spacer()
                                     
-                                    Image(systemName: "chevron.right")
+                                    Image("chevronIcon")
                                         .frame(width: 8.0, height: 14.0, alignment: .center)
                                         .foregroundColor(Color.gray)
                                         .padding(.trailing)
                                 }
-                            }
+                            }.background(Color(isCountrySelected ? "AccentColor" : "SecondaryBackgroundColor"))
                         }
                     }
-                    .frame(width: geoReader.size.width)
+                    .frame(width: geometryReader.size.width)
                     .background(Color("SecondaryBackgroundColor"))
                     .cornerRadius(15)
                 }

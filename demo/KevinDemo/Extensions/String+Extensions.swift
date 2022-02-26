@@ -16,28 +16,16 @@ extension String {
     }
 
     func toCurrencyFormat() -> String {
-        var number: NSNumber!
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currencyAccounting
-        formatter.currencySymbol = ""
-        formatter.currencyGroupingSeparator = ""
-        formatter.currencyDecimalSeparator = "."
-        formatter.maximumFractionDigits = 2
-        formatter.minimumFractionDigits = 2
-        formatter.maximumIntegerDigits = 12
-        
-        var amountWithPrefix = String(self.prefix(15))
-    
-        let regex = try! NSRegularExpression(pattern: "[^0-9]", options: .caseInsensitive)
-        amountWithPrefix = regex.stringByReplacingMatches(in: amountWithPrefix, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, amountWithPrefix.count), withTemplate: "")
-    
-        let double = (amountWithPrefix as NSString).doubleValue
-        number = NSNumber(value: (double / 100))
-    
-        guard number != 0 as NSNumber else {
-            return "0"
+        let decimalSeparator = Locale.current.decimalSeparator!
+        let parts = self.split(separator: ".")
+        if parts.count == 1 {
+            if self.hasSuffix(decimalSeparator) {
+                return self.replacingOccurrences(of: decimalSeparator, with: ".")
+            }
+            return self
+        } else if parts.count == 2 {
+            return "\(parts.first!).\(parts.last!.prefix(2))"
         }
-    
-        return formatter.string(from: number)!
+        return ""
     }
 }

@@ -13,13 +13,13 @@ public enum TextStyle {
     case segmentedPickerSelected
     case segmentedPickerUnselected
     case sectionHeader
-    case selectionText
     case textFieldName
     case currencyHint
     case agreement
     case agreementLink
     case buttonTitle
     case countrySelectorTitle
+    case countrySelectorItemTitle
 
     public var font: Font {
         switch self {
@@ -33,8 +33,6 @@ public enum TextStyle {
             return .system(size: 16).weight(.medium)
         case .sectionHeader:
             return .system(size: 17).weight(.semibold)
-        case .selectionText:
-            return .system(size: 16).weight(.regular)
         case .textFieldName:
             return .system(size: 14).weight(.regular)
         case .currencyHint:
@@ -45,7 +43,9 @@ public enum TextStyle {
         case .buttonTitle:
             return .system(size: 17).weight(.semibold)
         case .countrySelectorTitle:
-            return .system(size: 22)
+            return .system(size: 21).weight(.medium)
+        case .countrySelectorItemTitle:
+            return .system(size: 16).weight(.semibold)
         }
     }
     
