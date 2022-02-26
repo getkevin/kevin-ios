@@ -10,38 +10,43 @@ import Alamofire
 import Foundation
 
 enum DemoApiRequestRouter {
-    
-    case getAuthState(request: GetAuthStateRequest)
+        
+    case getCountryList
+    case getCharityList(request: CharityListRequest)
     case initializeBankPayment(request: InitiatePaymentRequest)
     case initializeCardPayment(request: InitiatePaymentRequest)
     
     // MARK: - Declarations
-    private static let baseURL = URL(string: "https://your.kevin.url/")!
-    
+    private static let kevinDemoBaseUrl = URL(string: "https://api.getkevin.eu/demo")!
+    private static let kevinMobileDemoBaseUrl = URL(string: "https://mobile-demo.kevin.eu/api/v2/")!
+
     private var method: HTTPMethod {
         switch self {
-        case .getAuthState,
-             .initializeBankPayment,
+        case .getCountryList,
+             .getCharityList:
+            return .get
+        case .initializeBankPayment,
              .initializeCardPayment:
             return .post
         }
     }
     
-    private var path: String {
+    private var path: URL {
         switch self {
-            
-        case .getAuthState( _):
-            return "auth/initiate/"
+        case .getCountryList:
+            return Self.kevinDemoBaseUrl.appendingPathComponent("countries")
+        case .getCharityList:
+            return Self.kevinDemoBaseUrl.appendingPathComponent("creditors")
         case .initializeBankPayment( _):
-            return "payments/bank/"
+            return Self.kevinMobileDemoBaseUrl.appendingPathComponent("payments/bank/")
         case .initializeCardPayment( _):
-            return "payments/card/"
+            return Self.kevinMobileDemoBaseUrl.appendingPathComponent("payments/card/")
         }
     }
     
     private var parameters: Parameters? {
         switch self {
-        case .getAuthState(let request):
+        case .getCharityList(let request):
             return request.toJSON()
         case .initializeBankPayment(let request):
             return request.toJSON()
@@ -56,7 +61,7 @@ enum DemoApiRequestRouter {
 extension DemoApiRequestRouter: URLRequestConvertible {
     
     func asURLRequest() throws -> URLRequest {
-        let url = Self.baseURL.appendingPathComponent(path)
+        let url = path
         var urlRequest = URLRequest(url: url)
         urlRequest.method = method
         

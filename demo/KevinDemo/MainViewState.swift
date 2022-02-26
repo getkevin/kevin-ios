@@ -10,7 +10,19 @@ import Foundation
 import SwiftUI
 
 struct MainViewState {
-    var isLoading: Bool = false
+    var isCountryLoading: Bool = false
+    var isCharityLoading: Bool = false
+    var isPaymentInProgress: Bool = false
+    var selectedPaymentType: PaymentType = PaymentType.bank
+    var isCountrySelectorPresented: Bool = false
+    var countryCodes: [String] = []
+    var selectedCountryCode: String?
+    var charities: [ApiCharity] = []
+    var selectedCharity: ApiCharity? 
+    var email: String = ""
+    var amountString: String = ""
+    var isAgreementChecked: Bool = false
+    var isDonateButtonDisabled: Bool = true
     var openKevin: Bool = false
     var showMessage: Bool = false
     var messageTitle: String? = nil

@@ -7,17 +7,61 @@
   
 */
 
-"action_ok" = "OK";
+"screen_title"  = "Redirect payment";
+"screen_subtitle" = "Pick a charity you want to donate to";
 
-"link_account" = "LINK ACCOUNT";
-"make_bank_payment" = "MAKE BANK PAYMENT";
-"make_card_payment" = "MAKE CARD PAYMENT";
+"payment_type_bank" = "Bank payment";
+"payment_type_card" = "Card payment";
+
+"country_section_title" = "Select country and charity";
+"country" = "Country";
+"select_country" = "Select country";
+"country_name_at" = "Austria";
+"country_name_be" = "Belgium";
+"country_name_bg" = "Bulgaria";
+"country_name_cz" = "Czech Republic";
+"country_name_de" = "Germany";
+"country_name_dk" = "Denmark";
+"country_name_ee" = "Estonia";
+"country_name_es" = "Spain";
+"country_name_fi" = "Finland";
+"country_name_fr" = "France";
+"country_name_gb" = "United Kingdom";
+"country_name_it" = "Italy";
+"country_name_lt" = "Lithuania";
+"country_name_lu" = "Luxembourg";
+"country_name_lv" = "Latvia";
+"country_name_nl" = "Netherlands";
+"country_name_no" = "Norway";
+"country_name_pl" = "Poland";
+"country_name_pt" = "Portugal";
+"country_name_ro" = "Romania";
+"country_name_se" = "Sweden";
+"country_name_hu" = "Hungary";
+"country_name_ie" = "Ireland";
+"country_name_si" = "Slovenia";
+"country_name_sk" = "Slovakia";
+"country_name_mt" = "Malta";
+"country_name_cy" = "Cyprus";
+"country_name_hr" = "Croatia";
+"country_name_gr" = "Greece";
+"country_name_is" = "Iceland";
+"country_name_li" = "Liechtenstein";
+
+"details_section_title" = "Enter details";
+"email" = "E-mail";
+"amount" = "Payment amount";
+"currency_eur" = "EUR";
+"agreement_checkmark" = "I have read and agree with %@ and %@";
+"terms_and_conditions" = "Terms & Conditions";
+"privacy_policy" = "Privacy Policy";
+
+"donate_button_title" = "Donate • %@ %@";
 
 "error_alert_title" = "Oops!";
 "error_alert_description" = "Something went wrong! Please debug the code for more details..";
-
 "payment_was_canceled" = "Payment was canceled by the user!";
-"account_linking_was_canceled" = "Account linking was canceled by the user!";
-
 "success_alert_title" = "Success!";
-"success_alert_description" = "Token: %@";
+"success_alert_description" = "Donation was successful";
+
+"action_ok" = "Ok";

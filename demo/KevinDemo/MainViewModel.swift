@@ -11,7 +11,7 @@ import UIKit
 import Localize_Swift
 import Kevin
 
-class MainViewModel: ObservableObject, KevinAccountLinkingSessionDelegate, KevinPaymentSessionDelegate {
+class MainViewModel: ObservableObject, KevinPaymentSessionDelegate {
     
     @Published var viewState = MainViewState()
     
@@ -19,31 +19,89 @@ class MainViewModel: ObservableObject, KevinAccountLinkingSessionDelegate, Kevin
     
     private let apiClient = DemoApiClientFactory.createDemoApiClient(headers: RequestHeaders())
     
-    func invokeAccountLinkingSession() {
-        viewState = MainViewState(isLoading: true)
-        apiClient.getAuthState().done { state in
-            do {
-                KevinAccountLinkingSession.shared.delegate = self
-                try KevinAccountLinkingSession.shared.initiateAccountLinking(
-                    configuration: KevinAccountLinkingSessionConfiguration.Builder(
-                        state: state.state
-                    )
-                    .setPreselectedCountry(.lithuania)
-                    .setCountryFilter([.lithuania, .latvia, .estonia])
-                    .setSkipBankSelection(false)
-                    .build()
-                )
-            } catch {
-                self.parseError(error)
-            }
+    init() {
+        getCountryList()
+    }
+        
+    func selectPaymentType(type newType: PaymentType) {
+        viewState.selectedPaymentType = newType
+    }
+    
+    func openCountrySelection() {
+        viewState.isCountrySelectorPresented = true
+    }
+    
+    func selectCountry(_ selectedCountryCode: String) {
+        viewState.selectedCountryCode = selectedCountryCode
+        getCharityList(forCountryCode: selectedCountryCode)
+        viewState.isCountrySelectorPresented = false
+    }
+    
+    func toggleAgreement() {
+        viewState.isAgreementChecked = !viewState.isAgreementChecked
+        updateDonateButtonState()
+    }
+    
+    func openAgreementLink(_ urlString: String) {
+        if let url = URL(string: urlString) {
+            UIApplication.shared.open(url)
+        }
+    }
+    
+    func updateDonateButtonState() {
+        viewState.isDonateButtonDisabled =
+            !(viewState.isAgreementChecked &&
+            viewState.email.isValidEmail() &&
+            Double(viewState.amountString) != nil &&
+            viewState.selectedCharity != nil)
+    }
+    
+    func makeDonation() {
+        if viewState.selectedPaymentType == PaymentType.bank {
+            invokeBankPaymentInitiationSession()
+        } else {
+            invokeCardPaymentInitiationSession()
+        }
+    }
+    
+    //  MARK: Network requests
+
+    private func getCountryList() {
+        viewState.isCountryLoading = true
+        viewState.isCharityLoading = true
+        apiClient.getCountryList().done { apiCountries in
+            self.viewState.countryCodes = apiCountries.list
+            self.viewState.selectedCountryCode = "LT"
+            self.viewState.isCountryLoading = false
+            self.getCharityList(forCountryCode: "LT")
         }.catch { error in
             self.parseError(error)
         }
     }
     
-    func invokeBankPaymentInitiationSession() {
-        viewState = MainViewState(isLoading: true)
-        apiClient.initializeBankPayment().done { state in
+    private func getCharityList(forCountryCode countryCode: String) {
+        var targetCountryCode = countryCode.uppercased()
+        if targetCountryCode != "LT" {
+            targetCountryCode = "EE"
+        }
+        viewState.isCharityLoading = true
+        apiClient.getCharityList(forCountryCode: targetCountryCode).done { apiCharities in
+            self.viewState.charities = apiCharities.list
+            self.viewState.selectedCharity = apiCharities.list.first
+            self.viewState.isCharityLoading = false
+        }.catch { error in
+            self.parseError(error)
+        }
+    }
+    
+    private func invokeBankPaymentInitiationSession() {
+        viewState.isPaymentInProgress = true
+        apiClient.initializeBankPayment(
+            amount: viewState.amountString,
+            email: viewState.email,
+            iban: viewState.selectedCharity!.iban,
+            creditorName: viewState.selectedCharity!.name
+        ).done { state in
             do {
                 KevinPaymentSession.shared.delegate = self
                 try KevinPaymentSession.shared.initiatePayment(
@@ -62,9 +120,14 @@ class MainViewModel: ObservableObject, KevinAccountLinkingSessionDelegate, Kevin
         }
     }
     
-    func invokeCardPaymentInitiationSession() {
-        viewState = MainViewState(isLoading: true)
-        apiClient.initializeCardPayment().done { state in
+    private func invokeCardPaymentInitiationSession() {
+        viewState.isPaymentInProgress = true
+        apiClient.initializeCardPayment(
+            amount: viewState.amountString,
+            email: viewState.email,
+            iban: viewState.selectedCharity!.iban,
+            creditorName: viewState.selectedCharity!.name
+        ).done { state in
             do {
                 KevinPaymentSession.shared.delegate = self
                 try KevinPaymentSession.shared.initiatePayment(
@@ -91,42 +154,20 @@ class MainViewModel: ObservableObject, KevinAccountLinkingSessionDelegate, Kevin
     }
     
     private func showErrorMessage(_ errorMessage: String?) {
-        self.viewState = MainViewState(
-            isLoading: false,
-            showMessage: true,
-            messageTitle: "error_alert_title".localized(),
-            messageDescription: errorMessage ?? ""
-        )
+        self.viewState.isCountryLoading = false
+        self.viewState.isCharityLoading = false
+        self.viewState.isPaymentInProgress = false
+
+        self.viewState.showMessage = true
+        self.viewState.messageTitle = "error_alert_title".localized()
+        self.viewState.messageDescription = errorMessage ?? "error_alert_description".localized()
     }
-    
-    //MARK: KevinAccountLinkingSessionDelegate
-    
-    func onKevinAccountLinkingStarted(controller: UINavigationController) {
-        self.kevinController = controller
-        self.viewState = MainViewState(openKevin: true)
-    }
-    
-    func onKevinAccountLinkingCanceled(error: Error?) {
-        if let error = error {
-            parseError(error)
-        } else {
-            showErrorMessage(String(format: "account_linking_was_canceled".localized()))
-        }
-    }
-    
-    func onKevinAccountLinkingSucceeded(authorizationCode: String, bank: ApiBank) {
-        self.viewState = MainViewState(
-            showMessage: true,
-            messageTitle: "success_alert_title".localized(),
-            messageDescription: String(format: "success_alert_description".localized(), " authorizationCode - \(authorizationCode)")
-        )
-    }
-    
-    //MARK: KevinPaymentSessionDelegate
+        
+    //  MARK: KevinPaymentSessionDelegate
     
     func onKevinPaymentInitiationStarted(controller: UINavigationController) {
         self.kevinController = controller
-        self.viewState = MainViewState(openKevin: true)
+        self.viewState.openKevin = true
     }
     
     func onKevinPaymentCanceled(error: Error?) {
@@ -138,10 +179,15 @@ class MainViewModel: ObservableObject, KevinAccountLinkingSessionDelegate, Kevin
     }
     
     func onKevinPaymentSucceeded(paymentId: String) {
-        self.viewState = MainViewState(
-            showMessage: true,
-            messageTitle: "success_alert_title".localized(),
-            messageDescription: String(format: "success_alert_description".localized(), paymentId)
-        )
+        if viewState.selectedCountryCode != "LT" {
+            viewState.selectedCountryCode = "LT"
+            getCharityList(forCountryCode: "LT")
+        }
+        viewState.email = ""
+        viewState.amountString = ""
+        viewState.isAgreementChecked = false
+        viewState.showMessage = true
+        viewState.messageTitle = "success_alert_title".localized()
+        viewState.messageDescription = "success_alert_description".localized()
     }
 }

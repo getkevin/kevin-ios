@@ -13,10 +13,26 @@ public class DemoKevinTheme : KevinTheme {
     
     public override init() {
         super.init()
-        self.primaryTextColor = UIColor(Color("PrimaryTextColor", bundle: nil))
-        self.primaryBackgroundColor = UIColor(Color("PrimaryBackgroundColor", bundle: nil))
-        self.secondaryBackgroundColor = UIColor(Color("SecondaryBackgroundColor", bundle: nil))
-        self.selectedOnSecondaryColor = UIColor(Color("SelectedOnSecondaryColor", bundle: nil))
+        
+        self.generalStyle.primaryTextColor = UIColor(Color("PrimaryTextColor", bundle: nil))
+        self.generalStyle.primaryBackgroundColor = UIColor(Color("PrimaryBackgroundColor", bundle: nil))
+        
+        self.navigationBarStyle.backgroundColorDarkMode = UIColor(Color("AccentColor", bundle: nil))
+        self.navigationBarStyle.backgroundColorLightMode = UIColor(Color("AccentColor", bundle: nil))
+        
+        self.navigationLinkStyle.backgroundColor = UIColor(Color("SelectedOnPrimaryColor", bundle: nil))
+        self.navigationLinkStyle.selectedBackgroundColor = UIColor(Color("PrimaryBackgroundColor", bundle: nil))
+        
+        self.gridTableStyle.cellBackgroundColor = UIColor(Color("SelectedOnPrimaryColor", bundle: nil))
+        self.gridTableStyle.cellSelectedBackgroundColor = UIColor(Color("TableCellBackgroundColor", bundle: nil))
+        
+        self.sheetPresentationStyle.backgroundColor = UIColor(Color("PrimaryBackgroundColor", bundle: nil))
+        
+        self.listTableStyle.cellSelectedBackgroundColor = UIColor(Color("TableCellBackgroundColor", bundle: nil))
+        self.listTableStyle.cellBackgroundColor = UIColor(Color("SelectedOnPrimaryColor", bundle: nil))
+        
+        self.mainButtonStyle.backgroundColor = UIColor(Color("AccentColor", bundle: nil))
+        
         //  for more properties check KevinTheme class
     }
 }
