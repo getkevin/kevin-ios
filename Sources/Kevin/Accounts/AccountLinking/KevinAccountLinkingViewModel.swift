@@ -10,7 +10,7 @@ import Foundation
 
 internal class KevinAccountLinkingViewModel : KevinViewModel<KevinAccountLinkingState, KevinAccountLinkingIntent> {
     
-    private let bankLinkingUrl = "https://psd2.kevin.eu/login/%@/%@/preview"
+    private let bankLinkingUrl = "https://psd2.kevin.eu/login/%@/%@/preview?lang=%@"
     
     override func offer(intent: KevinAccountLinkingIntent) {
         if let intent = intent as? KevinAccountLinkingIntent.Initialize {
@@ -24,7 +24,7 @@ internal class KevinAccountLinkingViewModel : KevinViewModel<KevinAccountLinking
     private func initialize(_ configuration: KevinAccountLinkingConfiguration) {
         onStateChanged(
             KevinAccountLinkingState(
-                bankRedirectUrl: URL(string: String(format: bankLinkingUrl, configuration.state, configuration.selectedBankId))!
+                bankRedirectUrl: URL(string: String(format: bankLinkingUrl, configuration.state, configuration.selectedBankId, Kevin.shared.locale.identifier))!
             )
         )
     }
