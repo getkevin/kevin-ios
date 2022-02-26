@@ -20,7 +20,7 @@ public enum KevinCountry : String {
     case spain = "es"
     case finland = "fi"
     case france = "fr"
-    case unitedKingdom = "uk"
+    case unitedKingdom = "gb"
     case croatia = "hr"
     case hungary = "hu"
     case ireland = "ie"
@@ -35,6 +35,7 @@ public enum KevinCountry : String {
     case portugal = "pt"
     case romania = "ro"
     case sweden = "se"
-    case slovenia = "sl"
+    case slovenia = "si"
     case slovakia = "sk"
+    case greece = "gr"
 }
