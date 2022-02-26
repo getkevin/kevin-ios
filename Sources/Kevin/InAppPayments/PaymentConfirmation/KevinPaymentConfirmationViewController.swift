@@ -32,8 +32,8 @@ internal class KevinPaymentConfirmationViewController :
             uiStateHandler?.setNavigationController(navigationController: navigationController)
             uiStateHandler?.setNavigationBarColor(
                 UIApplication.shared.isLightThemedInterface ?
-                    Kevin.shared.theme.navigationBarBackgroundColorLight :
-                    Kevin.shared.theme.navigationBarBackgroundColorDark
+                Kevin.shared.theme.navigationBarStyle.backgroundColorLightMode :
+                    Kevin.shared.theme.navigationBarStyle.backgroundColorDarkMode
             )
         }
     }

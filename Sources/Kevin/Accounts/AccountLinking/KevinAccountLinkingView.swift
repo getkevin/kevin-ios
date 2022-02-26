@@ -21,7 +21,7 @@ internal class KevinAccountLinkingView: KevinView<KevinAccountLinkingState> {
     }
     
     override func viewDidLoad() {
-        backgroundColor = Kevin.shared.theme.primaryBackgroundColor
+        backgroundColor = Kevin.shared.theme.generalStyle.primaryBackgroundColor
         initWebView()
         initLoadingIndicator()
     }
