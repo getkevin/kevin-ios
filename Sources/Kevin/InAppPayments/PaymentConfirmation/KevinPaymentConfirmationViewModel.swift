@@ -10,9 +10,9 @@ import Foundation
 
 internal class KevinPaymentConfirmationViewModel : KevinViewModel<KevinPaymentConfirmationState, KevinPaymentConfirmationIntent> {
     
-    private let bankPaymentUrl = "https://psd2.kevin.eu/login/%@/%@/preview"
-    private let bankPaymentAuthenticatedUrl = "https://psd2.kevin.eu/payments/%@/processing"
-    private let cardPaymentUrl = "https://psd2.kevin.eu/card-details/%@"
+    private let bankPaymentUrl = "https://psd2.kevin.eu/login/%@/%@/preview?lang=%@"
+    private let bankPaymentAuthenticatedUrl = "https://psd2.kevin.eu/payments/%@/processing?lang=%@"
+    private let cardPaymentUrl = "https://psd2.kevin.eu/card-details/%@?lang=%@"
     
     private let lockQueue = DispatchQueue(label: String(describing: KevinPaymentConfirmationViewModel.self), attributes: [])
     private var flowHasBeenProcessed = false
@@ -29,12 +29,12 @@ internal class KevinPaymentConfirmationViewModel : KevinViewModel<KevinPaymentCo
     private func initialize(_ configuration: KevinPaymentConfirmationConfiguration) {
         var confirmationUrl: URL!
         if configuration.paymentType == .card {
-            confirmationUrl = URL(string: String(format: cardPaymentUrl, configuration.paymentId))!
+            confirmationUrl = URL(string: String(format: cardPaymentUrl, configuration.paymentId, Kevin.shared.locale.identifier.lowercased()))!
         } else if configuration.paymentType == .bank {
             if configuration.skipAuthentication {
-                confirmationUrl = URL(string: String(format: bankPaymentAuthenticatedUrl, configuration.paymentId))!
+                confirmationUrl = URL(string: String(format: bankPaymentAuthenticatedUrl, configuration.paymentId, Kevin.shared.locale.identifier.lowercased()))!
             } else {
-                confirmationUrl = URL(string: String(format: bankPaymentUrl, configuration.paymentId, configuration.selectedBank!))!
+                confirmationUrl = URL(string: String(format: bankPaymentUrl, configuration.paymentId, configuration.selectedBank!, Kevin.shared.locale.identifier.lowercased()))!
             }
         }
         onStateChanged(KevinPaymentConfirmationState(url: confirmationUrl))

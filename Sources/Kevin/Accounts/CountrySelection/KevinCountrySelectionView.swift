@@ -40,40 +40,54 @@ internal class KevinCountrySelectionView : KevinModalView<KevinCountrySelectionS
     private func initLoadingIndicator() {
         containerView.addSubview(loadingIndicator)
         loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
-        loadingIndicator.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20).isActive = true
+        loadingIndicator.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 80).isActive = true
+        loadingIndicator.centerXAnchor.constraint(equalTo: containerView.centerXAnchor).isActive = true
         loadingIndicator.startAnimating()
     }
     
     private func initTitleLabel() {
-        let dragIndicatorView = UIImageView(image: UIImage(named: "dragIndicatorIcon", in: Bundle.module, compatibleWith: nil))
+        let dragIndicatorView = UIView()
+        dragIndicatorView.layer.cornerRadius = 2.5
+        dragIndicatorView.backgroundColor = Kevin.shared.theme.sheetPresentationStyle.dragIndicatorTintColor
         containerView.addSubview(dragIndicatorView)
         dragIndicatorView.translatesAutoresizingMaskIntoConstraints = false
         dragIndicatorView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 8).isActive = true
         dragIndicatorView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor).isActive = true
+        dragIndicatorView.heightAnchor.constraint(equalToConstant: 5).isActive = true
+        dragIndicatorView.widthAnchor.constraint(equalToConstant: 40).isActive = true
         
         titleLabel.text = "window_country_selection_title".localized(for: Kevin.shared.locale.identifier)
-        titleLabel.font = Kevin.shared.theme.headLineFont
-        titleLabel.textColor = Kevin.shared.theme.primaryTextColor
+        titleLabel.font = Kevin.shared.theme.sheetPresentationStyle.titleLabelFont
+        titleLabel.textColor = Kevin.shared.theme.generalStyle.primaryTextColor
         containerView.addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 28).isActive = true
-        titleLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: Kevin.shared.theme.leftInset).isActive = true
-        titleLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 32).isActive = true
+        titleLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: Kevin.shared.theme.insets.left).isActive = true
     }
     
     private func initCountrySelection() {
-        countryTableView.backgroundColor = Kevin.shared.theme.secondaryBackgroundColor
+        countryTableView.backgroundColor = Kevin.shared.theme.listTableStyle.cellBackgroundColor
+        countryTableView.layer.cornerRadius = Kevin.shared.theme.listTableStyle.cornerRadius
         countryTableView.rowHeight = 62
         countryTableView.dataSource = self
         countryTableView.delegate = self
         countryTableView.estimatedRowHeight = 62
         countryTableView.separatorStyle = .none
+        countryTableView.showsVerticalScrollIndicator = false
         containerView.addSubview(countryTableView)
         
         countryTableView.translatesAutoresizingMaskIntoConstraints = false
-        countryTableView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 24).isActive = true
+        countryTableView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16).isActive = true
         countryTableView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
-        countryTableView.widthAnchor.constraint(equalTo: containerView.widthAnchor).isActive = true
+        
+        var leftInset = Kevin.shared.theme.insets.left
+        var rightInset = Kevin.shared.theme.insets.right
+        if Kevin.shared.theme.listTableStyle.isOccupyingFullWidth {
+            leftInset = 0
+            rightInset = 0
+        }
+        countryTableView.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: leftInset).isActive = true
+        countryTableView.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -rightInset).isActive = true
     }
 }
 
