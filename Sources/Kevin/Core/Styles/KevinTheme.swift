@@ -39,7 +39,7 @@ open class KevinTheme {
         public init() { }
     }
     
-    public struct SheePresentationStyle {
+    public struct SheetPresentationStyle {
         public var dragIndicatorTintColor = UIColor(red: 190/255, green: 196/255, blue: 203/255, alpha: 1)
         public var backgroundColor = UIColor(red: 242/255, green: 242/255, blue: 247/255, alpha: 1)
         public var titleLabelFont = UIFont.systemFont(ofSize: 21, weight: .medium)
@@ -103,7 +103,7 @@ open class KevinTheme {
     open var insets = Insets()
     open var generalStyle = GeneralStyle()
     open var navigationBarStyle = NavigationBarStyle()
-    open var sheetPresentationStyle = SheePresentationStyle()
+    open var sheetPresentationStyle = SheetPresentationStyle()
     open var sectionStyle = SectionStyle()
     open var gridTableStyle = GridTableStyle()
     open var listTableStyle = ListTableStyle()
