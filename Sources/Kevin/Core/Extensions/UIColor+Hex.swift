@@ -10,10 +10,23 @@ import UIKit
 
 extension UIColor {
     var hexString: String {
-        let components = self.cgColor.components
-        let r: CGFloat = components?[0] ?? 0.0
-        let g: CGFloat = components?[1] ?? 0.0
-        let b: CGFloat = components?[2] ?? 0.0
+        guard let components = self.cgColor.components else {
+            return ""
+        }
+        
+        var r: CGFloat = 0.0
+        var g: CGFloat = 0.0
+        var b: CGFloat = 0.0
+
+        if components.count < 4 {
+            r = components[0]
+            g = components[0]
+            b = components[0]
+        } else {
+            r = components[0]
+            g = components[1]
+            b = components[2]
+        }
         
         let hexString = String.init(format: "#%02lX%02lX%02lX", lroundf(Float(r * 255)), lroundf(Float(g * 255)), lroundf(Float(b * 255)))
         return hexString
