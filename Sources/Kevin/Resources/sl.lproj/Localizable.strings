@@ -50,6 +50,29 @@
 
 "action_continue" = "Nadaljuj";
 
+"window_card_payment_label" = "Plačilo s kartico";
+"window_card_payment_cardholder_name_label" = "Ime imetnika kartice";
+"window_card_payment_cardholder_name_hint" = "John Appleseed";
+"window_card_payment_card_number_label" = "Številka kartice";
+"window_card_payment_card_number_hint" = "1234 5678 9012 3456";
+"window_card_payment_expiry_date_label" = "Rok uporabnosti";
+"window_card_payment_expiry_date_hint" = "MM/YY";
+"window_card_payment_cvv_label" = "CVV / CVC";
+"window_card_payment_cvv_hint" = "123";
+"window_card_payment_notice" = "kevin. ne shranjuje nobenih vaših osebnih podatkov ali podatkov o kartici.";
+"window_card_payment_cvv_tooltip" = "CVV je 3-mestna koda, prikazana na zadnji strani vaše kartice";
+"error_no_cardholder_name" = "Vnesti je treba ime imetnika kartice";
+"error_invalid_cvv" = "Vnesite veljaven CVV";
+"error_no_cvv" = "CVV je treba vnesti";
+"error_invalid_expiry_date" = "Datum poteka veljavnosti ni veljaven";
+"error_no_expiry_date" = "Vnesti je treba datum poteka veljavnosti";
+"error_card_expired" = "Kartica je potekla";
+"error_invalid_card_number" = "Številka kartice je neveljavna";
+"error_no_card_number" = "Vnesti je treba številko kartice";
+"window_card_payment_redirect_title" = "Želite nadaljevati plačilo z bančnim nakazilom?";
+"window_card_payment_redirect_subtitle" = "Ali želite nadaljevati s plačilom z bančnim nakazilom?";
+"window_card_payment_bank_redirect_subtitle" = "Opazili smo, da vašo plačilno kartico izda %s. Ali želite nadaljevati s plačilom z bančnim nakazilom?";
+
 "yes" = "Da";
 "no" = "Št";
 "dialog_exit_confirmation_title" = "Opozorilo!";

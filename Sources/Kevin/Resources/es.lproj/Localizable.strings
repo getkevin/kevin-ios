@@ -50,6 +50,29 @@
 
 "action_continue" = "Continuar";
 
+"window_card_payment_label" = "Pago con tarjeta";
+"window_card_payment_cardholder_name_label" = "Nombre del titular de la tarjeta";
+"window_card_payment_cardholder_name_hint" = "John Appleseed";
+"window_card_payment_card_number_label" = "Número de tarjeta";
+"window_card_payment_card_number_hint" = "1234 5678 9012 3456";
+"window_card_payment_expiry_date_label" = "Fecha de caducidad";
+"window_card_payment_expiry_date_hint" = "MM/YY";
+"window_card_payment_cvv_label" = "CVV / CVC";
+"window_card_payment_cvv_hint" = "123";
+"window_card_payment_notice" = "kevin. no está almacenando ninguna de su información personal o detalles de la tarjeta.";
+"window_card_payment_cvv_tooltip" = "CVV es un código de 3 dígitos que se muestra en el reverso de su tarjeta";
+"error_no_cardholder_name" = "Se debe ingresar el nombre del titular de la tarjeta";
+"error_invalid_cvv" = "Introduce un CVV válido";
+"error_no_cvv" = "Se debe ingresar CVV";
+"error_invalid_expiry_date" = "La fecha de caducidad no es válida";
+"error_no_expiry_date" = "Se debe ingresar la fecha de caducidad";
+"error_card_expired" = "La tarjeta esta caducada";
+"error_invalid_card_number" = "El número de tarjeta no es válido";
+"error_no_card_number" = "Se debe ingresar el número de tarjeta";
+"window_card_payment_redirect_title" = "¿Continuar con el pago mediante transferencia bancaria?";
+"window_card_payment_redirect_subtitle" = "¿Desea continuar con el pago mediante transferencia bancaria?";
+"window_card_payment_bank_redirect_subtitle" = "Notamos que su tarjeta de pago es emitida por %s. ¿Desea continuar con el pago mediante transferencia bancaria?";
+
 "yes" = "Sí";
 "no" = "No";
 "dialog_exit_confirmation_title" = "Advertencia!";

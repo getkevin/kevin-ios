@@ -50,6 +50,29 @@
 
 "action_continue" = "Folytatni";
 
+"window_card_payment_label" = "Kártyás fizetés";
+"window_card_payment_cardholder_name_label" = "Kártyatulajdonos neve";
+"window_card_payment_cardholder_name_hint" = "John Appleseed";
+"window_card_payment_card_number_label" = "Kártyaszám";
+"window_card_payment_card_number_hint" = "1234 5678 9012 3456";
+"window_card_payment_expiry_date_label" = "Lejárati dátum";
+"window_card_payment_expiry_date_hint" = "MM/YY";
+"window_card_payment_cvv_label" = "CVV / CVC";
+"window_card_payment_cvv_hint" = "123";
+"window_card_payment_notice" = "kevin. nem tárolja az Ön személyes adatait vagy kártyaadatait.";
+"window_card_payment_cvv_tooltip" = "A CVV egy háromjegyű kód, amely a kártya hátoldalán található";
+"error_no_cardholder_name" = "A kártyabirtokos nevét meg kell adni";
+"error_invalid_cvv" = "Adja meg az érvényes CVV-t";
+"error_no_cvv" = "CVV-t kell megadni";
+"error_invalid_expiry_date" = "A lejárati dátum érvénytelen";
+"error_no_expiry_date" = "A lejárati dátumot be kell írni";
+"error_card_expired" = "A kártya lejárt";
+"error_invalid_card_number" = "A kártyaszám érvénytelen";
+"error_no_card_number" = "A kártyaszámot be kell írni";
+"window_card_payment_redirect_title" = "Folytatja a fizetést banki átutalással?";
+"window_card_payment_redirect_subtitle" = "Szeretné folytatni a fizetést banki átutalással?";
+"window_card_payment_bank_redirect_subtitle" = "Észrevettük, hogy fizetési kártyáját %s bocsátotta ki. Szeretné folytatni a fizetést banki átutalással?";
+
 "yes" = "Igen";
 "no" = "Nem";
 "dialog_exit_confirmation_title" = "Figyelem!";

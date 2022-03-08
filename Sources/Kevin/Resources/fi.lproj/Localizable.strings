@@ -50,6 +50,29 @@
 
 "action_continue" = "Jatkaa";
 
+"window_card_payment_label" = "Korttimaksu";
+"window_card_payment_cardholder_name_label" = "Kortinhaltijan nimi";
+"window_card_payment_cardholder_name_hint" = "John Appleseed";
+"window_card_payment_card_number_label" = "Kortin numero";
+"window_card_payment_card_number_hint" = "1234 5678 9012 3456";
+"window_card_payment_expiry_date_label" = "Päättymispäivä";
+"window_card_payment_expiry_date_hint" = "MM/YY";
+"window_card_payment_cvv_label" = "CVV / CVC";
+"window_card_payment_cvv_hint" = "123";
+"window_card_payment_notice" = "kevin. ei tallenna henkilökohtaisia tietojasi tai korttitietojasi.";
+"window_card_payment_cvv_tooltip" = "CVV on kolminumeroinen koodi, joka näkyy korttisi takana";
+"error_no_cardholder_name" = "Kortinhaltijan nimi on syötettävä";
+"error_invalid_cvv" = "Anna kelvollinen CVV";
+"error_no_cvv" = "CVV on syötettävä";
+"error_invalid_expiry_date" = "Viimeinen voimassaolopäivä on virheellinen";
+"error_no_expiry_date" = "Viimeinen voimassaolopäivä on syötettävä";
+"error_card_expired" = "Kortti on vanhentunut";
+"error_invalid_card_number" = "Kortin numero on virheellinen";
+"error_no_card_number" = "Kortin numero on syötettävä";
+"window_card_payment_redirect_title" = "Jatketaanko maksamista pankkisiirrolla?";
+"window_card_payment_redirect_subtitle" = "Haluatko jatkaa maksua pankkisiirrolla?";
+"window_card_payment_bank_redirect_subtitle" = "Huomasimme, että maksukorttisi on myöntänyt %s. Haluatko jatkaa maksua pankkisiirrolla?";
+
 "yes" = "Joo";
 "no" = "Ei";
 "dialog_exit_confirmation_title" = "Varoitus!";

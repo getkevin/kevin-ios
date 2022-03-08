@@ -50,6 +50,29 @@
 
 "action_continue" = "Weitermachen";
 
+"window_card_payment_label" = "Kartenzahlung";
+"window_card_payment_cardholder_name_label" = "Name des Karteninhabers";
+"window_card_payment_cardholder_name_hint" = "John Appleseed";
+"window_card_payment_card_number_label" = "Kartennummer";
+"window_card_payment_card_number_hint" = "1234 5678 9012 3456";
+"window_card_payment_expiry_date_label" = "Verfallsdatum";
+"window_card_payment_expiry_date_hint" = "MM/YY";
+"window_card_payment_cvv_label" = "CVV / CVC";
+"window_card_payment_cvv_hint" = "123";
+"window_card_payment_notice" = "kevin. speichert keine Ihrer persönlichen Daten oder Kartendetails.";
+"window_card_payment_cvv_tooltip" = "CVV ist ein 3-stelliger Code, der auf der Rückseite Ihrer Karte angezeigt wird";
+"error_no_cardholder_name" = "Der Name des Karteninhabers muss eingegeben werden";
+"error_invalid_cvv" = "Geben Sie einen gültigen CVV ein";
+"error_no_cvv" = "CVV muss eingegeben werden";
+"error_invalid_expiry_date" = "Das Ablaufdatum ist ungültig";
+"error_no_expiry_date" = "Das Ablaufdatum muss eingegeben werden";
+"error_card_expired" = "Karte ist abgelaufen";
+"error_invalid_card_number" = "Kartennummer ist ungültig";
+"error_no_card_number" = "Kartennummer muss eingegeben werden";
+"window_card_payment_redirect_title" = "Zahlung per Banküberweisung fortsetzen?";
+"window_card_payment_redirect_subtitle" = "Möchten Sie die Zahlung per Banküberweisung fortsetzen?";
+"window_card_payment_bank_redirect_subtitle" = "Wir haben festgestellt, dass Ihre Zahlungskarte von %s ausgestellt wurde. Möchten Sie die Zahlung per Banküberweisung fortsetzen?";
+
 "yes" = "Ja";
 "no" = "Nein";
 "dialog_exit_confirmation_title" = "Warnung!";

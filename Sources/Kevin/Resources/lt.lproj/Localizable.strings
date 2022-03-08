@@ -50,6 +50,29 @@
 
 "action_continue" = "Tęsti";
 
+"window_card_payment_label" = "Mokėjimas kortele";
+"window_card_payment_cardholder_name_label" = "Kortelės savininko vardas";
+"window_card_payment_cardholder_name_hint" = "John Appleseed";
+"window_card_payment_card_number_label" = "Kortelės numeris";
+"window_card_payment_card_number_hint" = "1234 5678 9012 3456";
+"window_card_payment_expiry_date_label" = "Galiojimo data";
+"window_card_payment_expiry_date_hint" = "MM/YY";
+"window_card_payment_cvv_label" = "CVV / CVC";
+"window_card_payment_cvv_hint" = "123";
+"window_card_payment_notice" = "kevin. nesaugo jūsų asmeninės informacijos ar kortelės duomenų.";
+"window_card_payment_cvv_tooltip" = "CVV tai 3 skaitmenų kodas nurodytas galinėje kortelės pusėje";
+"error_no_cardholder_name" = "Kortelės savininko vardas turi būti įvestas";
+"error_invalid_cvv" = "Įveskite teisingą CVV kodą";
+"error_no_cvv" = "CVV kodas turi būti įvestas";
+"error_invalid_expiry_date" = "Galiojimo data yra netinkama";
+"error_no_expiry_date" = "Galiojimo data turi būti įvesta";
+"error_card_expired" = "Kortelės galiojimas yra pasibaigęs";
+"error_invalid_card_number" = "Neteisingas kortelės numeris";
+"error_no_card_number" = "Kortelės numeris turi būti įvestas";
+"window_card_payment_redirect_title" = "Tęsti mokėjimą bankiniu pavedimu?";
+"window_card_payment_redirect_subtitle" = "Ar norėtumėte tęsti mokėjimą bankiniu pavedimu?";
+"window_card_payment_bank_redirect_subtitle" = "Pastebėjome, kad jūsų mokėjimo kortelė yra išduoda %s. Ar norėtumėte tęsti mokėjimą bankiniu pavedimu?";
+
 "yes" = "Taip";
 "no" = "Ne";
 "dialog_exit_confirmation_title" = "Dėmesio!";

@@ -99,7 +99,24 @@ open class KevinTheme {
         
         public init() { }
     }
-    
+        
+    public struct CardPaymentStyle {
+        public var amountLabelTextColor = UIColor.black
+        public var amountLabelFont = UIFont.systemFont(ofSize: 23, weight: .bold)
+        public var fieldNameLabelTextColor = UIColor(red: 109/255, green: 120/255, blue: 133/255, alpha: 1)
+        public var fieldNameLabelFont = UIFont.systemFont(ofSize: 14, weight: .regular)
+        public var textFieldTextColor = UIColor.black
+        public var textFieldFont = UIFont.systemFont(ofSize: 16, weight: .regular)
+        public var textFieldCornerRadius: CGFloat = 10
+        public var textFieldBackgroundColor = UIColor.white
+        public var textFieldBorderWidth: CGFloat = 1
+        public var textFieldBorderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.12)
+        public var textFieldBorderErrorColor = UIColor(red: 230/255, green: 70/255, blue: 70/255, alpha: 1)
+        public var textFieldErrorColor = UIColor(red: 250/255, green: 235/255, blue: 235/255, alpha: 1)
+
+        public init() { }
+    }
+
     open var insets = Insets()
     open var generalStyle = GeneralStyle()
     open var navigationBarStyle = NavigationBarStyle()
@@ -109,6 +126,7 @@ open class KevinTheme {
     open var listTableStyle = ListTableStyle()
     open var navigationLinkStyle = NavigationLinkStyle()
     open var mainButtonStyle = MainButtonStyle()
+    open var cardPaymentStyle = CardPaymentStyle()
     
     public init() { }
 }

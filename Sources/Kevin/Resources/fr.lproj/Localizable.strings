@@ -50,6 +50,29 @@
 
 "action_continue" = "Continuer";
 
+"window_card_payment_label" = "Paiement par carte";
+"window_card_payment_cardholder_name_label" = "Nom du titulaire";
+"window_card_payment_cardholder_name_hint" = "John Appleseed";
+"window_card_payment_card_number_label" = "Numéro de carte";
+"window_card_payment_card_number_hint" = "1234 5678 9012 3456";
+"window_card_payment_expiry_date_label" = "Date d'expiration";
+"window_card_payment_expiry_date_hint" = "MM/YY";
+"window_card_payment_cvv_label" = "CVV / CVC";
+"window_card_payment_cvv_hint" = "123";
+"window_card_payment_notice" = "kevin. ne stocke aucune de vos informations personnelles ou des détails de votre carte.";
+"window_card_payment_cvv_tooltip" = "Le CVV est un code à 3 chiffres affiché au dos de votre carte";
+"error_no_cardholder_name" = "Le nom du titulaire de la carte doit être saisi";
+"error_invalid_cvv" = "Saisissez un CVV valide";
+"error_no_cvv" = "Le CVV doit être saisi";
+"error_invalid_expiry_date" = "La date d'expiration n'est pas valide";
+"error_no_expiry_date" = "La date d'expiration doit être saisie";
+"error_card_expired" = "La carte est expirée";
+"error_invalid_card_number" = "Le numéro de carte est invalide";
+"error_no_card_number" = "Le numéro de carte doit être saisi";
+"window_card_payment_redirect_title" = "Continuer le paiement par virement bancaire?";
+"window_card_payment_redirect_subtitle" = "Souhaitez-vous continuer le paiement par virement bancaire?";
+"window_card_payment_bank_redirect_subtitle" = "Nous avons remarqué que votre carte de paiement est émise par %s. Souhaitez-vous continuer le paiement par virement bancaire?";
+
 "yes" = "Oui";
 "no" = "Non";
 "dialog_exit_confirmation_title" = "Avertissement!";
