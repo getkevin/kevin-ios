@@ -104,9 +104,7 @@ open class KevinTheme {
     }
         
     public struct CardPaymentStyle {
-        public var titleTextColor = UIColor.black
         public var titleFont = UIFont.systemFont(ofSize: 23, weight: .bold)
-        public var subtitleTextColor = UIColor(red: 109/255, green: 120/255, blue: 133/255, alpha: 1)
         public var subtitleFont = UIFont.systemFont(ofSize: 14, weight: .regular)
         public var textFieldTextColor = UIColor.black
         public var textFieldFont = UIFont.systemFont(ofSize: 16, weight: .regular)
@@ -114,8 +112,7 @@ open class KevinTheme {
         public var textFieldBackgroundColor = UIColor.white
         public var textFieldBorderWidth: CGFloat = 1
         public var textFieldBorderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.12)
-        public var primaryErrorColor = UIColor(red: 230/255, green: 70/255, blue: 70/255, alpha: 1)
-        public var secondaryErrorColor = UIColor(red: 250/255, green: 235/255, blue: 235/255, alpha: 1)
+        public var textFieldErrorBorderColor = UIColor(red: 230/255, green: 70/255, blue: 70/255, alpha: 1)
         public var errorMessageFont = UIFont.systemFont(ofSize: 13, weight: .regular)
 
         public init() { }

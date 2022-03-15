@@ -20,5 +20,5 @@ internal protocol KevinCardPaymentViewDelegate: AnyObject {
         expiryDate: String,
         cvv: String
     )
-    func onPaymentResult(url: URL)
+    func onPaymentResult(callbackUrl: URL, error: Error?)
 }

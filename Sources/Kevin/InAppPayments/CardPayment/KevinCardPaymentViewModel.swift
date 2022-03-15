@@ -37,7 +37,7 @@ internal class KevinCardPaymentViewModel : KevinViewModel<KevinCardPaymentState,
         } else if let intent = intent as? KevinCardPaymentIntent.HandleCardPaymentEvent {
             handleEvent(event: intent.event)
         } else if let intent = intent as? KevinCardPaymentIntent.HandlePaymentResult {
-            handlePaymentResult(callbackUrl: intent.url)
+            handlePaymentResult(callbackUrl: intent.url, error: intent.error)
         } else if let intent = intent as? KevinCardPaymentIntent.HandleUserSoftRedirect {
             handleUserSoftRedirect(shouldRedirect: intent.shouldRedirect)
         }
@@ -153,9 +153,13 @@ internal class KevinCardPaymentViewModel : KevinViewModel<KevinCardPaymentState,
         }
     }
     
-    private func handlePaymentResult(callbackUrl: URL) {
+    private func handlePaymentResult(callbackUrl: URL, error: Error?) {
         lockQueue.sync {
             guard !flowHasBeenProcessed else {
+                return
+            }
+            if let error = error {
+                KevinPaymentSession.shared.notifyPaymentCancelation(error: error)
                 return
             }
             guard let statusGroup = callbackUrl["statusGroup"] else {

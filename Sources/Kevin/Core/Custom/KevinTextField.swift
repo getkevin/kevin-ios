@@ -13,8 +13,7 @@ class KevinErrorTextField: UIView {
     let textField = KevinTextField()
     let errorLabel = UILabel()
     
-    var primaryErrorColor = UIColor.red
-    var secondaryErrorColor = UIColor.white
+    var borderColor = UIColor.red
     
     private var textFieldBottomConstraint: NSLayoutConstraint?
     private var labelTopConstraint: NSLayoutConstraint?
@@ -53,7 +52,7 @@ class KevinErrorTextField: UIView {
         errorLabel.layer.zPosition = 1
         errorLabel.text = ""
         errorLabel.numberOfLines = 0
-        errorLabel.textColor = primaryErrorColor
+        errorLabel.textColor = borderColor
         errorLabel.alpha = 0
         errorLabel.translatesAutoresizingMaskIntoConstraints = false
         errorLabel.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
@@ -82,8 +81,7 @@ class KevinErrorTextField: UIView {
         labelTopConstraint?.isActive = true
         
         UIView.animate(withDuration: animationDuration) {
-            self.textField.backgroundColor = self.secondaryErrorColor
-            self.textField.layer.borderColor = self.primaryErrorColor.cgColor
+            self.textField.layer.borderColor = self.borderColor.cgColor
 
             self.errorLabel.alpha = 1
             self.superview?.layoutIfNeeded()

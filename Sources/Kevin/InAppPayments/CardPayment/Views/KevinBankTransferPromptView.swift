@@ -11,7 +11,15 @@ import UIKit
 internal class KevinBankTransferPromptView: UIView {
     
     weak var delegate: KevinCardPaymentViewDelegate?
-    var bankName: String?
+    var bankName: String? {
+        didSet {
+            if let bankName = bankName {
+                messageLabel.text = String(format: "window_card_payment_bank_redirect_subtitle".localized(for: Kevin.shared.locale.identifier), bankName)
+            } else {
+                messageLabel.text = "window_card_payment_redirect_subtitle".localized(for: Kevin.shared.locale.identifier)
+            }
+        }
+    }
 
     private let dimmedView = UIView()
     private let containerView = UIView()
@@ -66,7 +74,7 @@ internal class KevinBankTransferPromptView: UIView {
         containerView.addSubview(headerLabel)
         headerLabel.text = "window_card_payment_redirect_title".localized(for: Kevin.shared.locale.identifier)
         headerLabel.font = Kevin.shared.theme.cardPaymentStyle.titleFont
-        headerLabel.textColor = Kevin.shared.theme.cardPaymentStyle.titleTextColor
+        headerLabel.textColor = Kevin.shared.theme.generalStyle.primaryTextColor
         headerLabel.numberOfLines = 0
         headerLabel.textAlignment = .center
         headerLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -75,13 +83,9 @@ internal class KevinBankTransferPromptView: UIView {
         headerLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -16).isActive = true
 
         containerView.addSubview(messageLabel)
-        if let bankName = bankName {
-            messageLabel.text = String(format: "window_card_payment_bank_redirect_subtitle".localized(for: Kevin.shared.locale.identifier), bankName)
-        } else {
-            messageLabel.text = "window_card_payment_redirect_subtitle".localized(for: Kevin.shared.locale.identifier)
-        }
+        messageLabel.text = "window_card_payment_redirect_subtitle".localized(for: Kevin.shared.locale.identifier)
         messageLabel.font = Kevin.shared.theme.cardPaymentStyle.subtitleFont
-        messageLabel.textColor = Kevin.shared.theme.cardPaymentStyle.subtitleTextColor
+        messageLabel.textColor = Kevin.shared.theme.generalStyle.secondaryTextColor
         messageLabel.numberOfLines = 0
         messageLabel.textAlignment = .center
         messageLabel.translatesAutoresizingMaskIntoConstraints = false

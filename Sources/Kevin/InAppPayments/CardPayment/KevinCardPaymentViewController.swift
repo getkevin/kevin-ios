@@ -118,7 +118,7 @@ extension KevinCardPaymentViewController: KevinCardPaymentViewDelegate {
             preferredStyle: UIAlertController.Style.alert
         )
         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: { action in
-            self.dismiss(animated: true, completion: nil)
+            alert.dismiss(animated: true, completion: nil)
         }))
         self.present(alert, animated: true, completion: nil)
     }
@@ -134,7 +134,24 @@ extension KevinCardPaymentViewController: KevinCardPaymentViewDelegate {
         )
     }
     
-    func onPaymentResult(url: URL) {
-        self.offerIntent(KevinCardPaymentIntent.HandlePaymentResult(url: url))
+    func onPaymentResult(callbackUrl: URL, error: Error?) {
+        guard let navigationController = navigationController else {
+            self.offerIntent(
+                KevinCardPaymentIntent.HandlePaymentResult(url: callbackUrl, error: error)
+            )
+            return
+        }
+        if navigationController is KevinNavigationViewController {
+            navigationController.dismiss(animated: true, completion: {
+                self.offerIntent(
+                    KevinCardPaymentIntent.HandlePaymentResult(url: callbackUrl, error: error)
+                )
+            })
+        } else {
+            findRootViewController()?.findNestedNavigationController()?.popToRootViewController(animated: true)
+            self.offerIntent(
+                KevinCardPaymentIntent.HandlePaymentResult(url: callbackUrl, error: error)
+            )
+        }
     }
 }

@@ -52,9 +52,14 @@ internal class KevinCardPaymentIntent: IKevinIntent {
     
     internal class HandlePaymentResult: KevinCardPaymentIntent {
         let url: URL
-        
-        init(url: URL) {
+        let error: Error?
+
+        init(
+            url: URL,
+            error: Error?
+        ) {
             self.url = url
+            self.error = error
         }
     }
     
