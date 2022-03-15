@@ -86,11 +86,43 @@ internal class KevinCardPaymentViewController :
                 expiryDate: action.expiryDate,
                 cvv: action.cvv
             )
+        } else if let action = action as? KevinCardPaymentViewAction.ShowUserRedirectPrompt {
+            getView().showUserRedirectPrompt(bankName: action.bankName)
+        } else if let action = action as? KevinCardPaymentViewAction.SubmitUserRedirect {
+            getView().submitUserRedirect(shouldRedirect: action.shouldRedirect)
         }
     }
 }
 
 extension KevinCardPaymentViewController: KevinCardPaymentViewDelegate {
+    func onPageStartLoading() {
+        self.offerIntent(KevinCardPaymentIntent.HandlePageStartedLoading())
+    }
+    
+    func onPageFinishedLoading() {
+        self.offerIntent(KevinCardPaymentIntent.HandlePageFinishedLoading())
+    }
+    
+    func onEvent(event: KevinCardPaymentEvent) {
+        self.offerIntent(KevinCardPaymentIntent.HandleCardPaymentEvent(event: event))
+    }
+    
+    func onUserRedirectAction(shouldRedirect: Bool) {
+        self.offerIntent(KevinCardPaymentIntent.HandleUserSoftRedirect(shouldRedirect: shouldRedirect))
+    }
+    
+    func onCvvHintTapped() {
+        let alert = UIAlertController(
+            title: "window_card_payment_cvv_label".localized(for: Kevin.shared.locale.identifier),
+            message: "window_card_payment_cvv_tooltip".localized(for: Kevin.shared.locale.identifier),
+            preferredStyle: UIAlertController.Style.alert
+        )
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: { action in
+            self.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     func onContinueClicked(cardholderName: String, cardNumber: String, expiryDate: String, cvv: String) {
         self.offerIntent(
             KevinCardPaymentIntent.HandleOnContinueClicked(
@@ -100,5 +132,9 @@ extension KevinCardPaymentViewController: KevinCardPaymentViewDelegate {
                 cvv: cvv
             )
         )
+    }
+    
+    func onPaymentResult(url: URL) {
+        self.offerIntent(KevinCardPaymentIntent.HandlePaymentResult(url: url))
     }
 }

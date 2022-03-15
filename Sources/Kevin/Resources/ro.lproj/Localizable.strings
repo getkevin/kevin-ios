@@ -71,7 +71,7 @@
 "error_no_card_number" = "Trebuie introdus numărul cardului";
 "window_card_payment_redirect_title" = "Continuați plata prin transfer bancar?";
 "window_card_payment_redirect_subtitle" = "Doriți să continuați plata prin transfer bancar?";
-"window_card_payment_bank_redirect_subtitle" = "Am observat că cardul dvs. de plată este emis de %s. Doriți să continuați plata prin transfer bancar?";
+"window_card_payment_bank_redirect_subtitle" = "Am observat că cardul dvs. de plată este emis de %@. Doriți să continuați plata prin transfer bancar?";
 
 "yes" = "Da";
 "no" = "Nu";

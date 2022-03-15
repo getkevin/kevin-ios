@@ -71,7 +71,7 @@
 "error_no_card_number" = "Kortnummer måste anges";
 "window_card_payment_redirect_title" = "Fortsätta betalning via banköverföring?";
 "window_card_payment_redirect_subtitle" = "Vill du fortsätta betalningen via banköverföring?";
-"window_card_payment_bank_redirect_subtitle" = "Vi har märkt att ditt betalkort är utfärdat av %s. Vill du fortsätta betalningen via banköverföring?";
+"window_card_payment_bank_redirect_subtitle" = "Vi har märkt att ditt betalkort är utfärdat av %@. Vill du fortsätta betalningen via banköverföring?";
 
 "yes" = "Ja";
 "no" = "Nej";

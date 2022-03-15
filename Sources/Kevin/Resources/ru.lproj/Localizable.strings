@@ -71,7 +71,7 @@
 "error_no_card_number" = "Необходимо ввести номер карты";
 "window_card_payment_redirect_title" = "Продолжить оплату банковским переводом?";
 "window_card_payment_redirect_subtitle" = "Хотите продолжить оплату банковским переводом?";
-"window_card_payment_bank_redirect_subtitle" = "Мы заметили, что ваша платежная карта выпущена %s. Хотите продолжить оплату банковским переводом?";
+"window_card_payment_bank_redirect_subtitle" = "Мы заметили, что ваша платежная карта выпущена %@. Хотите продолжить оплату банковским переводом?";
 
 "yes" = "Да";
 "no" = "Нет";

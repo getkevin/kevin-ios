@@ -71,7 +71,7 @@
 "error_no_card_number" = "Sisestada tuleb kaardi number";
 "window_card_payment_redirect_title" = "Kas jätkata pangaülekandega maksmist?";
 "window_card_payment_redirect_subtitle" = "Kas soovite jätkata pangaülekandega maksmist?";
-"window_card_payment_bank_redirect_subtitle" = "Märkasime, et teie maksekaardi on väljastanud %s. Kas soovite jätkata pangaülekandega maksmist?";
+"window_card_payment_bank_redirect_subtitle" = "Märkasime, et teie maksekaardi on väljastanud %@. Kas soovite jätkata pangaülekandega maksmist?";
 
 "yes" = "Jah";
 "no" = "Ei";

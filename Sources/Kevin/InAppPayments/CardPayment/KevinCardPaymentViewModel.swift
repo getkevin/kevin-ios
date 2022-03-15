@@ -14,6 +14,11 @@ internal class KevinCardPaymentViewModel : KevinViewModel<KevinCardPaymentState,
     var viewAction: (IKevinIntent)->() = { action in }
 
     private let cardPaymentUrl = "https://psd2.kevin.eu/card-details/%@"
+    
+    private var configuration: KevinCardPaymentConfiguration?
+    
+    private let lockQueue = DispatchQueue(label: String(describing: KevinCardPaymentViewModel.self), attributes: [])
+    private var flowHasBeenProcessed = false
 
     override func offer(intent: KevinCardPaymentIntent) {
         if let intent = intent as? KevinCardPaymentIntent.Initialize {
@@ -25,41 +30,92 @@ internal class KevinCardPaymentViewModel : KevinViewModel<KevinCardPaymentState,
                 intent.expiryDate,
                 intent.cvv
             )
+        } else if let _ = intent as? KevinCardPaymentIntent.HandlePageStartedLoading {
+            handlePageStartedLoading()
+        } else if let _ = intent as? KevinCardPaymentIntent.HandlePageFinishedLoading {
+            handlePageFinishedLoading()
+        } else if let intent = intent as? KevinCardPaymentIntent.HandleCardPaymentEvent {
+            handleEvent(event: intent.event)
+        } else if let intent = intent as? KevinCardPaymentIntent.HandlePaymentResult {
+            handlePaymentResult(callbackUrl: intent.url)
+        } else if let intent = intent as? KevinCardPaymentIntent.HandleUserSoftRedirect {
+            handleUserSoftRedirect(shouldRedirect: intent.shouldRedirect)
         }
     }
     
-    func getSymbol(forCurrencyCode code: String) -> String? {
-        let locale = NSLocale(localeIdentifier: code)
-        if locale.displayName(forKey: .currencySymbol, value: code) == code {
-            let newlocale = NSLocale(localeIdentifier: code.dropLast() + "_en")
-            return newlocale.displayName(forKey: .currencySymbol, value: code)
-        }
-        return locale.displayName(forKey: .currencySymbol, value: code)
-    }
-
     private func initialize(_ configuration: KevinCardPaymentConfiguration) {
+        state = KevinCardPaymentState()
+        
+        self.configuration = configuration
+        
         let confirmationUrl = appendUrlParameters(
             urlString: String(format: cardPaymentUrl, configuration.paymentId, Kevin.shared.locale.identifier.lowercased())
         )
-        
+                
         KevinCardPaymentApiClient.shared.getCardPaymentInfo(
             paymentId: configuration.paymentId
         ) { [weak self] response, error in
             if let response = response {
-                let amountString = String(format: "%@ %.2f", self?.getSymbol(forCurrencyCode: response.currencyCode) ?? "", response.amount)
+                let amountString = String(format: "%@ %.2f", response.currencyCode.getCurrencySymbol() ?? "", response.amount)
 
-                self?.onStateChanged(
-                    KevinCardPaymentState(
-                        url: confirmationUrl,
-                        amount: amountString
-                    )
-                )
+                self?.state?.amount = amountString
             }
         }
 
-        onStateChanged(KevinCardPaymentState(url: confirmationUrl, amount: nil))
+        state?.url = confirmationUrl
     }
     
+    private func handlePageStartedLoading() {
+        state?.isContinueEnabled = false
+    }
+    
+    private func handlePageFinishedLoading() {
+        state?.isContinueEnabled = true
+    }
+    
+    private func handleEvent(event: KevinCardPaymentEvent) {
+        switch event {
+        case .softRedirect(let cardNumber):
+            guard let configuration = configuration else {
+                return
+            }
+            
+            KevinCardPaymentApiClient.shared.getBankFromCardNumber(
+                paymentId: configuration.paymentId,
+                cardNumberPart: cardNumber
+            ) { [weak self] response, error in
+                if let response = response {
+                    let bankName = response.name
+                    
+                    self?.viewAction(KevinCardPaymentViewAction.ShowUserRedirectPrompt(bankName: bankName))
+
+                    self?.state?.loadingState = .notLoading
+                }
+            }
+            break
+        case .hardRedirect:
+            state?.isContinueEnabled = false
+            state?.showCardDetails = false
+            state?.loadingState = .notLoading
+            break
+        case .submittingCardData:
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.state?.isContinueEnabled = false
+                self.state?.showCardDetails = false
+                self.state?.loadingState = .notLoading
+            }
+            break
+        }
+    }
+    
+    private func handleUserSoftRedirect(shouldRedirect: Bool) {
+        viewAction(KevinCardPaymentViewAction.SubmitUserRedirect(shouldRedirect: shouldRedirect))
+        if shouldRedirect {
+            state?.isContinueEnabled = false
+            state?.showCardDetails = false
+        }
+    }
+
     private func handleOnContinueClicked(
         _ cardholderName: String,
         _ cardNumber: String,
@@ -84,6 +140,8 @@ internal class KevinCardPaymentViewModel : KevinViewModel<KevinCardPaymentState,
             isValidCardNumber.isValid &&
             isValidExpiryDate.isValid &&
             isValidCvv.isValid {
+            state?.isContinueEnabled = false
+            state?.loadingState = .loading
             viewAction(
                 KevinCardPaymentViewAction.SubmitCardForm(
                     cardholderName: cardholderName,
@@ -92,6 +150,26 @@ internal class KevinCardPaymentViewModel : KevinViewModel<KevinCardPaymentState,
                     cvv: cvv
                 )
             )
+        }
+    }
+    
+    private func handlePaymentResult(callbackUrl: URL) {
+        lockQueue.sync {
+            guard !flowHasBeenProcessed else {
+                return
+            }
+            guard let statusGroup = callbackUrl["statusGroup"] else {
+                KevinPaymentSession.shared.notifyPaymentCancelation(error: KevinError(description: "Payment was canceled!"))
+                return
+            }
+            if statusGroup == "completed" {
+                if let paymentId = callbackUrl["paymentId"] {
+                    KevinPaymentSession.shared.notifyPaymentCompletion(paymentId: paymentId)
+                }
+            } else {
+                KevinPaymentSession.shared.notifyPaymentCancelation(error: KevinError(description: "Payment was canceled!"))
+            }
+            flowHasBeenProcessed = true
         }
     }
     

@@ -26,4 +26,13 @@ public class KevinCardPaymentApiClient {
             completion(cardPaymentInfo, error)
         }
     }
+    
+    public func getBankFromCardNumber(paymentId: String, cardNumberPart: String, completion: @escaping (ApiBank?, Error?) -> Void) {
+        KevinApiClient.shared.get(
+            type: KevinApiBankResponse.self,
+            endpoint: "platform/frame/banks/cards/\(paymentId)/\(cardNumberPart)"
+        ) { (response, _, error) in
+            completion(response?.bank, error)
+        }
+    }
 }

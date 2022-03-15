@@ -19,6 +19,18 @@ internal class KevinCardPaymentIntent: IKevinIntent {
         }
     }
     
+    internal class HandlePageStartedLoading: KevinCardPaymentIntent { }
+    
+    internal class HandlePageFinishedLoading: KevinCardPaymentIntent { }
+    
+    internal class HandleCardPaymentEvent: KevinCardPaymentIntent {
+        let event: KevinCardPaymentEvent
+        
+        init(event: KevinCardPaymentEvent) {
+            self.event = event
+        }
+    }
+
     internal class HandleOnContinueClicked: KevinCardPaymentIntent {
         let cardholderName: String
         let cardNumber: String
@@ -35,6 +47,22 @@ internal class KevinCardPaymentIntent: IKevinIntent {
             self.cardNumber = cardNumber
             self.expiryDate = expiryDate
             self.cvv = cvv
+        }
+    }
+    
+    internal class HandlePaymentResult: KevinCardPaymentIntent {
+        let url: URL
+        
+        init(url: URL) {
+            self.url = url
+        }
+    }
+    
+    internal class HandleUserSoftRedirect: KevinCardPaymentIntent {
+        let shouldRedirect: Bool
+        
+        init(shouldRedirect: Bool) {
+            self.shouldRedirect = shouldRedirect
         }
     }
 }

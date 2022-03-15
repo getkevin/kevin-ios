@@ -1,5 +1,5 @@
 //
-//  KevinApiBankResponse.swift
+//  KevinApiBankListResponse.swift
 //  kevin.iOS
 //
 //  Created by Edgar Žigis on 8/1/21.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class KevinApiBankResponse: NSObject, KevinApiResponseDecodable {
+public class KevinApiBankListResponse: NSObject, KevinApiResponseDecodable {
     
     public var banks: Array<ApiBank>!
     

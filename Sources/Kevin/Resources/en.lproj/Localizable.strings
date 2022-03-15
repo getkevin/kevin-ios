@@ -71,7 +71,7 @@
 "error_no_card_number" = "Card number must be entered";
 "window_card_payment_redirect_title" = "Continue payment via bank transfer?";
 "window_card_payment_redirect_subtitle" = "Would you like to continue payment via Bank Transfer?";
-"window_card_payment_bank_redirect_subtitle" = "We have noticed that your payment card is issued by %s. Would you like to continue payment via Bank Transfer?";
+"window_card_payment_bank_redirect_subtitle" = "We have noticed that your payment card is issued by %@. Would you like to continue payment via Bank Transfer?";
 
 "yes" = "Yes";
 "no" = "No";

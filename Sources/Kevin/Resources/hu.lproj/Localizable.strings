@@ -71,7 +71,7 @@
 "error_no_card_number" = "A kártyaszámot be kell írni";
 "window_card_payment_redirect_title" = "Folytatja a fizetést banki átutalással?";
 "window_card_payment_redirect_subtitle" = "Szeretné folytatni a fizetést banki átutalással?";
-"window_card_payment_bank_redirect_subtitle" = "Észrevettük, hogy fizetési kártyáját %s bocsátotta ki. Szeretné folytatni a fizetést banki átutalással?";
+"window_card_payment_bank_redirect_subtitle" = "Észrevettük, hogy fizetési kártyáját %@ bocsátotta ki. Szeretné folytatni a fizetést banki átutalással?";
 
 "yes" = "Igen";
 "no" = "Nem";

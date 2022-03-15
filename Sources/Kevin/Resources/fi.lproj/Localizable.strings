@@ -71,7 +71,7 @@
 "error_no_card_number" = "Kortin numero on syötettävä";
 "window_card_payment_redirect_title" = "Jatketaanko maksamista pankkisiirrolla?";
 "window_card_payment_redirect_subtitle" = "Haluatko jatkaa maksua pankkisiirrolla?";
-"window_card_payment_bank_redirect_subtitle" = "Huomasimme, että maksukorttisi on myöntänyt %s. Haluatko jatkaa maksua pankkisiirrolla?";
+"window_card_payment_bank_redirect_subtitle" = "Huomasimme, että maksukorttisi on myöntänyt %@. Haluatko jatkaa maksua pankkisiirrolla?";
 
 "yes" = "Joo";
 "no" = "Ei";

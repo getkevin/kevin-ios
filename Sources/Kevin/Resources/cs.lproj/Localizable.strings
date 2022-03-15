@@ -71,7 +71,7 @@
 "error_no_card_number" = "Je nutné zadat číslo karty";
 "window_card_payment_redirect_title" = "Pokračovat v platbě bankovním převodem?";
 "window_card_payment_redirect_subtitle" = "Chcete pokračovat v platbě bankovním převodem?";
-"window_card_payment_bank_redirect_subtitle" = "Všimli jsme si, že vaši platební kartu vydal %s. Chcete pokračovat v platbě bankovním převodem?";
+"window_card_payment_bank_redirect_subtitle" = "Všimli jsme si, že vaši platební kartu vydal %@. Chcete pokračovat v platbě bankovním převodem?";
 
 "yes" = "Ano";
 "no" = "Ne";

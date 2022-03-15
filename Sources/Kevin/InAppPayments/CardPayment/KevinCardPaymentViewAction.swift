@@ -48,6 +48,14 @@ internal class KevinCardPaymentViewAction: IKevinIntent {
         }
     }
     
+    internal class ShowUserRedirectPrompt: KevinCardPaymentIntent {
+        let bankName: String
+
+        init(bankName: String) {
+            self.bankName = bankName
+        }
+    }
+
     internal class SubmitUserRedirect: KevinCardPaymentIntent {
         let shouldRedirect: Bool
 

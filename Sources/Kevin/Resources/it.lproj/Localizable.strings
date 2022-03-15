@@ -71,7 +71,7 @@
 "error_no_card_number" = "È necessario inserire il numero della carta";
 "window_card_payment_redirect_title" = "Continuare il pagamento tramite bonifico bancario?";
 "window_card_payment_redirect_subtitle" = "Vuoi continuare il pagamento tramite Bonifico Bancario?";
-"window_card_payment_bank_redirect_subtitle" = "Abbiamo notato che la tua carta di pagamento è stata emessa da %s. Vuoi continuare il pagamento tramite Bonifico Bancario?";
+"window_card_payment_bank_redirect_subtitle" = "Abbiamo notato che la tua carta di pagamento è stata emessa da %@. Vuoi continuare il pagamento tramite Bonifico Bancario?";
 
 "yes" = "Sì";
 "no" = "No";

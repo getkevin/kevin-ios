@@ -71,7 +71,7 @@
 "error_no_card_number" = "Se debe ingresar el número de tarjeta";
 "window_card_payment_redirect_title" = "¿Continuar con el pago mediante transferencia bancaria?";
 "window_card_payment_redirect_subtitle" = "¿Desea continuar con el pago mediante transferencia bancaria?";
-"window_card_payment_bank_redirect_subtitle" = "Notamos que su tarjeta de pago es emitida por %s. ¿Desea continuar con el pago mediante transferencia bancaria?";
+"window_card_payment_bank_redirect_subtitle" = "Notamos que su tarjeta de pago es emitida por %@. ¿Desea continuar con el pago mediante transferencia bancaria?";
 
 "yes" = "Sí";
 "no" = "No";

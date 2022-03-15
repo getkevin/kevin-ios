@@ -71,7 +71,7 @@
 "error_no_card_number" = "Трябва да се въведе номер на картата";
 "window_card_payment_redirect_title" = "Продължаване на плащането по банков път?";
 "window_card_payment_redirect_subtitle" = "Искате ли да продължите плащането по банков път?";
-"window_card_payment_bank_redirect_subtitle" = "Забелязахме, че вашата платежна карта е издадена от %s. Искате ли да продължите плащането по банков път?";
+"window_card_payment_bank_redirect_subtitle" = "Забелязахме, че вашата платежна карта е издадена от %@. Искате ли да продължите плащането по банков път?";
 
 "yes" = "Да";
 "no" = "Не";

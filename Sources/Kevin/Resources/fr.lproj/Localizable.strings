@@ -71,7 +71,7 @@
 "error_no_card_number" = "Le numéro de carte doit être saisi";
 "window_card_payment_redirect_title" = "Continuer le paiement par virement bancaire?";
 "window_card_payment_redirect_subtitle" = "Souhaitez-vous continuer le paiement par virement bancaire?";
-"window_card_payment_bank_redirect_subtitle" = "Nous avons remarqué que votre carte de paiement est émise par %s. Souhaitez-vous continuer le paiement par virement bancaire?";
+"window_card_payment_bank_redirect_subtitle" = "Nous avons remarqué que votre carte de paiement est émise par %@. Souhaitez-vous continuer le paiement par virement bancaire?";
 
 "yes" = "Oui";
 "no" = "Non";

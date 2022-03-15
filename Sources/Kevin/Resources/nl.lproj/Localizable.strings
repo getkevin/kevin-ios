@@ -71,7 +71,7 @@
 "error_no_card_number" = "Kaartnummer moet worden ingevoerd";
 "window_card_payment_redirect_title" = "Doorgaan met betalen via overschrijving?";
 "window_card_payment_redirect_subtitle" = "Wilt u verder betalen via bankoverschrijving?";
-"window_card_payment_bank_redirect_subtitle" = "We hebben vastgesteld dat uw betaalkaart is uitgegeven door %s. Wilt u verder betalen via bankoverschrijving?";
+"window_card_payment_bank_redirect_subtitle" = "We hebben vastgesteld dat uw betaalkaart is uitgegeven door %@. Wilt u verder betalen via bankoverschrijving?";
 
 "yes" = "Ja";
 "no" = "Nee";

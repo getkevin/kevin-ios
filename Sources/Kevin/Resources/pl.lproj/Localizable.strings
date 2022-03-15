@@ -71,7 +71,7 @@
 "error_no_card_number" = "Należy wpisać numer karty";
 "window_card_payment_redirect_title" = "Kontynuować płatność przelewem bankowym?";
 "window_card_payment_redirect_subtitle" = "Czy chcesz kontynuować płatność przelewem bankowym?";
-"window_card_payment_bank_redirect_subtitle" = "Zauważyliśmy, że Twoja karta płatnicza jest wydana przez %s. Czy chcesz kontynuować płatność przelewem bankowym?";
+"window_card_payment_bank_redirect_subtitle" = "Zauważyliśmy, że Twoja karta płatnicza jest wydana przez %@. Czy chcesz kontynuować płatność przelewem bankowym?";
 
 "yes" = "Tak";
 "no" = "Nie";

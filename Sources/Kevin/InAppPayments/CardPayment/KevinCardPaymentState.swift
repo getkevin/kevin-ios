@@ -9,7 +9,9 @@
 import Foundation
 
 internal struct KevinCardPaymentState : IKevinState {
-    let url: URL
-    let amount: String = ""
-    let showCardDetails: Bool = true
+    var url: URL?
+    var amount: String?
+    var showCardDetails: Bool = true
+    var isContinueEnabled: Bool = false
+    var loadingState: KevinCardLoadingState = .notLoading
 }

@@ -71,7 +71,7 @@
 "error_no_card_number" = "Jāievada kartes numurs";
 "window_card_payment_redirect_title" = "Vai turpināt maksājumu ar bankas pārskaitījumu?";
 "window_card_payment_redirect_subtitle" = "Vai vēlaties turpināt maksājumu, izmantojot bankas pārskaitījumu?";
-"window_card_payment_bank_redirect_subtitle" = "Mēs pamanījām, ka jūsu maksājumu karti izsniedz %s. Vai vēlaties turpināt maksājumu, izmantojot bankas pārskaitījumu?";
+"window_card_payment_bank_redirect_subtitle" = "Mēs pamanījām, ka jūsu maksājumu karti izsniedz %@. Vai vēlaties turpināt maksājumu, izmantojot bankas pārskaitījumu?";
 
 "yes" = "Jā";
 "no" = "Nē";

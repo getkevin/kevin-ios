@@ -71,7 +71,7 @@
 "error_no_card_number" = "Kortnummer skal indtastes";
 "window_card_payment_redirect_title" = "Vil du fortsætte betalingen via bankoverførsel?";
 "window_card_payment_redirect_subtitle" = "Vil du fortsætte betalingen via bankoverførsel?";
-"window_card_payment_bank_redirect_subtitle" = "Vi har bemærket, at dit betalingskort er udstedt af %s. Vil du fortsætte betalingen via bankoverførsel?";
+"window_card_payment_bank_redirect_subtitle" = "Vi har bemærket, at dit betalingskort er udstedt af %@. Vil du fortsætte betalingen via bankoverførsel?";
 
 "yes" = "Ja";
 "no" = "Ingen";

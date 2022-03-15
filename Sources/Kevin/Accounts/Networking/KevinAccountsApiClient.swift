@@ -23,7 +23,7 @@ public class KevinAccountsApiClient {
     
     public func getSupportedBanks(token: String, country: String?, completion: @escaping (Array<ApiBank>?, Error?) -> Void) {
         KevinApiClient.shared.get(
-            type: KevinApiBankResponse.self,
+            type: KevinApiBankListResponse.self,
             endpoint: "platform/frame/banks/\(token)",
             parameters: ["countryCode":country as Any]
         ) { (response, _, error) in

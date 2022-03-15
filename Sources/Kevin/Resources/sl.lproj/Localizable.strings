@@ -71,7 +71,7 @@
 "error_no_card_number" = "Vnesti je treba številko kartice";
 "window_card_payment_redirect_title" = "Želite nadaljevati plačilo z bančnim nakazilom?";
 "window_card_payment_redirect_subtitle" = "Ali želite nadaljevati s plačilom z bančnim nakazilom?";
-"window_card_payment_bank_redirect_subtitle" = "Opazili smo, da vašo plačilno kartico izda %s. Ali želite nadaljevati s plačilom z bančnim nakazilom?";
+"window_card_payment_bank_redirect_subtitle" = "Opazili smo, da vašo plačilno kartico izda %@. Ali želite nadaljevati s plačilom z bančnim nakazilom?";
 
 "yes" = "Da";
 "no" = "Št";

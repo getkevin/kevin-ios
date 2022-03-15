@@ -71,7 +71,7 @@
 "error_no_card_number" = "Kortnummer må oppgis";
 "window_card_payment_redirect_title" = "Vil du fortsette betalingen via bankoverføring?";
 "window_card_payment_redirect_subtitle" = "Vil du fortsette betalingen via bankoverføring?";
-"window_card_payment_bank_redirect_subtitle" = "Vi la merke til at betalingskortet ditt er utstedt av %s. Vil du fortsette betalingen via bankoverføring?";
+"window_card_payment_bank_redirect_subtitle" = "Vi la merke til at betalingskortet ditt er utstedt av %@. Vil du fortsette betalingen via bankoverføring?";
 
 "yes" = "Ja";
 "no" = "Nei";

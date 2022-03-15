@@ -71,7 +71,7 @@
 "error_no_card_number" = "Kartennummer muss eingegeben werden";
 "window_card_payment_redirect_title" = "Zahlung per Banküberweisung fortsetzen?";
 "window_card_payment_redirect_subtitle" = "Möchten Sie die Zahlung per Banküberweisung fortsetzen?";
-"window_card_payment_bank_redirect_subtitle" = "Wir haben festgestellt, dass Ihre Zahlungskarte von %s ausgestellt wurde. Möchten Sie die Zahlung per Banküberweisung fortsetzen?";
+"window_card_payment_bank_redirect_subtitle" = "Wir haben festgestellt, dass Ihre Zahlungskarte von %@ ausgestellt wurde. Möchten Sie die Zahlung per Banküberweisung fortsetzen?";
 
 "yes" = "Ja";
 "no" = "Nein";
