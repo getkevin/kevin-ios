@@ -20,7 +20,6 @@ enum KevinValidationResult: Equatable {
         guard case .invalid(message: let message) = self else {
             return nil
         }
-        
         return message
     }
 }

@@ -13,7 +13,6 @@ class KevinCardPaymentValidator {
         guard !name.isEmpty else {
             return .invalid(message: "error_no_cardholder_name".localized(for: Kevin.shared.locale.identifier))
         }
-        
         return .valid
     }
     

@@ -17,7 +17,6 @@ internal class KevinViewModel<S : IKevinState, I : IKevinIntent> {
             guard let state = state else {
                 return
             }
-
             onStateChanged(state)
         }
     }

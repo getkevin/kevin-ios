@@ -19,6 +19,7 @@ internal class KevinCardPaymentView: KevinView<KevinCardPaymentState> {
 
     private let handlerName = "iOSHandler"
 
+    private let scrollView = UIScrollView()
     private let cardForm = UIView()
     private let cardIconView = UIImageView()
     private let amountLabel = UILabel()
@@ -93,14 +94,22 @@ internal class KevinCardPaymentView: KevinView<KevinCardPaymentState> {
     }
     
     private func initCardForm() {
+        scrollView.backgroundColor = Kevin.shared.theme.generalStyle.primaryBackgroundColor
+        addSubview(scrollView)
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        scrollView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+        scrollView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+
         cardForm.backgroundColor = Kevin.shared.theme.generalStyle.primaryBackgroundColor
-        
-        addSubview(cardForm)
+        scrollView.addSubview(cardForm)
         cardForm.translatesAutoresizingMaskIntoConstraints = false
-        cardForm.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        cardForm.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
-        cardForm.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
-        cardForm.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        cardForm.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
+        cardForm.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
+        cardForm.rightAnchor.constraint(equalTo: scrollView.rightAnchor).isActive = true
+        cardForm.leftAnchor.constraint(equalTo: scrollView.leftAnchor).isActive = true
+        cardForm.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
     }
     
     private func initAmountContainer() {
@@ -114,7 +123,7 @@ internal class KevinCardPaymentView: KevinView<KevinCardPaymentState> {
         
         cardForm.addSubview(amountLabel)
         amountLabel.text = ""
-        amountLabel.font = Kevin.shared.theme.cardPaymentStyle.titleFont
+        amountLabel.font = Kevin.shared.theme.generalStyle.primaryFont
         amountLabel.textColor = Kevin.shared.theme.generalStyle.primaryTextColor
         amountLabel.translatesAutoresizingMaskIntoConstraints = false
         amountLabel.centerXAnchor.constraint(equalTo: cardForm.centerXAnchor).isActive = true
@@ -122,7 +131,7 @@ internal class KevinCardPaymentView: KevinView<KevinCardPaymentState> {
 
         cardForm.addSubview(paymentTypeLabel)
         paymentTypeLabel.text = "window_card_payment_label".localized(for: Kevin.shared.locale.identifier)
-        paymentTypeLabel.font = Kevin.shared.theme.cardPaymentStyle.subtitleFont
+        paymentTypeLabel.font = Kevin.shared.theme.generalStyle.secondaryFont
         paymentTypeLabel.textColor = Kevin.shared.theme.generalStyle.secondaryTextColor
         paymentTypeLabel.translatesAutoresizingMaskIntoConstraints = false
         paymentTypeLabel.centerXAnchor.constraint(equalTo: cardForm.centerXAnchor).isActive = true
@@ -132,7 +141,7 @@ internal class KevinCardPaymentView: KevinView<KevinCardPaymentState> {
     private func initCardNumberInput() {
         cardForm.addSubview(cardNumberLabel)
         cardNumberLabel.text = "window_card_payment_card_number_label".localized(for: Kevin.shared.locale.identifier)
-        cardNumberLabel.font = Kevin.shared.theme.cardPaymentStyle.subtitleFont
+        cardNumberLabel.font = Kevin.shared.theme.generalStyle.secondaryFont
         cardNumberLabel.textColor = Kevin.shared.theme.generalStyle.secondaryTextColor
         cardNumberLabel.translatesAutoresizingMaskIntoConstraints = false
         cardNumberLabel.leftAnchor.constraint(equalTo: cardForm.leftAnchor, constant: 16).isActive = true
@@ -143,19 +152,19 @@ internal class KevinCardPaymentView: KevinView<KevinCardPaymentState> {
         cardNumberTextField.textField.textInset = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
         cardNumberTextField.textField.placeholder = "window_card_payment_card_number_hint".localized(for: Kevin.shared.locale.identifier)
         cardNumberTextField.textField.placeholderColor = Kevin.shared.theme.generalStyle.secondaryTextColor
-        cardNumberTextField.textField.font = Kevin.shared.theme.cardPaymentStyle.textFieldFont
-        cardNumberTextField.textField.textColor = Kevin.shared.theme.cardPaymentStyle.textFieldTextColor
-        cardNumberTextField.textField.backgroundColor = Kevin.shared.theme.cardPaymentStyle.textFieldBackgroundColor
-        cardNumberTextField.textField.layer.cornerRadius = Kevin.shared.theme.cardPaymentStyle.textFieldCornerRadius
-        cardNumberTextField.textField.layer.borderColor = Kevin.shared.theme.cardPaymentStyle.textFieldBorderColor.cgColor
-        cardNumberTextField.textField.layer.borderWidth = Kevin.shared.theme.cardPaymentStyle.textFieldBorderWidth
+        cardNumberTextField.textField.font = Kevin.shared.theme.textFieldStyle.font
+        cardNumberTextField.textField.textColor = Kevin.shared.theme.textFieldStyle.textColor
+        cardNumberTextField.textField.backgroundColor = Kevin.shared.theme.textFieldStyle.backgroundColor
+        cardNumberTextField.textField.layer.cornerRadius = Kevin.shared.theme.textFieldStyle.cornerRadius
+        cardNumberTextField.textField.layer.borderColor = Kevin.shared.theme.textFieldStyle.borderColor.cgColor
+        cardNumberTextField.textField.layer.borderWidth = Kevin.shared.theme.textFieldStyle.borderWidth
         cardNumberTextField.textField.autocorrectionType = .no
         cardNumberTextField.textField.keyboardType = .numberPad
         cardNumberTextField.textField.clearButtonMode = .whileEditing
         cardNumberTextField.textField.delegate = self
         cardNumberTextField.textField.addTarget(self, action: #selector(onTextFieldEdited(_:)), for: .editingChanged)
-        cardNumberTextField.errorLabel.font = Kevin.shared.theme.cardPaymentStyle.errorMessageFont
-        cardNumberTextField.borderColor = Kevin.shared.theme.cardPaymentStyle.textFieldErrorBorderColor
+        cardNumberTextField.errorLabel.font = Kevin.shared.theme.textFieldStyle.errorMessageFont
+        cardNumberTextField.borderColor = Kevin.shared.theme.textFieldStyle.errorBorderColor
         cardNumberTextField.translatesAutoresizingMaskIntoConstraints = false
         cardNumberTextField.leftAnchor.constraint(equalTo: cardForm.leftAnchor, constant: 16).isActive = true
         cardNumberTextField.rightAnchor.constraint(equalTo: cardForm.rightAnchor, constant: -16).isActive = true
@@ -165,7 +174,7 @@ internal class KevinCardPaymentView: KevinView<KevinCardPaymentState> {
     private func initCardholderNameInput() {
         cardForm.addSubview(cardholderNameLabel)
         cardholderNameLabel.text = "window_card_payment_cardholder_name_label".localized(for: Kevin.shared.locale.identifier)
-        cardholderNameLabel.font = Kevin.shared.theme.cardPaymentStyle.subtitleFont
+        cardholderNameLabel.font = Kevin.shared.theme.generalStyle.secondaryFont
         cardholderNameLabel.textColor = Kevin.shared.theme.generalStyle.secondaryTextColor
         cardholderNameLabel.translatesAutoresizingMaskIntoConstraints = false
         cardholderNameLabel.leftAnchor.constraint(equalTo: cardForm.leftAnchor, constant: 16).isActive = true
@@ -176,19 +185,19 @@ internal class KevinCardPaymentView: KevinView<KevinCardPaymentState> {
         cardholderNameTextField.textField.textInset = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
         cardholderNameTextField.textField.placeholder = "window_card_payment_cardholder_name_hint".localized(for: Kevin.shared.locale.identifier)
         cardholderNameTextField.textField.placeholderColor = Kevin.shared.theme.generalStyle.secondaryTextColor
-        cardholderNameTextField.textField.font = Kevin.shared.theme.cardPaymentStyle.textFieldFont
-        cardholderNameTextField.textField.textColor = Kevin.shared.theme.cardPaymentStyle.textFieldTextColor
-        cardholderNameTextField.textField.backgroundColor = Kevin.shared.theme.cardPaymentStyle.textFieldBackgroundColor
-        cardholderNameTextField.textField.layer.cornerRadius = Kevin.shared.theme.cardPaymentStyle.textFieldCornerRadius
-        cardholderNameTextField.textField.layer.borderColor = Kevin.shared.theme.cardPaymentStyle.textFieldBorderColor.cgColor
-        cardholderNameTextField.textField.layer.borderWidth = Kevin.shared.theme.cardPaymentStyle.textFieldBorderWidth
+        cardholderNameTextField.textField.font = Kevin.shared.theme.textFieldStyle.font
+        cardholderNameTextField.textField.textColor = Kevin.shared.theme.textFieldStyle.textColor
+        cardholderNameTextField.textField.backgroundColor = Kevin.shared.theme.textFieldStyle.backgroundColor
+        cardholderNameTextField.textField.layer.cornerRadius = Kevin.shared.theme.textFieldStyle.cornerRadius
+        cardholderNameTextField.textField.layer.borderColor = Kevin.shared.theme.textFieldStyle.borderColor.cgColor
+        cardholderNameTextField.textField.layer.borderWidth = Kevin.shared.theme.textFieldStyle.borderWidth
         cardholderNameTextField.textField.autocorrectionType = .no
         cardholderNameTextField.textField.autocapitalizationType = .words
         cardholderNameTextField.textField.clearButtonMode = .whileEditing
         cardholderNameTextField.textField.delegate = self
         cardholderNameTextField.textField.addTarget(self, action: #selector(onTextFieldEdited(_:)), for: .editingChanged)
-        cardholderNameTextField.errorLabel.font = Kevin.shared.theme.cardPaymentStyle.errorMessageFont
-        cardholderNameTextField.borderColor = Kevin.shared.theme.cardPaymentStyle.textFieldErrorBorderColor
+        cardholderNameTextField.errorLabel.font = Kevin.shared.theme.textFieldStyle.errorMessageFont
+        cardholderNameTextField.borderColor = Kevin.shared.theme.textFieldStyle.errorBorderColor
         cardholderNameTextField.translatesAutoresizingMaskIntoConstraints = false
         cardholderNameTextField.leftAnchor.constraint(equalTo: cardForm.leftAnchor, constant: 16).isActive = true
         cardholderNameTextField.rightAnchor.constraint(equalTo: cardForm.rightAnchor, constant: -16).isActive = true
@@ -216,7 +225,7 @@ internal class KevinCardPaymentView: KevinView<KevinCardPaymentState> {
     private func initExpiryDateInput() {
         expiryDateContainer.addSubview(expiryDateLabel)
         expiryDateLabel.text = "window_card_payment_expiry_date_label".localized(for: Kevin.shared.locale.identifier)
-        expiryDateLabel.font = Kevin.shared.theme.cardPaymentStyle.subtitleFont
+        expiryDateLabel.font = Kevin.shared.theme.generalStyle.secondaryFont
         expiryDateLabel.textColor = Kevin.shared.theme.generalStyle.secondaryTextColor
         expiryDateLabel.translatesAutoresizingMaskIntoConstraints = false
         expiryDateLabel.leftAnchor.constraint(equalTo: expiryDateContainer.leftAnchor).isActive = true
@@ -227,19 +236,19 @@ internal class KevinCardPaymentView: KevinView<KevinCardPaymentState> {
         expiryDateTextField.textField.textInset = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
         expiryDateTextField.textField.placeholder = "window_card_payment_expiry_date_hint".localized(for: Kevin.shared.locale.identifier)
         expiryDateTextField.textField.placeholderColor = Kevin.shared.theme.generalStyle.secondaryTextColor
-        expiryDateTextField.textField.font = Kevin.shared.theme.cardPaymentStyle.textFieldFont
-        expiryDateTextField.textField.textColor = Kevin.shared.theme.cardPaymentStyle.textFieldTextColor
-        expiryDateTextField.textField.backgroundColor = Kevin.shared.theme.cardPaymentStyle.textFieldBackgroundColor
-        expiryDateTextField.textField.layer.cornerRadius = Kevin.shared.theme.cardPaymentStyle.textFieldCornerRadius
-        expiryDateTextField.textField.layer.borderColor = Kevin.shared.theme.cardPaymentStyle.textFieldBorderColor.cgColor
-        expiryDateTextField.textField.layer.borderWidth = Kevin.shared.theme.cardPaymentStyle.textFieldBorderWidth
+        expiryDateTextField.textField.font = Kevin.shared.theme.textFieldStyle.font
+        expiryDateTextField.textField.textColor = Kevin.shared.theme.textFieldStyle.textColor
+        expiryDateTextField.textField.backgroundColor = Kevin.shared.theme.textFieldStyle.backgroundColor
+        expiryDateTextField.textField.layer.cornerRadius = Kevin.shared.theme.textFieldStyle.cornerRadius
+        expiryDateTextField.textField.layer.borderColor = Kevin.shared.theme.textFieldStyle.borderColor.cgColor
+        expiryDateTextField.textField.layer.borderWidth = Kevin.shared.theme.textFieldStyle.borderWidth
         expiryDateTextField.textField.autocorrectionType = .no
         expiryDateTextField.textField.keyboardType = .numberPad
         expiryDateTextField.textField.clearButtonMode = .whileEditing
         expiryDateTextField.textField.delegate = self
         expiryDateTextField.textField.addTarget(self, action: #selector(onTextFieldEdited(_:)), for: .editingChanged)
-        expiryDateTextField.errorLabel.font = Kevin.shared.theme.cardPaymentStyle.errorMessageFont
-        expiryDateTextField.borderColor = Kevin.shared.theme.cardPaymentStyle.textFieldErrorBorderColor
+        expiryDateTextField.errorLabel.font = Kevin.shared.theme.textFieldStyle.errorMessageFont
+        expiryDateTextField.borderColor = Kevin.shared.theme.textFieldStyle.errorBorderColor
         expiryDateTextField.translatesAutoresizingMaskIntoConstraints = false
         expiryDateTextField.leftAnchor.constraint(equalTo: expiryDateContainer.leftAnchor).isActive = true
         expiryDateTextField.rightAnchor.constraint(equalTo: expiryDateContainer.rightAnchor).isActive = true
@@ -250,7 +259,7 @@ internal class KevinCardPaymentView: KevinView<KevinCardPaymentState> {
     private func initCvvInput() {
         cvvContainer.addSubview(cvvLabel)
         cvvLabel.text = "window_card_payment_cvv_label".localized(for: Kevin.shared.locale.identifier)
-        cvvLabel.font = Kevin.shared.theme.cardPaymentStyle.subtitleFont
+        cvvLabel.font = Kevin.shared.theme.generalStyle.secondaryFont
         cvvLabel.textColor = Kevin.shared.theme.generalStyle.secondaryTextColor
         cvvLabel.translatesAutoresizingMaskIntoConstraints = false
         cvvLabel.leftAnchor.constraint(equalTo: cvvContainer.leftAnchor).isActive = true
@@ -282,19 +291,19 @@ internal class KevinCardPaymentView: KevinView<KevinCardPaymentState> {
         cvvTextField.textField.textInset = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
         cvvTextField.textField.placeholder = "window_card_payment_cvv_hint".localized(for: Kevin.shared.locale.identifier)
         cvvTextField.textField.placeholderColor = Kevin.shared.theme.generalStyle.secondaryTextColor
-        cvvTextField.textField.font = Kevin.shared.theme.cardPaymentStyle.textFieldFont
-        cvvTextField.textField.textColor = Kevin.shared.theme.cardPaymentStyle.textFieldTextColor
-        cvvTextField.textField.backgroundColor = Kevin.shared.theme.cardPaymentStyle.textFieldBackgroundColor
-        cvvTextField.textField.layer.cornerRadius = Kevin.shared.theme.cardPaymentStyle.textFieldCornerRadius
-        cvvTextField.textField.layer.borderColor = Kevin.shared.theme.cardPaymentStyle.textFieldBorderColor.cgColor
-        cvvTextField.textField.layer.borderWidth = Kevin.shared.theme.cardPaymentStyle.textFieldBorderWidth
+        cvvTextField.textField.font = Kevin.shared.theme.textFieldStyle.font
+        cvvTextField.textField.textColor = Kevin.shared.theme.textFieldStyle.textColor
+        cvvTextField.textField.backgroundColor = Kevin.shared.theme.textFieldStyle.backgroundColor
+        cvvTextField.textField.layer.cornerRadius = Kevin.shared.theme.textFieldStyle.cornerRadius
+        cvvTextField.textField.layer.borderColor = Kevin.shared.theme.textFieldStyle.borderColor.cgColor
+        cvvTextField.textField.layer.borderWidth = Kevin.shared.theme.textFieldStyle.borderWidth
         cvvTextField.textField.autocorrectionType = .no
         cvvTextField.textField.keyboardType = .numberPad
         cvvTextField.textField.clearButtonMode = .whileEditing
         cvvTextField.textField.delegate = self
         cvvTextField.textField.addTarget(self, action: #selector(onTextFieldEdited(_:)), for: .editingChanged)
-        cvvTextField.errorLabel.font = Kevin.shared.theme.cardPaymentStyle.errorMessageFont
-        cvvTextField.borderColor = Kevin.shared.theme.cardPaymentStyle.textFieldErrorBorderColor
+        cvvTextField.errorLabel.font = Kevin.shared.theme.textFieldStyle.errorMessageFont
+        cvvTextField.borderColor = Kevin.shared.theme.textFieldStyle.errorBorderColor
         cvvTextField.translatesAutoresizingMaskIntoConstraints = false
         cvvTextField.leftAnchor.constraint(equalTo: cvvContainer.leftAnchor).isActive = true
         cvvTextField.rightAnchor.constraint(equalTo: cvvContainer.rightAnchor).isActive = true
@@ -312,7 +321,7 @@ internal class KevinCardPaymentView: KevinView<KevinCardPaymentState> {
 
         cardForm.addSubview(paymentNoticeLabel)
         paymentNoticeLabel.text = "window_card_payment_notice".localized(for: Kevin.shared.locale.identifier)
-        paymentNoticeLabel.font = Kevin.shared.theme.cardPaymentStyle.subtitleFont
+        paymentNoticeLabel.font = Kevin.shared.theme.generalStyle.secondaryFont
         paymentNoticeLabel.textColor = Kevin.shared.theme.generalStyle.secondaryTextColor
         paymentNoticeLabel.translatesAutoresizingMaskIntoConstraints = false
         paymentNoticeLabel.topAnchor.constraint(equalTo: paymentNoticeIcon.topAnchor).isActive = true
@@ -337,11 +346,12 @@ internal class KevinCardPaymentView: KevinView<KevinCardPaymentState> {
         cardForm.addSubview(continueButton)
         
         continueButton.translatesAutoresizingMaskIntoConstraints = false
-        continueButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -Kevin.shared.theme.insets.bottom).isActive = true
+        continueButton.bottomAnchor.constraint(equalTo: cardForm.bottomAnchor, constant: -Kevin.shared.theme.insets.bottom).isActive = true
         continueButton.widthAnchor.constraint(equalToConstant: Kevin.shared.theme.mainButtonStyle.width).isActive = true
         continueButton.heightAnchor.constraint(equalToConstant: Kevin.shared.theme.mainButtonStyle.height).isActive = true
         continueButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        
+        continueButton.topAnchor.constraint(greaterThanOrEqualTo: paymentNoticeLabel.bottomAnchor, constant: Kevin.shared.theme.insets.top).isActive = true
+
         continueButton.addTarget(self, action: #selector(self.onContinueClicked(_:)), for: .touchUpInside)
     }
     
@@ -399,12 +409,12 @@ internal class KevinCardPaymentView: KevinView<KevinCardPaymentState> {
                 self.webView?.alpha = 0
             } completion: { _ in
                 UIView.animate(withDuration: 0.2) {
-                    self.cardForm.alpha = 1
+                    self.scrollView.alpha = 1
                 }
             }
         } else {
             UIView.animate(withDuration: 0.25) {
-                self.cardForm.alpha = 0
+                self.scrollView.alpha = 0
             } completion: { _ in
                 UIView.animate(withDuration: 0.2) {
                     self.webView?.alpha = 1
@@ -494,6 +504,8 @@ extension KevinCardPaymentView {
     }
     
     func showUserRedirectPrompt(bankName: String) {
+        self.endEditing(true)
+        
         bankTransferPrompt.bankName = bankName
         bankTransferPrompt.delegate = delegate
         bankTransferPrompt.isHidden = false

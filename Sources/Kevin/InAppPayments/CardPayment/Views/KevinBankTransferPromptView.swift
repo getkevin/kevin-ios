@@ -73,7 +73,7 @@ internal class KevinBankTransferPromptView: UIView {
 
         containerView.addSubview(headerLabel)
         headerLabel.text = "window_card_payment_redirect_title".localized(for: Kevin.shared.locale.identifier)
-        headerLabel.font = Kevin.shared.theme.cardPaymentStyle.titleFont
+        headerLabel.font = Kevin.shared.theme.generalStyle.primaryFont
         headerLabel.textColor = Kevin.shared.theme.generalStyle.primaryTextColor
         headerLabel.numberOfLines = 0
         headerLabel.textAlignment = .center
@@ -84,7 +84,7 @@ internal class KevinBankTransferPromptView: UIView {
 
         containerView.addSubview(messageLabel)
         messageLabel.text = "window_card_payment_redirect_subtitle".localized(for: Kevin.shared.locale.identifier)
-        messageLabel.font = Kevin.shared.theme.cardPaymentStyle.subtitleFont
+        messageLabel.font = Kevin.shared.theme.generalStyle.secondaryFont
         messageLabel.textColor = Kevin.shared.theme.generalStyle.secondaryTextColor
         messageLabel.numberOfLines = 0
         messageLabel.textAlignment = .center
@@ -97,9 +97,9 @@ internal class KevinBankTransferPromptView: UIView {
     private func initButtons() {
         noButton.clipsToBounds = false
         noButton.layer.cornerRadius = Kevin.shared.theme.mainButtonStyle.cornerRadius
-        noButton.backgroundColor = Kevin.shared.theme.mainButtonStyle.negativeBackgroundColor
+        noButton.backgroundColor = Kevin.shared.theme.negativeButtonStyle.backgroundColor
         noButton.titleLabel?.font = Kevin.shared.theme.mainButtonStyle.titleLabelFont
-        noButton.setTitleColor(Kevin.shared.theme.mainButtonStyle.negativeTitleLabelTextColor, for: .normal)
+        noButton.setTitleColor(Kevin.shared.theme.negativeButtonStyle.titleLabelTextColor, for: .normal)
         noButton.setTitle("no".localized(for: Kevin.shared.locale.identifier), for: .normal)
         containerView.addSubview(noButton)
 
@@ -159,7 +159,6 @@ internal class KevinBankTransferPromptView: UIView {
                 guard let completion = completion else {
                     return
                 }
-
                 completion()
             }
         }
