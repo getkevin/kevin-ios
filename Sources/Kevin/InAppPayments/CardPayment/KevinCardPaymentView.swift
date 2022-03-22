@@ -62,6 +62,7 @@ internal class KevinCardPaymentView: KevinView<KevinCardPaymentState> {
         let tapGestureBackground = UITapGestureRecognizer(target: self, action: #selector(self.onBackgroundTapped(_:)))
         self.addGestureRecognizer(tapGestureBackground)
         
+        initObservers()
         initWebView()
         initCardForm()
         initAmountContainer()
@@ -72,6 +73,11 @@ internal class KevinCardPaymentView: KevinView<KevinCardPaymentState> {
         initContinueButton()
         initLoader()
         initBankTransferPrompt()
+    }
+    
+    private func initObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     private func initWebView() {
@@ -378,6 +384,25 @@ internal class KevinCardPaymentView: KevinView<KevinCardPaymentState> {
         bankTransferPrompt.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
     }
     
+    @objc func keyboardWillShow() {
+        guard scrollView.contentOffset.y <= 0 else {
+            return
+        }
+        
+        var point = cardNumberTextField.frame.origin
+        point.x = 0
+
+        scrollView.setContentOffset(point, animated: true)
+    }
+    
+    @objc func keyboardWillHide() {
+        guard scrollView.contentOffset.y > 0 else {
+            return
+        }
+
+        scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+    }
+
     @objc private func onBackgroundTapped(_ sender: UITapGestureRecognizer) {
         self.endEditing(true)
     }
@@ -449,10 +474,10 @@ extension KevinCardPaymentView: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         switch textField {
         case cardNumberTextField.textField,
-             expiryDateTextField,
-             cvvTextField:
+             expiryDateTextField.textField,
+             cvvTextField.textField:
             return string.isNumeric || string.isEmpty
-        case cardholderNameTextField:
+        case cardholderNameTextField.textField:
             return !string.isNumeric || string.isEmpty
         default:
             return true
