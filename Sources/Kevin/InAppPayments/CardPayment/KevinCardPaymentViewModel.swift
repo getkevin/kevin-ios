@@ -52,12 +52,11 @@ internal class KevinCardPaymentViewModel : KevinViewModel<KevinCardPaymentState,
             urlString: String(format: cardPaymentUrl, configuration.paymentId, Kevin.shared.locale.identifier.lowercased())
         )
                 
-        KevinCardPaymentApiClient.shared.getCardPaymentInfo(
+        KevinPaymentsApiClient.shared.getCardPaymentInfo(
             paymentId: configuration.paymentId
         ) { [weak self] response, error in
             if let response = response {
                 let amountString = String(format: "%@ %.2f", response.currencyCode.getCurrencySymbol() ?? "", response.amount)
-
                 self?.state?.amount = amountString
             }
         }
@@ -80,7 +79,7 @@ internal class KevinCardPaymentViewModel : KevinViewModel<KevinCardPaymentState,
                 return
             }
             
-            KevinCardPaymentApiClient.shared.getBankFromCardNumber(
+            KevinPaymentsApiClient.shared.getBankFromCardNumber(
                 paymentId: configuration.paymentId,
                 cardNumberPart: cardNumber
             ) { [weak self] response, error in

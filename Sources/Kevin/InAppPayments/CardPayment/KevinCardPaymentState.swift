@@ -13,5 +13,5 @@ internal struct KevinCardPaymentState : IKevinState {
     var amount: String?
     var showCardDetails: Bool = true
     var isContinueEnabled: Bool = false
-    var loadingState: KevinCardLoadingState = .notLoading
+    var loadingState: KevinLoadingState = .notLoading
 }

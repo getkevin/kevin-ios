@@ -95,6 +95,7 @@ internal class KevinCardPaymentViewController :
 }
 
 extension KevinCardPaymentViewController: KevinCardPaymentViewDelegate {
+    
     func onPageStartLoading() {
         self.offerIntent(KevinCardPaymentIntent.HandlePageStartedLoading())
     }

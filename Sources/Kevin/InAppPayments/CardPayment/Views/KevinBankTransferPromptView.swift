@@ -11,6 +11,7 @@ import UIKit
 internal class KevinBankTransferPromptView: UIView {
     
     weak var delegate: KevinCardPaymentViewDelegate?
+    
     var bankName: String? {
         didSet {
             if let bankName = bankName {
@@ -26,8 +27,8 @@ internal class KevinBankTransferPromptView: UIView {
     private let bankIcon = UIImageView()
     private let headerLabel = UILabel()
     private let messageLabel = UILabel()
-    private let noButton = KevinButton(type: .custom)
-    private let yesButton = KevinButton(type: .custom)
+    private let negativeButton = KevinButton(type: .custom)
+    private let positiveButton = KevinButton(type: .custom)
     
     private var containerViewTopConstraint: NSLayoutConstraint?
 
@@ -95,38 +96,38 @@ internal class KevinBankTransferPromptView: UIView {
     }
         
     private func initButtons() {
-        noButton.clipsToBounds = false
-        noButton.layer.cornerRadius = Kevin.shared.theme.mainButtonStyle.cornerRadius
-        noButton.backgroundColor = Kevin.shared.theme.negativeButtonStyle.backgroundColor
-        noButton.titleLabel?.font = Kevin.shared.theme.mainButtonStyle.titleLabelFont
-        noButton.setTitleColor(Kevin.shared.theme.negativeButtonStyle.titleLabelTextColor, for: .normal)
-        noButton.setTitle("no".localized(for: Kevin.shared.locale.identifier), for: .normal)
-        containerView.addSubview(noButton)
+        negativeButton.clipsToBounds = false
+        negativeButton.layer.cornerRadius = Kevin.shared.theme.mainButtonStyle.cornerRadius
+        negativeButton.backgroundColor = Kevin.shared.theme.negativeButtonStyle.backgroundColor
+        negativeButton.titleLabel?.font = Kevin.shared.theme.mainButtonStyle.titleLabelFont
+        negativeButton.setTitleColor(Kevin.shared.theme.negativeButtonStyle.titleLabelTextColor, for: .normal)
+        negativeButton.setTitle("no".localized(for: Kevin.shared.locale.identifier), for: .normal)
+        containerView.addSubview(negativeButton)
 
-        noButton.translatesAutoresizingMaskIntoConstraints = false
-        noButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -Kevin.shared.theme.insets.bottom).isActive = true
-        noButton.heightAnchor.constraint(equalToConstant: Kevin.shared.theme.mainButtonStyle.height).isActive = true
-        noButton.topAnchor.constraint(equalTo: messageLabel.bottomAnchor, constant: 32).isActive = true
-        noButton.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 16).isActive = true
+        negativeButton.translatesAutoresizingMaskIntoConstraints = false
+        negativeButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -Kevin.shared.theme.insets.bottom).isActive = true
+        negativeButton.heightAnchor.constraint(equalToConstant: Kevin.shared.theme.mainButtonStyle.height).isActive = true
+        negativeButton.topAnchor.constraint(equalTo: messageLabel.bottomAnchor, constant: 32).isActive = true
+        negativeButton.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 16).isActive = true
 
-        noButton.addTarget(self, action: #selector(self.onNoButtonClicked(_:)), for: .touchUpInside)
+        negativeButton.addTarget(self, action: #selector(self.onNoButtonClicked(_:)), for: .touchUpInside)
 
-        yesButton.clipsToBounds = false
-        yesButton.layer.cornerRadius = Kevin.shared.theme.mainButtonStyle.cornerRadius
-        yesButton.backgroundColor = Kevin.shared.theme.mainButtonStyle.backgroundColor
-        yesButton.titleLabel?.font = Kevin.shared.theme.mainButtonStyle.titleLabelFont
-        yesButton.setTitleColor(Kevin.shared.theme.mainButtonStyle.titleLabelTextColor, for: .normal)
-        yesButton.setTitle("yes".localized(for: Kevin.shared.locale.identifier), for: .normal)
-        containerView.addSubview(yesButton)
+        positiveButton.clipsToBounds = false
+        positiveButton.layer.cornerRadius = Kevin.shared.theme.mainButtonStyle.cornerRadius
+        positiveButton.backgroundColor = Kevin.shared.theme.mainButtonStyle.backgroundColor
+        positiveButton.titleLabel?.font = Kevin.shared.theme.mainButtonStyle.titleLabelFont
+        positiveButton.setTitleColor(Kevin.shared.theme.mainButtonStyle.titleLabelTextColor, for: .normal)
+        positiveButton.setTitle("yes".localized(for: Kevin.shared.locale.identifier), for: .normal)
+        containerView.addSubview(positiveButton)
 
-        yesButton.translatesAutoresizingMaskIntoConstraints = false
-        yesButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -Kevin.shared.theme.insets.bottom).isActive = true
-        yesButton.widthAnchor.constraint(equalTo: noButton.widthAnchor).isActive = true
-        yesButton.heightAnchor.constraint(equalToConstant: Kevin.shared.theme.mainButtonStyle.height).isActive = true
-        yesButton.leftAnchor.constraint(equalTo: noButton.rightAnchor, constant: 12).isActive = true
-        yesButton.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -16).isActive = true
+        positiveButton.translatesAutoresizingMaskIntoConstraints = false
+        positiveButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -Kevin.shared.theme.insets.bottom).isActive = true
+        positiveButton.widthAnchor.constraint(equalTo: negativeButton.widthAnchor).isActive = true
+        positiveButton.heightAnchor.constraint(equalToConstant: Kevin.shared.theme.mainButtonStyle.height).isActive = true
+        positiveButton.leftAnchor.constraint(equalTo: negativeButton.rightAnchor, constant: 12).isActive = true
+        positiveButton.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -16).isActive = true
 
-        yesButton.addTarget(self, action: #selector(self.onYesButtonClicked(_:)), for: .touchUpInside)
+        positiveButton.addTarget(self, action: #selector(self.onYesButtonClicked(_:)), for: .touchUpInside)
     }
     
     @objc private func onNoButtonClicked(_ sender: UIButton) {

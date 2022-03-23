@@ -1,4 +1,3 @@
-
 //
 //  String+CardFormatting.swift
 //  kevin.iOS

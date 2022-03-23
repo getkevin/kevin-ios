@@ -20,7 +20,7 @@ internal class KevinCardPaymentView: KevinView<KevinCardPaymentState> {
     private let handlerName = "iOSHandler"
 
     private let scrollView = UIScrollView()
-    private let cardForm = UIView()
+    private let cardFormContainerView = UIView()
     private let cardIconView = UIImageView()
     private let amountLabel = UILabel()
     private let paymentTypeLabel = UILabel()
@@ -44,7 +44,7 @@ internal class KevinCardPaymentView: KevinView<KevinCardPaymentState> {
     private let bankTransferPrompt = KevinBankTransferPromptView()
 
     private var webView: WKWebView?
-
+    
     override func render(state: KevinCardPaymentState) {
         if let url = state.url, url != previousStateUrl {
             previousStateUrl = url
@@ -53,7 +53,7 @@ internal class KevinCardPaymentView: KevinView<KevinCardPaymentState> {
         continueButton.isEnabled = state.isContinueEnabled
         amountLabel.text = state.amount ?? ""
         showCardDetails(state.showCardDetails)
-        showLoading(state.loadingState == KevinCardLoadingState.loading)
+        showLoading(state.loadingState == KevinLoadingState.loading)
     }
 
     override func viewDidLoad() {
@@ -76,8 +76,18 @@ internal class KevinCardPaymentView: KevinView<KevinCardPaymentState> {
     }
     
     private func initObservers() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillHide),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
     }
     
     private func initWebView() {
@@ -85,16 +95,13 @@ internal class KevinCardPaymentView: KevinView<KevinCardPaymentState> {
         configuration.userContentController.add(self, name: handlerName)
 
         webView = WKWebView(frame: self.frame, configuration: configuration)
-        
         if let webView = webView {
             addSubview(webView)
-
             webView.translatesAutoresizingMaskIntoConstraints = false
             webView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
             webView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
             webView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
             webView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-            
             webView.navigationDelegate = self
         }
     }
@@ -108,53 +115,53 @@ internal class KevinCardPaymentView: KevinView<KevinCardPaymentState> {
         scrollView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
 
-        cardForm.backgroundColor = Kevin.shared.theme.generalStyle.primaryBackgroundColor
-        scrollView.addSubview(cardForm)
-        cardForm.translatesAutoresizingMaskIntoConstraints = false
-        cardForm.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
-        cardForm.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
-        cardForm.rightAnchor.constraint(equalTo: scrollView.rightAnchor).isActive = true
-        cardForm.leftAnchor.constraint(equalTo: scrollView.leftAnchor).isActive = true
-        cardForm.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+        cardFormContainerView.backgroundColor = Kevin.shared.theme.generalStyle.primaryBackgroundColor
+        scrollView.addSubview(cardFormContainerView)
+        cardFormContainerView.translatesAutoresizingMaskIntoConstraints = false
+        cardFormContainerView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
+        cardFormContainerView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
+        cardFormContainerView.rightAnchor.constraint(equalTo: scrollView.rightAnchor).isActive = true
+        cardFormContainerView.leftAnchor.constraint(equalTo: scrollView.leftAnchor).isActive = true
+        cardFormContainerView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
     }
     
     private func initAmountContainer() {
-        cardForm.addSubview(cardIconView)
+        cardFormContainerView.addSubview(cardIconView)
         cardIconView.image = UIImage(named: "card", in: Bundle.module, compatibleWith: nil)
         cardIconView.translatesAutoresizingMaskIntoConstraints = false
-        cardIconView.centerXAnchor.constraint(equalTo: cardForm.centerXAnchor).isActive = true
-        cardIconView.topAnchor.constraint(equalTo: cardForm.topAnchor, constant: 24).isActive = true
+        cardIconView.centerXAnchor.constraint(equalTo: cardFormContainerView.centerXAnchor).isActive = true
+        cardIconView.topAnchor.constraint(equalTo: cardFormContainerView.topAnchor, constant: 24).isActive = true
         cardIconView.widthAnchor.constraint(equalToConstant: 56).isActive = true
         cardIconView.heightAnchor.constraint(equalToConstant: 56).isActive = true
         
-        cardForm.addSubview(amountLabel)
+        cardFormContainerView.addSubview(amountLabel)
         amountLabel.text = ""
         amountLabel.font = Kevin.shared.theme.generalStyle.primaryFont
         amountLabel.textColor = Kevin.shared.theme.generalStyle.primaryTextColor
         amountLabel.translatesAutoresizingMaskIntoConstraints = false
-        amountLabel.centerXAnchor.constraint(equalTo: cardForm.centerXAnchor).isActive = true
+        amountLabel.centerXAnchor.constraint(equalTo: cardFormContainerView.centerXAnchor).isActive = true
         amountLabel.topAnchor.constraint(equalTo: cardIconView.bottomAnchor, constant: 16).isActive = true
 
-        cardForm.addSubview(paymentTypeLabel)
+        cardFormContainerView.addSubview(paymentTypeLabel)
         paymentTypeLabel.text = "window_card_payment_label".localized(for: Kevin.shared.locale.identifier)
         paymentTypeLabel.font = Kevin.shared.theme.generalStyle.secondaryFont
         paymentTypeLabel.textColor = Kevin.shared.theme.generalStyle.secondaryTextColor
         paymentTypeLabel.translatesAutoresizingMaskIntoConstraints = false
-        paymentTypeLabel.centerXAnchor.constraint(equalTo: cardForm.centerXAnchor).isActive = true
+        paymentTypeLabel.centerXAnchor.constraint(equalTo: cardFormContainerView.centerXAnchor).isActive = true
         paymentTypeLabel.topAnchor.constraint(equalTo: amountLabel.bottomAnchor, constant: 8).isActive = true
     }
         
     private func initCardNumberInput() {
-        cardForm.addSubview(cardNumberLabel)
+        cardFormContainerView.addSubview(cardNumberLabel)
         cardNumberLabel.text = "window_card_payment_card_number_label".localized(for: Kevin.shared.locale.identifier)
         cardNumberLabel.font = Kevin.shared.theme.generalStyle.secondaryFont
         cardNumberLabel.textColor = Kevin.shared.theme.generalStyle.secondaryTextColor
         cardNumberLabel.translatesAutoresizingMaskIntoConstraints = false
-        cardNumberLabel.leftAnchor.constraint(equalTo: cardForm.leftAnchor, constant: 16).isActive = true
-        cardNumberLabel.rightAnchor.constraint(equalTo: cardForm.rightAnchor, constant: 16).isActive = true
+        cardNumberLabel.leftAnchor.constraint(equalTo: cardFormContainerView.leftAnchor, constant: 16).isActive = true
+        cardNumberLabel.rightAnchor.constraint(equalTo: cardFormContainerView.rightAnchor, constant: 16).isActive = true
         cardNumberLabel.topAnchor.constraint(equalTo: paymentTypeLabel.bottomAnchor, constant: 38).isActive = true
         
-        cardForm.addSubview(cardNumberTextField)
+        cardFormContainerView.addSubview(cardNumberTextField)
         cardNumberTextField.textField.textInset = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
         cardNumberTextField.textField.placeholder = "window_card_payment_card_number_hint".localized(for: Kevin.shared.locale.identifier)
         cardNumberTextField.textField.placeholderColor = Kevin.shared.theme.generalStyle.secondaryTextColor
@@ -172,22 +179,22 @@ internal class KevinCardPaymentView: KevinView<KevinCardPaymentState> {
         cardNumberTextField.errorLabel.font = Kevin.shared.theme.textFieldStyle.errorMessageFont
         cardNumberTextField.borderColor = Kevin.shared.theme.textFieldStyle.errorBorderColor
         cardNumberTextField.translatesAutoresizingMaskIntoConstraints = false
-        cardNumberTextField.leftAnchor.constraint(equalTo: cardForm.leftAnchor, constant: 16).isActive = true
-        cardNumberTextField.rightAnchor.constraint(equalTo: cardForm.rightAnchor, constant: -16).isActive = true
+        cardNumberTextField.leftAnchor.constraint(equalTo: cardFormContainerView.leftAnchor, constant: 16).isActive = true
+        cardNumberTextField.rightAnchor.constraint(equalTo: cardFormContainerView.rightAnchor, constant: -16).isActive = true
         cardNumberTextField.topAnchor.constraint(equalTo: cardNumberLabel.bottomAnchor, constant: 8).isActive = true
     }
     
     private func initCardholderNameInput() {
-        cardForm.addSubview(cardholderNameLabel)
+        cardFormContainerView.addSubview(cardholderNameLabel)
         cardholderNameLabel.text = "window_card_payment_cardholder_name_label".localized(for: Kevin.shared.locale.identifier)
         cardholderNameLabel.font = Kevin.shared.theme.generalStyle.secondaryFont
         cardholderNameLabel.textColor = Kevin.shared.theme.generalStyle.secondaryTextColor
         cardholderNameLabel.translatesAutoresizingMaskIntoConstraints = false
-        cardholderNameLabel.leftAnchor.constraint(equalTo: cardForm.leftAnchor, constant: 16).isActive = true
-        cardholderNameLabel.rightAnchor.constraint(equalTo: cardForm.rightAnchor, constant: 16).isActive = true
+        cardholderNameLabel.leftAnchor.constraint(equalTo: cardFormContainerView.leftAnchor, constant: 16).isActive = true
+        cardholderNameLabel.rightAnchor.constraint(equalTo: cardFormContainerView.rightAnchor, constant: 16).isActive = true
         cardholderNameLabel.topAnchor.constraint(equalTo: cardNumberTextField.bottomAnchor, constant: 27).isActive = true
 
-        cardForm.addSubview(cardholderNameTextField)
+        cardFormContainerView.addSubview(cardholderNameTextField)
         cardholderNameTextField.textField.textInset = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
         cardholderNameTextField.textField.placeholder = "window_card_payment_cardholder_name_hint".localized(for: Kevin.shared.locale.identifier)
         cardholderNameTextField.textField.placeholderColor = Kevin.shared.theme.generalStyle.secondaryTextColor
@@ -205,24 +212,24 @@ internal class KevinCardPaymentView: KevinView<KevinCardPaymentState> {
         cardholderNameTextField.errorLabel.font = Kevin.shared.theme.textFieldStyle.errorMessageFont
         cardholderNameTextField.borderColor = Kevin.shared.theme.textFieldStyle.errorBorderColor
         cardholderNameTextField.translatesAutoresizingMaskIntoConstraints = false
-        cardholderNameTextField.leftAnchor.constraint(equalTo: cardForm.leftAnchor, constant: 16).isActive = true
-        cardholderNameTextField.rightAnchor.constraint(equalTo: cardForm.rightAnchor, constant: -16).isActive = true
+        cardholderNameTextField.leftAnchor.constraint(equalTo: cardFormContainerView.leftAnchor, constant: 16).isActive = true
+        cardholderNameTextField.rightAnchor.constraint(equalTo: cardFormContainerView.rightAnchor, constant: -16).isActive = true
         cardholderNameTextField.topAnchor.constraint(equalTo: cardholderNameLabel.bottomAnchor, constant: 8).isActive = true
     }
 
     private func initExpiryDateAndCvvContainers() {
-        cardForm.addSubview(expiryDateContainer)
+        cardFormContainerView.addSubview(expiryDateContainer)
         expiryDateContainer.backgroundColor = .clear
         expiryDateContainer.translatesAutoresizingMaskIntoConstraints = false
-        expiryDateContainer.leftAnchor.constraint(equalTo: cardForm.leftAnchor, constant: 16).isActive = true
+        expiryDateContainer.leftAnchor.constraint(equalTo: cardFormContainerView.leftAnchor, constant: 16).isActive = true
         expiryDateContainer.topAnchor.constraint(equalTo: cardholderNameTextField.bottomAnchor, constant: 27).isActive = true
         initExpiryDateInput()
         
-        cardForm.addSubview(cvvContainer)
+        cardFormContainerView.addSubview(cvvContainer)
         cvvContainer.backgroundColor = .clear
         cvvContainer.translatesAutoresizingMaskIntoConstraints = false
         cvvContainer.leftAnchor.constraint(equalTo: expiryDateContainer.rightAnchor, constant: 32).isActive = true
-        cvvContainer.rightAnchor.constraint(equalTo: cardForm.rightAnchor, constant: -16).isActive = true
+        cvvContainer.rightAnchor.constraint(equalTo: cardFormContainerView.rightAnchor, constant: -16).isActive = true
         cvvContainer.topAnchor.constraint(equalTo: expiryDateContainer.topAnchor).isActive = true
         cvvContainer.widthAnchor.constraint(equalTo: expiryDateContainer.widthAnchor).isActive = true
         initCvvInput()
@@ -318,14 +325,14 @@ internal class KevinCardPaymentView: KevinView<KevinCardPaymentState> {
     }
     
     private func initPaymentNoticeLabel() {
-        cardForm.addSubview(paymentNoticeIcon)
+        cardFormContainerView.addSubview(paymentNoticeIcon)
         paymentNoticeIcon.image = UIImage(named: "warning", in: Bundle.module, compatibleWith: nil)
         paymentNoticeIcon.translatesAutoresizingMaskIntoConstraints = false
-        paymentNoticeIcon.leftAnchor.constraint(equalTo: cardForm.leftAnchor, constant: 18).isActive = true
+        paymentNoticeIcon.leftAnchor.constraint(equalTo: cardFormContainerView.leftAnchor, constant: 18).isActive = true
         paymentNoticeIcon.widthAnchor.constraint(equalToConstant: 20).isActive = true
         paymentNoticeIcon.heightAnchor.constraint(equalToConstant: 20).isActive = true
 
-        cardForm.addSubview(paymentNoticeLabel)
+        cardFormContainerView.addSubview(paymentNoticeLabel)
         paymentNoticeLabel.text = "window_card_payment_notice".localized(for: Kevin.shared.locale.identifier)
         paymentNoticeLabel.font = Kevin.shared.theme.generalStyle.secondaryFont
         paymentNoticeLabel.textColor = Kevin.shared.theme.generalStyle.secondaryTextColor
@@ -334,7 +341,7 @@ internal class KevinCardPaymentView: KevinView<KevinCardPaymentState> {
         paymentNoticeLabel.topAnchor.constraint(greaterThanOrEqualTo: expiryDateContainer.bottomAnchor, constant: 24).isActive = true
         paymentNoticeLabel.topAnchor.constraint(greaterThanOrEqualTo: cvvContainer.bottomAnchor, constant: 24).isActive = true
         paymentNoticeLabel.leftAnchor.constraint(equalTo: paymentNoticeIcon.rightAnchor, constant: 14).isActive = true
-        paymentNoticeLabel.rightAnchor.constraint(equalTo: cardForm.rightAnchor, constant: -16).isActive = true
+        paymentNoticeLabel.rightAnchor.constraint(equalTo: cardFormContainerView.rightAnchor, constant: -16).isActive = true
         paymentNoticeLabel.numberOfLines = 2
     }
     
@@ -349,10 +356,10 @@ internal class KevinCardPaymentView: KevinView<KevinCardPaymentState> {
         continueButton.titleLabel?.font = Kevin.shared.theme.mainButtonStyle.titleLabelFont
         continueButton.setTitleColor(Kevin.shared.theme.mainButtonStyle.titleLabelTextColor, for: .normal)
         continueButton.setTitle("action_continue".localized(for: Kevin.shared.locale.identifier).uppercased(), for: .normal)
-        cardForm.addSubview(continueButton)
+        cardFormContainerView.addSubview(continueButton)
         
         continueButton.translatesAutoresizingMaskIntoConstraints = false
-        continueButton.bottomAnchor.constraint(equalTo: cardForm.bottomAnchor, constant: -Kevin.shared.theme.insets.bottom).isActive = true
+        continueButton.bottomAnchor.constraint(equalTo: cardFormContainerView.bottomAnchor, constant: -Kevin.shared.theme.insets.bottom).isActive = true
         continueButton.widthAnchor.constraint(equalToConstant: Kevin.shared.theme.mainButtonStyle.width).isActive = true
         continueButton.heightAnchor.constraint(equalToConstant: Kevin.shared.theme.mainButtonStyle.height).isActive = true
         continueButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
@@ -399,7 +406,6 @@ internal class KevinCardPaymentView: KevinView<KevinCardPaymentState> {
         guard scrollView.contentOffset.y > 0 else {
             return
         }
-
         scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
     }
 
@@ -471,6 +477,7 @@ internal class KevinCardPaymentView: KevinView<KevinCardPaymentState> {
 }
 
 extension KevinCardPaymentView: UITextFieldDelegate {
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         switch textField {
         case cardNumberTextField.textField,
@@ -488,7 +495,6 @@ extension KevinCardPaymentView: UITextFieldDelegate {
         guard let text = textField.text else {
             return
         }
-        
         switch textField {
         case cardNumberTextField.textField:
             textField.text = text.removeNonNumericCharacters().prefixString(16).formatAsCardNumber()
@@ -504,6 +510,7 @@ extension KevinCardPaymentView: UITextFieldDelegate {
 }
 
 extension KevinCardPaymentView {
+    
     func showFormErrors(
         isCardholderNameValid: KevinValidationResult,
         isCardNumberValid: KevinValidationResult,
@@ -555,6 +562,7 @@ extension KevinCardPaymentView {
 }
 
 extension KevinCardPaymentView: WKScriptMessageHandler, WKNavigationDelegate {
+    
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         if message.name == handlerName {
             guard let messageBody = message.body as? String else {
@@ -562,11 +570,13 @@ extension KevinCardPaymentView: WKScriptMessageHandler, WKNavigationDelegate {
             }
             
             switch messageBody {
-            case KevinCardPaymentMessage.softRedirect.rawValue:
-                delegate?.onEvent(event: .softRedirect(cardNumber: cardNumberTextField.textField.text?.removeNonNumericCharacters() ?? ""))
-            case KevinCardPaymentMessage.hardRedirect.rawValue:
+            case KevinCardPaymentEvent.softRedirect().getRawValue():
+                delegate?.onEvent(event: .softRedirect(
+                    cardNumber: cardNumberTextField.textField.text?.removeNonNumericCharacters() ?? "")
+                )
+            case KevinCardPaymentEvent.hardRedirect.getRawValue():
                 delegate?.onEvent(event: .hardRedirect)
-            case KevinCardPaymentMessage.cardPaymentSubmitting.rawValue:
+            case KevinCardPaymentEvent.submittingCardData.getRawValue():
                 delegate?.onEvent(event: .submittingCardData)
             default:
                 break
@@ -574,7 +584,11 @@ extension KevinCardPaymentView: WKScriptMessageHandler, WKNavigationDelegate {
         }
     }
 
-    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+    func webView(
+        _ webView: WKWebView,
+        decidePolicyFor navigationAction: WKNavigationAction,
+        decisionHandler: @escaping (WKNavigationActionPolicy) -> Void
+    ) {
         guard let url = navigationAction.request.url else {
             decisionHandler(.allow)
             return

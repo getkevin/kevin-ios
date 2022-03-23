@@ -8,9 +8,9 @@
 
 import Foundation
 
-public class KevinCardPaymentApiClient {
+public class KevinPaymentsApiClient {
     
-    public static let shared = KevinCardPaymentApiClient()
+    public static let shared = KevinPaymentsApiClient()
     
     public func getCardPaymentInfo(paymentId: String, completion: @escaping (ApiCardPaymentInfo?, Error?) -> Void) {
         KevinApiClient.shared.get(

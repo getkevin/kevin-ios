@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum KevinCardLoadingState: Equatable {
+enum KevinLoadingState: Equatable {
     case notLoading
     case loading
     case success

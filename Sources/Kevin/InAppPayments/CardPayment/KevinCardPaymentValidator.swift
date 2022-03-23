@@ -8,6 +8,7 @@
 import Foundation
 
 class KevinCardPaymentValidator {
+    
     @discardableResult
     static func isValidCardholderName(_ name: String) -> KevinValidationResult {
         guard !name.isEmpty else {
