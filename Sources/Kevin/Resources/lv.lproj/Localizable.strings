@@ -50,6 +50,29 @@
 
 "action_continue" = "Turpināt";
 
+"window_card_payment_label" = "Kartes apmaksa";
+"window_card_payment_cardholder_name_label" = "Kartes īpašnieka vārds";
+"window_card_payment_cardholder_name_hint" = "John Appleseed";
+"window_card_payment_card_number_label" = "Kartes numurs";
+"window_card_payment_card_number_hint" = "1234 5678 9012 3456";
+"window_card_payment_expiry_date_label" = "Derīguma termiņš";
+"window_card_payment_expiry_date_hint" = "MM/YY";
+"window_card_payment_cvv_label" = "CVV / CVC";
+"window_card_payment_cvv_hint" = "123";
+"window_card_payment_notice" = "kevin. nesaglabā nekādu jūsu personisko informāciju vai kartes informāciju.";
+"window_card_payment_cvv_tooltip" = "CVV ir 3 ciparu kods, kas redzams kartes aizmugurē";
+"error_no_cardholder_name" = "Jāievada kartes lietotāja vārds";
+"error_invalid_cvv" = "Ievadiet derīgu CVV";
+"error_no_cvv" = "Jāievada CVV";
+"error_invalid_expiry_date" = "Derīguma termiņš nav derīgs";
+"error_no_expiry_date" = "Jāievada derīguma termiņš";
+"error_card_expired" = "Kartei ir beidzies derīguma termiņš";
+"error_invalid_card_number" = "Kartes numurs nav derīgs";
+"error_no_card_number" = "Jāievada kartes numurs";
+"window_card_payment_redirect_title" = "Vai turpināt maksājumu ar bankas pārskaitījumu?";
+"window_card_payment_redirect_subtitle" = "Vai vēlaties turpināt maksājumu, izmantojot bankas pārskaitījumu?";
+"window_card_payment_bank_redirect_subtitle" = "Mēs pamanījām, ka jūsu maksājumu karti izsniedz %@. Vai vēlaties turpināt maksājumu, izmantojot bankas pārskaitījumu?";
+
 "yes" = "Jā";
 "no" = "Nē";
 "dialog_exit_confirmation_title" = "Brīdinājums!";

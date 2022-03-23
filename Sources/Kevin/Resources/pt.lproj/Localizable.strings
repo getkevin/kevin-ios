@@ -50,6 +50,29 @@
 
 "action_continue" = "Prosseguir";
 
+"window_card_payment_label" = "Pagamento via cartão";
+"window_card_payment_cardholder_name_label" = "Nome do Titular";
+"window_card_payment_cardholder_name_hint" = "John Appleseed";
+"window_card_payment_card_number_label" = "Número do cartão";
+"window_card_payment_card_number_hint" = "1234 5678 9012 3456";
+"window_card_payment_expiry_date_label" = "Data de validade";
+"window_card_payment_expiry_date_hint" = "MM/YY";
+"window_card_payment_cvv_label" = "CVV / CVC";
+"window_card_payment_cvv_hint" = "123";
+"window_card_payment_notice" = "kevin. não está armazenando nenhuma informação pessoal ou detalhes do cartão.";
+"window_card_payment_cvv_tooltip" = "CVV é um código de 3 dígitos exibido no verso do seu cartão";
+"error_no_cardholder_name" = "O nome do titular do cartão deve ser inserido";
+"error_invalid_cvv" = "Insira um CVV válido";
+"error_no_cvv" = "CVV deve ser inserido";
+"error_invalid_expiry_date" = "A data de validade é inválida";
+"error_no_expiry_date" = "A data de validade deve ser inserida";
+"error_card_expired" = "O cartão expirou";
+"error_invalid_card_number" = "O número do cartão é inválido";
+"error_no_card_number" = "O número do cartão deve ser inserido";
+"window_card_payment_redirect_title" = "Continuar o pagamento por transferência bancária?";
+"window_card_payment_redirect_subtitle" = "Deseja continuar o pagamento por Transferência Bancária?";
+"window_card_payment_bank_redirect_subtitle" = "Notamos que seu cartão de pagamento foi emitido por %@. Deseja continuar o pagamento por Transferência Bancária?";
+
 "yes" = "Sim";
 "no" = "Não";
 "dialog_exit_confirmation_title" = "Aviso!";

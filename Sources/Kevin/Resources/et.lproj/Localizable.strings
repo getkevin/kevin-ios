@@ -50,6 +50,29 @@
 
 "action_continue" = "Jätka";
 
+"window_card_payment_label" = "Kaardimakse";
+"window_card_payment_cardholder_name_label" = "Kaardi valdaja nimi";
+"window_card_payment_cardholder_name_hint" = "John Appleseed";
+"window_card_payment_card_number_label" = "Kaardi number";
+"window_card_payment_card_number_hint" = "1234 5678 9012 3456";
+"window_card_payment_expiry_date_label" = "Aegumiskuupäev";
+"window_card_payment_expiry_date_hint" = "MM/YY";
+"window_card_payment_cvv_label" = "CVV / CVC";
+"window_card_payment_cvv_hint" = "123";
+"window_card_payment_notice" = "kevin. ei salvesta teie isikuandmeid ega kaardiandmeid.";
+"window_card_payment_cvv_tooltip" = "CVV on 3-kohaline kood, mis kuvatakse teie kaardi tagaküljel";
+"error_no_cardholder_name" = "Sisestada tuleb kaardiomaniku nimi";
+"error_invalid_cvv" = "Sisesta kehtiv CVV";
+"error_no_cvv" = "CVV tuleb sisestada";
+"error_invalid_expiry_date" = "Aegumiskuupäev on kehtetu";
+"error_no_expiry_date" = "Sisestada tuleb aegumiskuupäev";
+"error_card_expired" = "Kaart on aegunud";
+"error_invalid_card_number" = "Kaardi number on kehtetu";
+"error_no_card_number" = "Sisestada tuleb kaardi number";
+"window_card_payment_redirect_title" = "Kas jätkata pangaülekandega maksmist?";
+"window_card_payment_redirect_subtitle" = "Kas soovite jätkata pangaülekandega maksmist?";
+"window_card_payment_bank_redirect_subtitle" = "Märkasime, et teie maksekaardi on väljastanud %@. Kas soovite jätkata pangaülekandega maksmist?";
+
 "yes" = "Jah";
 "no" = "Ei";
 "dialog_exit_confirmation_title" = "Hoiatus!";

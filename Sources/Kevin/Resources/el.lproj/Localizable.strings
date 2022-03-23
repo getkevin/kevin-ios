@@ -50,6 +50,29 @@
 
 "action_continue" = "Να συνεχίσει";
 
+"window_card_payment_label" = "Πληρωμή με κάρτα";
+"window_card_payment_cardholder_name_label" = "Ονομα ιδιοκτήτη κάρτας";
+"window_card_payment_cardholder_name_hint" = "John Appleseed";
+"window_card_payment_card_number_label" = "Αριθμός κάρτας";
+"window_card_payment_card_number_hint" = "1234 5678 9012 3456";
+"window_card_payment_expiry_date_label" = "Ημερομηνία λήξης";
+"window_card_payment_expiry_date_hint" = "MM/YY";
+"window_card_payment_cvv_label" = "CVV / CVC";
+"window_card_payment_cvv_hint" = "123";
+"window_card_payment_notice" = "kevin. δεν αποθηκεύει κανένα από τα προσωπικά σας στοιχεία ή στοιχεία της κάρτας σας.";
+"window_card_payment_cvv_tooltip" = "Το CVV είναι ένας 3ψήφιος κωδικός που εμφανίζεται στο πίσω μέρος της κάρτας σας";
+"error_no_cardholder_name" = "Πρέπει να εισαχθεί το όνομα κατόχου κάρτας";
+"error_invalid_cvv" = "Εισαγάγετε έγκυρο βιογραφικό σημείωμα";
+"error_no_cvv" = "Πρέπει να εισαχθεί το βιογραφικό σημείωμα";
+"error_invalid_expiry_date" = "Η ημερομηνία λήξης δεν είναι έγκυρη";
+"error_no_expiry_date" = "Πρέπει να εισαχθεί η ημερομηνία λήξης";
+"error_card_expired" = "Η κάρτα έχει λήξει";
+"error_invalid_card_number" = "Ο αριθμός κάρτας δεν είναι έγκυρος";
+"error_no_card_number" = "Πρέπει να εισαχθεί ο αριθμός της κάρτας";
+"window_card_payment_redirect_title" = "Συνέχεια πληρωμής μέσω τραπεζικού εμβάσματος;";
+"window_card_payment_redirect_subtitle" = "Θέλετε να συνεχίσετε την πληρωμή μέσω Τραπεζικής Κατάθεσης;";
+"window_card_payment_bank_redirect_subtitle" = "Παρατηρήσαμε ότι η κάρτα πληρωμής σας εκδίδεται από %@. Θέλετε να συνεχίσετε την πληρωμή μέσω Τραπεζικής Κατάθεσης;";
+
 "yes" = "Ναί";
 "no" = "Οχι";
 "dialog_exit_confirmation_title" = "Προειδοποίηση!";

@@ -47,4 +47,8 @@ internal class KevinViewController<VM : KevinViewModel<S, I>, V : KevinView<S>, 
     open func getView() -> V {
         return self.view as! V
     }
+    
+    open func getViewModel() -> VM {
+        return self.viewModel
+    }
 }

@@ -50,6 +50,29 @@
 
 "action_continue" = "Blive ved";
 
+"window_card_payment_label" = "Kortbetaling";
+"window_card_payment_cardholder_name_label" = "Kortholders navn";
+"window_card_payment_cardholder_name_hint" = "John Appleseed";
+"window_card_payment_card_number_label" = "Kortnummer";
+"window_card_payment_card_number_hint" = "1234 5678 9012 3456";
+"window_card_payment_expiry_date_label" = "Udløbsdato";
+"window_card_payment_expiry_date_hint" = "MM/YY";
+"window_card_payment_cvv_label" = "CVV / CVC";
+"window_card_payment_cvv_hint" = "123";
+"window_card_payment_notice" = "kevin. gemmer ikke nogen af dine personlige oplysninger eller kortoplysninger.";
+"window_card_payment_cvv_tooltip" = "CVV er en 3-cifret kode, der vises på bagsiden af dit kort";
+"error_no_cardholder_name" = "Kortholders navn skal indtastes";
+"error_invalid_cvv" = "Indtast gyldig CVV";
+"error_no_cvv" = "CVV skal indtastes";
+"error_invalid_expiry_date" = "Udløbsdatoen er ugyldig";
+"error_no_expiry_date" = "Udløbsdato skal indtasteswerden";
+"error_card_expired" = "Kortet er udløbet";
+"error_invalid_card_number" = "Kortnummeret er ugyldigt";
+"error_no_card_number" = "Kortnummer skal indtastes";
+"window_card_payment_redirect_title" = "Vil du fortsætte betalingen via bankoverførsel?";
+"window_card_payment_redirect_subtitle" = "Vil du fortsætte betalingen via bankoverførsel?";
+"window_card_payment_bank_redirect_subtitle" = "Vi har bemærket, at dit betalingskort er udstedt af %@. Vil du fortsætte betalingen via bankoverførsel?";
+
 "yes" = "Ja";
 "no" = "Ingen";
 "dialog_exit_confirmation_title" = "Advarsel!";

@@ -50,6 +50,29 @@
 
 "action_continue" = "Ďalej";
 
+"window_card_payment_label" = "Platba kartou";
+"window_card_payment_cardholder_name_label" = "Meno držiteľa karty";
+"window_card_payment_cardholder_name_hint" = "John Appleseed";
+"window_card_payment_card_number_label" = "Číslo karty";
+"window_card_payment_card_number_hint" = "1234 5678 9012 3456";
+"window_card_payment_expiry_date_label" = "Dátum spotreby";
+"window_card_payment_expiry_date_hint" = "MM/YY";
+"window_card_payment_cvv_label" = "CVV / CVC";
+"window_card_payment_cvv_hint" = "123";
+"window_card_payment_notice" = "kevin. neuchováva žiadne vaše osobné údaje ani podrobnosti o karte.";
+"window_card_payment_cvv_tooltip" = "CVV je 3-ciferný kód zobrazený na zadnej strane vašej karty";
+"error_no_cardholder_name" = "Je potrebné zadať meno držiteľa karty";
+"error_invalid_cvv" = "Zadajte platný CVV";
+"error_no_cvv" = "CVV je potrebné zadať";
+"error_invalid_expiry_date" = "Dátum vypršania platnosti je neplatný";
+"error_no_expiry_date" = "Je potrebné zadať dátum vypršania platnosti";
+"error_card_expired" = "Platnosť karty vypršala";
+"error_invalid_card_number" = "Číslo karty je neplatné";
+"error_no_card_number" = "Je potrebné zadať číslo karty";
+"window_card_payment_redirect_title" = "Pokračovať v platbe bankovým prevodom?";
+"window_card_payment_redirect_subtitle" = "Chcete pokračovať v platbe bankovým prevodom?";
+"window_card_payment_bank_redirect_subtitle" = "Všimli sme si, že vašu platobnú kartu vydal %@. Chcete pokračovať v platbe bankovým prevodom?";
+
 "yes" = "Áno";
 "no" = "Nie";
 "dialog_exit_confirmation_title" = "Výstraha!";

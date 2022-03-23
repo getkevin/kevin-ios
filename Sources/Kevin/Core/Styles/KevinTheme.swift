@@ -24,7 +24,9 @@ open class KevinTheme {
         public var primaryBackgroundColor = UIColor(red: 242/255, green: 242/255, blue: 247/255, alpha: 1)
         public var primaryTextColor = UIColor(red: 18/255, green: 18/255, blue: 18/255, alpha: 1)
         public var secondaryTextColor = UIColor(red: 124/255, green: 136/255, blue: 148/255, alpha: 1)
-        
+        public var primaryFont = UIFont.systemFont(ofSize: 23, weight: .bold)
+        public var secondaryFont = UIFont.systemFont(ofSize: 14, weight: .regular)
+
         public init() { }
     }
     
@@ -96,10 +98,38 @@ open class KevinTheme {
         public var shadowOpacity: Float = 0.6
         public var shadowOffset = CGSize(width: 1.0, height: 1.0)
         public var shadowColor = UIColor(red: 1, green: 0, blue: 32/255, alpha: 1)
+
+        public init() { }
+    }
+    
+    public struct NegativeButtonStyle {
+        public var width = UIScreen.main.bounds.width - 32
+        public var height: CGFloat = 48
+        public var backgroundColor = UIColor(red: 230/255, green: 231/255, blue: 238/255, alpha: 1)
+        public var titleLabelTextColor = UIColor(red: 1, green: 0, blue: 32/255, alpha: 1)
+        public var titleLabelFont = UIFont.systemFont(ofSize: 15, weight: .semibold)
+        public var cornerRadius: CGFloat = 8
+        public var shadowRadius: CGFloat = 2
+        public var shadowOpacity: Float = 0.6
+        public var shadowOffset = CGSize(width: 1.0, height: 1.0)
+        public var shadowColor = UIColor(red: 1, green: 0, blue: 32/255, alpha: 1)
         
         public init() { }
     }
     
+    public struct TextFieldStyle {
+        public var textColor = UIColor.black
+        public var font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        public var cornerRadius: CGFloat = 10
+        public var backgroundColor = UIColor.white
+        public var borderWidth: CGFloat = 1
+        public var borderColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.12)
+        public var errorBorderColor = UIColor(red: 230/255, green: 70/255, blue: 70/255, alpha: 1)
+        public var errorMessageFont = UIFont.systemFont(ofSize: 13, weight: .regular)
+
+        public init() { }
+    }
+
     open var insets = Insets()
     open var generalStyle = GeneralStyle()
     open var navigationBarStyle = NavigationBarStyle()
@@ -109,6 +139,8 @@ open class KevinTheme {
     open var listTableStyle = ListTableStyle()
     open var navigationLinkStyle = NavigationLinkStyle()
     open var mainButtonStyle = MainButtonStyle()
+    open var negativeButtonStyle = NegativeButtonStyle()
+    open var textFieldStyle = TextFieldStyle()
     
     public init() { }
 }

@@ -12,7 +12,14 @@ internal class KevinViewModel<S : IKevinState, I : IKevinIntent> {
     
     required init() { }
     
-    private var state: S? = nil
+    var state: S? {
+        didSet {
+            guard let state = state else {
+                return
+            }
+            onStateChanged(state)
+        }
+    }
     
     open var onStateChanged: (S)->() = { state in }
     

@@ -50,6 +50,29 @@
 
 "action_continue" = "Продължи";
 
+"window_card_payment_label" = "Плащане с карта";
+"window_card_payment_cardholder_name_label" = "Име на картодържателя";
+"window_card_payment_cardholder_name_hint" = "John Appleseed";
+"window_card_payment_card_number_label" = "Номер на карта";
+"window_card_payment_card_number_hint" = "1234 5678 9012 3456";
+"window_card_payment_expiry_date_label" = "Срок на годност";
+"window_card_payment_expiry_date_hint" = "MM/YY";
+"window_card_payment_cvv_label" = "CVV / CVC";
+"window_card_payment_cvv_hint" = "123";
+"window_card_payment_notice" = "kevin. не съхранява никаква ваша лична информация или данни за карта.";
+"window_card_payment_cvv_tooltip" = "CVV е 3-цифрен код, показан на гърба на вашата карта";
+"error_no_cardholder_name" = "Трябва да се въведе името на картодържателя";
+"error_invalid_cvv" = "Въведете валиден CVV";
+"error_no_cvv" = "CVV трябва да се въведе";
+"error_invalid_expiry_date" = "Срокът на годност е невалиден";
+"error_no_expiry_date" = "Трябва да се въведе дата на изтичане";
+"error_card_expired" = "Картата е изтекла";
+"error_invalid_card_number" = "Номерът на картата е невалиден";
+"error_no_card_number" = "Трябва да се въведе номер на картата";
+"window_card_payment_redirect_title" = "Продължаване на плащането по банков път?";
+"window_card_payment_redirect_subtitle" = "Искате ли да продължите плащането по банков път?";
+"window_card_payment_bank_redirect_subtitle" = "Забелязахме, че вашата платежна карта е издадена от %@. Искате ли да продължите плащането по банков път?";
+
 "yes" = "Да";
 "no" = "Не";
 "dialog_exit_confirmation_title" = "Внимание!";

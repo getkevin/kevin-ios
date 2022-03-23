@@ -33,7 +33,7 @@ final public class KevinPaymentSession {
         if configuration.paymentType == .bank {
             initiateBankPayment(configuration: configuration)
         } else if configuration.paymentType == .card {
-            delegate?.onKevinPaymentInitiationStarted(controller: initializePaymentConfirmation(configuration: configuration))
+            initiateCardPayment(configuration: configuration)
         }
     }
     
@@ -55,6 +55,10 @@ final public class KevinPaymentSession {
         } else {
             delegate?.onKevinPaymentInitiationStarted(controller: initializeBankSelection(configuration: configuration))
         }
+    }
+
+    private func initiateCardPayment(configuration: KevinPaymentSessionConfiguration) {
+        delegate?.onKevinPaymentInitiationStarted(controller: initializeCardPayment(configuration: configuration))
     }
     
     //MARK: BankPaymentFlow
@@ -99,7 +103,21 @@ final public class KevinPaymentSession {
         }
         return KevinNavigationViewController(rootViewController: controller)
     }
-    
+
+    private func initializeCardPayment(
+        configuration: KevinPaymentSessionConfiguration
+    ) -> UINavigationController {
+        let controller = KevinCardPaymentViewController()
+        controller.configuration = KevinCardPaymentConfiguration(
+            paymentId: configuration.paymentId,
+            exitSlug: "dialog_exit_confirmation_payments_message"
+        )
+        controller.onExit = { [weak self] in
+            self?.delegate?.onKevinPaymentCanceled(error: KevinCancelationError(description: "User has canceled the flow!"))
+        }
+        return KevinNavigationViewController(rootViewController: controller)
+    }
+
     //MARK: PaymentConfirmation
     
     private func initializePaymentConfirmation(

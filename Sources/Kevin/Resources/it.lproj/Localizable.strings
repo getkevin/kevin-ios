@@ -50,6 +50,29 @@
 
 "action_continue" = "Continua";
 
+"window_card_payment_label" = "Pagamento con carta";
+"window_card_payment_cardholder_name_label" = "Nome del titolare";
+"window_card_payment_cardholder_name_hint" = "John Appleseed";
+"window_card_payment_card_number_label" = "Numero di carta";
+"window_card_payment_card_number_hint" = "1234 5678 9012 3456";
+"window_card_payment_expiry_date_label" = "Data di scadenza";
+"window_card_payment_expiry_date_hint" = "MM/YY";
+"window_card_payment_cvv_label" = "CVV / CVC";
+"window_card_payment_cvv_hint" = "123";
+"window_card_payment_notice" = "kevin. non sta memorizzando nessuna delle tue informazioni personali o dettagli della carta.";
+"window_card_payment_cvv_tooltip" = "CVV è un codice a 3 cifre visualizzato sul retro della carta";
+"error_no_cardholder_name" = "È necessario inserire il nome del titolare della carta";
+"error_invalid_cvv" = "Inserisci un CVV valido";
+"error_no_cvv" = "È necessario inserire il CVV";
+"error_invalid_expiry_date" = "La data di scadenza non è valida";
+"error_no_expiry_date" = "È necessario inserire la data di scadenza";
+"error_card_expired" = "La carta è scaduta";
+"error_invalid_card_number" = "Il numero della carta non è valido";
+"error_no_card_number" = "È necessario inserire il numero della carta";
+"window_card_payment_redirect_title" = "Continuare il pagamento tramite bonifico bancario?";
+"window_card_payment_redirect_subtitle" = "Vuoi continuare il pagamento tramite Bonifico Bancario?";
+"window_card_payment_bank_redirect_subtitle" = "Abbiamo notato che la tua carta di pagamento è stata emessa da %@. Vuoi continuare il pagamento tramite Bonifico Bancario?";
+
 "yes" = "Sì";
 "no" = "No";
 "dialog_exit_confirmation_title" = "Avvertimento!";

@@ -50,6 +50,29 @@
 
 "action_continue" = "Continua";
 
+"window_card_payment_label" = "Plata cu cardul";
+"window_card_payment_cardholder_name_label" = "Nume Deținător Card";
+"window_card_payment_cardholder_name_hint" = "John Appleseed";
+"window_card_payment_card_number_label" = "Număr de card";
+"window_card_payment_card_number_hint" = "1234 5678 9012 3456";
+"window_card_payment_expiry_date_label" = "Data de expirare";
+"window_card_payment_expiry_date_hint" = "MM/YY";
+"window_card_payment_cvv_label" = "CVV / CVC";
+"window_card_payment_cvv_hint" = "123";
+"window_card_payment_notice" = "kevin. nu stochează niciuna dintre informațiile dvs. personale sau detaliile cardului.";
+"window_card_payment_cvv_tooltip" = "CVV este un cod din 3 cifre afișat pe spatele cardului dvs";
+"error_no_cardholder_name" = "Numele titularului cardului trebuie introdus";
+"error_invalid_cvv" = "Introduceți CVV valid";
+"error_no_cvv" = "CVV trebuie introdus";
+"error_invalid_expiry_date" = "Data de expirare este nevalidă";
+"error_no_expiry_date" = "Trebuie introdusă data de expirare";
+"error_card_expired" = "Cardul este expirat";
+"error_invalid_card_number" = "Numărul cardului este nevalid";
+"error_no_card_number" = "Trebuie introdus numărul cardului";
+"window_card_payment_redirect_title" = "Continuați plata prin transfer bancar?";
+"window_card_payment_redirect_subtitle" = "Doriți să continuați plata prin transfer bancar?";
+"window_card_payment_bank_redirect_subtitle" = "Am observat că cardul dvs. de plată este emis de %@. Doriți să continuați plata prin transfer bancar?";
+
 "yes" = "Da";
 "no" = "Nu";
 "dialog_exit_confirmation_title" = "Avertizare!";

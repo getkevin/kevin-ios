@@ -50,6 +50,29 @@
 
 "action_continue" = "Fortsätta";
 
+"window_card_payment_label" = "Kortbetalning";
+"window_card_payment_cardholder_name_label" = "Kortinnehavarens namn";
+"window_card_payment_cardholder_name_hint" = "John Appleseed";
+"window_card_payment_card_number_label" = "Kortnummer";
+"window_card_payment_card_number_hint" = "1234 5678 9012 3456";
+"window_card_payment_expiry_date_label" = "Utgångsdatum";
+"window_card_payment_expiry_date_hint" = "MM/YY";
+"window_card_payment_cvv_label" = "CVV / CVC";
+"window_card_payment_cvv_hint" = "123";
+"window_card_payment_notice" = "kevin. lagrar inte någon av dina personliga uppgifter eller kortuppgifter.";
+"window_card_payment_cvv_tooltip" = "CVV är en tresiffrig kod som visas på baksidan av ditt kort";
+"error_no_cardholder_name" = "Kortinnehavarens namn måste anges";
+"error_invalid_cvv" = "Ange giltig CVV";
+"error_no_cvv" = "CVV måste anges";
+"error_invalid_expiry_date" = "Sista utgångsdatum är ogiltigt";
+"error_no_expiry_date" = "Sista utgångsdatum måste anges";
+"error_card_expired" = "Kortet har gått ut";
+"error_invalid_card_number" = "Kortnumret är ogiltigt";
+"error_no_card_number" = "Kortnummer måste anges";
+"window_card_payment_redirect_title" = "Fortsätta betalning via banköverföring?";
+"window_card_payment_redirect_subtitle" = "Vill du fortsätta betalningen via banköverföring?";
+"window_card_payment_bank_redirect_subtitle" = "Vi har märkt att ditt betalkort är utfärdat av %@. Vill du fortsätta betalningen via banköverföring?";
+
 "yes" = "Ja";
 "no" = "Nej";
 "dialog_exit_confirmation_title" = "Varning!";

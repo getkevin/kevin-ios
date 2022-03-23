@@ -50,6 +50,29 @@
 
 "action_continue" = "Продолжить";
 
+"window_card_payment_label" = "Оплата картой";
+"window_card_payment_cardholder_name_label" = "Имя владельца карты";
+"window_card_payment_cardholder_name_hint" = "John Appleseed";
+"window_card_payment_card_number_label" = "Номер карты";
+"window_card_payment_card_number_hint" = "1234 5678 9012 3456";
+"window_card_payment_expiry_date_label" = "Срок действия";
+"window_card_payment_expiry_date_hint" = "MM/YY";
+"window_card_payment_cvv_label" = "CVV / CVC";
+"window_card_payment_cvv_hint" = "123";
+"window_card_payment_notice" = "kevin. не хранит вашу личную информацию или данные карты.";
+"window_card_payment_cvv_tooltip" = "CVV — это трехзначный код, отображаемый на обратной стороне вашей карты";
+"error_no_cardholder_name" = "Необходимо ввести имя держателя карты";
+"error_invalid_cvv" = "Введите действительный CVV";
+"error_no_cvv" = "CVV должен быть введен";
+"error_invalid_expiry_date" = "Дата истечения срока годности недействительна";
+"error_no_expiry_date" = "Необходимо ввести срок годности";
+"error_card_expired" = "Срок годности карты истек";
+"error_invalid_card_number" = "Номер карты недействителен";
+"error_no_card_number" = "Необходимо ввести номер карты";
+"window_card_payment_redirect_title" = "Продолжить оплату банковским переводом?";
+"window_card_payment_redirect_subtitle" = "Хотите продолжить оплату банковским переводом?";
+"window_card_payment_bank_redirect_subtitle" = "Мы заметили, что ваша платежная карта выпущена %@. Хотите продолжить оплату банковским переводом?";
+
 "yes" = "Да";
 "no" = "Нет";
 "dialog_exit_confirmation_title" = "Предупреждение!";
