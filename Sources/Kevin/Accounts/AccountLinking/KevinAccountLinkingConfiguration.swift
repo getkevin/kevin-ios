@@ -10,6 +10,7 @@ import Foundation
 
 internal struct KevinAccountLinkingConfiguration {
     let state: String
-    let selectedBankId: String
+    let selectedBankId: String?
     let selectedCountry: KevinCountry?
+    let linkingType: KevinAccountLinkingType
 }

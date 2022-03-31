@@ -40,6 +40,7 @@
 "country_name_li" = "Liechtenstein";
 
 "window_account_linking_title" = "Vinculación de cuenta";
+"window_account_linking_card_title" = "Card linking";
 "window_country_selection_title" = "Seleccionar país";
 "window_bank_selection_title" = "Seleccionar banco";
 "window_bank_selection_select_country_label" = "Seleccionar país";

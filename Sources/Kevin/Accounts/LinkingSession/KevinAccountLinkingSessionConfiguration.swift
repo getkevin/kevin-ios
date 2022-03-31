@@ -17,6 +17,7 @@ public class KevinAccountLinkingSessionConfiguration {
     let countryFilter: Array<KevinCountry>
     let preselectedBank: String?
     let skipBankSelection: Bool
+    let linkingType: KevinAccountLinkingType
     
     init(
         state: String,
@@ -24,7 +25,8 @@ public class KevinAccountLinkingSessionConfiguration {
         disableCountrySelection: Bool,
         countryFilter: Array<KevinCountry>,
         preselectedBank: String?,
-        skipBankSelection: Bool
+        skipBankSelection: Bool,
+        linkingType: KevinAccountLinkingType
     ) throws {
         self.state = state
         self.preselectedCountry = preselectedCountry
@@ -32,7 +34,8 @@ public class KevinAccountLinkingSessionConfiguration {
         self.countryFilter = countryFilter
         self.preselectedBank = preselectedBank
         self.skipBankSelection = skipBankSelection
-        
+        self.linkingType = linkingType
+
         if skipBankSelection && preselectedBank == nil {
             throw KevinError(description: "If skipBankSelection is true, preselectedBank must be provided!")
         }
@@ -54,6 +57,7 @@ public class KevinAccountLinkingSessionConfiguration {
         private var countryFilter: Array<KevinCountry> = []
         private var preselectedBank: String? = nil
         private var skipBankSelection: Bool = false
+        private var linkingType: KevinAccountLinkingType = .bank
         
         /// Creates an instance with the given state.
         ///
@@ -110,6 +114,15 @@ public class KevinAccountLinkingSessionConfiguration {
             return self
         }
         
+        /// Sets linking type
+        ///
+        /// - Parameters:
+        ///   - type: desired linking type.
+        public func setLinkingType(_ type: KevinAccountLinkingType) -> Builder {
+            self.linkingType = type
+            return self
+        }
+
         public func build() throws -> KevinAccountLinkingSessionConfiguration {
             return try KevinAccountLinkingSessionConfiguration(
                 state: state,
@@ -117,7 +130,8 @@ public class KevinAccountLinkingSessionConfiguration {
                 disableCountrySelection: disableCountrySelection,
                 countryFilter: countryFilter,
                 preselectedBank: preselectedBank,
-                skipBankSelection: skipBankSelection
+                skipBankSelection: skipBankSelection,
+                linkingType: linkingType
             )
         }
     }

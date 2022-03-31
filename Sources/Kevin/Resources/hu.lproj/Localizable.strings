@@ -40,6 +40,7 @@
 "country_name_li" = "Liechtenstein";
 
 "window_account_linking_title" = "Fiók összekapcsolása";
+"window_account_linking_card_title" = "Card linking";
 "window_country_selection_title" = "Válassz országot";
 "window_bank_selection_title" = "Válassza ki a bankot";
 "window_bank_selection_select_country_label" = "Válassz országot";

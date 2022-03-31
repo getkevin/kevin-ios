@@ -40,6 +40,7 @@
 "country_name_li" = "Лихтенштейн";
 
 "window_account_linking_title" = "Связывание аккаунта";
+"window_account_linking_card_title" = "Card linking";
 "window_country_selection_title" = "Выберите страну";
 "window_bank_selection_title" = "Выберите bank";
 "window_bank_selection_select_country_label" = "Выберите страну";

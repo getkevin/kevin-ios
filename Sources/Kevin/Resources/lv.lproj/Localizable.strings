@@ -40,6 +40,7 @@
 "country_name_li" = "Lihtenšteina";
 
 "window_account_linking_title" = "Bankas konta piesaistīšana";
+"window_account_linking_card_title" = "Card linking";
 "window_country_selection_title" = "Izvēlēties valsti";
 "window_bank_selection_title" = "Izvēlēties banku";
 "window_bank_selection_select_country_label" = "Izvēlēties valsti";
