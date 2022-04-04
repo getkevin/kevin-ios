@@ -21,22 +21,32 @@ final public class KevinAccountLinkingSession {
     
     internal func notifyAccountLinkingCompletion(
         authorizationCode: String,
-        bankId: String,
-        country: KevinCountry?
+        bankId: String?,
+        country: KevinCountry?,
+        linkingType: KevinAccountLinkingType
     ) {
-        getPreselectedBank(
-            state: configuration.state,
-            bankCode: bankId,
-            country: country
-        ) { [weak self] bank in
-            if bank == nil {
-                self?.delegate?.onKevinAccountLinkingCanceled(error: KevinError(description: "Preselected bank is not available!"))
-            } else {
-                self?.delegate?.onKevinAccountLinkingSucceeded(
-                    authorizationCode: authorizationCode,
-                    bank: bank!
-                )
+        if linkingType == .bank {
+            getPreselectedBank(
+                state: configuration.state,
+                bankCode: bankId!,
+                country: country
+            ) { [weak self] bank in
+                if bank == nil {
+                    self?.delegate?.onKevinAccountLinkingCanceled(error: KevinError(description: "Preselected bank is not available!"))
+                } else {
+                    self?.delegate?.onKevinAccountLinkingSucceeded(
+                        authorizationCode: authorizationCode,
+                        bank: bank!,
+                        linkingType: linkingType
+                    )
+                }
             }
+        } else {
+            delegate?.onKevinAccountLinkingSucceeded(
+                authorizationCode: authorizationCode,
+                bank: nil,
+                linkingType: linkingType
+            )
         }
     }
     
@@ -50,22 +60,28 @@ final public class KevinAccountLinkingSession {
     ///   - configuration: account linking session configuration
     public func initiateAccountLinking(configuration: KevinAccountLinkingSessionConfiguration) {
         self.configuration = configuration
-        if configuration.skipBankSelection {
-            getPreselectedBank(
-                state: configuration.state,
-                bankCode: configuration.preselectedBank!,
-                country: configuration.preselectedCountry
-            ) { [weak self] bank in
-                if bank == nil {
-                    self?.delegate?.onKevinAccountLinkingCanceled(error: KevinError(description: "Preselected bank is not available!"))
-                } else {
-                    self?.delegate?.onKevinAccountLinkingStarted(
-                        controller: self!.initializeAccountLinkingConfirmation(configuration: configuration)
-                    )
-                }
-            }
+        if configuration.linkingType == .card {
+            delegate?.onKevinAccountLinkingStarted(
+                controller: initializeAccountLinkingConfirmation(configuration: configuration)
+            )
         } else {
-            delegate?.onKevinAccountLinkingStarted(controller: initializeBankSelection(configuration: configuration))
+            if configuration.skipBankSelection {
+                getPreselectedBank(
+                    state: configuration.state,
+                    bankCode: configuration.preselectedBank!,
+                    country: configuration.preselectedCountry
+                ) { [weak self] bank in
+                    if bank == nil {
+                        self?.delegate?.onKevinAccountLinkingCanceled(error: KevinError(description: "Preselected bank is not available!"))
+                    } else {
+                        self?.delegate?.onKevinAccountLinkingStarted(
+                            controller: self!.initializeAccountLinkingConfirmation(configuration: configuration)
+                        )
+                    }
+                }
+            } else {
+                delegate?.onKevinAccountLinkingStarted(controller: initializeBankSelection(configuration: configuration))
+            }
         }
     }
     
@@ -123,8 +139,9 @@ final public class KevinAccountLinkingSession {
         let controller = KevinAccountLinkingViewController()
         controller.configuration = KevinAccountLinkingConfiguration(
             state: configuration.state,
-            selectedBankId: configuration.preselectedBank!,
-            selectedCountry: configuration.preselectedCountry
+            selectedBankId: configuration.preselectedBank,
+            selectedCountry: configuration.preselectedCountry,
+            linkingType: configuration.linkingType
         )
         return KevinNavigationViewController(rootViewController: controller)
     }
@@ -137,8 +154,9 @@ final public class KevinAccountLinkingSession {
         let controller = KevinAccountLinkingViewController()
         controller.configuration = KevinAccountLinkingConfiguration(
             state: configuration.state,
-            selectedBankId: selectedBank ?? configuration.preselectedBank!,
-            selectedCountry: selectedCountry
+            selectedBankId: selectedBank ?? configuration.preselectedBank,
+            selectedCountry: selectedCountry,
+            linkingType: configuration.linkingType
         )
         return controller
     }

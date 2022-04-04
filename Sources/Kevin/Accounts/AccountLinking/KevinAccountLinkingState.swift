@@ -10,4 +10,5 @@ import Foundation
 
 internal struct KevinAccountLinkingState : IKevinState {
     let bankRedirectUrl: URL
+    let accountLinkingType: KevinAccountLinkingType
 }

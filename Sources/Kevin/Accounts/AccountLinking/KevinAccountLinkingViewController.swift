@@ -16,7 +16,9 @@ internal class KevinAccountLinkingViewController :
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "window_account_linking_title".localized(for: Kevin.shared.locale.identifier)
+        title = configuration.linkingType == .bank ?
+            "window_account_linking_title".localized(for: Kevin.shared.locale.identifier) :
+            "window_account_linking_card_title".localized(for: Kevin.shared.locale.identifier)
         getView().delegate = self
         self.offerIntent(
             KevinAccountLinkingIntent.Initialize(configuration: configuration)

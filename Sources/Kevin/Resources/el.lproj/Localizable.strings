@@ -39,12 +39,13 @@
 "country_name_is" = "Ισλανδία";
 "country_name_li" = "Λιχτενστάιν";
 
-"window_account_linking_title" = "Account linking";
-"window_country_selection_title" = "Select country";
-"window_bank_selection_title" = "Bank selection";
-"window_bank_selection_select_country_label" = "Select country";
-"window_bank_selection_select_bank_label" = "Select bank";
-"error_bank_not_selected" = "Bank has to be selected";
+"window_account_linking_title" = "Σύνδεση λογαριασμού";
+"window_account_linking_card_title" = "Σύνδεση κάρτας";
+"window_country_selection_title" = "Επιλέξτε χώρα";
+"window_bank_selection_title" = "Επιλογή τράπεζας";
+"window_bank_selection_select_country_label" = "Επιλέξτε χώρα";
+"window_bank_selection_select_bank_label" = "Επιλέξτε τράπεζα";
+"error_bank_not_selected" = "Πρέπει να επιλεγεί τράπεζα";
 
 "window_payment_confirmation_title" = "Επιβεβαίωση πληρωμής";
 

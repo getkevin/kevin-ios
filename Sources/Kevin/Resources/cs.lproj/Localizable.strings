@@ -40,6 +40,7 @@
 "country_name_li" = "Island";
 
 "window_account_linking_title" = "Propojení účtů";
+"window_account_linking_card_title" = "Propojení karet";
 "window_country_selection_title" = "Vyberte zemi";
 "window_bank_selection_title" = "Vyberte banku";
 "window_bank_selection_select_country_label" = "Vyberte zemi";

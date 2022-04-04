@@ -40,6 +40,7 @@
 "country_name_li" = "Liechtenstein";
 
 "window_account_linking_title" = "Kontolänkning";
+"window_account_linking_card_title" = "Kortlänkning";
 "window_country_selection_title" = "Välj land";
 "window_bank_selection_title" = "Välj bank";
 "window_bank_selection_select_country_label" = "Välj land";

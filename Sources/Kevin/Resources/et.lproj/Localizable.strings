@@ -40,6 +40,7 @@
 "country_name_li" = "Liechtenstein";
 
 "window_account_linking_title" = "Konto linkimine";
+"window_account_linking_card_title" = "Kaardi sidumine";
 "window_country_selection_title" = "Vali riik";
 "window_bank_selection_title" = "Valige pank";
 "window_bank_selection_select_country_label" = "Vali riik";

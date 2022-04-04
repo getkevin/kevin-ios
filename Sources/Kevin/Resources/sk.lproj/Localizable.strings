@@ -40,6 +40,7 @@
 "country_name_li" = "Lichtenštajnsko";
 
 "window_account_linking_title" = "Prepojenie účtov";
+"window_account_linking_card_title" = "Prepojenie kariet";
 "window_country_selection_title" = "Vyberte krajinu";
 "window_bank_selection_title" = "Vyberte banku";
 "window_bank_selection_select_country_label" = "Vyberte krajinu";
