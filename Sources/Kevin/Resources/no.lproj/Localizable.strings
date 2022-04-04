@@ -40,7 +40,7 @@
 "country_name_li" = "Liechtenstein";
 
 "window_account_linking_title" = "Kontotilknytning";
-"window_account_linking_card_title" = "Card linking";
+"window_account_linking_card_title" = "Kortkobling";
 "window_country_selection_title" = "Velg land";
 "window_bank_selection_title" = "Velg bank";
 "window_bank_selection_select_country_label" = "Velg land";

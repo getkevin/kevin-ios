@@ -40,7 +40,7 @@
 "country_name_li" = "Lichtenšteinas";
 
 "window_account_linking_title" = "Sąskaitos susiejimas";
-"window_account_linking_card_title" = "Card linking";
+"window_account_linking_card_title" = "Kortelės susiejimas";
 "window_country_selection_title" = "Pasirinkite šalį";
 "window_bank_selection_title" = "Pasirinkite banką";
 "window_bank_selection_select_country_label" = "Pasirinkite šalį";

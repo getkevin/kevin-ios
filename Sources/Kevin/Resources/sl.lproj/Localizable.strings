@@ -40,7 +40,7 @@
 "country_name_li" = "Liechtenstein";
 
 "window_account_linking_title" = "Povezovanje računa";
-"window_account_linking_card_title" = "Card linking";
+"window_account_linking_card_title" = "Povezovanje kartic";
 "window_country_selection_title" = "Izberite državo";
 "window_bank_selection_title" = "Izberite banko";
 "window_bank_selection_select_country_label" = "Izberite državo";

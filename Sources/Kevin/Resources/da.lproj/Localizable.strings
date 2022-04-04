@@ -40,7 +40,7 @@
 "country_name_li" = "Liechtenstein";
 
 "window_account_linking_title" = "Kontotilknytning";
-"window_account_linking_card_title" = "Card linking";
+"window_account_linking_card_title" = "Kortforbindelse";
 "window_country_selection_title" = "Vælg land";
 "window_bank_selection_title" = "Vælg bank";
 "window_bank_selection_select_country_label" = "Vælg land";
