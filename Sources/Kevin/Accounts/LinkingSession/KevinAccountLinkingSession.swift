@@ -25,7 +25,7 @@ final public class KevinAccountLinkingSession {
         country: KevinCountry?,
         linkingType: KevinAccountLinkingType
     ) {
-        if linkingType == .bank {
+//        if linkingType == .bank {
             getPreselectedBank(
                 state: configuration.state,
                 bankCode: bankId!,
@@ -36,18 +36,24 @@ final public class KevinAccountLinkingSession {
                 } else {
                     self?.delegate?.onKevinAccountLinkingSucceeded(
                         authorizationCode: authorizationCode,
-                        bank: bank!,
-                        linkingType: linkingType
+                        bank: bank!
                     )
+
+                    // NOTE: Disabled (for now) card linking functionality
+//                    self?.delegate?.onKevinAccountLinkingSucceeded(
+//                        authorizationCode: authorizationCode,
+//                        bank: bank!,
+//                        linkingType: linkingType
+//                    )
                 }
             }
-        } else {
-            delegate?.onKevinAccountLinkingSucceeded(
-                authorizationCode: authorizationCode,
-                bank: nil,
-                linkingType: linkingType
-            )
-        }
+//        } else {
+//            delegate?.onKevinAccountLinkingSucceeded(
+//                authorizationCode: authorizationCode,
+//                bank: nil,
+//                linkingType: linkingType
+//            )
+//        }
     }
     
     internal func notifyAccountLinkingCancelation(error: Error?) {
@@ -60,11 +66,11 @@ final public class KevinAccountLinkingSession {
     ///   - configuration: account linking session configuration
     public func initiateAccountLinking(configuration: KevinAccountLinkingSessionConfiguration) {
         self.configuration = configuration
-        if configuration.linkingType == .card {
-            delegate?.onKevinAccountLinkingStarted(
-                controller: initializeAccountLinkingConfirmation(configuration: configuration)
-            )
-        } else {
+//        if configuration.linkingType == .card {
+//            delegate?.onKevinAccountLinkingStarted(
+//                controller: initializeAccountLinkingConfirmation(configuration: configuration)
+//            )
+//        } else {
             if configuration.skipBankSelection {
                 getPreselectedBank(
                     state: configuration.state,
@@ -82,7 +88,7 @@ final public class KevinAccountLinkingSession {
             } else {
                 delegate?.onKevinAccountLinkingStarted(controller: initializeBankSelection(configuration: configuration))
             }
-        }
+//        }
     }
     
     private func getPreselectedBank(

@@ -429,29 +429,34 @@ internal class KevinCardPaymentView: KevinView<KevinCardPaymentState> {
     }
     
     private func showCardDetails(_ show: Bool) {
-        if previousCardDetailsVisibility == show {
-            return
-        }
+        // NOTE: Native UI for card payments disabled for now
         
-        previousCardDetailsVisibility = show
-        
-        if show {
-            UIView.animate(withDuration: 0.25) {
-                self.webView?.alpha = 0
-            } completion: { _ in
-                UIView.animate(withDuration: 0.2) {
-                    self.scrollView.alpha = 1
-                }
-            }
-        } else {
-            UIView.animate(withDuration: 0.25) {
-                self.scrollView.alpha = 0
-            } completion: { _ in
-                UIView.animate(withDuration: 0.2) {
-                    self.webView?.alpha = 1
-                }
-            }
-        }
+        self.scrollView.alpha = 0
+        self.webView?.alpha = 1
+
+//        if previousCardDetailsVisibility == show {
+//            return
+//        }
+//
+//        previousCardDetailsVisibility = show
+//
+//        if show {
+//            UIView.animate(withDuration: 0.25) {
+//                self.webView?.alpha = 0
+//            } completion: { _ in
+//                UIView.animate(withDuration: 0.2) {
+//                    self.scrollView.alpha = 1
+//                }
+//            }
+//        } else {
+//            UIView.animate(withDuration: 0.25) {
+//                self.scrollView.alpha = 0
+//            } completion: { _ in
+//                UIView.animate(withDuration: 0.2) {
+//                    self.webView?.alpha = 1
+//                }
+//            }
+//        }
     }
     
     private func showLoading(_ show: Bool) {

@@ -24,6 +24,7 @@ internal class KevinPaymentConfirmationViewController :
             KevinPaymentConfirmationIntent.Initialize(configuration: configuration)
         )
         uiStateHandler = KevinUIStateHandler()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotification(notification:)), name: .onProcessCallback, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,6 +42,7 @@ internal class KevinPaymentConfirmationViewController :
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         if uiStateHandler?.isCancellationInvoked ?? false {
+            NotificationCenter.default.removeObserver(self)
             if configuration.skipAuthentication || configuration.paymentType == .card {
                 self.offerIntent(
                     KevinPaymentConfirmationIntent.HandlePaymentCompleted(
@@ -78,6 +80,12 @@ internal class KevinPaymentConfirmationViewController :
             }
         ))
         present(alert, animated: true)
+    }
+    
+    @objc func methodOfReceivedNotification(notification: Notification) {        
+        if let url = notification.object as? URL {
+            onPaymentCompleted(callbackUrl: url, error: nil)
+        }
     }
 }
 

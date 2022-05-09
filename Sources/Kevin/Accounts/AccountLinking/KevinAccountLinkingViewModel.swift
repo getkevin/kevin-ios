@@ -24,10 +24,11 @@ internal class KevinAccountLinkingViewModel : KevinViewModel<KevinAccountLinking
     }
     
     private func initialize(_ configuration: KevinAccountLinkingConfiguration) {
-        let baseUrl = configuration.linkingType == .bank ?
-            String(format: bankLinkingUrl, configuration.state, configuration.selectedBankId!) :
-            String(format: cardLinkingUrl, configuration.state)
-        
+        let baseUrl = String(format: bankLinkingUrl, configuration.state, configuration.selectedBankId!)
+//        let baseUrl = configuration.linkingType == .bank ?
+//            String(format: bankLinkingUrl, configuration.state, configuration.selectedBankId!) :
+//            String(format: cardLinkingUrl, configuration.state)
+
         onStateChanged(
             KevinAccountLinkingState(
                 bankRedirectUrl: appendUrlParameters(urlString: baseUrl),
