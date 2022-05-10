@@ -31,7 +31,7 @@ public class KevinInAppPaymentsPlugin: KevinPlugin {
         }
         return configuration.callbackUrl
     }
-        
+    
     //MARK: KevinPlugin
     
     public func isConfigured() -> Bool {
