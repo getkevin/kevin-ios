@@ -10,7 +10,7 @@
 "country_name_at" = "Itävalta";
 "country_name_be" = "Belgia";
 "country_name_bg" = "Bulgaria";
-"country_name_cz" = "Tšekin tasavalta";
+"country_name_cz" = "Tšekki";
 "country_name_de" = "Saksa";
 "country_name_dk" = "Tanska";
 "country_name_ee" = "Viro";
@@ -39,43 +39,43 @@
 "country_name_is" = "Islanti";
 "country_name_li" = "Liechtenstein";
 
-"window_account_linking_title" = "Tilin linkittäminen";
-"window_account_linking_card_title" = "Kortin linkittäminen";
+"window_account_linking_title" = "Tilin yhdistäminen";
+"window_account_linking_card_title" = "Maksukortin yhdistäminen";
 "window_country_selection_title" = "Valitse maa";
-"window_bank_selection_title" = "Valitse pankki";
+"window_bank_selection_title" = "Pankin valinta";
 "window_bank_selection_select_country_label" = "Valitse maa";
 "window_bank_selection_select_bank_label" = "Valitse pankki";
-"error_bank_not_selected" = "Pankki on valittava";
+"error_bank_not_selected" = "Pankin valintaa ei voi ohittaa";
 
 "window_payment_confirmation_title" = "Maksuvahvistus";
 
-"action_continue" = "Jatkaa";
+"Continue" = "Jatka";
 
 "window_card_payment_label" = "Korttimaksu";
 "window_card_payment_cardholder_name_label" = "Kortinhaltijan nimi";
-"window_card_payment_cardholder_name_hint" = "John Appleseed";
-"window_card_payment_card_number_label" = "Kortin numero";
+"window_card_payment_cardholder_name_hint" = "Matti Meikäläinen";
+"window_card_payment_card_number_label" = "Maksukortin numero";
 "window_card_payment_card_number_hint" = "1234 5678 9012 3456";
-"window_card_payment_expiry_date_label" = "Päättymispäivä";
+"window_card_payment_expiry_date_label" = "Viimeinen voimassaolopäivä";
 "window_card_payment_expiry_date_hint" = "MM/YY";
 "window_card_payment_cvv_label" = "CVV / CVC";
 "window_card_payment_cvv_hint" = "123";
-"window_card_payment_notice" = "kevin. ei tallenna henkilökohtaisia tietojasi tai korttitietojasi.";
-"window_card_payment_cvv_tooltip" = "CVV on kolminumeroinen koodi, joka näkyy korttisi takana";
-"error_no_cardholder_name" = "Kortinhaltijan nimi on syötettävä";
-"error_invalid_cvv" = "Anna kelvollinen CVV";
-"error_no_cvv" = "CVV on syötettävä";
+"window_card_payment_notice" = "kevin. ei tallenna henkilökohtaisia tietojasi tai maksukortin tietoja.";
+"window_card_payment_cvv_tooltip" = "CVV-koodi on kolminumeroinen luku maksukortin takana";
+"error_no_cardholder_name" = "Kortinhaltijan nimi on pakollinen tieto";
+"error_invalid_cvv" = "Syötä voimassa oleva CVV-koodi";
+"error_no_cvv" = "CVV-koodi on pakollinen tieto";
 "error_invalid_expiry_date" = "Viimeinen voimassaolopäivä on virheellinen";
-"error_no_expiry_date" = "Viimeinen voimassaolopäivä on syötettävä";
-"error_card_expired" = "Kortti on vanhentunut";
-"error_invalid_card_number" = "Kortin numero on virheellinen";
-"error_no_card_number" = "Kortin numero on syötettävä";
-"window_card_payment_redirect_title" = "Jatketaanko maksamista pankkisiirrolla?";
-"window_card_payment_redirect_subtitle" = "Haluatko jatkaa maksua pankkisiirrolla?";
-"window_card_payment_bank_redirect_subtitle" = "Huomasimme, että maksukorttisi on myöntänyt %@. Haluatko jatkaa maksua pankkisiirrolla?";
+"error_no_expiry_date" = "Viimeinen voimassaolopäivä on pakollinen tieto";
+"error_card_expired" = "Maksukortti on vanhentunut";
+"error_invalid_card_number" = "Maksukortin numero on virheellinen";
+"error_no_card_number" = "Maksukortin numero on pakollinen tieto";
+"window_card_payment_redirect_title" = "Suoritetaanko maksu pankkisiirtona?";
+"window_card_payment_redirect_subtitle" = "Haluatko suorittaa maksun pankkisiirtona?";
+"window_card_payment_bank_redirect_subtitle" = "Maksukorttisi on myöntänyt %@. Haluatko suorittaa maksun pankkisiirtona?";
 
-"yes" = "Joo";
-"no" = "Ei";
+"yes" = "Kyllä";
+"no" = "En";
 "dialog_exit_confirmation_title" = "Varoitus!";
-"dialog_exit_confirmation_accounts_message" = "Haluatko varmasti keskeyttää tilin linkityksen?";
-"dialog_exit_confirmation_payments_message" = "Haluatko varmasti peruuttaa tämän maksun?";
+"dialog_exit_confirmation_accounts_message" = "Oletko varma, että haluat peruuttaa tilin yhdistämisen?";
+"dialog_exit_confirmation_payments_message" = "Oletko varma, että haluat peruuttaa tämän maksun?";

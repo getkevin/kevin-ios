@@ -49,7 +49,7 @@
 
 "window_payment_confirmation_title" = "Payment confirmation";
 
-"action_continue" = "Continue";
+"Continue" = "Continue";
 
 "window_card_payment_label" = "Card payment";
 "window_card_payment_cardholder_name_label" = "Cardholder name";

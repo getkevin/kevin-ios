@@ -1,0 +1,76 @@
+/*
+ Copyright © 2022 kevin.. All rights reserved.
+*/
+
+"country_name_at" = "Austurríki";
+"country_name_be" = "Belgía";
+"country_name_bg" = "Búlgaría";
+"country_name_cz" = "Tékkland";
+"country_name_de" = "Þýskaland";
+"country_name_dk" = "Danmörk";
+"country_name_ee" = "Eistland";
+"country_name_es" = "Spánn";
+"country_name_fi" = "Finnland";
+"country_name_fr" = "Frakkland";
+"country_name_gb" = "Bretland";
+"country_name_it" = "Ítalía";
+"country_name_lt" = "Litáen";
+"country_name_lu" = "Lúxemborg";
+"country_name_lv" = "Lettland";
+"country_name_nl" = "Holland";
+"country_name_no" = "Noregur";
+"country_name_pl" = "Pólland";
+"country_name_pt" = "Portúgal";
+"country_name_ro" = "Rúmenía";
+"country_name_se" = "Svíþjóð";
+"country_name_hu" = "Ungverjaland";
+"country_name_ie" = "Írland";
+"country_name_si" = "Slóvenía";
+"country_name_sk" = "Slóvakía";
+"country_name_mt" = "Malta";
+"country_name_cy" = "Kýpur";
+"country_name_hr" = "Króatía";
+"country_name_gr" = "Grikkland";
+"country_name_is" = "Ísland";
+"country_name_li" = "Liechtenstein";
+
+"window_account_linking_title" = "Reikningstenging";
+"window_account_linking_card_title" = "Kortatenging";
+"window_country_selection_title" = "Veldu land";
+"window_bank_selection_title" = "Bankaval";
+"window_bank_selection_select_country_label" = "Veldu land";
+"window_bank_selection_select_bank_label" = "Veldu banka";
+"error_bank_not_selected" = "Það þarf að velja banka";
+
+"window_payment_confirmation_title" = "Staðfesting greiðslu";
+
+"Continue" = "Halda áfram";
+
+"window_card_payment_label" = "Kortagreiðsla";
+"window_card_payment_cardholder_name_label" = "Nafn eiganda kortsins";
+"window_card_payment_cardholder_name_hint" = "John Appleseed";
+"window_card_payment_card_number_label" = "Kortanúmer";
+"window_card_payment_card_number_hint" = "1234 5678 9012 3456";
+"window_card_payment_expiry_date_label" = "Gildistími";
+"window_card_payment_expiry_date_hint" = "MM/YY";
+"window_card_payment_cvv_label" = "CVV / CVC";
+"window_card_payment_cvv_hint" = "123";
+"window_card_payment_notice" = "kevin. geymir engar persónu- eða kortaupplýsingar";
+"window_card_payment_cvv_tooltip" = "CVV er 3 tölustafir á bakhliðinni á kortinu";
+"error_no_cardholder_name" = "Gefa þarf upp nafn eiganda kortsins";
+"error_invalid_cvv" = "Gefðu upp gilt CVV";
+"error_no_cvv" = "Gefa þarf upp CVV";
+"error_invalid_expiry_date" = "Gildistími er ógildur";
+"error_no_expiry_date" = "Gefa þarf upp gildistíma";
+"error_card_expired" = "Kortið er útrunnið";
+"error_invalid_card_number" = "Kortanúmerið er ógilt";
+"error_no_card_number" = "Gefa þarf upp kortanúmer";
+"window_card_payment_redirect_title" = "Halda áfram að greiða með bankafærslu?";
+"window_card_payment_redirect_subtitle" = "Viltu halda áfram að greiða með bankafærslu?";
+"window_card_payment_bank_redirect_subtitle" = "Við höfum tekið eftir því að greiðslukortið þitt er gefið út af %@. Viltu halda áfram að greiða með bankafærslu?";
+
+"yes" = "Já";
+"no" = "Nei";
+"dialog_exit_confirmation_title" = "Viðvörun!";
+"dialog_exit_confirmation_accounts_message" = "Vilt þú örugglega fjarlægja þessa reikningstengingu?";
+"dialog_exit_confirmation_payments_message" = "Vilt þú örugglega hætta við þessa greiðslu?";

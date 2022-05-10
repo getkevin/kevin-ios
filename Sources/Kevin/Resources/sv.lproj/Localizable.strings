@@ -37,19 +37,19 @@
 "country_name_hr" = "Kroatien";
 "country_name_gr" = "Grekland";
 "country_name_is" = "Island";
-"country_name_li" = "Liechtenstein";
+"country_name_li" = "Lichtenstein";
 
-"window_account_linking_title" = "Kontolänkning";
-"window_account_linking_card_title" = "Kortlänkning";
+"window_account_linking_title" = "Kontokoppling";
+"window_account_linking_card_title" = "Kortkoppling";
 "window_country_selection_title" = "Välj land";
-"window_bank_selection_title" = "Välj bank";
+"window_bank_selection_title" = "Bankval";
 "window_bank_selection_select_country_label" = "Välj land";
 "window_bank_selection_select_bank_label" = "Välj bank";
 "error_bank_not_selected" = "Bank måste väljas";
 
 "window_payment_confirmation_title" = "Betalningsbekräftelse";
 
-"action_continue" = "Fortsätta";
+"Continue" = "Fortsätt";
 
 "window_card_payment_label" = "Kortbetalning";
 "window_card_payment_cardholder_name_label" = "Kortinnehavarens namn";
@@ -60,22 +60,22 @@
 "window_card_payment_expiry_date_hint" = "MM/YY";
 "window_card_payment_cvv_label" = "CVV / CVC";
 "window_card_payment_cvv_hint" = "123";
-"window_card_payment_notice" = "kevin. lagrar inte någon av dina personliga uppgifter eller kortuppgifter.";
-"window_card_payment_cvv_tooltip" = "CVV är en tresiffrig kod som visas på baksidan av ditt kort";
+"window_card_payment_notice" = "kevin. lagrar inte några personuppgifter eller kortuppgifter.";
+"window_card_payment_cvv_tooltip" = "CVV är ett 3-siffrigt nummer som står på baksidan av kortet";
 "error_no_cardholder_name" = "Kortinnehavarens namn måste anges";
-"error_invalid_cvv" = "Ange giltig CVV";
+"error_invalid_cvv" = "Ange giltigt CVV";
 "error_no_cvv" = "CVV måste anges";
-"error_invalid_expiry_date" = "Sista utgångsdatum är ogiltigt";
-"error_no_expiry_date" = "Sista utgångsdatum måste anges";
+"error_invalid_expiry_date" = "Utgångsdatumet är ogiltigt";
+"error_no_expiry_date" = "Utgångsdatum måste anges";
 "error_card_expired" = "Kortet har gått ut";
 "error_invalid_card_number" = "Kortnumret är ogiltigt";
 "error_no_card_number" = "Kortnummer måste anges";
-"window_card_payment_redirect_title" = "Fortsätta betalning via banköverföring?";
+"window_card_payment_redirect_title" = "Fortsätt betalning via banköverföring?";
 "window_card_payment_redirect_subtitle" = "Vill du fortsätta betalningen via banköverföring?";
-"window_card_payment_bank_redirect_subtitle" = "Vi har märkt att ditt betalkort är utfärdat av %@. Vill du fortsätta betalningen via banköverföring?";
+"window_card_payment_bank_redirect_subtitle" = "Vi har lagt märke till att ditt betalkort är utfärdat av %@. Vill du fortsätta betalningen via banköverföring?";
 
 "yes" = "Ja";
 "no" = "Nej";
 "dialog_exit_confirmation_title" = "Varning!";
-"dialog_exit_confirmation_accounts_message" = "Är du säker på att du vill avbryta kontolänkningen?";
+"dialog_exit_confirmation_accounts_message" = "Är du säker på att du vill avbryta kontokopplingen?";
 "dialog_exit_confirmation_payments_message" = "Är du säker på att du vill avbryta den här betalningen?";

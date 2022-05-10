@@ -7,7 +7,7 @@
  
 */
 
-"country_name_at" = "Австрия";
+"country_name_at" = "Австрия ";
 "country_name_be" = "Бельгия";
 "country_name_bg" = "Болгария";
 "country_name_cz" = "Чехия";
@@ -39,21 +39,21 @@
 "country_name_is" = "Исландия";
 "country_name_li" = "Лихтенштейн";
 
-"window_account_linking_title" = "Связывание аккаунта";
+"window_account_linking_title" = "Привязка аккаунта";
 "window_account_linking_card_title" = "Привязка карты";
-"window_country_selection_title" = "Выберите страну";
-"window_bank_selection_title" = "Выберите bank";
-"window_bank_selection_select_country_label" = "Выберите страну";
-"window_bank_selection_select_bank_label" = "Выберите bank";
+"window_country_selection_title" = "Выбрать страну";
+"window_bank_selection_title" = "Выбор банка";
+"window_bank_selection_select_country_label" = "Выбрать страну";
+"window_bank_selection_select_bank_label" = "Выбрать банк";
 "error_bank_not_selected" = "Банк должен быть выбран";
 
-"window_payment_confirmation_title" = "Подтверждение оплаты";
+"window_payment_confirmation_title" = "Подтверждение платежа";
 
-"action_continue" = "Продолжить";
+"Continue" = "Продолжить";
 
 "window_card_payment_label" = "Оплата картой";
 "window_card_payment_cardholder_name_label" = "Имя владельца карты";
-"window_card_payment_cardholder_name_hint" = "John Appleseed";
+"window_card_payment_cardholder_name_hint" = "Иван Иванов";
 "window_card_payment_card_number_label" = "Номер карты";
 "window_card_payment_card_number_hint" = "1234 5678 9012 3456";
 "window_card_payment_expiry_date_label" = "Срок действия";
@@ -61,21 +61,21 @@
 "window_card_payment_cvv_label" = "CVV / CVC";
 "window_card_payment_cvv_hint" = "123";
 "window_card_payment_notice" = "kevin. не хранит вашу личную информацию или данные карты.";
-"window_card_payment_cvv_tooltip" = "CVV — это трехзначный код, отображаемый на обратной стороне вашей карты";
-"error_no_cardholder_name" = "Необходимо ввести имя держателя карты";
+"window_card_payment_cvv_tooltip" = "CVV – это 3-значный код, указанный на обратной стороне вашей карты";
+"error_no_cardholder_name" = "Необходимо ввести имя владельца карты";
 "error_invalid_cvv" = "Введите действительный CVV";
-"error_no_cvv" = "CVV должен быть введен";
-"error_invalid_expiry_date" = "Дата истечения срока годности недействительна";
-"error_no_expiry_date" = "Необходимо ввести срок годности";
-"error_card_expired" = "Срок годности карты истек";
+"error_no_cvv" = "Необходимо ввести CVV";
+"error_invalid_expiry_date" = "Срок действия недействителен";
+"error_no_expiry_date" = "Необходимо ввести срок действия";
+"error_card_expired" = "Срок действия карты истек";
 "error_invalid_card_number" = "Номер карты недействителен";
 "error_no_card_number" = "Необходимо ввести номер карты";
 "window_card_payment_redirect_title" = "Продолжить оплату банковским переводом?";
-"window_card_payment_redirect_subtitle" = "Хотите продолжить оплату банковским переводом?";
-"window_card_payment_bank_redirect_subtitle" = "Мы заметили, что ваша платежная карта выпущена %@. Хотите продолжить оплату банковским переводом?";
+"window_card_payment_redirect_subtitle" = "Вы хотите продолжить оплату банковским переводом?";
+"window_card_payment_bank_redirect_subtitle" = "Мы заметили, что ваша платежная карта выпущена %@. Вы хотите продолжить оплату банковским переводом?";
 
 "yes" = "Да";
 "no" = "Нет";
 "dialog_exit_confirmation_title" = "Предупреждение!";
-"dialog_exit_confirmation_accounts_message" = "Вы уверены, что хотите отменить привязку учетной записи?";
+"dialog_exit_confirmation_accounts_message" = "Вы уверены, что хотите прервать привязку аккаунта?";
 "dialog_exit_confirmation_payments_message" = "Вы уверены, что хотите отменить этот платеж?";

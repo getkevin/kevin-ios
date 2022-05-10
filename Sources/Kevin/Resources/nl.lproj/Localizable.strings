@@ -10,7 +10,7 @@
 "country_name_at" = "Oostenrijk";
 "country_name_be" = "België";
 "country_name_bg" = "Bulgarije";
-"country_name_cz" = "Tsjechië";
+"country_name_cz" = "Tsjechische Republiek";
 "country_name_de" = "Duitsland";
 "country_name_dk" = "Denemarken";
 "country_name_ee" = "Estland";
@@ -31,7 +31,7 @@
 "country_name_hu" = "Hongarije";
 "country_name_ie" = "Ierland";
 "country_name_si" = "Slovenië";
-"country_name_sk" = "Slowakije";
+"country_name_sk" = "Slovakije";
 "country_name_mt" = "Malta";
 "country_name_cy" = "Cyprus";
 "country_name_hr" = "Kroatië";
@@ -39,7 +39,7 @@
 "country_name_is" = "IJsland";
 "country_name_li" = "Liechtenstein";
 
-"window_account_linking_title" = "Account koppelen";
+"window_account_linking_title" = "Rekening koppelen";
 "window_account_linking_card_title" = "Kaart koppelen";
 "window_country_selection_title" = "Selecteer land";
 "window_bank_selection_title" = "Selecteer bank";
@@ -49,33 +49,33 @@
 
 "window_payment_confirmation_title" = "Betalingsbevestiging";
 
-"action_continue" = "Doorgaan met";
+"Continue" = "Doorgaan";
 
-"window_card_payment_label" = "Kaart betaling";
-"window_card_payment_cardholder_name_label" = "Naam pashouder";
-"window_card_payment_cardholder_name_hint" = "John Appleseed";
+"window_card_payment_label" = "Kaartbetaling";
+"window_card_payment_cardholder_name_label" = "Naam kaarthouder";
+"window_card_payment_cardholder_name_hint" = "Jan Appelzaad";
 "window_card_payment_card_number_label" = "Kaartnummer";
 "window_card_payment_card_number_hint" = "1234 5678 9012 3456";
 "window_card_payment_expiry_date_label" = "Vervaldatum";
 "window_card_payment_expiry_date_hint" = "MM/YY";
 "window_card_payment_cvv_label" = "CVV / CVC";
 "window_card_payment_cvv_hint" = "123";
-"window_card_payment_notice" = "kevin. slaat geen van uw persoonlijke gegevens of kaartgegevens op.";
-"window_card_payment_cvv_tooltip" = "CVV is een 3-cijferige code die wordt weergegeven op de achterkant van uw kaart";
-"error_no_cardholder_name" = "Naam kaarthouder moet worden ingevoerd";
-"error_invalid_cvv" = "Voer een geldig CVV in";
-"error_no_cvv" = "CVV moet worden ingevoerd";
+"window_card_payment_notice" = "kevin. slaat geen van uw persoonsgegevens of kaartgegevens op.";
+"window_card_payment_cvv_tooltip" = "CVV is een 3-cijferige code die u vindt op de achterkant van uw kaart";
+"error_no_cardholder_name" = "Naam kaarthouder moet worden ingevuld";
+"error_invalid_cvv" = "Vul een geldig CVV in";
+"error_no_cvv" = "CVV moet worden ingevuld";
 "error_invalid_expiry_date" = "Vervaldatum is ongeldig";
 "error_no_expiry_date" = "Vervaldatum moet worden ingevuld";
 "error_card_expired" = "Kaart is verlopen";
 "error_invalid_card_number" = "Kaartnummer is ongeldig";
-"error_no_card_number" = "Kaartnummer moet worden ingevoerd";
-"window_card_payment_redirect_title" = "Doorgaan met betalen via overschrijving?";
-"window_card_payment_redirect_subtitle" = "Wilt u verder betalen via bankoverschrijving?";
-"window_card_payment_bank_redirect_subtitle" = "We hebben vastgesteld dat uw betaalkaart is uitgegeven door %@. Wilt u verder betalen via bankoverschrijving?";
+"error_no_card_number" = "Kaartnummer moet worden ingevuld";
+"window_card_payment_redirect_title" = "Betaling voltooien via bankoverschrijving?";
+"window_card_payment_redirect_subtitle" = "Wilt u de betaling voltooien via Bankoverschrijving?";
+"window_card_payment_bank_redirect_subtitle" = "We hebben vastgesteld dat uw betaalkaart is uitgegeven door %@. Wilt u de betaling voltooien via bankoverschrijving?";
 
 "yes" = "Ja";
 "no" = "Nee";
 "dialog_exit_confirmation_title" = "Waarschuwing!";
-"dialog_exit_confirmation_accounts_message" = "Weet u zeker dat u het koppelen van uw account wilt afbreken?";
+"dialog_exit_confirmation_accounts_message" = "Weet u zeker dat u het koppelen van uw rekening wilt afbreken?";
 "dialog_exit_confirmation_payments_message" = "Weet u zeker dat u deze betaling wilt annuleren?";
