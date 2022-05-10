@@ -10,6 +10,5 @@ import Foundation
 
 public enum KevinAccountLinkingType {
     case bank
-//    NOTE: Disabled (for now) card linking functionality
-//    case card
+    case card
 }
