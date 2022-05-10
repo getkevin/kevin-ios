@@ -10,7 +10,7 @@
 "country_name_at" = "Østerrike";
 "country_name_be" = "Belgia";
 "country_name_bg" = "Bulgaria";
-"country_name_cz" = "Tsjekkisk Republikk";
+"country_name_cz" = "Tsjekkia";
 "country_name_de" = "Tyskland";
 "country_name_dk" = "Danmark";
 "country_name_ee" = "Estland";
@@ -20,7 +20,7 @@
 "country_name_gb" = "Storbritannia";
 "country_name_it" = "Italia";
 "country_name_lt" = "Litauen";
-"country_name_lu" = "Luxembourg";
+"country_name_lu" = "Luxemburg";
 "country_name_lv" = "Latvia";
 "country_name_nl" = "Nederland";
 "country_name_no" = "Norge";
@@ -35,24 +35,23 @@
 "country_name_mt" = "Malta";
 "country_name_cy" = "Kypros";
 "country_name_hr" = "Kroatia";
-"country_name_gr" = "Hellas";
+"country_name_gr" = "Grekenland";
 "country_name_is" = "Island";
 "country_name_li" = "Liechtenstein";
 
-"window_account_linking_title" = "Kontotilknytning";
-"window_account_linking_card_title" = "Kortkobling";
+"window_account_linking_title" = "Kontolenking";
+"window_account_linking_card_title" = "Kortlenking";
 "window_country_selection_title" = "Velg land";
-"window_bank_selection_title" = "Velg bank";
+"window_bank_selection_title" = "Bankvalg";
 "window_bank_selection_select_country_label" = "Velg land";
 "window_bank_selection_select_bank_label" = "Velg bank";
 "error_bank_not_selected" = "Bank må velges";
-
 "window_payment_confirmation_title" = "Betalingsbekreftelse";
 
-"action_continue" = "Fortsette";
+"Continue" = "Fortsett";
 
 "window_card_payment_label" = "Kortbetaling";
-"window_card_payment_cardholder_name_label" = "Kortholders navn";
+"window_card_payment_cardholder_name_label" = "Kortholdernavn";
 "window_card_payment_cardholder_name_hint" = "John Appleseed";
 "window_card_payment_card_number_label" = "Kortnummer";
 "window_card_payment_card_number_hint" = "1234 5678 9012 3456";
@@ -60,22 +59,22 @@
 "window_card_payment_expiry_date_hint" = "MM/YY";
 "window_card_payment_cvv_label" = "CVV / CVC";
 "window_card_payment_cvv_hint" = "123";
-"window_card_payment_notice" = "kevin. lagrer ikke noen av dine personlige opplysninger eller kortdetaljer.";
-"window_card_payment_cvv_tooltip" = "CVV er en 3-sifret kode som vises på baksiden av kortet ditt";
-"error_no_cardholder_name" = "Kortholders navn må oppgis";
-"error_invalid_cvv" = "Skriv inn gyldig CVV";
+"window_card_payment_notice" = "kevin. lagrer ikke noen av de personlige eller kortopplysningene dine.";
+"window_card_payment_cvv_tooltip" = "CVV er en tresifret kode vist på baksiden av kortet ditt";
+"error_no_cardholder_name" = "Kortholdernavn må legges inn";
+"error_invalid_cvv" = "Legg inn gyldig CVV";
 "error_no_cvv" = "CVV må legges inn";
 "error_invalid_expiry_date" = "Utløpsdatoen er ugyldig";
-"error_no_expiry_date" = "Utløpsdato må angis";
+"error_no_expiry_date" = "Utløpsdato må legges inn";
 "error_card_expired" = "Kortet er utløpt";
 "error_invalid_card_number" = "Kortnummeret er ugyldig";
-"error_no_card_number" = "Kortnummer må oppgis";
-"window_card_payment_redirect_title" = "Vil du fortsette betalingen via bankoverføring?";
-"window_card_payment_redirect_subtitle" = "Vil du fortsette betalingen via bankoverføring?";
-"window_card_payment_bank_redirect_subtitle" = "Vi la merke til at betalingskortet ditt er utstedt av %@. Vil du fortsette betalingen via bankoverføring?";
+"error_no_card_number" = "Kortnummeret må legges inn";
+"window_card_payment_redirect_title" = "Fortsette betaling via bankoverføring?";
+"window_card_payment_redirect_subtitle" = "Vil du fortsette betaling via bankoverføring?";
+"window_card_payment_bank_redirect_subtitle" = "Vi ser at betalingskortet ditt er utstedt av av %@. Vil du fortsette betaling via bankoverføring?";
 
 "yes" = "Ja";
 "no" = "Nei";
 "dialog_exit_confirmation_title" = "Advarsel!";
-"dialog_exit_confirmation_accounts_message" = "Er du sikker på at du vil avbryte kontotilknytning?";
+"dialog_exit_confirmation_accounts_message" = "Er du sikker på at du vil avbryte kontolenking?";
 "dialog_exit_confirmation_payments_message" = "Er du sikker på at du vil kansellere denne betalingen?";

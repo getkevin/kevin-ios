@@ -10,7 +10,7 @@
 "country_name_at" = "Ausztria";
 "country_name_be" = "Belgium";
 "country_name_bg" = "Bulgária";
-"country_name_cz" = "Csehország";
+"country_name_cz" = "Cseh Köztársaság";
 "country_name_de" = "Németország";
 "country_name_dk" = "Dánia";
 "country_name_ee" = "Észtország";
@@ -41,41 +41,41 @@
 
 "window_account_linking_title" = "Fiók összekapcsolása";
 "window_account_linking_card_title" = "Kártya összekapcsolása";
-"window_country_selection_title" = "Válassz országot";
-"window_bank_selection_title" = "Válassza ki a bankot";
-"window_bank_selection_select_country_label" = "Válassz országot";
-"window_bank_selection_select_bank_label" = "Válassza ki a bankot";
-"error_bank_not_selected" = "Bankot kell választani";
+"window_country_selection_title" = "Ország kiválasztása";
+"window_bank_selection_title" = "Bank kiválasztása";
+"window_bank_selection_select_country_label" = "Ország kiválasztása";
+"window_bank_selection_select_bank_label" = "Bank kiválasztása";
+"error_bank_not_selected" = "Ki kell választani a bankot";
 
-"window_payment_confirmation_title" = "Fizetési visszaigazolás";
+"window_payment_confirmation_title" = "Fizetés megerősítése";
 
-"action_continue" = "Folytatni";
+"Continue" = "Folytatás";
 
 "window_card_payment_label" = "Kártyás fizetés";
 "window_card_payment_cardholder_name_label" = "Kártyatulajdonos neve";
 "window_card_payment_cardholder_name_hint" = "John Appleseed";
 "window_card_payment_card_number_label" = "Kártyaszám";
 "window_card_payment_card_number_hint" = "1234 5678 9012 3456";
-"window_card_payment_expiry_date_label" = "Lejárati dátum";
+"window_card_payment_expiry_date_label" = "Lejárat dátuma";
 "window_card_payment_expiry_date_hint" = "MM/YY";
 "window_card_payment_cvv_label" = "CVV / CVC";
 "window_card_payment_cvv_hint" = "123";
-"window_card_payment_notice" = "kevin. nem tárolja az Ön személyes adatait vagy kártyaadatait.";
-"window_card_payment_cvv_tooltip" = "A CVV egy háromjegyű kód, amely a kártya hátoldalán található";
-"error_no_cardholder_name" = "A kártyabirtokos nevét meg kell adni";
-"error_invalid_cvv" = "Adja meg az érvényes CVV-t";
-"error_no_cvv" = "CVV-t kell megadni";
-"error_invalid_expiry_date" = "A lejárati dátum érvénytelen";
-"error_no_expiry_date" = "A lejárati dátumot be kell írni";
+"window_card_payment_notice" = "A kevin. nem tárolja el semmilyen személyes információját vagy kártyaadatát.";
+"window_card_payment_cvv_tooltip" = "A CVV egy három számjegyű kód, ami a kártya hátsó részén jelenik meg";
+"error_no_cardholder_name" = "Meg kell adni a kártyatulajdonos nevét";
+"error_invalid_cvv" = "Adjon meg egy érvényes CVV számot";
+"error_no_cvv" = "Meg kell adni a CVV számot";
+"error_invalid_expiry_date" = "A lejárat dátuma érvénytelen";
+"error_no_expiry_date" = "Meg kell adni a lejárat dátumát";
 "error_card_expired" = "A kártya lejárt";
 "error_invalid_card_number" = "A kártyaszám érvénytelen";
-"error_no_card_number" = "A kártyaszámot be kell írni";
+"error_no_card_number" = "Meg kell adni a kártyaszámot";
 "window_card_payment_redirect_title" = "Folytatja a fizetést banki átutalással?";
-"window_card_payment_redirect_subtitle" = "Szeretné folytatni a fizetést banki átutalással?";
-"window_card_payment_bank_redirect_subtitle" = "Észrevettük, hogy fizetési kártyáját %@ bocsátotta ki. Szeretné folytatni a fizetést banki átutalással?";
+"window_card_payment_redirect_subtitle" = "Szeretné banki átutalással folytatni?";
+"window_card_payment_bank_redirect_subtitle" = "Észrevettük, hogy kártyáját %@ bocsátotta ki. Szeretné banki átutalással folytatni?";
 
 "yes" = "Igen";
 "no" = "Nem";
-"dialog_exit_confirmation_title" = "Figyelem!";
-"dialog_exit_confirmation_accounts_message" = "Biztosan megszakítja a fiókok összekapcsolását?";
-"dialog_exit_confirmation_payments_message" = "Biztosan törölni szeretné ezt a fizetést?";
+"dialog_exit_confirmation_title" = "Vigyázat!";
+"dialog_exit_confirmation_accounts_message" = "Biztosan meg akarja szakítani a fiók összekapcsolását?";
+"dialog_exit_confirmation_payments_message" = "Biztosan vissza akarja vonni ezt a fizetést?";

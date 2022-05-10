@@ -7,16 +7,16 @@
  
 */
 
-"country_name_at" = "L'Autriche";
-"country_name_be" = "La Belgique";
+"country_name_at" = "Autriche";
+"country_name_be" = "Belgique";
 "country_name_bg" = "Bulgarie";
-"country_name_cz" = "République Tchèque";
+"country_name_cz" = "Tchéquie";
 "country_name_de" = "Allemagne";
 "country_name_dk" = "Danemark";
 "country_name_ee" = "Estonie";
 "country_name_es" = "Espagne";
 "country_name_fi" = "Finlande";
-"country_name_fr" = "La France";
+"country_name_fr" = "France";
 "country_name_gb" = "Royaume-Uni";
 "country_name_it" = "Italie";
 "country_name_lt" = "Lituanie";
@@ -25,7 +25,7 @@
 "country_name_nl" = "Pays-Bas";
 "country_name_no" = "Norvège";
 "country_name_pl" = "Pologne";
-"country_name_pt" = "Le Portugal";
+"country_name_pt" = "Portugal";
 "country_name_ro" = "Roumanie";
 "country_name_se" = "Suède";
 "country_name_hu" = "Hongrie";
@@ -39,43 +39,43 @@
 "country_name_is" = "Islande";
 "country_name_li" = "Liechtenstein";
 
-"window_account_linking_title" = "Liaison de compte";
-"window_account_linking_card_title" = "Liaison de carte";
-"window_country_selection_title" = "Choisissez le pays";
-"window_bank_selection_title" = "Sélectionnez la banque";
-"window_bank_selection_select_country_label" = "Choisissez le pays";
+"window_account_linking_title" = "Lier des comptes";
+"window_account_linking_card_title" = "Lier des cartes";
+"window_country_selection_title" = "Sélectionnez le pays";
+"window_bank_selection_title" = "Sélection de la banque";
+"window_bank_selection_select_country_label" = "Sélectionnez le pays";
 "window_bank_selection_select_bank_label" = "Sélectionnez la banque";
 "error_bank_not_selected" = "La banque doit être sélectionnée";
 
-"window_payment_confirmation_title" = "Confirmation de paiement";
+"window_payment_confirmation_title" = "Confirmation du paiement";
 
-"action_continue" = "Continuer";
+"Continue" = "Continuer";
 
 "window_card_payment_label" = "Paiement par carte";
-"window_card_payment_cardholder_name_label" = "Nom du titulaire";
+"window_card_payment_cardholder_name_label" = "Nom du titulaire de la carte";
 "window_card_payment_cardholder_name_hint" = "John Appleseed";
-"window_card_payment_card_number_label" = "Numéro de carte";
+"window_card_payment_card_number_label" = "Numéro de la carte";
 "window_card_payment_card_number_hint" = "1234 5678 9012 3456";
 "window_card_payment_expiry_date_label" = "Date d'expiration";
 "window_card_payment_expiry_date_hint" = "MM/YY";
 "window_card_payment_cvv_label" = "CVV / CVC";
 "window_card_payment_cvv_hint" = "123";
-"window_card_payment_notice" = "kevin. ne stocke aucune de vos informations personnelles ou des détails de votre carte.";
-"window_card_payment_cvv_tooltip" = "Le CVV est un code à 3 chiffres affiché au dos de votre carte";
+"window_card_payment_notice" = "kevin. ne stocke aucune de vos données personnelles ou des détails de votre carte.";
+"window_card_payment_cvv_tooltip" = "Le CVV est un code à trois chiffres situé au dos de votre carte.";
 "error_no_cardholder_name" = "Le nom du titulaire de la carte doit être saisi";
 "error_invalid_cvv" = "Saisissez un CVV valide";
 "error_no_cvv" = "Le CVV doit être saisi";
 "error_invalid_expiry_date" = "La date d'expiration n'est pas valide";
 "error_no_expiry_date" = "La date d'expiration doit être saisie";
 "error_card_expired" = "La carte est expirée";
-"error_invalid_card_number" = "Le numéro de carte est invalide";
-"error_no_card_number" = "Le numéro de carte doit être saisi";
-"window_card_payment_redirect_title" = "Continuer le paiement par virement bancaire?";
-"window_card_payment_redirect_subtitle" = "Souhaitez-vous continuer le paiement par virement bancaire?";
-"window_card_payment_bank_redirect_subtitle" = "Nous avons remarqué que votre carte de paiement est émise par %@. Souhaitez-vous continuer le paiement par virement bancaire?";
+"error_invalid_card_number" = "Le numéro de la carte n'est pas valide";
+"error_no_card_number" = "Le numéro de la carte doit être saisi";
+"window_card_payment_redirect_title" = "Poursuivre le paiement par virement bancaire ?";
+"window_card_payment_redirect_subtitle" = "Souhaitez-vous poursuivre le paiement par virement bancaire ?";
+"window_card_payment_bank_redirect_subtitle" = "Nous avons remarqué que votre carte de paiement est émise par %@. Souhaitez-vous poursuivre le paiement par virement bancaire ?";
 
 "yes" = "Oui";
 "no" = "Non";
-"dialog_exit_confirmation_title" = "Avertissement!";
-"dialog_exit_confirmation_accounts_message" = "Voulez-vous vraiment annuler l'association de compte?";
-"dialog_exit_confirmation_payments_message" = "Voulez-vous vraiment annuler ce paiement?";
+"dialog_exit_confirmation_title" = "Attention !";
+"dialog_exit_confirmation_accounts_message" = "Êtes-vous sûr de vouloir annuler la liaison des comptes ?";
+"dialog_exit_confirmation_payments_message" = "Êtes-vous sûr de vouloir annuler ce paiement ?";

@@ -10,7 +10,7 @@
 "country_name_at" = "Austria";
 "country_name_be" = "Belgia";
 "country_name_bg" = "Bulgaaria";
-"country_name_cz" = "Tšehhi";
+"country_name_cz" = "Tšehhi Vabariik";
 "country_name_de" = "Saksamaa";
 "country_name_dk" = "Taani";
 "country_name_ee" = "Eesti";
@@ -40,19 +40,19 @@
 "country_name_li" = "Liechtenstein";
 
 "window_account_linking_title" = "Konto linkimine";
-"window_account_linking_card_title" = "Kaardi sidumine";
-"window_country_selection_title" = "Vali riik";
-"window_bank_selection_title" = "Valige pank";
-"window_bank_selection_select_country_label" = "Vali riik";
+"window_account_linking_card_title" = "Kaardi linkimine";
+"window_country_selection_title" = "Valige riik";
+"window_bank_selection_title" = "Panga valik";
+"window_bank_selection_select_country_label" = "Valige riik";
 "window_bank_selection_select_bank_label" = "Valige pank";
-"error_bank_not_selected" = "Pank tuleb valida";
+"error_bank_not_selected" = "Panga valimine on kohustuslik";
 
 "window_payment_confirmation_title" = "Maksekinnitus";
 
-"action_continue" = "Jätka";
+"Continue" = "Jätka";
 
 "window_card_payment_label" = "Kaardimakse";
-"window_card_payment_cardholder_name_label" = "Kaardi valdaja nimi";
+"window_card_payment_cardholder_name_label" = "Kaardiomaniku nimi";
 "window_card_payment_cardholder_name_hint" = "John Appleseed";
 "window_card_payment_card_number_label" = "Kaardi number";
 "window_card_payment_card_number_hint" = "1234 5678 9012 3456";
@@ -60,16 +60,16 @@
 "window_card_payment_expiry_date_hint" = "MM/YY";
 "window_card_payment_cvv_label" = "CVV / CVC";
 "window_card_payment_cvv_hint" = "123";
-"window_card_payment_notice" = "kevin. ei salvesta teie isikuandmeid ega kaardiandmeid.";
-"window_card_payment_cvv_tooltip" = "CVV on 3-kohaline kood, mis kuvatakse teie kaardi tagaküljel";
-"error_no_cardholder_name" = "Sisestada tuleb kaardiomaniku nimi";
-"error_invalid_cvv" = "Sisesta kehtiv CVV";
-"error_no_cvv" = "CVV tuleb sisestada";
+"window_card_payment_notice" = "kevin. ei salvesta teie isiku- ega kaardiandmeid.";
+"window_card_payment_cvv_tooltip" = "CVV on 3-kohaline kood teie kaardi tagaküljel";
+"error_no_cardholder_name" = "Kaardiomaniku nime sisestamine on kohustuslik";
+"error_invalid_cvv" = "Sisestage kehtiv CVV";
+"error_no_cvv" = "CVV sisestamine on kohustuslik";
 "error_invalid_expiry_date" = "Aegumiskuupäev on kehtetu";
-"error_no_expiry_date" = "Sisestada tuleb aegumiskuupäev";
+"error_no_expiry_date" = "Aegumiskuupäev sisestamine on kohustuslik";
 "error_card_expired" = "Kaart on aegunud";
 "error_invalid_card_number" = "Kaardi number on kehtetu";
-"error_no_card_number" = "Sisestada tuleb kaardi number";
+"error_no_card_number" = "Kaardi numbri sisestamine on kohustuslik";
 "window_card_payment_redirect_title" = "Kas jätkata pangaülekandega maksmist?";
 "window_card_payment_redirect_subtitle" = "Kas soovite jätkata pangaülekandega maksmist?";
 "window_card_payment_bank_redirect_subtitle" = "Märkasime, et teie maksekaardi on väljastanud %@. Kas soovite jätkata pangaülekandega maksmist?";

@@ -355,7 +355,7 @@ internal class KevinCardPaymentView: KevinView<KevinCardPaymentState> {
         continueButton.backgroundColor = Kevin.shared.theme.mainButtonStyle.backgroundColor
         continueButton.titleLabel?.font = Kevin.shared.theme.mainButtonStyle.titleLabelFont
         continueButton.setTitleColor(Kevin.shared.theme.mainButtonStyle.titleLabelTextColor, for: .normal)
-        continueButton.setTitle("action_continue".localized(for: Kevin.shared.locale.identifier).uppercased(), for: .normal)
+        continueButton.setTitle("Continue".localized(for: Kevin.shared.locale.identifier).uppercased(), for: .normal)
         cardFormContainerView.addSubview(continueButton)
         
         continueButton.translatesAutoresizingMaskIntoConstraints = false

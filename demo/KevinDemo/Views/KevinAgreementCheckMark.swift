@@ -26,9 +26,9 @@ struct KevinAgreementCheckMark: View {
                 TextLabelWithHyperLink(
                     linkTintColor: UIColor(TextStyle.agreementLink.color),
                     string: String(
-                        format: "agreement_checkmark".localized(),
-                        "terms_and_conditions".localized(),
-                        "privacy_policy".localized()
+                        format: "window_main_terms_privacy_policy".localized(),
+                        "window_main_terms_privacy_policy_clickable_terms".localized(),
+                        "window_main_terms_privacy_policy_clickable_policy".localized()
                     ),
                     attributes: [
                         NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.regular),
@@ -36,11 +36,11 @@ struct KevinAgreementCheckMark: View {
                     ],
                     hyperLinkItems: [
                         .init(
-                            subText: "terms_and_conditions".localized(),
+                            subText: "window_main_terms_privacy_policy_clickable_terms".localized(),
                             url: "https://www.kevin.eu/docs/EN/terms-and-conditions/"
                         ),
                         .init(
-                            subText: "privacy_policy".localized(),
+                            subText: "window_main_terms_privacy_policy_clickable_policy".localized(),
                             url: "https://www.kevin.eu/docs/EN/privacy-policy/"
                         )
                     ],

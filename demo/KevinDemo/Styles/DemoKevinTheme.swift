@@ -32,12 +32,12 @@ public class DemoKevinTheme : KevinTheme {
         self.listTableStyle.cellBackgroundColor = UIColor(Color("SelectedOnPrimaryColor", bundle: nil))
         
         self.mainButtonStyle.backgroundColor = UIColor(Color("AccentColor", bundle: nil))
-        self.mainButtonStyle.negativeTitleLabelTextColor = UIColor(Color("AccentColor", bundle: nil))
+        self.negativeButtonStyle.titleLabelTextColor = UIColor(Color("AccentColor", bundle: nil))
 
-        self.cardPaymentStyle.textFieldTextColor = UIColor(Color("PrimaryTextColor", bundle: nil))
-        self.cardPaymentStyle.textFieldBackgroundColor = UIColor(Color("PrimaryBackgroundColor", bundle: nil))
-        self.cardPaymentStyle.textFieldBorderColor = UIColor(Color("SecondaryTextColor", bundle: nil))
-        self.cardPaymentStyle.textFieldErrorBorderColor = UIColor(Color("RedOrange", bundle: nil))
+        self.textFieldStyle.textColor = UIColor(Color("PrimaryTextColor", bundle: nil))
+        self.textFieldStyle.backgroundColor = UIColor(Color("PrimaryBackgroundColor", bundle: nil))
+        self.textFieldStyle.borderColor = UIColor(Color("SecondaryTextColor", bundle: nil))
+        self.textFieldStyle.errorBorderColor = UIColor(Color("RedOrange", bundle: nil))
 
         //  for more properties check KevinTheme class
     }
