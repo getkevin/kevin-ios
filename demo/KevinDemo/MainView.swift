@@ -28,11 +28,11 @@ struct MainView: View {
                             selectedValue: $viewModel.viewState.selectedPaymentType,
                             elements: [
                                 SegmentedControlElement(
-                                    title: "payment_type_bank".localized(),
+                                    title: "window_main_bank_payment".localized(),
                                     value: PaymentType.bank
                                 ),
                                 SegmentedControlElement(
-                                    title: "payment_type_card".localized(),
+                                    title: "window_main_card_payment".localized(),
                                     value: PaymentType.card
                                 )
                             ]
@@ -42,7 +42,7 @@ struct MainView: View {
                         .padding(.bottom, 32.0)
                         
                         Section(
-                            header: Text("country_section_title".localized())
+                            header: Text("window_main_country_charity_label".localized())
                                 .style(.sectionHeader)
                                 .frame(
                                     width: reader.size.width,
@@ -54,7 +54,7 @@ struct MainView: View {
                                 viewModel.openCountrySelection()
                             }) {
                                 KevinCountrySelectionRowView(
-                                    title: "country".localized(),
+                                    title: "window_main_country_label".localized(),
                                     countryCode: viewModel.viewState.selectedCountryCode
                                 )
                             }
@@ -88,7 +88,7 @@ struct MainView: View {
                         .padding(.bottom, 14.0)
                         
                         Section(
-                            header: Text("details_section_title".localized())
+                            header: Text("window_main_details_lable".localized())
                                 .style(.sectionHeader)
                                 .frame(
                                     width: reader.size.width,
@@ -97,7 +97,7 @@ struct MainView: View {
                                 )
                                 .padding(.top, 8.0)
                         ) {
-                            Text("email".localized())
+                            Text("window_main_email_label".localized())
                                 .style(.textFieldName)
                                 .padding(.top, 8.0)
                             
@@ -111,7 +111,7 @@ struct MainView: View {
                                 keyboardType: .emailAddress
                             )
                             
-                            Text("amount".localized())
+                            Text("window_main_amount_label".localized())
                                 .style(.textFieldName)
                                 .padding(.top, 20.0)
                             
@@ -126,7 +126,7 @@ struct MainView: View {
                                     keyboardType: .decimalPad
                                 )
                                 
-                                Text("currency_eur".localized())
+                                Text("window_main_amount_field_currency".localized())
                                     .style(.currencyHint)
                                     .padding(.trailing, 14.0)
                             }
@@ -147,9 +147,9 @@ struct MainView: View {
                             viewModel.makeDonation()
                         }) {
                             Text(String(
-                                format: "donate_button_title".localized(),
+                                format: "window_main_proceed_button".localized(),
                                 viewModel.viewState.amountString,
-                                "currency_eur".localized())
+                                "window_main_amount_field_currency".localized())
                             ).style(.buttonTitle)
                         }
                         .frame(
@@ -206,7 +206,7 @@ struct MainView: View {
             Alert(
                 title: Text(viewModel.viewState.messageTitle!),
                 message: Text(viewModel.viewState.messageDescription!),
-                dismissButton: .default(Text("action_ok".localized()))
+                dismissButton: .default(Text("dialog_payment_success_button".localized()))
             )
         })
     }

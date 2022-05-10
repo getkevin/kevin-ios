@@ -22,6 +22,7 @@ internal class KevinLocaleManager {
         "fi",
         "fr",
         "hu",
+        "is",
         "it",
         "lt",
         "lv",
