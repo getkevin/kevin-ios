@@ -49,7 +49,7 @@
 
 "window_payment_confirmation_title" = "Mokėjimo patvirtinimas";
 
-"action_continue" = "Tęsti";
+"Continue" = "Tęsti";
 
 "window_card_payment_label" = "Mokėjimas kortele";
 "window_card_payment_cardholder_name_label" = "Kortelės savininko vardas";

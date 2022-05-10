@@ -27,7 +27,7 @@ struct KevinCountrySelector: View {
     var body: some View {
         return GeometryReader { geometryReader in
             VStack(alignment: .leading) {
-                Text("select_country".localized())
+                Text("window_country_selection_title".localized())
                     .style(.countrySelectorTitle)
                 
                 ScrollView(showsIndicators: false) {

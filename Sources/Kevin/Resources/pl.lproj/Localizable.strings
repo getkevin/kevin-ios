@@ -17,7 +17,7 @@
 "country_name_es" = "Hiszpania";
 "country_name_fi" = "Finlandia";
 "country_name_fr" = "Francja";
-"country_name_gb" = "Zjednoczone Królestwo";
+"country_name_gb" = "Wielka Brytania";
 "country_name_it" = "Włochy";
 "country_name_lt" = "Litwa";
 "country_name_lu" = "Luksemburg";
@@ -40,20 +40,20 @@
 "country_name_li" = "Liechtenstein";
 
 "window_account_linking_title" = "Łączenie konta";
-"window_account_linking_card_title" = "Łączenie kart";
+"window_account_linking_card_title" = "Łączenie karty";
 "window_country_selection_title" = "Wybierz kraj";
-"window_bank_selection_title" = "Wybierz bank";
+"window_bank_selection_title" = "Wybór banku";
 "window_bank_selection_select_country_label" = "Wybierz kraj";
 "window_bank_selection_select_bank_label" = "Wybierz bank";
-"error_bank_not_selected" = "Bank musi być wybrany";
+"error_bank_not_selected" = "Należy wybrać bank";
 
 "window_payment_confirmation_title" = "Potwierdzenie płatności";
 
-"action_continue" = "Dalej";
+"Continue" = "Kontynuuj";
 
 "window_card_payment_label" = "Płatność kartą";
-"window_card_payment_cardholder_name_label" = "Imię właściciela karty";
-"window_card_payment_cardholder_name_hint" = "John Appleseed";
+"window_card_payment_cardholder_name_label" = "Imię i nazwisko właściciela karty";
+"window_card_payment_cardholder_name_hint" = "Jan Nowak";
 "window_card_payment_card_number_label" = "Numer karty";
 "window_card_payment_card_number_hint" = "1234 5678 9012 3456";
 "window_card_payment_expiry_date_label" = "Data ważności";
@@ -61,18 +61,18 @@
 "window_card_payment_cvv_label" = "CVV / CVC";
 "window_card_payment_cvv_hint" = "123";
 "window_card_payment_notice" = "kevin. nie przechowuje żadnych danych osobowych ani danych karty.";
-"window_card_payment_cvv_tooltip" = "CVV to 3-cyfrowy kod wyświetlany na odwrocie Twojej karty";
-"error_no_cardholder_name" = "Należy wpisać imię i nazwisko posiadacza karty";
-"error_invalid_cvv" = "Wpisz poprawny CVV";
-"error_no_cvv" = "CVV należy wpisać";
+"window_card_payment_cvv_tooltip" = "CVV to 3-cyfrowy kod znajdujący się na odwrocie karty";
+"error_no_cardholder_name" = "Należy wpisać imię i nazwisko właściciela karty";
+"error_invalid_cvv" = "Podaj poprawny kod CVV";
+"error_no_cvv" = "Należy podać kod CVV";
 "error_invalid_expiry_date" = "Data ważności jest nieprawidłowa";
 "error_no_expiry_date" = "Należy podać datę ważności";
 "error_card_expired" = "Karta straciła ważność";
 "error_invalid_card_number" = "Numer karty jest nieprawidłowy";
-"error_no_card_number" = "Należy wpisać numer karty";
+"error_no_card_number" = "Należy podać numer karty";
 "window_card_payment_redirect_title" = "Kontynuować płatność przelewem bankowym?";
 "window_card_payment_redirect_subtitle" = "Czy chcesz kontynuować płatność przelewem bankowym?";
-"window_card_payment_bank_redirect_subtitle" = "Zauważyliśmy, że Twoja karta płatnicza jest wydana przez %@. Czy chcesz kontynuować płatność przelewem bankowym?";
+"window_card_payment_bank_redirect_subtitle" = "Zauważyliśmy, że Twoja karta została wydana przez %@. ";
 
 "yes" = "Tak";
 "no" = "Nie";

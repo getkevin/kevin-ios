@@ -22,7 +22,7 @@
 "country_name_lt" = "Litva";
 "country_name_lu" = "Lucembursko";
 "country_name_lv" = "Lotyšsko";
-"country_name_nl" = "Holandsko";
+"country_name_nl" = "Nizozemsko";
 "country_name_no" = "Norsko";
 "country_name_pl" = "Polsko";
 "country_name_pt" = "Portugalsko";
@@ -36,46 +36,46 @@
 "country_name_cy" = "Kypr";
 "country_name_hr" = "Chorvatsko";
 "country_name_gr" = "Řecko";
-"country_name_is" = "Lichtenštejnsko";
-"country_name_li" = "Island";
+"country_name_is" = "Island";
+"country_name_li" = "Lichtenštejnsko";
 
 "window_account_linking_title" = "Propojení účtů";
 "window_account_linking_card_title" = "Propojení karet";
 "window_country_selection_title" = "Vyberte zemi";
-"window_bank_selection_title" = "Vyberte banku";
+"window_bank_selection_title" = "Výběr banky";
 "window_bank_selection_select_country_label" = "Vyberte zemi";
 "window_bank_selection_select_bank_label" = "Vyberte banku";
-"error_bank_not_selected" = "Je třeba vybrat banku";
+"error_bank_not_selected" = "Musí být vybrána banka";
 
 "window_payment_confirmation_title" = "Potvrzení platby";
 
-"action_continue" = "Pokračovat";
+"Continue" = "Pokračovat";
 
 "window_card_payment_label" = "Platba kartou";
 "window_card_payment_cardholder_name_label" = "Jméno držitele karty";
-"window_card_payment_cardholder_name_hint" = "John Appleseed";
+"window_card_payment_cardholder_name_hint" = "Jan Novák";
 "window_card_payment_card_number_label" = "Číslo karty";
 "window_card_payment_card_number_hint" = "1234 5678 9012 3456";
-"window_card_payment_expiry_date_label" = "Datum vypršení platnosti";
+"window_card_payment_expiry_date_label" = "Datum expirace";
 "window_card_payment_expiry_date_hint" = "MM/YY";
 "window_card_payment_cvv_label" = "CVV / CVC";
 "window_card_payment_cvv_hint" = "123";
-"window_card_payment_notice" = "kevin. neukládá žádné vaše osobní údaje ani údaje o kartě.";
-"window_card_payment_cvv_tooltip" = "CVV je 3místný kód zobrazený na zadní straně vaší karty";
-"error_no_cardholder_name" = "Je nutné zadat jméno držitele karty";
-"error_invalid_cvv" = "CVV je nutné zadat";
-"error_no_cvv" = "Zadejte platný CVV";
-"error_invalid_expiry_date" = "Datum vypršení platnosti je neplatné";
-"error_no_expiry_date" = "Je nutné zadat datum vypršení platnosti";
+"window_card_payment_notice" = "kevin. neukládá žádné vaše osobní údaje ani detaily karty.";
+"window_card_payment_cvv_tooltip" = "CVV je třímístný kód uvedený na zadní straně karty.";
+"error_no_cardholder_name" = "Musí být zadáno jméno držitele karty";
+"error_invalid_cvv" = "Zadejte platný kód CVV";
+"error_no_cvv" = "CVV musí být zadáno";
+"error_invalid_expiry_date" = "Datum expirace je neplatné";
+"error_no_expiry_date" = "Musí být zadáno datum expirace";
 "error_card_expired" = "Platnost karty vypršela";
 "error_invalid_card_number" = "Číslo karty je neplatné";
-"error_no_card_number" = "Je nutné zadat číslo karty";
+"error_no_card_number" = "Musí být zadáno číslo karty";
 "window_card_payment_redirect_title" = "Pokračovat v platbě bankovním převodem?";
 "window_card_payment_redirect_subtitle" = "Chcete pokračovat v platbě bankovním převodem?";
-"window_card_payment_bank_redirect_subtitle" = "Všimli jsme si, že vaši platební kartu vydal %@. Chcete pokračovat v platbě bankovním převodem?";
+"window_card_payment_bank_redirect_subtitle" = "Zjistili jsme, že vaše platební karta je vydána společností %@. Chcete pokračovat v platbě bankovním převodem?";
 
 "yes" = "Ano";
 "no" = "Ne";
 "dialog_exit_confirmation_title" = "Varování!";
-"dialog_exit_confirmation_accounts_message" = "Opravdu chcete zrušit tuto platbu?";
-"dialog_exit_confirmation_payments_message" = "Opravdu chcete zrušit propojení účtů?";
+"dialog_exit_confirmation_accounts_message" = "Opravdu chcete zrušit propojení účtů?";
+"dialog_exit_confirmation_payments_message" = "Opravdu chcete tuto platbu zrušit?";

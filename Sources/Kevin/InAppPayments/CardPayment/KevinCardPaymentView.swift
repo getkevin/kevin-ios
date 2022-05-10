@@ -355,7 +355,7 @@ internal class KevinCardPaymentView: KevinView<KevinCardPaymentState> {
         continueButton.backgroundColor = Kevin.shared.theme.mainButtonStyle.backgroundColor
         continueButton.titleLabel?.font = Kevin.shared.theme.mainButtonStyle.titleLabelFont
         continueButton.setTitleColor(Kevin.shared.theme.mainButtonStyle.titleLabelTextColor, for: .normal)
-        continueButton.setTitle("action_continue".localized(for: Kevin.shared.locale.identifier).uppercased(), for: .normal)
+        continueButton.setTitle("Continue".localized(for: Kevin.shared.locale.identifier).uppercased(), for: .normal)
         cardFormContainerView.addSubview(continueButton)
         
         continueButton.translatesAutoresizingMaskIntoConstraints = false
@@ -429,31 +429,36 @@ internal class KevinCardPaymentView: KevinView<KevinCardPaymentState> {
     }
     
     private func showCardDetails(_ show: Bool) {
-        if previousCardDetailsVisibility == show {
-            return
-        }
+        // NOTE: Native UI for card payments disabled for now
+        
+        self.scrollView.alpha = 0
+        self.webView?.alpha = 1
 
-        previousCardDetailsVisibility = show
-
-        if show {
-            UIView.animate(withDuration: 0.25) {
-                self.webView?.alpha = 0
-            } completion: { _ in
-                UIView.animate(withDuration: 0.2) {
-                    self.scrollView.alpha = 1
-                }
-            }
-        } else {
-            UIView.animate(withDuration: 0.25) {
-                self.scrollView.alpha = 0
-            } completion: { _ in
-                UIView.animate(withDuration: 0.2) {
-                    self.webView?.alpha = 1
-                }
-            }
-        }
+//        if previousCardDetailsVisibility == show {
+//            return
+//        }
+//
+//        previousCardDetailsVisibility = show
+//
+//        if show {
+//            UIView.animate(withDuration: 0.25) {
+//                self.webView?.alpha = 0
+//            } completion: { _ in
+//                UIView.animate(withDuration: 0.2) {
+//                    self.scrollView.alpha = 1
+//                }
+//            }
+//        } else {
+//            UIView.animate(withDuration: 0.25) {
+//                self.scrollView.alpha = 0
+//            } completion: { _ in
+//                UIView.animate(withDuration: 0.2) {
+//                    self.webView?.alpha = 1
+//                }
+//            }
+//        }
     }
-    
+
     private func showLoading(_ show: Bool) {
         if previousLoadingVisibility == show {
             return
