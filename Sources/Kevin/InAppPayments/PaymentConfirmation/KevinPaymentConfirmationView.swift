@@ -65,12 +65,27 @@ extension KevinPaymentConfirmationView: WKNavigationDelegate {
         decidePolicyFor navigationAction: WKNavigationAction,
         decisionHandler: @escaping (WKNavigationActionPolicy) -> Void
     ) {
-        let scheme = navigationAction.request.url?.scheme
-        if scheme == "tel" || scheme == "mailto" {
+        if shouldProcessExternally(url: navigationAction.request.url) {
             UIApplication.shared.openURL(navigationAction.request.url!)
             decisionHandler(.cancel)
         } else {
             decisionHandler(.allow)
         }
+    }
+    
+    func shouldProcessExternally(url: URL?) -> Bool {
+        guard let url = url else {
+            return false
+        }
+        
+        if url.scheme == "tel" || url.scheme == "mailto" {
+            return true
+        }
+                
+        if (url.scheme == "http" || url.scheme == "https") {
+            return url.host != "psd2.kevin.eu"
+        }
+        
+        return false
     }
 }

@@ -9,5 +9,5 @@
 import Foundation
 
 internal extension Notification.Name {
-    static let onProcessCallback = Notification.Name("on.process.callback")
+    static let onHandleDeepLinkReceived = Notification.Name("on.handle.deep.link.received")
 }

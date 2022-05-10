@@ -24,7 +24,12 @@ internal class KevinPaymentConfirmationViewController :
             KevinPaymentConfirmationIntent.Initialize(configuration: configuration)
         )
         uiStateHandler = KevinUIStateHandler()
-        NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotification(notification:)), name: .onProcessCallback, object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(self.handleNotification(notification:)),
+            name: .onHandleDeepLinkReceived,
+            object: nil
+        )
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -82,7 +87,7 @@ internal class KevinPaymentConfirmationViewController :
         present(alert, animated: true)
     }
     
-    @objc func methodOfReceivedNotification(notification: Notification) {        
+    @objc func handleNotification(notification: Notification) {
         if let url = notification.object as? URL {
             onPaymentCompleted(callbackUrl: url, error: nil)
         }

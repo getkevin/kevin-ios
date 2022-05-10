@@ -31,14 +31,7 @@ public class KevinInAppPaymentsPlugin: KevinPlugin {
         }
         return configuration.callbackUrl
     }
-    
-    public func processCallbackUrl(_ url: URL) {
-        NotificationCenter.default.post(
-            name: .onProcessCallback,
-            object: url
-        )
-    }
-    
+        
     //MARK: KevinPlugin
     
     public func isConfigured() -> Bool {
