@@ -27,7 +27,7 @@ internal class KevinAccountLinkingViewModel : KevinViewModel<KevinAccountLinking
         let baseUrl = configuration.linkingType == .bank ?
             String(format: bankLinkingUrl, configuration.state, configuration.selectedBankId!) :
             String(format: cardLinkingUrl, configuration.state)
-
+        
         onStateChanged(
             KevinAccountLinkingState(
                 bankRedirectUrl: appendUrlParameters(urlString: baseUrl),
