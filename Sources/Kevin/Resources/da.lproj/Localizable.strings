@@ -17,7 +17,7 @@
 "country_name_es" = "Spanien";
 "country_name_fi" = "Finland";
 "country_name_fr" = "Frankrig";
-"country_name_gb" = "Det Forenede Kongerige";
+"country_name_gb" = "Storbrittanien";
 "country_name_it" = "Italien";
 "country_name_lt" = "Litauen";
 "country_name_lu" = "Luxembourg";
@@ -39,43 +39,43 @@
 "country_name_is" = "Island";
 "country_name_li" = "Liechtenstein";
 
-"window_account_linking_title" = "Kontotilknytning";
+"window_account_linking_title" = "Kontoforbindelse";
 "window_account_linking_card_title" = "Kortforbindelse";
 "window_country_selection_title" = "Vælg land";
-"window_bank_selection_title" = "Vælg bank";
+"window_bank_selection_title" = "Bankvalg";
 "window_bank_selection_select_country_label" = "Vælg land";
 "window_bank_selection_select_bank_label" = "Vælg bank";
 "error_bank_not_selected" = "Bank skal vælges";
 
 "window_payment_confirmation_title" = "Betalingsbekræftelse";
 
-"action_continue" = "Blive ved";
+"Continue" = "Fortsæt";
 
 "window_card_payment_label" = "Kortbetaling";
 "window_card_payment_cardholder_name_label" = "Kortholders navn";
-"window_card_payment_cardholder_name_hint" = "John Appleseed";
+"window_card_payment_cardholder_name_hint" = "Jens Jensen";
 "window_card_payment_card_number_label" = "Kortnummer";
 "window_card_payment_card_number_hint" = "1234 5678 9012 3456";
 "window_card_payment_expiry_date_label" = "Udløbsdato";
 "window_card_payment_expiry_date_hint" = "MM/YY";
 "window_card_payment_cvv_label" = "CVV / CVC";
 "window_card_payment_cvv_hint" = "123";
-"window_card_payment_notice" = "kevin. gemmer ikke nogen af dine personlige oplysninger eller kortoplysninger.";
-"window_card_payment_cvv_tooltip" = "CVV er en 3-cifret kode, der vises på bagsiden af dit kort";
+"window_card_payment_notice" = "kevin. opbevarer ikke nogle af dine personlige oplysninger eller kortoplysninger.";
+"window_card_payment_cvv_tooltip" = "CVV er en 3-cifret kode, som findes på bagsiden af dit kort";
 "error_no_cardholder_name" = "Kortholders navn skal indtastes";
-"error_invalid_cvv" = "Indtast gyldig CVV";
+"error_invalid_cvv" = "Indtast gyldigt CVV";
 "error_no_cvv" = "CVV skal indtastes";
-"error_invalid_expiry_date" = "Udløbsdatoen er ugyldig";
-"error_no_expiry_date" = "Udløbsdato skal indtasteswerden";
-"error_card_expired" = "Kortet er udløbet";
-"error_invalid_card_number" = "Kortnummeret er ugyldigt";
+"error_invalid_expiry_date" = "Udløbsdato er ugyldig";
+"error_no_expiry_date" = "Udløbsdato skal indtastes";
+"error_card_expired" = "Kort er udløbet";
+"error_invalid_card_number" = "Kortnummer er ugyldigt";
 "error_no_card_number" = "Kortnummer skal indtastes";
-"window_card_payment_redirect_title" = "Vil du fortsætte betalingen via bankoverførsel?";
-"window_card_payment_redirect_subtitle" = "Vil du fortsætte betalingen via bankoverførsel?";
-"window_card_payment_bank_redirect_subtitle" = "Vi har bemærket, at dit betalingskort er udstedt af %@. Vil du fortsætte betalingen via bankoverførsel?";
+"window_card_payment_redirect_title" = "Fortsæt betaling med bankoverførsel?";
+"window_card_payment_redirect_subtitle" = "Ønsker du at fortsætte betaling via Bankoverførsel?";
+"window_card_payment_bank_redirect_subtitle" = "Vi har bemærket, at dit betalingskort er udstedt af %s. Ønsker du at fortsætte betaling via bankoverførsel?";
 
 "yes" = "Ja";
 "no" = "Ingen";
 "dialog_exit_confirmation_title" = "Advarsel!";
-"dialog_exit_confirmation_accounts_message" = "Er du sikker på, at du vil afbryde kontotilknytning?";
+"dialog_exit_confirmation_accounts_message" = "Er du sikker på, at du vil stoppe med kontoforbindelse?";
 "dialog_exit_confirmation_payments_message" = "Er du sikker på, at du vil annullere denne betaling?";
