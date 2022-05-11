@@ -19,7 +19,7 @@ final public class Kevin {
             }
         }
     }
-    public var isDeepLinkingEnabled = true
+    public var isDeepLinkingEnabled = false
 
     public static let shared = Kevin()
     
