@@ -23,6 +23,23 @@ internal class KevinAccountLinkingViewController :
         self.offerIntent(
             KevinAccountLinkingIntent.Initialize(configuration: configuration)
         )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(self.handleNotification(notification:)),
+            name: .onHandleDeepLinkReceived,
+            object: nil
+        )
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+    }
+
+    @objc func handleNotification(notification: Notification) {
+        if let url = notification.object as? URL {
+            onAccountLinkingCompleted(callbackUrl: url, error: nil)
+        }
     }
 }
 

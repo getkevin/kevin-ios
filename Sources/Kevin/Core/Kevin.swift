@@ -19,8 +19,16 @@ final public class Kevin {
             }
         }
     }
+    public var isDeepLinkingEnabled = false
 
     public static let shared = Kevin()
     
     private init() { }
+    
+    public func handleDeepLinking(url: URL) {
+        NotificationCenter.default.post(
+            name: .onHandleDeepLinkReceived,
+            object: url
+        )
+    }
 }
