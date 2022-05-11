@@ -81,9 +81,11 @@ extension KevinAccountLinkingView: WKNavigationDelegate {
         if url.scheme == "tel" || url.scheme == "mailto" {
             return true
         }
-                
-        if (url.scheme == "http" || url.scheme == "https") {
-            return url.host != "psd2.kevin.eu"
+        
+        if Kevin.shared.isDeepLinkingEnabled {
+            if (url.scheme == "http" || url.scheme == "https") {
+                return url.host != "psd2.kevin.eu"
+            }
         }
         
         return false
