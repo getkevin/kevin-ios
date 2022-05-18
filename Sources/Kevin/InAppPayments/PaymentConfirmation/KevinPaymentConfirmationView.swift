@@ -66,8 +66,20 @@ extension KevinPaymentConfirmationView: WKNavigationDelegate {
         decisionHandler: @escaping (WKNavigationActionPolicy) -> Void
     ) {
         if shouldProcessExternally(url: navigationAction.request.url) {
-            UIApplication.shared.openURL(navigationAction.request.url!)
-            decisionHandler(.cancel)
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(
+                    navigationAction.request.url!,
+                    options: [.universalLinksOnly: true]
+                ) { isSuccess in
+                    if isSuccess {
+                        decisionHandler(.cancel)
+                    } else {
+                        decisionHandler(.allow)
+                    }
+                }
+            } else {
+                decisionHandler(.allow)
+            }
         } else {
             decisionHandler(.allow)
         }
