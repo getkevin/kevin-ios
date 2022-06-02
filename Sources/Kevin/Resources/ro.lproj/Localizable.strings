@@ -73,6 +73,11 @@
 "window_card_payment_redirect_title" = "Continuați cu plata prin transfer bancar?";
 "window_card_payment_redirect_subtitle" = "Doriți să continuați efectuarea plății prin transfer bancar?";
 "window_card_payment_bank_redirect_subtitle" = "Am observat că ați folosit un card emis de %@. Doriți să continuați efectuarea plății prin transfer bancar?";
+"window_bank_selection_terms_and_conditions_text" = "Apăsând pe Continuare, citesc și sunt de acord cu Termenii și condițiile și cu Politica de confidențialitate";
+"window_bank_selection_terms_clickable_text" = "Termenii și condițiile";
+"window_bank_selection_privacy_clickable_text" = "Politica de confidențialitate";
+"window_bank_selection_privacy_policy_url" = "https://www.kevin.eu/docs/privacy-policy";
+"window_bank_selection_terms_and_conditions_url" = "https://www.kevin.eu/docs/terms-and-conditions/";
 
 "yes" = "Da";
 "no" = "Nu";

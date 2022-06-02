@@ -73,6 +73,11 @@
 "window_card_payment_redirect_title" = "Continuar o pagamento por meio de transferência bancária?";
 "window_card_payment_redirect_subtitle" = "Gostaria de continuar o pagamento por meio de Transferência Bancária?";
 "window_card_payment_bank_redirect_subtitle" = "Reparámos que o seu cartão de pagamento foi emitido por %@. Gostaria de continuar o pagamento por meio de Transferência Bancária?";
+"window_bank_selection_terms_and_conditions_text" = "Ao pressionar Continuar, li e concordo com os Termos e Condições e a Política de Privacidade";
+"window_bank_selection_terms_clickable_text" = "Termos e Condições";
+"window_bank_selection_privacy_clickable_text" = "Política de Privacidade";
+"window_bank_selection_privacy_policy_url" = "https://www.kevin.eu/docs/privacy-policy";
+"window_bank_selection_terms_and_conditions_url" = "https://www.kevin.eu/docs/terms-and-conditions/";
 
 "yes" = "Sim";
 "no" = "Não";

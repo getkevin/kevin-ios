@@ -73,6 +73,11 @@
 "window_card_payment_redirect_title" = "Folytatja a fizetést banki átutalással?";
 "window_card_payment_redirect_subtitle" = "Szeretné banki átutalással folytatni?";
 "window_card_payment_bank_redirect_subtitle" = "Észrevettük, hogy kártyáját %@ bocsátotta ki. Szeretné banki átutalással folytatni?";
+"window_bank_selection_terms_and_conditions_text" = "A Folytatás gomb megnyomásával elolvasom és elfogadom az Általános Szerződési Feltételeket és az Adatvédelmi szabályzatot";
+"window_bank_selection_terms_clickable_text" = "Általános Szerződési Feltételeket";
+"window_bank_selection_privacy_clickable_text" = "Adatvédelmi szabályzatot";
+"window_bank_selection_privacy_policy_url" = "https://www.kevin.eu/docs/privacy-policy";
+"window_bank_selection_terms_and_conditions_url" = "https://www.kevin.eu/docs/terms-and-conditions/";
 
 "yes" = "Igen";
 "no" = "Nem";

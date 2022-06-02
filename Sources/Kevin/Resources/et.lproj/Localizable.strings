@@ -73,6 +73,11 @@
 "window_card_payment_redirect_title" = "Kas jätkata pangaülekandega maksmist?";
 "window_card_payment_redirect_subtitle" = "Kas soovite jätkata pangaülekandega maksmist?";
 "window_card_payment_bank_redirect_subtitle" = "Märkasime, et teie maksekaardi on väljastanud %@. Kas soovite jätkata pangaülekandega maksmist?";
+"window_bank_selection_terms_and_conditions_text" = "Vajutades nuppu Jätka, loen läbi tingimused ja privaatsuspoliitika ning nõustun nendega";
+"window_bank_selection_terms_clickable_text" = "tingimused";
+"window_bank_selection_privacy_clickable_text" = "privaatsuspoliitika";
+"window_bank_selection_privacy_policy_url" = "https://www.kevin.eu/docs/privacy-policy";
+"window_bank_selection_terms_and_conditions_url" = "https://www.kevin.eu/docs/terms-and-conditions/";
 
 "yes" = "Jah";
 "no" = "Ei";

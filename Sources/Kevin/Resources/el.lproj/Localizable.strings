@@ -73,6 +73,11 @@
 "window_card_payment_redirect_title" = "Συνέχεια της πληρωμής μέσω τραπεζικής μεταφοράς;";
 "window_card_payment_redirect_subtitle" = "Επιθυμείτε να συνεχίσετε την πληρωμή μέσω τραπεζικής μεταφοράς;";
 "window_card_payment_bank_redirect_subtitle" = "Παρατηρήσαμε ότι η κάρτα πληρωμής σας έχει εκδοθεί από την %@. Επιθυμείτε να συνεχίσετε την πληρωμή μέσω Τραπεζικής Μεταφοράς;";
+"window_bank_selection_terms_and_conditions_text" = "Πατώντας Συνέχεια, διαβάζω και συμφωνώ με τους Όρους και Προϋποθέσεις και την Πολιτική Απορρήτου";
+"window_bank_selection_terms_clickable_text" = "Όρους και Προϋποθέσεις";
+"window_bank_selection_privacy_clickable_text" = "Πολιτική Απορρήτου";
+"window_bank_selection_privacy_policy_url" = "https://www.kevin.eu/docs/privacy-policy";
+"window_bank_selection_terms_and_conditions_url" = "https://www.kevin.eu/docs/terms-and-conditions/";
 
 "yes" = "Ναι";
 "no" = "Όχι";
