@@ -167,7 +167,7 @@ final class KevinTapableText: UILabel {
         super.touchesEnded(touches, with: event)
     }
 
-    func onTouch(_ touch: UITouch) -> Bool {
+    private func onTouch(_ touch: UITouch) -> Bool {
         let location = touch.location(in: self)
         var avoidSuperCall = false
         

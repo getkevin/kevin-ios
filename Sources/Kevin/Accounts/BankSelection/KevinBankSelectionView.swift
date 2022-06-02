@@ -131,7 +131,6 @@ internal class KevinBankSelectionView : KevinView<KevinBankSelectionState> {
         agreementLabel.numberOfLines = 0
         agreementLabel.textColor = Kevin.shared.theme.generalStyle.primaryTextColor
         agreementLabel.font = Kevin.shared.theme.generalStyle.secondaryFont
-        agreementLabel.textAlignment = .center
         agreementLabel.delegate = self
             
         agreementLabel.tapableLinks = [

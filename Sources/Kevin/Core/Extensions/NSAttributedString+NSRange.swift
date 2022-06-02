@@ -10,10 +10,10 @@ import Foundation
 
 public extension NSAttributedString {
     func range(of substring: String) -> NSRange? {
-        guard let range = self.string.range(of: substring) else {
+        guard let range = string.range(of: substring) else {
             return nil
         }
         
-        return NSRange(range, in: self.string)
+        return NSRange(range, in: string)
     }
 }
