@@ -1,5 +1,5 @@
 //
-//  KevinTapableTextLink.swift
+//  KevinClickableUILabelLink.swift
 //  kevin.iOS
 //
 //  Created by Daniel Klinge on 02/06/2022.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class KevinTapableTextLink {
+class KevinClickableUILabelLink {
     var text: String
     var url: URL
 

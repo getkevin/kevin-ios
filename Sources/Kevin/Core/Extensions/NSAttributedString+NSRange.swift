@@ -13,7 +13,6 @@ public extension NSAttributedString {
         guard let range = string.range(of: substring) else {
             return nil
         }
-        
         return NSRange(range, in: string)
     }
 }

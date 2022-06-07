@@ -1,5 +1,5 @@
 //
-//  KevinTapableText.swift
+//  KevinClickableUILabel.swift
 //  kevin.iOS
 //
 //  Created by Daniel Klinge on 31/05/2022.
@@ -9,13 +9,13 @@
 import Foundation
 import UIKit
 
-final class KevinTapableText: UILabel {
+final class KevinClickableUILabel: UILabel {
 
     // MARK: Public properties
     
-    weak var delegate: KevinTapableTextDelegate?
+    weak var delegate: KevinClickableUILabelDelegate?
     
-    var tapableLinks: [KevinTapableTextLink] = [] {
+    var tapableLinks: [KevinClickableUILabelLink] = [] {
         didSet { updateTextStorage() }
     }
 
@@ -68,7 +68,7 @@ final class KevinTapableText: UILabel {
     private var heightCorrection: CGFloat = 0
     private var activeElements = [ElementTuple]()
 
-    typealias ElementTuple = (range: NSRange, element: KevinTapableTextLink)
+    typealias ElementTuple = (range: NSRange, element: KevinClickableUILabelLink)
 
     override public init(frame: CGRect) {
         super.init(frame: frame)
@@ -107,7 +107,9 @@ final class KevinTapableText: UILabel {
     }
     
     private func updateTextStorage() {
-        if lockUpdating { return }
+        if lockUpdating {
+            return
+        }
 
         activeElements.removeAll()
         guard let attributedText = attributedText, attributedText.length > 0 else {
@@ -162,8 +164,14 @@ final class KevinTapableText: UILabel {
     // MARK: Touche handlers
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let touch = touches.first else { return }
-        if onTouch(touch) { return }
+        guard let touch = touches.first else {
+            return
+        }
+        
+        if onTouch(touch) {
+            return
+        }
+        
         super.touchesEnded(touches, with: event)
     }
 
@@ -173,7 +181,9 @@ final class KevinTapableText: UILabel {
         
         switch touch.phase {
         case .ended, .regionExited:
-            guard let element = getElement(at: location) else { return avoidSuperCall }
+            guard let element = getElement(at: location) else {
+                return avoidSuperCall
+            }
             
             delegate?.didTap(element.url)
             
@@ -187,7 +197,7 @@ final class KevinTapableText: UILabel {
         return avoidSuperCall
     }
     
-    private func getElement(at location: CGPoint) -> KevinTapableTextLink? {
+    private func getElement(at location: CGPoint) -> KevinClickableUILabelLink? {
         guard textStorage.length > 0 else {
             return nil
         }

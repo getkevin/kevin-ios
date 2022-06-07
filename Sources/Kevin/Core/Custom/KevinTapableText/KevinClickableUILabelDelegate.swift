@@ -1,5 +1,5 @@
 //
-//  KevinTapableTextDelegate.swift
+//  KevinClickableUILabelDelegate.swift
 //  kevin.iOS
 //
 //  Created by Daniel Klinge on 02/06/2022.
@@ -8,6 +8,7 @@
 
 import Foundation
 
-internal protocol KevinTapableTextDelegate: AnyObject {
+internal protocol KevinClickableUILabelDelegate: AnyObject {
+    
     func didTap(_ url: URL)
 }

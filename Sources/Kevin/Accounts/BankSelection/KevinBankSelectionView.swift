@@ -17,7 +17,7 @@ internal class KevinBankSelectionView : KevinView<KevinBankSelectionState> {
     private let countrySelectionIconView = UIImageView()
     private let countrySelectionCountryLabel = UILabel()
     private let bankTableView = UITableView()
-    private let agreementLabel = KevinTapableText()
+    private let agreementLabel = KevinClickableUILabel()
     private let continueButton = KevinButton(type: .custom)
     
     private var bankItems: Array<ApiBank> = []
@@ -129,16 +129,16 @@ internal class KevinBankSelectionView : KevinView<KevinBankSelectionState> {
     private func initAgreementLabel() {        
         agreementLabel.text = "window_bank_selection_terms_and_conditions_text".localized(for: Kevin.shared.locale.identifier)
         agreementLabel.numberOfLines = 0
-        agreementLabel.textColor = Kevin.shared.theme.generalStyle.primaryTextColor
+        agreementLabel.textColor = Kevin.shared.theme.generalStyle.secondaryTextColor
         agreementLabel.font = Kevin.shared.theme.generalStyle.secondaryFont
         agreementLabel.delegate = self
             
         agreementLabel.tapableLinks = [
-            KevinTapableTextLink(
+            KevinClickableUILabelLink(
                 text: "window_bank_selection_terms_clickable_text".localized(for: Kevin.shared.locale.identifier),
                 url: URL(string: "window_bank_selection_terms_and_conditions_url".localized(for: Kevin.shared.locale.identifier))!
             ),
-            KevinTapableTextLink(
+            KevinClickableUILabelLink(
                 text: "window_bank_selection_privacy_clickable_text".localized(for: Kevin.shared.locale.identifier),
                 url: URL(string: "window_bank_selection_privacy_policy_url".localized(for: Kevin.shared.locale.identifier))!
             )
@@ -191,7 +191,7 @@ internal class KevinBankSelectionView : KevinView<KevinBankSelectionState> {
     }
 }
 
-extension KevinBankSelectionView : KevinTapableTextDelegate {
+extension KevinBankSelectionView : KevinClickableUILabelDelegate {
     func didTap(_ url: URL) {
         if #available(iOS 10.0, *) {
             UIApplication.shared.open(url)
