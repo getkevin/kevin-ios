@@ -12,8 +12,6 @@ import UIKit
 internal class KevinCardPaymentViewModel : KevinViewModel<KevinCardPaymentState, KevinCardPaymentIntent> {
 
     var viewAction: (IKevinIntent)->() = { action in }
-
-    private let cardPaymentUrl = "https://psd2.kevin.eu/card-details/%@"
     
     private var configuration: KevinCardPaymentConfiguration?
     
@@ -49,7 +47,7 @@ internal class KevinCardPaymentViewModel : KevinViewModel<KevinCardPaymentState,
         self.configuration = configuration
         
         let confirmationUrl = appendUrlParameters(
-            urlString: String(format: cardPaymentUrl, configuration.paymentId, Kevin.shared.locale.identifier.lowercased())
+            urlString: String(format: KevinPlatformUtil.cardPaymentUrl, configuration.paymentId, Kevin.shared.locale.identifier.lowercased())
         )
                 
         KevinPaymentsApiClient.shared.getCardPaymentInfo(
