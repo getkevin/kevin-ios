@@ -47,7 +47,7 @@ internal class KevinCardPaymentViewModel : KevinViewModel<KevinCardPaymentState,
         self.configuration = configuration
         
         let confirmationUrl = appendUrlParameters(
-            urlString: String(format: KevinPlatformUtil.cardPaymentUrl, configuration.paymentId, Kevin.shared.locale.identifier.lowercased())
+            urlString: String(format: KevinApiPaths.cardPaymentUrl, configuration.paymentId, Kevin.shared.locale.identifier.lowercased())
         )
                 
         KevinPaymentsApiClient.shared.getCardPaymentInfo(

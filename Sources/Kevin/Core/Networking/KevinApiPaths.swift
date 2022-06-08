@@ -1,5 +1,5 @@
 //
-//  KevinPlatformUtil.swift
+//  KevinApiPaths.swift
 //  kevin.iOS
 //
 //  Created by Daniel Klinge on 06/06/2022.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class KevinPlatformUtil {
+class KevinApiPaths {
     
     static let bankLinkingUrl = "https://\(host)/login/%@/%@/preview"
     static let cardLinkingUrl = "https://\(host)/card-details/%@"

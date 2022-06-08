@@ -27,20 +27,20 @@ internal class KevinPaymentConfirmationViewModel : KevinViewModel<KevinPaymentCo
         var confirmationUrl: URL!
         if configuration.paymentType == .card {
             confirmationUrl = appendUrlParameters(urlString: String(
-                format: KevinPlatformUtil.cardPaymentUrl,
+                format: KevinApiPaths.cardPaymentUrl,
                 configuration.paymentId,
                 Kevin.shared.locale.identifier.lowercased()
             ))
         } else if configuration.paymentType == .bank {
             if configuration.skipAuthentication {
                 confirmationUrl = appendUrlParameters(urlString: String(
-                    format: KevinPlatformUtil.bankPaymentAuthenticatedUrl,
+                    format: KevinApiPaths.bankPaymentAuthenticatedUrl,
                     configuration.paymentId,
                     Kevin.shared.locale.identifier.lowercased()
                 ))
             } else {
                 confirmationUrl = appendUrlParameters(urlString: String(
-                    format: KevinPlatformUtil.bankPaymentUrl,
+                    format: KevinApiPaths.bankPaymentUrl,
                     configuration.paymentId,
                     configuration.selectedBank!,
                     Kevin.shared.locale.identifier.lowercased()
