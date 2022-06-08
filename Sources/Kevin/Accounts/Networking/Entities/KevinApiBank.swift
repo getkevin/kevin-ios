@@ -18,6 +18,7 @@ public class ApiBank {
     public let imageUri: String
     public let bic: String?
     public let isBeta: Bool
+    public let isAccountLinkingSupported: Bool
     
     init(
         id: String,
@@ -27,7 +28,8 @@ public class ApiBank {
         isSandbox: Bool,
         imageUri: String,
         bic: String?,
-        isBeta: Bool
+        isBeta: Bool,
+        isAccountLinkingSupported: Bool
     ) {
         self.id = id
         self.name = name
@@ -37,5 +39,6 @@ public class ApiBank {
         self.imageUri = imageUri
         self.bic = bic
         self.isBeta = isBeta
+        self.isAccountLinkingSupported = isAccountLinkingSupported
     }
 }

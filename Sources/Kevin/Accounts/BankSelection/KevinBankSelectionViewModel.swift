@@ -22,6 +22,7 @@ internal class KevinBankSelectionViewModel : KevinViewModel<KevinBankSelectionSt
             KevinBankSelectionState(
                 selectedCountry: country,
                 selectedBankId: nil,
+                selectedCountryUnsupported: false,
                 isCountrySelectionDisabled: configuration.isCountrySelectionDisabled,
                 bankItems: [],
                 isLoading: true
@@ -34,17 +35,21 @@ internal class KevinBankSelectionViewModel : KevinViewModel<KevinBankSelectionSt
         KevinAccountsApiClient.shared.getSupportedBanks(
             token: configuration.authState,
             country: code
-        ) { [weak self] response, error in
-            if let response = response {
-                self?.onStateChanged(
-                    KevinBankSelectionState(
-                        selectedCountry: code,
-                        selectedBankId: configuration.selectedBankId ?? response.first?.id,
-                        isCountrySelectionDisabled: configuration.isCountrySelectionDisabled,
-                        bankItems: response,
-                        isLoading: false
-                    )
+        ) { [weak self] bankItems, error in
+            if let bankItems = bankItems {
+                
+                let filtredBankItems = bankItems.filter { $0.isAccountLinkingSupported }
+                
+                let newState = KevinBankSelectionState(
+                    selectedCountry: code,
+                    selectedBankId: configuration.selectedBankId ?? filtredBankItems.first?.id,
+                    selectedCountryUnsupported: filtredBankItems.isEmpty,
+                    isCountrySelectionDisabled: configuration.isCountrySelectionDisabled,
+                    bankItems: filtredBankItems,
+                    isLoading: false
                 )
+                
+                self?.onStateChanged(newState)
             }
         }
     }
