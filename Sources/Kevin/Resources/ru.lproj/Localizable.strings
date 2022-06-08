@@ -73,6 +73,11 @@
 "window_card_payment_redirect_title" = "Продолжить оплату банковским переводом?";
 "window_card_payment_redirect_subtitle" = "Вы хотите продолжить оплату банковским переводом?";
 "window_card_payment_bank_redirect_subtitle" = "Мы заметили, что ваша платежная карта выпущена %@. Вы хотите продолжить оплату банковским переводом?";
+"window_bank_selection_terms_and_conditions_text" = "Нажимая «Продолжить», я прочитал и согласен с Условиями и Политикой конфиденциальности";
+"window_bank_selection_terms_clickable_text" = "Условиями";
+"window_bank_selection_privacy_clickable_text" = "Политикой конфиденциальности";
+"window_bank_selection_privacy_policy_url" = "https://www.kevin.eu/docs/privacy-policy";
+"window_bank_selection_terms_and_conditions_url" = "https://www.kevin.eu/docs/terms-and-conditions/";
 
 "yes" = "Да";
 "no" = "Нет";

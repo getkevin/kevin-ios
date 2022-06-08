@@ -73,6 +73,11 @@
 "window_card_payment_redirect_title" = "Poursuivre le paiement par virement bancaire ?";
 "window_card_payment_redirect_subtitle" = "Souhaitez-vous poursuivre le paiement par virement bancaire ?";
 "window_card_payment_bank_redirect_subtitle" = "Nous avons remarqué que votre carte de paiement est émise par %@. Souhaitez-vous poursuivre le paiement par virement bancaire ?";
+"window_bank_selection_terms_and_conditions_text" = "En appuyant sur Continuer, j'ai lu et j'accepte les termes et conditions et la politique de confidentialité";
+"window_bank_selection_terms_clickable_text" = "termes et conditions";
+"window_bank_selection_privacy_clickable_text" = "politique de confidentialité";
+"window_bank_selection_privacy_policy_url" = "https://www.kevin.eu/docs/privacy-policy";
+"window_bank_selection_terms_and_conditions_url" = "https://www.kevin.eu/docs/terms-and-conditions/";
 
 "yes" = "Oui";
 "no" = "Non";

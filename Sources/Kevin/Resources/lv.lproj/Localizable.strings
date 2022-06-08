@@ -73,6 +73,11 @@
 "window_card_payment_redirect_title" = "Veikt maksājumu, izmantojot bankas pārskaitījumu?";
 "window_card_payment_redirect_subtitle" = "Vai vēlaties veikt maksājumu, izmantojot bankas pārskaitījumu?";
 "window_card_payment_bank_redirect_subtitle" = "Ievērojām, ka karti izsniegusi %@. Vai vēlaties veikt maksājumu, izmantojot bankas pārskaitījumu?";
+"window_bank_selection_terms_and_conditions_text" = "Nospiežot Turpināt, es izlasīju un piekrītu Noteikumiem un nosacījumiem un Privātuma politikai";
+"window_bank_selection_terms_clickable_text" = "Noteikumiem un nosacījumiem";
+"window_bank_selection_privacy_clickable_text" = "Privātuma politikai";
+"window_bank_selection_privacy_policy_url" = "https://www.kevin.eu/docs/privacy-policy";
+"window_bank_selection_terms_and_conditions_url" = "https://www.kevin.eu/docs/terms-and-conditions/";
 
 "yes" = "Jā";
 "no" = "Nē";

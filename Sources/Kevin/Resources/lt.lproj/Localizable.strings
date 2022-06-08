@@ -73,6 +73,11 @@
 "window_card_payment_redirect_title" = "Tęsti mokėjimą bankiniu pavedimu?";
 "window_card_payment_redirect_subtitle" = "Ar norėtumėte tęsti mokėjimą bankiniu pavedimu?";
 "window_card_payment_bank_redirect_subtitle" = "Pastebėjome, kad jūsų mokėjimo kortelė yra išduoda %@. Ar norėtumėte tęsti mokėjimą bankiniu pavedimu?";
+"window_bank_selection_terms_and_conditions_text" = "Spausdami Tęsti, jūs sutinkate su taisyklėmis ir nuostatomis bei privatumo politika";
+"window_bank_selection_terms_clickable_text" = "privatumo politika";
+"window_bank_selection_privacy_clickable_text" = "taisyklėmis ir nuostatomis";
+"window_bank_selection_privacy_policy_url" = "https://www.kevin.eu/docs/privacy-policy";
+"window_bank_selection_terms_and_conditions_url" = "https://www.kevin.eu/docs/terms-and-conditions/";
 
 "yes" = "Taip";
 "no" = "Ne";

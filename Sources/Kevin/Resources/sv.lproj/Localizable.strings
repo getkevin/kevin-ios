@@ -73,6 +73,11 @@
 "window_card_payment_redirect_title" = "Fortsätt betalning via banköverföring?";
 "window_card_payment_redirect_subtitle" = "Vill du fortsätta betalningen via banköverföring?";
 "window_card_payment_bank_redirect_subtitle" = "Vi har lagt märke till att ditt betalkort är utfärdat av %@. Vill du fortsätta betalningen via banköverföring?";
+"window_bank_selection_terms_and_conditions_text" = "Genom att trycka på Fortsätt läser jag och godkänner Villkoren och Integritetspolicyn";
+"window_bank_selection_terms_clickable_text" = "Villkoren";
+"window_bank_selection_privacy_clickable_text" = "Integritetspolicyn";
+"window_bank_selection_privacy_policy_url" = "https://www.kevin.eu/docs/privacy-policy";
+"window_bank_selection_terms_and_conditions_url" = "https://www.kevin.eu/docs/terms-and-conditions/";
 
 "yes" = "Ja";
 "no" = "Nej";

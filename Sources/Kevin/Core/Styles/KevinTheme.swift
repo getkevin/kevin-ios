@@ -24,6 +24,7 @@ open class KevinTheme {
         public var primaryBackgroundColor = UIColor(red: 242/255, green: 242/255, blue: 247/255, alpha: 1)
         public var primaryTextColor = UIColor(red: 18/255, green: 18/255, blue: 18/255, alpha: 1)
         public var secondaryTextColor = UIColor(red: 124/255, green: 136/255, blue: 148/255, alpha: 1)
+        public var actionTextColor = UIColor.systemBlue
         public var primaryFont = UIFont.systemFont(ofSize: 23, weight: .bold)
         public var secondaryFont = UIFont.systemFont(ofSize: 14, weight: .regular)
 

@@ -73,6 +73,11 @@
 "window_card_payment_redirect_title" = "Kontynuować płatność przelewem bankowym?";
 "window_card_payment_redirect_subtitle" = "Czy chcesz kontynuować płatność przelewem bankowym?";
 "window_card_payment_bank_redirect_subtitle" = "Zauważyliśmy, że Twoja karta została wydana przez %@. ";
+"window_bank_selection_terms_and_conditions_text" = "Naciskając Kontynuuj, przeczytałem i zgadzam się z Regulaminem i Polityką Prywatności";
+"window_bank_selection_terms_clickable_text" = "Regulaminem";
+"window_bank_selection_privacy_clickable_text" = "Polityką Prywatności";
+"window_bank_selection_privacy_policy_url" = "https://www.kevin.eu/docs/privacy-policy";
+"window_bank_selection_terms_and_conditions_url" = "https://www.kevin.eu/docs/terms-and-conditions/";
 
 "yes" = "Tak";
 "no" = "Nie";
