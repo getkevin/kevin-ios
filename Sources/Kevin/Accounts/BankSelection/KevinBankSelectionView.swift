@@ -40,6 +40,9 @@ internal class KevinBankSelectionView : KevinView<KevinBankSelectionState> {
         if !state.isLoading {
             setCountryUnsupported(state.selectedCountryUnsupported, for: countryName)
             loadingIndicator.stopAnimating()
+        } else {
+            setCountryUnsupported(false, for: countryName)
+            loadingIndicator.startAnimating()
         }
     }
     
@@ -53,16 +56,17 @@ internal class KevinBankSelectionView : KevinView<KevinBankSelectionState> {
     
     public override func viewDidLoad() {
         backgroundColor = Kevin.shared.theme.generalStyle.primaryBackgroundColor
-        initLoadingIndicator()
         initCountrySelection()
         initContinueButton()
         initBankSelection()
         setupErrorView()
+        initLoadingIndicator()
     }
     
     private func initLoadingIndicator() {
         addSubview(loadingIndicator)
         loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
+        loadingIndicator.hidesWhenStopped = true
         loadingIndicator.center(in: self)
         loadingIndicator.startAnimating()
     }
