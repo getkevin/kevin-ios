@@ -20,6 +20,7 @@ final public class Kevin {
         }
     }
     public var isDeepLinkingEnabled = false
+    public var isSandbox = false
 
     public static let shared = Kevin()
     

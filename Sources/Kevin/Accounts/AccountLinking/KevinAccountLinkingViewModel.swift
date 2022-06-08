@@ -11,9 +11,6 @@ import UIKit
 
 internal class KevinAccountLinkingViewModel : KevinViewModel<KevinAccountLinkingState, KevinAccountLinkingIntent> {
     
-    private let bankLinkingUrl = "https://psd2.kevin.eu/login/%@/%@/preview"
-    private let cardLinkingUrl = "https://psd2.kevin.eu/card-details/%@"
-
     override func offer(intent: KevinAccountLinkingIntent) {
         if let intent = intent as? KevinAccountLinkingIntent.Initialize {
             initialize(intent.configuration)
@@ -25,8 +22,8 @@ internal class KevinAccountLinkingViewModel : KevinViewModel<KevinAccountLinking
     
     private func initialize(_ configuration: KevinAccountLinkingConfiguration) {
         let baseUrl = configuration.linkingType == .bank ?
-            String(format: bankLinkingUrl, configuration.state, configuration.selectedBankId!) :
-            String(format: cardLinkingUrl, configuration.state)
+            String(format: KevinApiPaths.bankLinkingUrl, configuration.state, configuration.selectedBankId!) :
+            String(format: KevinApiPaths.cardLinkingUrl, configuration.state)
         
         onStateChanged(
             KevinAccountLinkingState(

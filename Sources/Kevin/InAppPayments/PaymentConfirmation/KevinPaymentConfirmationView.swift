@@ -96,7 +96,7 @@ extension KevinPaymentConfirmationView: WKNavigationDelegate {
         
         if Kevin.shared.isDeepLinkingEnabled {
             if (url.scheme == "http" || url.scheme == "https") {
-                return url.host != "psd2.kevin.eu"
+                return url.host != KevinApiPaths.host
             }
         }
         
