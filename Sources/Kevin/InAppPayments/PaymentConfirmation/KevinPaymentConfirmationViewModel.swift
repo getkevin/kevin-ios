@@ -11,10 +11,6 @@ import UIKit
 
 internal class KevinPaymentConfirmationViewModel : KevinViewModel<KevinPaymentConfirmationState, KevinPaymentConfirmationIntent> {
     
-    private let bankPaymentUrl = "https://psd2.kevin.eu/login/%@/%@/preview"
-    private let bankPaymentAuthenticatedUrl = "https://psd2.kevin.eu/payments/%@/processing"
-    private let cardPaymentUrl = "https://psd2.kevin.eu/card-details/%@"
-    
     private let lockQueue = DispatchQueue(label: String(describing: KevinPaymentConfirmationViewModel.self), attributes: [])
     private var flowHasBeenProcessed = false
     
@@ -30,12 +26,25 @@ internal class KevinPaymentConfirmationViewModel : KevinViewModel<KevinPaymentCo
     private func initialize(_ configuration: KevinPaymentConfirmationConfiguration) {
         var confirmationUrl: URL!
         if configuration.paymentType == .card {
-            confirmationUrl = appendUrlParameters(urlString: String(format: cardPaymentUrl, configuration.paymentId, Kevin.shared.locale.identifier.lowercased()))
+            confirmationUrl = appendUrlParameters(urlString: String(
+                format: KevinApiPaths.cardPaymentUrl,
+                configuration.paymentId,
+                Kevin.shared.locale.identifier.lowercased()
+            ))
         } else if configuration.paymentType == .bank {
             if configuration.skipAuthentication {
-                confirmationUrl = appendUrlParameters(urlString: String(format: bankPaymentAuthenticatedUrl, configuration.paymentId, Kevin.shared.locale.identifier.lowercased()))
+                confirmationUrl = appendUrlParameters(urlString: String(
+                    format: KevinApiPaths.bankPaymentAuthenticatedUrl,
+                    configuration.paymentId,
+                    Kevin.shared.locale.identifier.lowercased()
+                ))
             } else {
-                confirmationUrl = appendUrlParameters(urlString: String(format: bankPaymentUrl, configuration.paymentId, configuration.selectedBank!, Kevin.shared.locale.identifier.lowercased()))
+                confirmationUrl = appendUrlParameters(urlString: String(
+                    format: KevinApiPaths.bankPaymentUrl,
+                    configuration.paymentId,
+                    configuration.selectedBank!,
+                    Kevin.shared.locale.identifier.lowercased()
+                ))
             }
         }
         onStateChanged(KevinPaymentConfirmationState(url: confirmationUrl))

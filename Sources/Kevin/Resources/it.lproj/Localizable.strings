@@ -73,6 +73,11 @@
 "window_card_payment_redirect_title" = "Continuare il pagamento tramite bonifico bancario?";
 "window_card_payment_redirect_subtitle" = "Vuoi continuare il pagamento tramite bonifico bancario?";
 "window_card_payment_bank_redirect_subtitle" = "Abbiamo notato che la tua carta di pagamento è emessa da %@. Vuoi continuare il pagamento tramite bonifico bancario?";
+"window_bank_selection_terms_and_conditions_text" = "Premendo Continua, ho letto e accetto Termini e Condizioni e l'Informativa sulla Privacy";
+"window_bank_selection_terms_clickable_text" = "Termini e Condizioni";
+"window_bank_selection_privacy_clickable_text" = "Informativa sulla Privacy";
+"window_bank_selection_privacy_policy_url" = "https://www.kevin.eu/docs/privacy-policy";
+"window_bank_selection_terms_and_conditions_url" = "https://www.kevin.eu/docs/terms-and-conditions/";
 
 "yes" = "Sì";
 "no" = "No";

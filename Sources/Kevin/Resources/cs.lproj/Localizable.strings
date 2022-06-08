@@ -73,6 +73,11 @@
 "window_card_payment_redirect_title" = "Pokračovat v platbě bankovním převodem?";
 "window_card_payment_redirect_subtitle" = "Chcete pokračovat v platbě bankovním převodem?";
 "window_card_payment_bank_redirect_subtitle" = "Zjistili jsme, že vaše platební karta je vydána společností %@. Chcete pokračovat v platbě bankovním převodem?";
+"window_bank_selection_terms_and_conditions_text" = "Stisknutím tlačítka Pokračovat čtu a souhlasím s Podmínkami a Zásadami ochrany osobních údajů";
+"window_bank_selection_terms_clickable_text" = "Podmínkami";
+"window_bank_selection_privacy_clickable_text" = "Zásadami ochrany osobních údajů";
+"window_bank_selection_privacy_policy_url" = "https://www.kevin.eu/docs/privacy-policy";
+"window_bank_selection_terms_and_conditions_url" = "https://www.kevin.eu/docs/terms-and-conditions/";
 
 "yes" = "Ano";
 "no" = "Ne";

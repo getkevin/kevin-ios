@@ -73,6 +73,11 @@
 "window_card_payment_redirect_title" = "Betaling voltooien via bankoverschrijving?";
 "window_card_payment_redirect_subtitle" = "Wilt u de betaling voltooien via Bankoverschrijving?";
 "window_card_payment_bank_redirect_subtitle" = "We hebben vastgesteld dat uw betaalkaart is uitgegeven door %@. Wilt u de betaling voltooien via bankoverschrijving?";
+"window_bank_selection_terms_and_conditions_text" = "Door op Doorgaan te drukken, lees ik en ga ik akkoord met de algemene voorwaarden en het privacybeleid";
+"window_bank_selection_terms_clickable_text" = "voorwaarden";
+"window_bank_selection_privacy_clickable_text" = "privacybeleid";
+"window_bank_selection_privacy_policy_url" = "https://www.kevin.eu/docs/privacy-policy";
+"window_bank_selection_terms_and_conditions_url" = "https://www.kevin.eu/docs/terms-and-conditions/";
 
 "yes" = "Ja";
 "no" = "Nee";

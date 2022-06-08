@@ -11,9 +11,18 @@ import Foundation
 internal class KevinApiClient {
     
     private let apiVersion = "1.0.0"
-    private let apiURL = URL(string: "https://api.kevin.eu/")!
     private let urlSession = URLSession(configuration: URLSessionConfiguration.default)
     
+    private var apiURL: URL {
+        get {
+            if Kevin.shared.isSandbox {
+                return URL(string: "https://sandbox-api.getkevin.eu/")!
+            } else {
+                return URL(string: "https://api.kevin.eu/")!
+            }
+        }
+    }
+
     internal static let shared = KevinApiClient()
     
     internal func get<ResponseType: KevinApiResponseDecodable>(

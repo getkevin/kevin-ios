@@ -72,6 +72,11 @@
 "window_card_payment_redirect_title" = "Nadaljevanje plačila z bančnim nakazilom?";
 "window_card_payment_redirect_subtitle" = "Želite nadaljevati s plačilom z bančnim nakazilom?";
 "window_card_payment_bank_redirect_subtitle" = "Opazili smo, da je bila vaša plačilna kartica izdana pri %@. Želite nadaljevati s plačilom z bančnim nakazilom?";
+"window_bank_selection_terms_and_conditions_text" = "S pritiskom na Nadaljuj preberem in se strinjam z določili in pogoji ter politiko zasebnosti";
+"window_bank_selection_terms_clickable_text" = "pogoji";
+"window_bank_selection_privacy_clickable_text" = "politiko zasebnosti";
+"window_bank_selection_privacy_policy_url" = "https://www.kevin.eu/docs/privacy-policy";
+"window_bank_selection_terms_and_conditions_url" = "https://www.kevin.eu/docs/terms-and-conditions/";
 
 "yes" = "Da";
 "no" = "Ne";

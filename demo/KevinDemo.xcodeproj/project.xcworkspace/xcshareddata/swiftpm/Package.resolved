@@ -28,6 +28,15 @@
       }
     },
     {
+      "identity" : "kevin-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/getkevin/kevin-ios",
+      "state" : {
+        "revision" : "346bb51609a11a2a29e3d5444ddc32988248f67d",
+        "version" : "1.7.0"
+      }
+    },
+    {
       "identity" : "localize-swift",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/marmelroy/Localize-Swift",

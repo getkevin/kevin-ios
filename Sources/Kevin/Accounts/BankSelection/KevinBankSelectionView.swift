@@ -19,6 +19,7 @@ internal class KevinBankSelectionView : KevinView<KevinBankSelectionState> {
     private let bankTableView = UITableView()
     private let countrySelectionLabel = UILabel()
     private let bankSelectionLabel = UILabel()
+    private let agreementLabel = KevinClickableUILabel()
     private let continueButton = KevinButton(type: .custom)
     private let errorView = KevinEmptyStateView()
     
@@ -57,9 +58,10 @@ internal class KevinBankSelectionView : KevinView<KevinBankSelectionState> {
     public override func viewDidLoad() {
         backgroundColor = Kevin.shared.theme.generalStyle.primaryBackgroundColor
         initCountrySelection()
-        initContinueButton()
         initBankSelection()
         setupErrorView()
+        initAgreementLabel()
+        initContinueButton()
         initLoadingIndicator()
     }
     
@@ -142,8 +144,33 @@ internal class KevinBankSelectionView : KevinView<KevinBankSelectionState> {
         
         bankTableView.translatesAutoresizingMaskIntoConstraints = false
         bankTableView.topAnchor.constraint(equalTo: bankSelectionLabel.bottomAnchor, constant: 16).isActive = true
-        bankTableView.bottomAnchor.constraint(equalTo: continueButton.topAnchor, constant: -20).isActive = true
         bankTableView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
+    }
+    
+    private func initAgreementLabel() {        
+        agreementLabel.text = "window_bank_selection_terms_and_conditions_text".localized(for: Kevin.shared.locale.identifier)
+        agreementLabel.numberOfLines = 0
+        agreementLabel.textColor = Kevin.shared.theme.generalStyle.secondaryTextColor
+        agreementLabel.font = Kevin.shared.theme.generalStyle.secondaryFont
+        agreementLabel.delegate = self
+            
+        agreementLabel.tapableLinks = [
+            KevinClickableUILabelLink(
+                text: "window_bank_selection_terms_clickable_text".localized(for: Kevin.shared.locale.identifier),
+                url: URL(string: "window_bank_selection_terms_and_conditions_url".localized(for: Kevin.shared.locale.identifier))!
+            ),
+            KevinClickableUILabelLink(
+                text: "window_bank_selection_privacy_clickable_text".localized(for: Kevin.shared.locale.identifier),
+                url: URL(string: "window_bank_selection_privacy_policy_url".localized(for: Kevin.shared.locale.identifier))!
+            )
+        ]
+        
+        addSubview(agreementLabel)
+        
+        agreementLabel.translatesAutoresizingMaskIntoConstraints = false
+        agreementLabel.topAnchor.constraint(equalTo: bankTableView.bottomAnchor, constant: 20).isActive = true
+        agreementLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16).isActive = true
+        agreementLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16).isActive = true
     }
     
     private func initContinueButton() {
@@ -160,6 +187,7 @@ internal class KevinBankSelectionView : KevinView<KevinBankSelectionState> {
         addSubview(continueButton)
         
         continueButton.translatesAutoresizingMaskIntoConstraints = false
+        continueButton.topAnchor.constraint(equalTo: agreementLabel.bottomAnchor, constant: 20).isActive = true
         continueButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -Kevin.shared.theme.insets.bottom).isActive = true
         continueButton.widthAnchor.constraint(equalToConstant: Kevin.shared.theme.mainButtonStyle.width).isActive = true
         continueButton.heightAnchor.constraint(equalToConstant: Kevin.shared.theme.mainButtonStyle.height).isActive = true
@@ -193,6 +221,16 @@ internal class KevinBankSelectionView : KevinView<KevinBankSelectionState> {
     
     @objc func onContinueClicked(_ sender: UIButton) {
         delegate?.invokeContinuation(bankId: selectedBankId)
+    }
+}
+
+extension KevinBankSelectionView : KevinClickableUILabelDelegate {
+    func didTap(_ url: URL) {
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url)
+        } else {
+            UIApplication.shared.openURL(url)
+        }
     }
 }
 

@@ -68,6 +68,11 @@
 "window_card_payment_redirect_title" = "Halda áfram að greiða með bankafærslu?";
 "window_card_payment_redirect_subtitle" = "Viltu halda áfram að greiða með bankafærslu?";
 "window_card_payment_bank_redirect_subtitle" = "Við höfum tekið eftir því að greiðslukortið þitt er gefið út af %@. Viltu halda áfram að greiða með bankafærslu?";
+"window_bank_selection_terms_and_conditions_text" = "Með því að ýta á Halda áfram les ég og samþykki skilmála og persónuverndarstefnu";
+"window_bank_selection_terms_clickable_text" = "skilmála";
+"window_bank_selection_privacy_clickable_text" = "persónuverndarstefnu";
+"window_bank_selection_privacy_policy_url" = "https://www.kevin.eu/docs/privacy-policy";
+"window_bank_selection_terms_and_conditions_url" = "https://www.kevin.eu/docs/terms-and-conditions/";
 
 "yes" = "Já";
 "no" = "Nei";
