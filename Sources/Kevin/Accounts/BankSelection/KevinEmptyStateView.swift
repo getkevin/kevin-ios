@@ -1,18 +1,18 @@
 import UIKit
 
-final internal class KevinBankErrorView: UIView {
+final internal class KevinEmptyStateView: UIView {
 
     private let imageContainerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = Kevin.shared.theme.notSupportedCountryStyle.iconColor.withAlphaComponent(0.1)
-        view.layer.cornerRadius = Kevin.shared.theme.notSupportedCountryStyle.cornerRadius
+        view.backgroundColor = Kevin.shared.theme.emptyStateStyle.iconTintColor.withAlphaComponent(0.1)
+        view.layer.cornerRadius = Kevin.shared.theme.emptyStateStyle.cornerRadius
         return view
     }()
     
     private let iconImageView: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "error", in: .module, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate))
-        imageView.tintColor = Kevin.shared.theme.notSupportedCountryStyle.iconColor
+        imageView.tintColor = Kevin.shared.theme.emptyStateStyle.iconTintColor
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -22,8 +22,8 @@ final internal class KevinBankErrorView: UIView {
         label.numberOfLines = 0
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = Kevin.shared.theme.notSupportedCountryStyle.titleFont
-        label.textColor = Kevin.shared.theme.notSupportedCountryStyle.titleTextColor
+        label.font = Kevin.shared.theme.emptyStateStyle.titleFont
+        label.textColor = Kevin.shared.theme.emptyStateStyle.titleTextColor
         return label
     }()
     
@@ -32,8 +32,8 @@ final internal class KevinBankErrorView: UIView {
         label.numberOfLines = 0
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = Kevin.shared.theme.notSupportedCountryStyle.subtitleFont
-        label.textColor = Kevin.shared.theme.notSupportedCountryStyle.subtitleTextColor
+        label.font = Kevin.shared.theme.emptyStateStyle.subtitleFont
+        label.textColor = Kevin.shared.theme.emptyStateStyle.subtitleTextColor
         return label
     }()
     

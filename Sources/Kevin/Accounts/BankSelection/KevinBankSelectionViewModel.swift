@@ -22,7 +22,6 @@ internal class KevinBankSelectionViewModel : KevinViewModel<KevinBankSelectionSt
             KevinBankSelectionState(
                 selectedCountry: country,
                 selectedBankId: nil,
-                selectedCountryUnsupported: false,
                 isCountrySelectionDisabled: configuration.isCountrySelectionDisabled,
                 bankItems: [],
                 isLoading: true
@@ -43,7 +42,6 @@ internal class KevinBankSelectionViewModel : KevinViewModel<KevinBankSelectionSt
                 let newState = KevinBankSelectionState(
                     selectedCountry: code,
                     selectedBankId: configuration.selectedBankId ?? filtredBankItems.first?.id,
-                    selectedCountryUnsupported: filtredBankItems.isEmpty,
                     isCountrySelectionDisabled: configuration.isCountrySelectionDisabled,
                     bankItems: filtredBankItems,
                     isLoading: false

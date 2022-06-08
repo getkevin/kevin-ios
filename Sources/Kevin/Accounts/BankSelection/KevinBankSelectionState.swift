@@ -11,7 +11,6 @@ import Foundation
 internal struct KevinBankSelectionState : IKevinState {
     let selectedCountry: String
     let selectedBankId: String?
-    let selectedCountryUnsupported: Bool
     let isCountrySelectionDisabled: Bool
     let bankItems: Array<ApiBank>
     let isLoading: Bool

@@ -20,7 +20,7 @@ internal class KevinBankSelectionView : KevinView<KevinBankSelectionState> {
     private let countrySelectionLabel = UILabel()
     private let bankSelectionLabel = UILabel()
     private let continueButton = KevinButton(type: .custom)
-    private let errorView = KevinBankErrorView()
+    private let errorView = KevinEmptyStateView()
     
     private var bankItems: Array<ApiBank> = []
     private var selectedBankId: String!
@@ -38,7 +38,7 @@ internal class KevinBankSelectionView : KevinView<KevinBankSelectionState> {
         }
         
         if !state.isLoading {
-            setCountryUnsupported(state.selectedCountryUnsupported, for: countryName)
+            setCountryUnsupported(state.bankItems.isEmpty, for: countryName)
             loadingIndicator.stopAnimating()
         } else {
             setCountryUnsupported(false, for: countryName)
@@ -181,8 +181,8 @@ internal class KevinBankSelectionView : KevinView<KevinBankSelectionState> {
     }
     
     @objc private func onCountrySelectionClicked(_ recognizer: UITapGestureRecognizer) {
-        UIView.animate(withDuration: 0.20, delay: 0.0, options: .curveEaseOut, animations: { [weak self] in
-            self?.countrySelectionContainer.backgroundColor = Kevin.shared.theme.navigationLinkStyle.selectedBackgroundColor
+        UIView.animate(withDuration: 0.20, delay: 0.0, options: .curveEaseOut, animations: {
+            self.countrySelectionContainer.backgroundColor = Kevin.shared.theme.navigationLinkStyle.selectedBackgroundColor
         }, completion: { [weak self] _ in
             self?.delegate?.openCountrySelection()
             UIView.animate(withDuration: 0.20, delay: 0.0, options: .curveEaseOut, animations: {
@@ -247,8 +247,10 @@ extension KevinBankSelectionView : UITableViewDataSource {
     private func getBankLogo(for bank: ApiBank) -> String {
         var originalUri = bank.imageUri
         
-        if !UIApplication.shared.isLightThemedInterface &&
-            Kevin.shared.theme.gridTableStyle.cellBackgroundColor != UIColor.white {
+        if
+            !UIApplication.shared.isLightThemedInterface &&
+            Kevin.shared.theme.gridTableStyle.cellBackgroundColor != UIColor.white
+        {
             
             let imageUriParts = originalUri.components(separatedBy: "images/")
             
