@@ -139,6 +139,7 @@ open class KevinTheme {
         public var cornerRadius: CGFloat = 11
         public var iconTintColor = UIColor(red: 93/255, green: 128/255, blue: 254/255, alpha: 1)
         
+        public init() { }
     }
 
     open var insets = Insets()

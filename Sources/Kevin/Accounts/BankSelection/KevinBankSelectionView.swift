@@ -21,7 +21,7 @@ internal class KevinBankSelectionView : KevinView<KevinBankSelectionState> {
     private let bankSelectionLabel = UILabel()
     private let agreementLabel = KevinClickableUILabel()
     private let continueButton = KevinButton(type: .custom)
-    private let errorView = KevinEmptyStateView()
+    private let emptyStateView = KevinEmptyStateView()
     
     private var bankItems: Array<ApiBank> = []
     private var selectedBankId: String!
@@ -39,27 +39,28 @@ internal class KevinBankSelectionView : KevinView<KevinBankSelectionState> {
         }
         
         if !state.isLoading {
-            setCountryUnsupported(state.bankItems.isEmpty, for: countryName)
+            showEmptyState(state.bankItems.isEmpty, for: countryName)
             loadingIndicator.stopAnimating()
         } else {
-            setCountryUnsupported(false, for: countryName)
+            showEmptyState(false, for: countryName)
             loadingIndicator.startAnimating()
         }
     }
     
-    private func setCountryUnsupported(_ unsupported: Bool, for country: String) {
-        errorView.country = country
-        errorView.isHidden = !unsupported
-        continueButton.isHidden = unsupported
-        bankTableView.isHidden = unsupported
-        bankSelectionLabel.isHidden = unsupported
+    private func showEmptyState(_ show: Bool, for country: String) {
+        emptyStateView.country = country
+        emptyStateView.isHidden = !show
+        continueButton.isHidden = show
+        bankTableView.isHidden = show
+        bankSelectionLabel.isHidden = show
+        agreementLabel.isHidden = show
     }
     
     public override func viewDidLoad() {
         backgroundColor = Kevin.shared.theme.generalStyle.primaryBackgroundColor
         initCountrySelection()
         initBankSelection()
-        setupErrorView()
+        setupEmptyStateView()
         initAgreementLabel()
         initContinueButton()
         initLoadingIndicator()
@@ -196,15 +197,15 @@ internal class KevinBankSelectionView : KevinView<KevinBankSelectionState> {
         continueButton.addTarget(self, action: #selector(self.onContinueClicked(_:)), for: .touchUpInside)
     }
     
-    private func setupErrorView() {
-        errorView.translatesAutoresizingMaskIntoConstraints = false
-        errorView.isHidden = true
-        addSubview(errorView)
+    private func setupEmptyStateView() {
+        emptyStateView.translatesAutoresizingMaskIntoConstraints = false
+        emptyStateView.isHidden = true
+        addSubview(emptyStateView)
         
         NSLayoutConstraint.activate([
-            errorView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            errorView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            errorView.centerYAnchor.constraint(equalTo: centerYAnchor)
+            emptyStateView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            emptyStateView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            emptyStateView.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }
     
