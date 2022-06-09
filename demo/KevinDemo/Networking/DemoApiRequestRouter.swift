@@ -18,7 +18,7 @@ enum DemoApiRequestRouter {
     
     // MARK: - Declarations
     private static let kevinDemoBaseUrl = URL(string: "https://api.getkevin.eu/demo")!
-    private static let kevinMobileDemoBaseUrl = URL(string: "https://mobile-demo.kevin.eu/api/v2/")!
+    private static let kevinMobileDemoBaseUrl = URL(string: "https://mobile-demo.kevin.eu/api/v1/")!
 
     private var method: HTTPMethod {
         switch self {

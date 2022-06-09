@@ -84,3 +84,5 @@
 "dialog_exit_confirmation_title" = "Warning!";
 "dialog_exit_confirmation_accounts_message" = "Are you sure you want to abort account linking?";
 "dialog_exit_confirmation_payments_message" = "Are you sure you want to cancel this payment?";
+"window_bank_selection_empty_state_title" = "Account linking in %@ is not supported";
+"window_bank_selection_empty_state_subtitle" = "Currently, %@ does not support account linking. Stay tuned for future updates";

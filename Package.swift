@@ -14,7 +14,7 @@ let package = Package(
         .library(name: ".kevin-Dynamic", type: .dynamic, targets: ["Kevin"])
     ],
     targets: [
-        .target(name: "Kevin"),
+        .target(name: "Kevin", resources: [.copy("Resources/Assets.xcassets")]),
         .testTarget(
             name: "KevinTests",
             dependencies: ["Kevin"])

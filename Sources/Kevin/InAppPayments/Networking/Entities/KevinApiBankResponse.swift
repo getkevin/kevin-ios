@@ -32,7 +32,8 @@ public class KevinApiBankResponse: NSObject, KevinApiResponseDecodable {
             isSandbox: responseDictionary.kGetBoolean(forKey: "isSandbox", or: true),
             imageUri: responseDictionary.kGetString(forKey: "imageUri")!,
             bic: responseDictionary.kGetString(forKey: "bic"),
-            isBeta: responseDictionary.kGetBoolean(forKey: "isBeta", or: true)
+            isBeta: responseDictionary.kGetBoolean(forKey: "isBeta", or: true),
+            isAccountLinkingSupported: responseDictionary.kGetBoolean(forKey: "isAccountLinkingSupported", or: false)
         )
         return bankResponse
     }

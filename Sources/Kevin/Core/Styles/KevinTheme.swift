@@ -130,6 +130,17 @@ open class KevinTheme {
 
         public init() { }
     }
+    
+    public struct EmptyStateStyle {
+        public var titleTextColor = UIColor.black
+        public var titleFont = UIFont.systemFont(ofSize: 22, weight: .semibold)
+        public var subtitleTextColor =  UIColor(red: 124/255, green: 136/255, blue: 148/255, alpha: 1)
+        public var subtitleFont = UIFont.systemFont(ofSize: 16, weight: .regular)
+        public var cornerRadius: CGFloat = 11
+        public var iconTintColor = UIColor(red: 93/255, green: 128/255, blue: 254/255, alpha: 1)
+        
+        public init() { }
+    }
 
     open var insets = Insets()
     open var generalStyle = GeneralStyle()
@@ -142,6 +153,7 @@ open class KevinTheme {
     open var mainButtonStyle = MainButtonStyle()
     open var negativeButtonStyle = NegativeButtonStyle()
     open var textFieldStyle = TextFieldStyle()
+    open var emptyStateStyle = EmptyStateStyle()
     
     public init() { }
 }
