@@ -38,6 +38,10 @@ public class DemoKevinTheme : KevinTheme {
         self.textFieldStyle.backgroundColor = UIColor(Color("PrimaryBackgroundColor", bundle: nil))
         self.textFieldStyle.borderColor = UIColor(Color("SecondaryTextColor", bundle: nil))
         self.textFieldStyle.errorBorderColor = UIColor(Color("RedOrange", bundle: nil))
+        
+        self.emptyStateStyle.titleTextColor = UIColor(Color("PrimaryTextColor", bundle: nil))
+        self.emptyStateStyle.subtitleTextColor = UIColor(Color("SecondaryTextColor", bundle: nil))
+        self.emptyStateStyle.iconTintColor = UIColor(Color("PrimaryTextColor", bundle: nil))
 
         //  for more properties check KevinTheme class
     }

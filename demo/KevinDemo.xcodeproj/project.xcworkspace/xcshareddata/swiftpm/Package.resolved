@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Alamofire/Alamofire",
       "state" : {
-        "revision" : "f82c23a8a7ef8dc1a49a8bfc6a96883e79121864",
-        "version" : "5.5.0"
+        "revision" : "354dda32d89fc8cd4f5c46487f64957d355f53d8",
+        "version" : "5.6.1"
       }
     },
     {
@@ -32,8 +32,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/getkevin/kevin-ios",
       "state" : {
-        "revision" : "346bb51609a11a2a29e3d5444ddc32988248f67d",
-        "version" : "1.7.0"
+        "revision" : "b9646cfa0f4cbfd83c1b0cdb0f9ca28970ca0a1e",
+        "version" : "2.1.0"
       }
     },
     {
@@ -59,8 +59,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/mxcl/PromiseKit",
       "state" : {
-        "revision" : "7b07b214dacecb22ca4b680531c7e981d52483f9",
-        "version" : "6.16.3"
+        "revision" : "c946b7561fbe11379a874e59faa2c5f8077ae0e1",
+        "version" : "6.17.1"
       }
     },
     {
@@ -68,8 +68,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SDWebImage/SDWebImage.git",
       "state" : {
-        "revision" : "2c53f531f1bedd253f55d85105409c28ed4a922c",
-        "version" : "5.12.3"
+        "revision" : "2e63d0061da449ad0ed130768d05dceb1496de44",
+        "version" : "5.12.5"
       }
     },
     {
