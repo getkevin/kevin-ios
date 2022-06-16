@@ -85,8 +85,8 @@ public enum TextStyle {
     
     public var asAttributes: [NSAttributedString.Key: Any] {
         return [
-            .font: self.uiFont,
-            .foregroundColor: UIColor(self.color)
+            .font: uiFont,
+            .foregroundColor: UIColor(color)
         ]
     }
 }

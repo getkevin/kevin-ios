@@ -21,13 +21,13 @@ public class AccountLinkingViewModel: ObservableObject {
         viewState.linkedBanks = LinkedBankRepository.findAll()
         
         // Observe Results Notifications
-        viewState.notificationToken = viewState.linkedBanks?.observe { (changes: RealmCollectionChange) in
+        viewState.notificationToken = viewState.linkedBanks?.observe { [weak self] (changes: RealmCollectionChange) in
             switch changes {
             case .initial:
                 break
             case .update(let linkedBanks, _, _, _):
-                self.viewState.linkedBanks = linkedBanks
-                self.viewState.isLoading = false
+                self?.viewState.linkedBanks = linkedBanks
+                self?.viewState.isLoading = false
             case .error(let error):
                 fatalError("\(error)")
             }
@@ -67,8 +67,8 @@ public class AccountLinkingViewModel: ObservableObject {
     }
 
     public func onKevinAccountLinkingStarted(_ controller: UIViewController) {
-        self.kevinController = controller
-        self.viewState.openKevin = true
+        kevinController = controller
+        viewState.openKevin = true
     }
 
     // MARK: Error handling
@@ -82,10 +82,10 @@ public class AccountLinkingViewModel: ObservableObject {
     }
 
     private func showErrorMessage(_ errorMessage: String?) {
-        self.viewState.isLoading = false
+        viewState.isLoading = false
 
-        self.viewState.showMessage = true
-        self.viewState.messageTitle = "kevin_error_alert_title".localized()
-        self.viewState.messageDescription = errorMessage ?? "kevin_error_alert_description".localized()
+        viewState.showMessage = true
+        viewState.messageTitle = "kevin_error_alert_title".localized()
+        viewState.messageDescription = errorMessage ?? "kevin_error_alert_description".localized()
     }
 }

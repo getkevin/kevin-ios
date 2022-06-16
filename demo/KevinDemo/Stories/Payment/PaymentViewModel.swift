@@ -26,12 +26,12 @@ class PaymentViewModel: ObservableObject {
         viewState.linkedBanks = LinkedBankRepository.findAll()
         
         // Observe Results Notifications
-        viewState.notificationToken = viewState.linkedBanks?.observe { (changes: RealmCollectionChange) in
+        viewState.notificationToken = viewState.linkedBanks?.observe { [weak self] (changes: RealmCollectionChange) in
             switch changes {
             case .initial:
                 break
             case .update(let linkedBanks, _, _, _):
-                self.viewState.linkedBanks = linkedBanks
+                self?.viewState.linkedBanks = linkedBanks
             case .error(let error):
                 fatalError("\(error)")
             }
@@ -86,7 +86,7 @@ class PaymentViewModel: ObservableObject {
 
     func openLinkedBankSelection() {
         if viewState.linkedBanks == nil || viewState.linkedBanks!.toArray().isEmpty {
-            handleError(KevinNoLinkedBankError())
+            handleError(KevinBankError.noLinkedBank)
             return
         }
         
@@ -102,13 +102,13 @@ class PaymentViewModel: ObservableObject {
     private func getCountryList() {
         viewState.isCountryLoading = true
         viewState.isCharityLoading = true
-        apiClient.getCountryList().done { apiCountries in
-            self.viewState.countryCodes = apiCountries.list
-            self.viewState.selectedCountryCode = "LT"
-            self.viewState.isCountryLoading = false
-            self.getCharityList(forCountryCode: "LT")
-        }.catch { error in
-            self.handleError(error)
+        apiClient.getCountryList().done { [weak self] apiCountries in
+            self?.viewState.countryCodes = apiCountries.list
+            self?.viewState.selectedCountryCode = "LT"
+            self?.viewState.isCountryLoading = false
+            self?.getCharityList(forCountryCode: "LT")
+        }.catch { [weak self] error in
+            self?.handleError(error)
         }
     }
     
@@ -118,12 +118,12 @@ class PaymentViewModel: ObservableObject {
             targetCountryCode = "EE"
         }
         viewState.isCharityLoading = true
-        apiClient.getCharityList(forCountryCode: targetCountryCode).done { apiCharities in
-            self.viewState.charities = apiCharities.list
-            self.viewState.selectedCharity = apiCharities.list.first
-            self.viewState.isCharityLoading = false
-        }.catch { error in
-            self.handleError(error)
+        apiClient.getCharityList(forCountryCode: targetCountryCode).done { [weak self] apiCharities in
+            self?.viewState.charities = apiCharities.list
+            self?.viewState.selectedCharity = apiCharities.list.first
+            self?.viewState.isCharityLoading = false
+        }.catch { [weak self] error in
+            self?.handleError(error)
         }
     }
     
@@ -199,20 +199,20 @@ class PaymentViewModel: ObservableObject {
     }
     
     private func showErrorMessage(_ errorMessage: String?) {
-        self.viewState.isCountryLoading = false
-        self.viewState.isCharityLoading = false
-        self.viewState.isPaymentInProgress = false
+        viewState.isCountryLoading = false
+        viewState.isCharityLoading = false
+        viewState.isPaymentInProgress = false
 
-        self.viewState.showMessage = true
-        self.viewState.messageTitle = "kevin_error_alert_title".localized()
-        self.viewState.messageDescription = errorMessage ?? "kevin_error_alert_description".localized()
+        viewState.showMessage = true
+        viewState.messageTitle = "kevin_error_alert_title".localized()
+        viewState.messageDescription = errorMessage ?? "kevin_error_alert_description".localized()
     }
         
     //  MARK: KevinPaymentSessionDelegate
     
     func onKevinPaymentInitiationStarted(controller: UIViewController) {
-        self.kevinController = controller
-        self.viewState.openKevin = true
+        kevinController = controller
+        viewState.openKevin = true
     }
         
     func onKevinPaymentSucceeded(paymentId: String) {

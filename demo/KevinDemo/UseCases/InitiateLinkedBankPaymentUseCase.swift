@@ -33,7 +33,7 @@ public class InitiateLinkedBankPaymentUseCase: BasePaymentInitiationUseCase, Ini
     ) {
         guard let credentials = BankCredentialsPreferences.load(forBankId: bankId),
         let accessToken = credentials.accessToken else {
-            subject.send(completion: .failure(KevinBankCredentialError()))
+            subject.send(completion: .failure(KevinBankError.bankCredential))
             return
         }
         
@@ -43,7 +43,7 @@ public class InitiateLinkedBankPaymentUseCase: BasePaymentInitiationUseCase, Ini
             iban: iban,
             creditorName: creditorName,
             accessToken: accessToken
-        ).done { payment in
+        ).done { [weak self] payment in
             do {
                 KevinPaymentSession.shared.delegate = self
                 try KevinPaymentSession.shared.initiatePayment(
@@ -54,10 +54,10 @@ public class InitiateLinkedBankPaymentUseCase: BasePaymentInitiationUseCase, Ini
                     .build()
                 )
             } catch {
-                self.subject.send(completion: .failure(error))
+                self?.subject.send(completion: .failure(error))
             }
-        }.catch { error in
-            self.handleError(
+        }.catch { [weak self] error in
+            self?.handleError(
                 error,
                 amount: amount,
                 email: email,
@@ -77,18 +77,14 @@ public class InitiateLinkedBankPaymentUseCase: BasePaymentInitiationUseCase, Ini
         bankId: String
     ) {
         switch error {
-        case let apiError as ApiError:
-            if apiError.statusCode == 401 {
-                refreshToken(
-                    amount: amount,
-                    email: email,
-                    iban: iban,
-                    creditorName: creditorName,
-                    bankId: bankId
-                )
-            } else {
-                subject.send(completion: .failure(error))
-            }
+        case let apiError as ApiError where apiError.statusCode == 401:
+            refreshToken(
+                amount: amount,
+                email: email,
+                iban: iban,
+                creditorName: creditorName,
+                bankId: bankId
+            )
         default:
             subject.send(completion: .failure(error))
         }
@@ -103,12 +99,12 @@ public class InitiateLinkedBankPaymentUseCase: BasePaymentInitiationUseCase, Ini
     ) {
         guard let credentials = BankCredentialsPreferences.load(forBankId: bankId),
               let refreshToken = credentials.refreshToken else {
-            subject.send(completion: .failure(KevinBankCredentialError()))
+            subject.send(completion: .failure(KevinBankError.bankCredential))
             return
         }
         apiClient.refreshAccessToken(
             refreshToken: refreshToken
-        ).done { credentials in
+        ).done { [weak self] credentials in
             let bankCredentials = BankCredentials(
                 bankId: bankId,
                 accessToken: credentials.accessToken,
@@ -117,15 +113,15 @@ public class InitiateLinkedBankPaymentUseCase: BasePaymentInitiationUseCase, Ini
 
             BankCredentialsPreferences.save(bankCredentials)
             
-            self.initiatePayment(
+            self?.initiatePayment(
                 amount: amount,
                 email: email,
                 iban: iban,
                 creditorName: creditorName,
                 bankId: bankId
             )
-        }.catch { error in
-            self.subject.send(completion: .failure(error))
+        }.catch { [weak self] error in
+            self?.subject.send(completion: .failure(error))
         }
     }
 }

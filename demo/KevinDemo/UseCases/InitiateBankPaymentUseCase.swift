@@ -34,7 +34,7 @@ public class InitiateBankPaymentUseCase: BasePaymentInitiationUseCase, InitiateP
             email: email,
             iban: iban,
             creditorName: creditorName
-        ).done { payment in
+        ).done { [weak self] payment in
             do {
                 KevinPaymentSession.shared.delegate = self
                 try KevinPaymentSession.shared.initiatePayment(
@@ -47,10 +47,10 @@ public class InitiateBankPaymentUseCase: BasePaymentInitiationUseCase, InitiateP
                     .build()
                 )
             } catch {
-                self.subject.send(completion: .failure(error))
+                self?.subject.send(completion: .failure(error))
             }
-        }.catch { error in
-            self.subject.send(completion: .failure(error))
+        }.catch { [weak self] error in
+            self?.subject.send(completion: .failure(error))
         }
     }
 }

@@ -22,7 +22,7 @@ public class LinkAccountUseCase: BasePublishingUseCase<KevinInitiationState>, Ke
     }
     
     private func invokeAccountLinkingSession() {
-        apiClient.initializeAccountLinking().done { state in
+        apiClient.initializeAccountLinking().done { [weak self] state in
             do {
                 KevinAccountLinkingSession.shared.delegate = self
                 try KevinAccountLinkingSession.shared.initiateAccountLinking(
@@ -34,17 +34,17 @@ public class LinkAccountUseCase: BasePublishingUseCase<KevinInitiationState>, Ke
                         .build()
                 )
             } catch {
-                self.subject.send(completion: .failure(error))
+                self?.subject.send(completion: .failure(error))
             }
-        }.catch { error in
-            self.subject.send(completion: .failure(error))
+        }.catch { [weak self] error in
+            self?.subject.send(completion: .failure(error))
         }
     }
 
     private func getAccessToken(authorizationCode: String, bank: ApiBank) {
         apiClient.getAccessToken(
             authorizationCode: authorizationCode
-        ).done { credentials in
+        ).done { [weak self] credentials in
             let bankCredentials = BankCredentials(
                 bankId: bank.id,
                 accessToken: credentials.accessToken,
@@ -55,10 +55,10 @@ public class LinkAccountUseCase: BasePublishingUseCase<KevinInitiationState>, Ke
             
             LinkedBankRepository.saveLinkedBank(bank)
             
-            self.subject.send(.finishedWithSuccess())
-            self.subject.send(completion: .finished)
-        }.catch { error in
-            self.subject.send(completion: .failure(error))
+            self?.subject.send(.finishedWithSuccess())
+            self?.subject.send(completion: .finished)
+        }.catch { [weak self] error in
+            self?.subject.send(completion: .failure(error))
         }
     }
 
@@ -69,14 +69,12 @@ public class LinkAccountUseCase: BasePublishingUseCase<KevinInitiationState>, Ke
     }
 
     public func onKevinAccountLinkingCanceled(error: Error?) {
-        subject.send(completion: .failure(error ?? KevinUserInterruptionError()))
+        subject.send(completion: .failure(error ?? KevinBankError.userInterruption))
     }
 
     public func onKevinAccountLinkingSucceeded(authorizationCode: String, bank: ApiBank?, linkingType: KevinAccountLinkingType) {
-        if linkingType == .bank {
-            if let bank = bank {
-                getAccessToken(authorizationCode: authorizationCode, bank: bank)
-            }
+        if linkingType == .bank, let bank = bank {
+            getAccessToken(authorizationCode: authorizationCode, bank: bank)
         }
     }
 }

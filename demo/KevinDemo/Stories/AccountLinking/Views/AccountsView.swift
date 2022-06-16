@@ -24,30 +24,27 @@ public struct AccountsView: View {
     }
     
     public var body: some View {
-        GeometryReader { reader in
-            ScrollView {
-                VStack(alignment: .leading) {
-                    NewAccountCell(linkBank: linkBank)
+        ScrollView {
+            VStack(alignment: .leading) {
+                NewAccountCell(linkBank: linkBank)
 
-                    Text("kevin_window_link_account_linked_accounts_label".localized())
-                        .style(.sectionHeader)
-                        .padding(.top, 28)
-                        .padding(.bottom, 12)
-                    
-                    VStack(spacing: 1) {
-                        ForEach(linkedBanks, id: \.bankId) { linkedBank in
-                            AccountCell(
-                                linkedBank: linkedBank,
-                                deleteBank: deleteBank
-                            )
-                        }
+                Text("kevin_window_link_account_linked_accounts_label".localized())
+                    .style(.sectionHeader)
+                    .padding(.top, 28)
+                    .padding(.bottom, 12)
+                
+                VStack(spacing: 1) {
+                    ForEach(linkedBanks, id: \.bankId) { linkedBank in
+                        AccountCell(
+                            linkedBank: linkedBank,
+                            deleteBank: deleteBank
+                        )
                     }
-                    .cornerRadius(8)
                 }
-                .padding(.top)
-                .padding(.horizontal, 16)
-                .listStyle(.insetGrouped)
+                .cornerRadius(8)
             }
+            .padding([.top, .horizontal])
+            .listStyle(.insetGrouped)
         }
     }
 }

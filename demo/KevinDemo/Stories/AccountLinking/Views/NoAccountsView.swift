@@ -20,19 +20,18 @@ struct NoAccountsView: View {
             Image("Banks")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .padding(.bottom, 32)
+                .padding(.bottom, 16)
             
             Text("kevin_window_link_account_empty_state_title".localized())
                 .style(.title)
                 .multilineTextAlignment(.center)
-                .padding(.bottom, 16)
-                .padding([.leading, .trailing], 16)
+                .padding(16)
 
             Text("kevin_window_link_account_empty_state_subtitle".localized())
                 .style(.subtitle)
                 .multilineTextAlignment(.center)
                 .padding(.bottom, 32)
-                .padding([.leading, .trailing], 16)
+                .padding(.horizontal, 16)
 
             Button {
                 onLinkAccountAction()

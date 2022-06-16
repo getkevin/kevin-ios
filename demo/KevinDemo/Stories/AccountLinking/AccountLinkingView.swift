@@ -19,25 +19,23 @@ public struct AccountLinkingView: View {
                 if viewModel.viewState.isLoading {
                     ProgressView()
                         .zIndex(2)
-                } else {
-                    if viewModel.viewState.linkedBanks != nil && !viewModel.viewState.linkedBanks!.isEmpty {
-                        AccountsView(
-                            linkedBanks: viewModel.viewState.linkedBanks!.toArray(),
-                            linkBank: {
-                                viewModel.invokeAccountLinkingSession()
-                            },
-                            deleteBank: { linkedBank in
-                                viewModel.deleteLinkedBank(linkedBank)
-                            }
-                        )
-                        .zIndex(3)
-                        .navigationBarTitle("kevin_window_link_account_title".localized(), displayMode: .large)
-                    } else {
-                        NoAccountsView(onLinkAccountAction: {
+                } else if viewModel.viewState.linkedBanks?.isEmpty == false {
+                    AccountsView(
+                        linkedBanks: viewModel.viewState.linkedBanks!.toArray(),
+                        linkBank: {
                             viewModel.invokeAccountLinkingSession()
-                        })
-                        .zIndex(4)
-                    }
+                        },
+                        deleteBank: { linkedBank in
+                            viewModel.deleteLinkedBank(linkedBank)
+                        }
+                    )
+                    .zIndex(3)
+                    .navigationBarTitle("kevin_window_link_account_title".localized(), displayMode: .large)
+                } else {
+                    NoAccountsView(onLinkAccountAction: {
+                        viewModel.invokeAccountLinkingSession()
+                    })
+                    .zIndex(4)
                 }
             }
         }

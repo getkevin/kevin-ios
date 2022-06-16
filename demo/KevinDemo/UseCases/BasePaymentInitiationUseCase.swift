@@ -21,7 +21,7 @@ public class BasePaymentInitiationUseCase: BasePublishingUseCase<KevinInitiation
     }
     
     public func onKevinPaymentCanceled(error: Error?) {
-        subject.send(completion: .failure(error ?? KevinUserInterruptionError()))
+        subject.send(completion: .failure(error ?? KevinBankError.userInterruption))
     }
     
     public func onKevinPaymentSucceeded(paymentId: String) {
