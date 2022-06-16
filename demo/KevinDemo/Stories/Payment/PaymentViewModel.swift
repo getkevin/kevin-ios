@@ -87,6 +87,7 @@ class PaymentViewModel: ObservableObject {
     func openLinkedBankSelection() {
         if viewState.linkedBanks == nil || viewState.linkedBanks!.toArray().isEmpty {
             handleError(KevinNoLinkedBankError())
+            return
         }
         
         viewState.isLinkedBankSelectorPresented = true
