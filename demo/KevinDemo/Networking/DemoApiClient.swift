@@ -20,6 +20,24 @@ public class DemoApiClient: PSBaseApiClient {
         ))
     }
 
+    public func initializeAccountLinking() -> Promise<ApiAuthState> {
+        doRequest(requestRouter: DemoApiRequestRouter.initializeAccountLinking(
+            request: InitiateAccountLinking(scopes: ["payments", "accounts_basic"])
+        ))
+    }
+
+    public func getAccessToken(authorizationCode: String) -> Promise<ApiAccessToken> {
+        doRequest(requestRouter: DemoApiRequestRouter.getAccessToken(
+            request: GetAccessTokenRequest(authorizationCode: authorizationCode)
+        ))
+    }
+
+    public func refreshAccessToken(refreshToken: String) -> Promise<ApiAccessToken> {
+        doRequest(requestRouter: DemoApiRequestRouter.refreshAccessToken(
+            request: RefreshAccessTokenRequest(refreshToken: refreshToken)
+        ))
+    }
+    
     public func initializeBankPayment(
         amount: String,
         email: String,
@@ -36,6 +54,24 @@ public class DemoApiClient: PSBaseApiClient {
         ))
     }
     
+    public func initializeLinkedBankPayment(
+        amount: String,
+        email: String,
+        iban: String,
+        creditorName: String,
+        accessToken: String
+    ) -> Promise<ApiPayment> {
+        doRequest(requestRouter: DemoApiRequestRouter.initializeLinkedBankPayment(
+            request: InitiatePaymentRequest(
+                amount: amount,
+                email: email,
+                iban: iban,
+                creditorName: creditorName
+            ),
+            accessToken: accessToken
+        ))
+    }
+
     public func initializeCardPayment(
         amount: String,
         email: String,

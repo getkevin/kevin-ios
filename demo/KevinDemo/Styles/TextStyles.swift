@@ -10,8 +10,7 @@ import SwiftUI
 public enum TextStyle {
     case title
     case subtitle
-    case segmentedPickerSelected
-    case segmentedPickerUnselected
+    case action
     case sectionHeader
     case textFieldName
     case currencyHint
@@ -20,55 +19,74 @@ public enum TextStyle {
     case buttonTitle
     case countrySelectorTitle
     case countrySelectorItemTitle
+    case cellTitle
 
+    private var size: CGFloat {
+        switch self {
+        case .title: return 22
+        case .subtitle: return 16
+        case .action: return 16
+        case .sectionHeader: return 17
+        case .textFieldName: return 14
+        case .currencyHint: return 14
+        case .agreement: return 12
+        case .agreementLink: return 12
+        case .buttonTitle: return 17
+        case .countrySelectorTitle: return 21
+        case .countrySelectorItemTitle: return 16
+        case .cellTitle: return 16
+        }
+    }
+    
+    private var weight: FontWeight {
+        switch self {
+        case .title: return .semibold
+        case .subtitle: return .regular
+        case .action: return .medium
+        case .sectionHeader: return .semibold
+        case .textFieldName: return .regular
+        case .currencyHint: return .regular
+        case .agreement: return .regular
+        case .agreementLink: return .regular
+        case .buttonTitle: return .semibold
+        case .countrySelectorTitle: return .medium
+        case .countrySelectorItemTitle: return .semibold
+        case .cellTitle: return .medium
+        }
+    }
+    
     public var font: Font {
-        switch self {
-        case .title:
-            return .system(size: 34).weight(.semibold)
-        case .subtitle:
-            return .system(size: 16).weight(.regular)
-        case .segmentedPickerSelected:
-            return .system(size: 16).weight(.medium)
-        case .segmentedPickerUnselected:
-            return .system(size: 16).weight(.medium)
-        case .sectionHeader:
-            return .system(size: 17).weight(.semibold)
-        case .textFieldName:
-            return .system(size: 14).weight(.regular)
-        case .currencyHint:
-            return .system(size: 14).weight(.regular)
-        case .agreement,
-             .agreementLink:
-            return .system(size: 12).weight(.regular)
-        case .buttonTitle:
-            return .system(size: 17).weight(.semibold)
-        case .countrySelectorTitle:
-            return .system(size: 21).weight(.medium)
-        case .countrySelectorItemTitle:
-            return .system(size: 16).weight(.semibold)
-        }
+        return Font.system(size: size).weight(weight.fontWeight)
     }
     
-    public var textCase: Text.Case? {
-        switch self {
-        default:
-            return nil
-        }
+    public var uiFont: UIFont {
+        return UIFont.systemFont(ofSize: size, weight: weight.uiFontWeight)
     }
-    
+
     public var color: Color {
         switch self {
         case .subtitle,
              .currencyHint,
-             .textFieldName,
-             .segmentedPickerUnselected:
+             .textFieldName:
             return Color.init("SecondaryTextColor")
-        case .agreementLink:
+        case .action,
+             .agreementLink:
             return Color.init("AccentColor")
         case .buttonTitle:
             return Color.white
         default:
             return Color.init("PrimaryTextColor")
         }
+    }
+    
+    public var uiColor: UIColor {
+        return UIColor(color)
+    }
+    
+    public var asAttributes: [NSAttributedString.Key: Any] {
+        return [
+            .font: self.uiFont,
+            .foregroundColor: UIColor(self.color)
+        ]
     }
 }
