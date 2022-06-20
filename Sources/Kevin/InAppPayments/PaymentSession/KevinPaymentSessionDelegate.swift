@@ -12,5 +12,5 @@ import Foundation
 public protocol KevinPaymentSessionDelegate: AnyObject {
     func onKevinPaymentInitiationStarted(controller: UINavigationController)
     func onKevinPaymentCanceled(error: Error?)
-    func onKevinPaymentSucceeded(paymentId: String)
+    func onKevinPaymentSucceeded(paymentId: String, status: KevinPaymentStatus)
 }

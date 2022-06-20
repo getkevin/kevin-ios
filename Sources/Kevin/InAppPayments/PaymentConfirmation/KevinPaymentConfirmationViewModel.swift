@@ -63,9 +63,12 @@ internal class KevinPaymentConfirmationViewModel : KevinViewModel<KevinPaymentCo
                 KevinPaymentSession.shared.notifyPaymentCancelation(error: KevinError(description: "Payment was canceled!"))
                 return
             }
-            if statusGroup == "completed" {
+            if statusGroup == "completed" || statusGroup == "pending" {
                 if let paymentId = callbackUrl?["paymentId"] {
-                    KevinPaymentSession.shared.notifyPaymentCompletion(paymentId: paymentId)
+                    KevinPaymentSession.shared.notifyPaymentCompletion(
+                        paymentId: paymentId,
+                        status: KevinPaymentStatus.init(rawValue: statusGroup) ?? .unknown
+                    )
                 }
             } else {
                 KevinPaymentSession.shared.notifyPaymentCancelation(error: KevinError(description: "Payment was canceled!"))
