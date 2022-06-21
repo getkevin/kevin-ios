@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C005FA82861C5F8003C767F /* KevinTextFieldType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C005FA72861C5F8003C767F /* KevinTextFieldType.swift */; };
+		0C005FAA2861C856003C767F /* KevinLinkedBankCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C005FA92861C856003C767F /* KevinLinkedBankCell.swift */; };
 		0C08545027B268220036EE48 /* Text+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08544F27B268220036EE48 /* Text+Extensions.swift */; };
 		0C08545227B268830036EE48 /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08545127B268830036EE48 /* TextStyles.swift */; };
-		0C08545C27B3E1270036EE48 /* KevinCountrySelectionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08545B27B3E1270036EE48 /* KevinCountrySelectionRowView.swift */; };
+		0C08545C27B3E1270036EE48 /* KevinCountrySelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08545B27B3E1270036EE48 /* KevinCountrySelectionCell.swift */; };
 		0C08546427B557FE0036EE48 /* ApiCountries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08546327B557FE0036EE48 /* ApiCountries.swift */; };
 		0C08546627B55AA70036EE48 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08546527B55AA70036EE48 /* View+Extensions.swift */; };
 		0C08546827B55BA30036EE48 /* ApiCharity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08546727B55BA30036EE48 /* ApiCharity.swift */; };
@@ -115,9 +117,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C005FA72861C5F8003C767F /* KevinTextFieldType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KevinTextFieldType.swift; sourceTree = "<group>"; };
+		0C005FA92861C856003C767F /* KevinLinkedBankCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KevinLinkedBankCell.swift; sourceTree = "<group>"; };
 		0C08544F27B268220036EE48 /* Text+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+Extensions.swift"; sourceTree = "<group>"; };
 		0C08545127B268830036EE48 /* TextStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyles.swift; sourceTree = "<group>"; };
-		0C08545B27B3E1270036EE48 /* KevinCountrySelectionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KevinCountrySelectionRowView.swift; sourceTree = "<group>"; };
+		0C08545B27B3E1270036EE48 /* KevinCountrySelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KevinCountrySelectionCell.swift; sourceTree = "<group>"; };
 		0C08546327B557FE0036EE48 /* ApiCountries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCountries.swift; sourceTree = "<group>"; };
 		0C08546527B55AA70036EE48 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		0C08546727B55BA30036EE48 /* ApiCharity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCharity.swift; sourceTree = "<group>"; };
@@ -236,6 +240,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C005FA62861C5E6003C767F /* KevinTextField */ = {
+			isa = PBXGroup;
+			children = (
+				0CE4995C27B67AC8005E32D4 /* KevinTextField.swift */,
+				0C005FA72861C5F8003C767F /* KevinTextFieldType.swift */,
+			);
+			path = KevinTextField;
+			sourceTree = "<group>";
+		};
 		0C08544E27B2680C0036EE48 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -258,13 +271,14 @@
 		0C0C13A22859EBBF00607CE9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				0C08545B27B3E1270036EE48 /* KevinCountrySelectionRowView.swift */,
+				0C005FA62861C5E6003C767F /* KevinTextField */,
+				0C08545B27B3E1270036EE48 /* KevinCountrySelectionCell.swift */,
 				0CE4996127BA659C005E32D4 /* KevinCharityView.swift */,
 				0CE4996927BA9EC4005E32D4 /* KevinCountrySelector.swift */,
-				0CE4995C27B67AC8005E32D4 /* KevinTextField.swift */,
 				0CE4995F27B67D1F005E32D4 /* KevinAgreementCheckMark.swift */,
 				0C630C03285A435700E6FAD1 /* KevinPaymentTypeSelector.swift */,
 				0CFAE6A4285B574300F55F74 /* KevinLinkedBankSelector.swift */,
+				0C005FA92861C856003C767F /* KevinLinkedBankCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -730,7 +744,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C850BA92858A0E900194293 /* InitiateAccountLinkingRequest.swift in Sources */,
-				0C08545C27B3E1270036EE48 /* KevinCountrySelectionRowView.swift in Sources */,
+				0C08545C27B3E1270036EE48 /* KevinCountrySelectionCell.swift in Sources */,
 				0CF5659F285767F000853D8A /* ApplicationTabs.swift in Sources */,
 				0C850BBD2858B11E00194293 /* AccountsView.swift in Sources */,
 				0CE4996A27BA9EC4005E32D4 /* KevinCountrySelector.swift in Sources */,
@@ -739,6 +753,7 @@
 				0CE4996027B67D1F005E32D4 /* KevinAgreementCheckMark.swift in Sources */,
 				0CF565A1285777DD00853D8A /* AccountLinkingView.swift in Sources */,
 				27B1809C26807949001E0C50 /* RequestHeaders.swift in Sources */,
+				0C005FAA2861C856003C767F /* KevinLinkedBankCell.swift in Sources */,
 				0CF565AE285878E100853D8A /* GetAccessTokenRequest.swift in Sources */,
 				0CF565B02858794000853D8A /* RefreshAccessTokenRequest.swift in Sources */,
 				0CFAE6C3285B959C00F55F74 /* HalfASheetConfiguration.swift in Sources */,
@@ -764,6 +779,7 @@
 				27B180B52680805B001E0C50 /* ApiAuthState.swift in Sources */,
 				0CE4995D27B67AC8005E32D4 /* KevinTextField.swift in Sources */,
 				0C14500527C369CE00FB3A3E /* KevinModalView.swift in Sources */,
+				0C005FA82861C5F8003C767F /* KevinTextFieldType.swift in Sources */,
 				0C08546C27B55ED60036EE48 /* ApiCharities.swift in Sources */,
 				0C0C13AD2859FC8700607CE9 /* FontWeight.swift in Sources */,
 				2782B450277892D6004A9E05 /* InitiatePaymentRequest.swift in Sources */,

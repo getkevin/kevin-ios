@@ -16,6 +16,8 @@ import RealmSwift
 class PaymentViewModel: ObservableObject {
 
     @Published var viewState = PaymentViewState()
+    @Published var isDonateButtonEnabled = true
+
     private let apiClient = DemoApiClientFactory.createDemoApiClient(headers: RequestHeaders())
     private var cancellables = Set<AnyCancellable>()
     var kevinController: UIViewController? = nil
@@ -36,6 +38,17 @@ class PaymentViewModel: ObservableObject {
                 fatalError("\(error)")
             }
         }
+        
+        $viewState
+            .map { state in
+                state.isAgreementChecked &&
+                state.email.isValidEmail() &&
+                Double(state.amountString) != nil &&
+                state.selectedCharity != nil
+            }
+            .sink { [weak self] isEnabled in
+                self?.isDonateButtonEnabled = isEnabled
+            }.store(in: &cancellables)
     }
     
     deinit {
@@ -50,19 +63,6 @@ class PaymentViewModel: ObservableObject {
         viewState.selectedCountryCode = selectedCountryCode
         getCharityList(forCountryCode: selectedCountryCode)
         viewState.isCountrySelectorPresented = false
-    }
-    
-    func toggleAgreement() {
-        viewState.isAgreementChecked = !viewState.isAgreementChecked
-        updateDonateButtonState()
-    }
-    
-    func updateDonateButtonState() {
-        viewState.isDonateButtonDisabled =
-            !(viewState.isAgreementChecked &&
-            viewState.email.isValidEmail() &&
-            Double(viewState.amountString) != nil &&
-            viewState.selectedCharity != nil)
     }
     
     // MARK: Payment type selection

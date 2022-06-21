@@ -9,20 +9,19 @@ import SwiftUI
 
 struct KevinTextField: View {
     
-    let onChange: () -> Void
-    let textBinding: Binding<String>
-    let text: String
-    var textContentType: UITextContentType? = nil
-    let keyboardType: UIKeyboardType
-
+    @Binding var text: String
+    var type: KevinTextFieldType
+    
     var body: some View {
         VStack(alignment: .leading) {
-            TextField("", text: textBinding)
+            TextField("", text: $text)
                 .onChange(of: text) { _ in
-                    onChange()
+                    if type == .amount {
+                        text = text.toCurrencyFormat()
+                    }
                 }
-                .textContentType(textContentType)
-                .keyboardType(keyboardType)
+                .textContentType(type.textContentType)
+                .keyboardType(type.keyboardType)
                 .autocapitalization(UITextAutocapitalizationType.none)
                 .disableAutocorrection(true)
                 .padding(12.0)
@@ -35,5 +34,3 @@ struct KevinTextField: View {
         }
     }
 }
-
-

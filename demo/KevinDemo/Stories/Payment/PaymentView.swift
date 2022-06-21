@@ -31,7 +31,7 @@ struct PaymentView: View {
                             Button(action: {
                                 viewModel.openCountrySelection()
                             }) {
-                                KevinCountrySelectionRowView(
+                                KevinCountrySelectionCell(
                                     title: "kevin_window_main_country_label".localized(),
                                     countryCode: viewModel.viewState.selectedCountryCode
                                 )
@@ -82,13 +82,8 @@ struct PaymentView: View {
                                 .padding(.top, 8.0)
                             
                             KevinTextField(
-                                onChange: {
-                                    viewModel.updateDonateButtonState()
-                                },
-                                textBinding: $viewModel.viewState.email,
-                                text: viewModel.viewState.email,
-                                textContentType: .emailAddress,
-                                keyboardType: .emailAddress
+                                text: $viewModel.viewState.email,
+                                type: .email
                             )
                             
                             Text("kevin_window_main_amount_label".localized())
@@ -97,13 +92,8 @@ struct PaymentView: View {
                             
                             ZStack(alignment: .trailing) {
                                 KevinTextField(
-                                    onChange: {
-                                        viewModel.viewState.amountString = viewModel.viewState.amountString.toCurrencyFormat()
-                                        viewModel.updateDonateButtonState()
-                                    },
-                                    textBinding: $viewModel.viewState.amountString,
-                                    text: viewModel.viewState.amountString,
-                                    keyboardType: .decimalPad
+                                    text: $viewModel.viewState.amountString,
+                                    type: .amount
                                 )
                                 
                                 Text("kevin_window_main_amount_field_currency".localized())
@@ -112,12 +102,7 @@ struct PaymentView: View {
                             }
                         }
                         
-                        KevinAgreementCheckMark(
-                            isAgreementChecked: viewModel.viewState.isAgreementChecked,
-                            toggleAgreement: {
-                                viewModel.toggleAgreement()
-                            }
-                        )
+                        KevinAgreementCheckMark(isAgreementChecked: $viewModel.viewState.isAgreementChecked)
                         
                         Button {
                             hideKeyboard()
@@ -131,7 +116,7 @@ struct PaymentView: View {
                                 .frame(minWidth: 0, maxWidth: .infinity)
                         }
                         .buttonStyle(MainButtonStyle())
-                        .disabled(viewModel.viewState.isDonateButtonDisabled)
+                        .disabled(!viewModel.isDonateButtonEnabled)
                     }
                     .frame(
                         minWidth: 0,

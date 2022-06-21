@@ -7,7 +7,6 @@
 
 import SwiftUI
 import HalfASheet
-import SDWebImageSwiftUI
 
 struct KevinLinkedBankSelector: View {
     
@@ -32,27 +31,7 @@ struct KevinLinkedBankSelector: View {
                     Button(action: {
                         onLinkedBankSelected(linkedBank)
                     }) {
-                        HStack(spacing: 0.0) {
-                            WebImage(url: URL(string: linkedBank.bankImageUrl))
-                                .resizable()
-                                .indicator(.activity)
-                                .transition(.fade(duration: 0.5))
-                                .scaledToFit()
-                                .frame(width: 40.0, height: 40.0)
-                                .padding(.horizontal)
-                                .padding(.vertical, 12.0)
-
-                            Text(linkedBank.bankName)
-                                .foregroundColor(Color("PrimaryTextColor"))
-                                .style(.cellTitle)
-
-                            Spacer()
-
-                            Image("chevronIcon")
-                                .frame(width: 8.0, height: 14.0, alignment: .center)
-                                .foregroundColor(Color.gray)
-                                .padding(.trailing)
-                        }
+                        KevinLinkedBankCell(linkedBank: linkedBank)
                     }.background(Color("SecondaryBackgroundColor"))
                 }
             }

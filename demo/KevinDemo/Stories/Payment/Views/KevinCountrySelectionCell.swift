@@ -1,5 +1,5 @@
 //
-//  KevinCountrySelectionRowView.swift
+//  KevinCountrySelectionCell.swift
 //  KevinDemo
 //
 //  Created by Daniel Klinge on 09/02/2022.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct KevinCountrySelectionRowView: View {
+struct KevinCountrySelectionCell: View {
     
     private let title: String
     private let countryCode: String?

@@ -19,9 +19,9 @@ public struct AccountLinkingView: View {
 
                 if viewModel.viewState.isLoading {
                     ProgressView()
-                } else if viewModel.viewState.linkedBanks?.isEmpty == false {
+                } else if let linkedBanks = viewModel.viewState.linkedBanks, linkedBanks.isEmpty == false {
                     AccountsView(
-                        linkedBanks: viewModel.viewState.linkedBanks!.toArray(),
+                        linkedBanks: linkedBanks.toArray(),
                         linkBank: viewModel.invokeAccountLinkingSession,
                         deleteBank: viewModel.deleteLinkedBank
                     )

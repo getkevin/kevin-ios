@@ -10,8 +10,7 @@ import AttributedText
 
 struct KevinAgreementCheckMark: View {
     
-    var isAgreementChecked: Bool
-    let toggleAgreement: () -> Void
+    @Binding var isAgreementChecked: Bool
     
     private var checkmarkImageName: String {
         isAgreementChecked ? "checkmark.square.fill" : "square"
@@ -26,7 +25,7 @@ struct KevinAgreementCheckMark: View {
             Image(systemName: checkmarkImageName)
                 .foregroundColor(checkmarkForegroundColor)
                 .onTapGesture {
-                    toggleAgreement()
+                    isAgreementChecked.toggle()
                 }
                 .padding(.trailing, 4.0)
             

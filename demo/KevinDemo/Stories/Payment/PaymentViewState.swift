@@ -11,24 +11,23 @@ import SwiftUI
 import RealmSwift
 
 struct PaymentViewState {
-    var isCountryLoading: Bool = false
-    var isCharityLoading: Bool = false
-    var isPaymentInProgress: Bool = false
+    var isCountryLoading = false
+    var isCharityLoading = false
+    var isPaymentInProgress = false
     var countryCodes: [String] = []
     var selectedCountryCode: String?
-    var isCountrySelectorPresented: Bool = false
+    var isCountrySelectorPresented = false
     var charities: [ApiCharity] = []
     var selectedCharity: ApiCharity?
-    var email: String = ""
-    var amountString: String = ""
-    var isAgreementChecked: Bool = false
-    var isDonateButtonDisabled: Bool = true
-    var openKevin: Bool = false
-    var showMessage: Bool = false
+    var email = ""
+    var amountString = ""
+    var isAgreementChecked = false
+    var openKevin = false
+    var showMessage = false
     var messageTitle: String? = nil
     var messageDescription: String? = nil
-    var isPaymentTypeSelectorPresented: Bool = false
-    var isLinkedBankSelectorPresented: Bool = false
+    var isPaymentTypeSelectorPresented = false
+    var isLinkedBankSelectorPresented = false
     var notificationToken: NotificationToken?
     var linkedBanks: Results<LinkedBank>?
 }
