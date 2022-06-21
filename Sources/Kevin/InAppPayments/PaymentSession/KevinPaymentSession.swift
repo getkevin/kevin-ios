@@ -17,8 +17,8 @@ final public class KevinPaymentSession {
     
     private init() { }
     
-    internal func notifyPaymentCompletion(paymentId: String) {
-        delegate?.onKevinPaymentSucceeded(paymentId: paymentId)
+    internal func notifyPaymentCompletion(paymentId: String, status: KevinPaymentStatus) {
+        delegate?.onKevinPaymentSucceeded(paymentId: paymentId, status: status)
     }
     
     internal func notifyPaymentCancelation(error: Error?) {
