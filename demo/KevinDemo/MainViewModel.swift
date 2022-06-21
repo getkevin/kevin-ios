@@ -178,7 +178,7 @@ class MainViewModel: ObservableObject, KevinPaymentSessionDelegate {
         }
     }
     
-    func onKevinPaymentSucceeded(paymentId: String) {
+    func onKevinPaymentSucceeded(paymentId: String, status: KevinPaymentStatus) {
         if viewState.selectedCountryCode != "LT" {
             viewState.selectedCountryCode = "LT"
             getCharityList(forCountryCode: "LT")
