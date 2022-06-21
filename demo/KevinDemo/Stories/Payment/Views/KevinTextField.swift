@@ -16,7 +16,7 @@ struct KevinTextField: View {
     let keyboardType: UIKeyboardType
 
     var body: some View {
-        return VStack(alignment: .leading) {
+        VStack(alignment: .leading) {
             TextField("", text: textBinding)
                 .onChange(of: text) { _ in
                     onChange()
@@ -26,11 +26,11 @@ struct KevinTextField: View {
                 .autocapitalization(UITextAutocapitalizationType.none)
                 .disableAutocorrection(true)
                 .padding(12.0)
-                .background(Color.init("SecondaryBackgroundColor"))
+                .background(Color("SecondaryBackgroundColor"))
                 .cornerRadius(10)
                 .overlay(
                     RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.init("GreyAccentColor"))
+                        .stroke(Color("GreyAccentColor"))
                 )
         }
     }

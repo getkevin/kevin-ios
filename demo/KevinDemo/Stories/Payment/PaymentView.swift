@@ -72,7 +72,7 @@ struct PaymentView: View {
                         }
                         
                         Group {
-                            Text("kevin_window_main_details_lable".localized())
+                            Text("kevin_window_main_details_label".localized())
                                 .style(.sectionHeader)
                                 .padding(.top, 28)
                                 .padding(.bottom, 12)

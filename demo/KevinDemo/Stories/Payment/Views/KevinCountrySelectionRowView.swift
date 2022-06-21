@@ -30,7 +30,7 @@ struct KevinCountrySelectionRowView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 30.0, height: 30.0)
-                    .padding([.top, .bottom], 4.0)
+                    .padding(.vertical, 4.0)
 
                 Text("\(title)")
                     .style(.countrySelectorItemTitle)
@@ -55,10 +55,10 @@ struct KevinCountrySelectionRowView: View {
                     .foregroundColor(Color.gray)
             }
         }
-        .padding([.top, .bottom], 8.0)
+        .padding(.vertical, 8.0)
         .padding(.leading, 16.0)
         .padding(.trailing, 20.0)
-        .background(Color.init("SecondaryBackgroundColor"))
+        .background(Color("SecondaryBackgroundColor"))
         .cornerRadius(11)
     }
 }

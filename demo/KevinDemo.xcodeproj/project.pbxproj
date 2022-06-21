@@ -30,7 +30,7 @@
 		0C630C13285B2BE500E6FAD1 /* KevinInitiationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C630C12285B2BE500E6FAD1 /* KevinInitiationState.swift */; };
 		0C630C1A285B2E7900E6FAD1 /* InitiatePaymentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C630C18285B2E7900E6FAD1 /* InitiatePaymentProtocol.swift */; };
 		0C630C1B285B2E7900E6FAD1 /* InitiateLinkedPaymentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C630C19285B2E7900E6FAD1 /* InitiateLinkedPaymentProtocol.swift */; };
-		0C850BA92858A0E900194293 /* InitiateAccountLinking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C850BA82858A0E900194293 /* InitiateAccountLinking.swift */; };
+		0C850BA92858A0E900194293 /* InitiateAccountLinkingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C850BA82858A0E900194293 /* InitiateAccountLinkingRequest.swift */; };
 		0C850BAC2858A6BA00194293 /* LinkedBankRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C850BAB2858A6BA00194293 /* LinkedBankRepository.swift */; };
 		0C850BAF2858A8BE00194293 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 0C850BAE2858A8BE00194293 /* Realm */; };
 		0C850BB12858A8BE00194293 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0C850BB02858A8BE00194293 /* RealmSwift */; };
@@ -136,7 +136,7 @@
 		0C630C12285B2BE500E6FAD1 /* KevinInitiationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KevinInitiationState.swift; sourceTree = "<group>"; };
 		0C630C18285B2E7900E6FAD1 /* InitiatePaymentProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitiatePaymentProtocol.swift; sourceTree = "<group>"; };
 		0C630C19285B2E7900E6FAD1 /* InitiateLinkedPaymentProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitiateLinkedPaymentProtocol.swift; sourceTree = "<group>"; };
-		0C850BA82858A0E900194293 /* InitiateAccountLinking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitiateAccountLinking.swift; sourceTree = "<group>"; };
+		0C850BA82858A0E900194293 /* InitiateAccountLinkingRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitiateAccountLinkingRequest.swift; sourceTree = "<group>"; };
 		0C850BAB2858A6BA00194293 /* LinkedBankRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedBankRepository.swift; sourceTree = "<group>"; };
 		0C850BB32858A99100194293 /* LinkedBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedBank.swift; sourceTree = "<group>"; };
 		0C850BB52858AA0800194293 /* BankCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankCredentials.swift; sourceTree = "<group>"; };
@@ -433,7 +433,7 @@
 				2782B44F277892D6004A9E05 /* InitiatePaymentRequest.swift */,
 				0CF565AD285878E100853D8A /* GetAccessTokenRequest.swift */,
 				0CF565AF2858794000853D8A /* RefreshAccessTokenRequest.swift */,
-				0C850BA82858A0E900194293 /* InitiateAccountLinking.swift */,
+				0C850BA82858A0E900194293 /* InitiateAccountLinkingRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -729,7 +729,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C850BA92858A0E900194293 /* InitiateAccountLinking.swift in Sources */,
+				0C850BA92858A0E900194293 /* InitiateAccountLinkingRequest.swift in Sources */,
 				0C08545C27B3E1270036EE48 /* KevinCountrySelectionRowView.swift in Sources */,
 				0CF5659F285767F000853D8A /* ApplicationTabs.swift in Sources */,
 				0C850BBD2858B11E00194293 /* AccountsView.swift in Sources */,

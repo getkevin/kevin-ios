@@ -39,8 +39,8 @@ struct KevinLinkedBankSelector: View {
                                 .transition(.fade(duration: 0.5))
                                 .scaledToFit()
                                 .frame(width: 40.0, height: 40.0)
-                                .padding([.leading, .trailing])
-                                .padding([.top, .bottom], 12.0)
+                                .padding(.horizontal)
+                                .padding(.vertical, 12.0)
 
                             Text(linkedBank.bankName)
                                 .foregroundColor(Color("PrimaryTextColor"))

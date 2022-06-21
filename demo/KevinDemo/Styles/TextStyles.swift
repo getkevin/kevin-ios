@@ -68,14 +68,14 @@ public enum TextStyle {
         case .subtitle,
              .currencyHint,
              .textFieldName:
-            return Color.init("SecondaryTextColor")
+            return Color("SecondaryTextColor")
         case .action,
              .agreementLink:
-            return Color.init("AccentColor")
+            return Color("AccentColor")
         case .buttonTitle:
             return Color.white
         default:
-            return Color.init("PrimaryTextColor")
+            return Color("PrimaryTextColor")
         }
     }
     

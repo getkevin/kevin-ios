@@ -23,8 +23,8 @@ public struct MainButtonStyle: ButtonStyle {
         var body: some View {
             configuration.label
                 .font(TextStyle.buttonTitle.font)
-                .padding([.bottom, .top])
-                .padding([.leading, .trailing], 30.0)
+                .padding(.vertical)
+                .padding(.horizontal, 30.0)
                 .background(isEnabled ? Color("AccentColor") : Color("DisabledButton"))
                 .foregroundColor(Color.white)
                 .cornerRadius(8)

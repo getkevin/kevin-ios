@@ -30,8 +30,8 @@ struct KevinPaymentTypeSelector: View {
                             paymentType.icon
                                 .resizable()
                                 .frame(width: 40.0, height: 40.0)
-                                .padding([.leading, .trailing])
-                                .padding([.top, .bottom], 12.0)
+                                .padding(.horizontal)
+                                .padding(.vertical, 12.0)
                             
                             Text(paymentType.title)
                                 .foregroundColor(Color("PrimaryTextColor"))

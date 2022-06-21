@@ -22,7 +22,7 @@ public class DemoApiClient: PSBaseApiClient {
 
     public func initializeAccountLinking() -> Promise<ApiAuthState> {
         doRequest(requestRouter: DemoApiRequestRouter.initializeAccountLinking(
-            request: InitiateAccountLinking(scopes: ["payments", "accounts_basic"])
+            request: InitiateAccountLinkingRequest(scopes: ["payments", "accounts_basic"])
         ))
     }
 

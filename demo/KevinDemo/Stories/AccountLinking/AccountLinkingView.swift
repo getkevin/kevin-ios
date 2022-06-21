@@ -15,27 +15,21 @@ public struct AccountLinkingView: View {
         NavigationView {
             ZStack {
                 Color("PrimaryBackgroundColor").ignoresSafeArea()
+                    .zIndex(-1)
 
                 if viewModel.viewState.isLoading {
                     ProgressView()
-                        .zIndex(2)
                 } else if viewModel.viewState.linkedBanks?.isEmpty == false {
                     AccountsView(
                         linkedBanks: viewModel.viewState.linkedBanks!.toArray(),
-                        linkBank: {
-                            viewModel.invokeAccountLinkingSession()
-                        },
-                        deleteBank: { linkedBank in
-                            viewModel.deleteLinkedBank(linkedBank)
-                        }
+                        linkBank: viewModel.invokeAccountLinkingSession,
+                        deleteBank: viewModel.deleteLinkedBank
                     )
-                    .zIndex(3)
                     .navigationBarTitle("kevin_window_link_account_title".localized(), displayMode: .large)
                 } else {
                     NoAccountsView(onLinkAccountAction: {
                         viewModel.invokeAccountLinkingSession()
                     })
-                    .zIndex(4)
                 }
             }
         }

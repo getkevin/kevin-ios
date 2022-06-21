@@ -13,7 +13,7 @@ enum DemoApiRequestRouter {
         
     case getCountryList
     case getCharityList(request: CharityListRequest)
-    case initializeAccountLinking(request: InitiateAccountLinking)
+    case initializeAccountLinking(request: InitiateAccountLinkingRequest)
     case getAccessToken(request: GetAccessTokenRequest)
     case refreshAccessToken(request: RefreshAccessTokenRequest)
     case initializeBankPayment(request: InitiatePaymentRequest)

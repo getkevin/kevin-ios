@@ -1,5 +1,5 @@
 //
-//  InitiateAccountLinking.swift
+//  InitiateAccountLinkingRequest.swift
 //  KevinDemo
 //
 //  Created by Daniel Klinge on 13/06/2022.
@@ -7,7 +7,7 @@
 
 import ObjectMapper
 
-public final class InitiateAccountLinking: Mappable {
+public final class InitiateAccountLinkingRequest: Mappable {
     
     public var scopes: [String]!
 

@@ -26,7 +26,7 @@ struct KevinCharityView: View {
     
     var body: some View {
         let width = (UIScreen.main.bounds.size.width - 16 * 4) / 3
-        let borderColor = isSelected ? Color.init("AccentColor") : Color.init("GreyAccentColor")
+        let borderColor = isSelected ? Color("AccentColor") : Color("GreyAccentColor")
         let borderWidth = isSelected ? 2.0 : 1.0
 
         WebImage(url: URL(string: logoUrlString))
@@ -36,7 +36,7 @@ struct KevinCharityView: View {
             .scaledToFit()
             .padding(9.0)
             .frame(width: width, height: 51.0)
-            .background(Color.init("SecondaryBackgroundColor"))
+            .background(Color("SecondaryBackgroundColor"))
             .cornerRadius(11.0)
             .overlay(
                 RoundedRectangle(cornerRadius: 11)

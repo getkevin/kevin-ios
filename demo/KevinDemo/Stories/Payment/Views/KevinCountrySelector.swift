@@ -41,8 +41,8 @@ struct KevinCountrySelector: View {
                                     Image("flag\(countryCode)")
                                         .resizable()
                                         .frame(width: 40.0, height: 40.0)
-                                        .padding([.leading, .trailing])
-                                        .padding([.top, .bottom], 12.0)
+                                        .padding(.horizontal)
+                                        .padding(.vertical, 12.0)
 
                                     Text("kevin_country_name_\(countryCode)".lowercased().localized())
                                         .foregroundColor(Color("PrimaryTextColor"))
