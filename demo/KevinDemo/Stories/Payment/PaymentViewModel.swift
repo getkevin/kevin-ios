@@ -46,9 +46,7 @@ class PaymentViewModel: ObservableObject {
                 Double(state.amountString) != nil &&
                 state.selectedCharity != nil
             }
-            .sink { [weak self] isEnabled in
-                self?.isDonateButtonEnabled = isEnabled
-            }.store(in: &cancellables)
+            .assign(to: &$isDonateButtonEnabled)
     }
     
     deinit {
