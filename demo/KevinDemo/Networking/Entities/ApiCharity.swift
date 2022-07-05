@@ -11,7 +11,6 @@ public class ApiCharity: Mappable {
     
     public var id: String!
     public var name: String!
-    public var iban: String!
     public var logo: String!
     public var informationUnstructured: String!
     public var country: String!
@@ -19,7 +18,8 @@ public class ApiCharity: Mappable {
     public var phone: String!
     public var email: String!
     public var address: String!
-    
+    public var accounts: [ApiCharityAccount]!
+
     public init() {}
     
     required public init?(map: Map) {}
@@ -27,7 +27,6 @@ public class ApiCharity: Mappable {
     public func mapping(map: Map) {
         id                          <- map["id"]
         name                        <- map["name"]
-        iban                        <- map["iban"]
         logo                        <- map["logo"]
         informationUnstructured     <- map["informationUnstructured"]
         country                     <- map["country"]
@@ -35,5 +34,6 @@ public class ApiCharity: Mappable {
         phone                       <- map["phone"]
         email                       <- map["email"]
         address                     <- map["address"]
+        accounts                    <- map["accounts"]
     }
 }

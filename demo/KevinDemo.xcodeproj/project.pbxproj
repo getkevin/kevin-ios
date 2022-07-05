@@ -32,9 +32,9 @@
 		0C630C1A285B2E7900E6FAD1 /* InitiatePaymentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C630C18285B2E7900E6FAD1 /* InitiatePaymentProtocol.swift */; };
 		0C630C1B285B2E7900E6FAD1 /* InitiateLinkedPaymentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C630C19285B2E7900E6FAD1 /* InitiateLinkedPaymentProtocol.swift */; };
 		0C6FAC182873249C00B31EDF /* KevinCurrencyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6FAC172873249C00B31EDF /* KevinCurrencyTextField.swift */; };
-		0C6FAC1A287421D400B31EDF /* KevinBaseTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6FAC19287421D400B31EDF /* KevinBaseTextField.swift */; };
 		0C6FAC1C2874226A00B31EDF /* CharacterSet+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6FAC1B2874226A00B31EDF /* CharacterSet+Extensions.swift */; };
 		0C6FAC1F2874246800B31EDF /* KevinFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6FAC1E2874246800B31EDF /* KevinFormatter.swift */; };
+		0C6FAC2128743B7500B31EDF /* ApiCharityAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6FAC2028743B7500B31EDF /* ApiCharityAccount.swift */; };
 		0C850BA92858A0E900194293 /* InitiateAccountLinkingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C850BA82858A0E900194293 /* InitiateAccountLinkingRequest.swift */; };
 		0C850BAC2858A6BA00194293 /* LinkedBankRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C850BAB2858A6BA00194293 /* LinkedBankRepository.swift */; };
 		0C850BAF2858A8BE00194293 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 0C850BAE2858A8BE00194293 /* Realm */; };
@@ -143,9 +143,9 @@
 		0C630C18285B2E7900E6FAD1 /* InitiatePaymentProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitiatePaymentProtocol.swift; sourceTree = "<group>"; };
 		0C630C19285B2E7900E6FAD1 /* InitiateLinkedPaymentProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitiateLinkedPaymentProtocol.swift; sourceTree = "<group>"; };
 		0C6FAC172873249C00B31EDF /* KevinCurrencyTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KevinCurrencyTextField.swift; sourceTree = "<group>"; };
-		0C6FAC19287421D400B31EDF /* KevinBaseTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KevinBaseTextField.swift; sourceTree = "<group>"; };
 		0C6FAC1B2874226A00B31EDF /* CharacterSet+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterSet+Extensions.swift"; sourceTree = "<group>"; };
 		0C6FAC1E2874246800B31EDF /* KevinFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KevinFormatter.swift; sourceTree = "<group>"; };
+		0C6FAC2028743B7500B31EDF /* ApiCharityAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCharityAccount.swift; sourceTree = "<group>"; };
 		0C850BA82858A0E900194293 /* InitiateAccountLinkingRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitiateAccountLinkingRequest.swift; sourceTree = "<group>"; };
 		0C850BAB2858A6BA00194293 /* LinkedBankRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedBankRepository.swift; sourceTree = "<group>"; };
 		0C850BB32858A99100194293 /* LinkedBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedBank.swift; sourceTree = "<group>"; };
@@ -251,7 +251,6 @@
 			children = (
 				0C6FAC172873249C00B31EDF /* KevinCurrencyTextField.swift */,
 				0CE4995C27B67AC8005E32D4 /* KevinEmailTextField.swift */,
-				0C6FAC19287421D400B31EDF /* KevinBaseTextField.swift */,
 			);
 			path = KevinTextField;
 			sourceTree = "<group>";
@@ -519,6 +518,7 @@
 				27B180B42680805B001E0C50 /* ApiAuthState.swift */,
 				0C08546B27B55ED60036EE48 /* ApiCharities.swift */,
 				0C08546727B55BA30036EE48 /* ApiCharity.swift */,
+				0C6FAC2028743B7500B31EDF /* ApiCharityAccount.swift */,
 				0C08546327B557FE0036EE48 /* ApiCountries.swift */,
 				27B180B62680809B001E0C50 /* ApiPayment.swift */,
 				0CF565B128587A5500853D8A /* ApiAccessToken.swift */,
@@ -762,7 +762,6 @@
 			files = (
 				0C850BA92858A0E900194293 /* InitiateAccountLinkingRequest.swift in Sources */,
 				0C08545C27B3E1270036EE48 /* KevinCountrySelectionCell.swift in Sources */,
-				0C6FAC1A287421D400B31EDF /* KevinBaseTextField.swift in Sources */,
 				0CF5659F285767F000853D8A /* ApplicationTabs.swift in Sources */,
 				0C6FAC1C2874226A00B31EDF /* CharacterSet+Extensions.swift in Sources */,
 				0C850BBD2858B11E00194293 /* AccountsView.swift in Sources */,
@@ -772,6 +771,7 @@
 				0CE4996027B67D1F005E32D4 /* KevinAgreementCheckMark.swift in Sources */,
 				0CF565A1285777DD00853D8A /* AccountLinkingView.swift in Sources */,
 				27B1809C26807949001E0C50 /* RequestHeaders.swift in Sources */,
+				0C6FAC2128743B7500B31EDF /* ApiCharityAccount.swift in Sources */,
 				0C005FAA2861C856003C767F /* KevinLinkedBankCell.swift in Sources */,
 				0CF565AE285878E100853D8A /* GetAccessTokenRequest.swift in Sources */,
 				0CF565B02858794000853D8A /* RefreshAccessTokenRequest.swift in Sources */,

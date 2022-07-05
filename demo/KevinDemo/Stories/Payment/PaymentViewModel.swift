@@ -108,7 +108,8 @@ class PaymentViewModel: ObservableObject {
         }
     }
     
-    private func getCharityList(forCountryCode countryCode: String) {
+    private func
+    getCharityList(forCountryCode countryCode: String) {
         var targetCountryCode = countryCode.uppercased()
         if targetCountryCode != "LT" {
             targetCountryCode = "EE"
@@ -133,7 +134,7 @@ class PaymentViewModel: ObservableObject {
         useCase.initiate(
             amount: viewState.amount,
             email: viewState.email,
-            iban: viewState.selectedCharity!.iban,
+            iban: viewState.selectedCharity!.accounts.first!.iban,
             creditorName: viewState.selectedCharity!.name
         ).sink { [weak self] completion in
             switch completion {
@@ -163,7 +164,7 @@ class PaymentViewModel: ObservableObject {
         InitiateLinkedBankPaymentUseCase.shared.initiate(
             amount: viewState.amount,
             email: viewState.email,
-            iban: viewState.selectedCharity!.iban,
+            iban: viewState.selectedCharity!.accounts.first!.iban,
             creditorName: viewState.selectedCharity!.name,
             bankId: bankId
         ).sink { [weak self] completion in

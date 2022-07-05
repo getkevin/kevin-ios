@@ -20,6 +20,8 @@ class KevinFormatter {
     class func getDecimalFormatter() -> NumberFormatter {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
+        formatter.maximumFractionDigits = 2
+        formatter.groupingSeparator = ""
         return formatter
     }
 }
