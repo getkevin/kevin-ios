@@ -43,7 +43,7 @@ class PaymentViewModel: ObservableObject {
             .map { state in
                 state.isAgreementChecked &&
                 state.email.isValidEmail() &&
-                Double(state.amountString) != nil &&
+                state.amount != 0.0 &&
                 state.selectedCharity != nil
             }
             .assign(to: &$isDonateButtonEnabled)
@@ -98,12 +98,10 @@ class PaymentViewModel: ObservableObject {
     }
 
     private func getCountryList() {
-        viewState.isCountryLoading = true
         viewState.isCharityLoading = true
         apiClient.getCountryList().done { [weak self] apiCountries in
             self?.viewState.countryCodes = apiCountries.list
             self?.viewState.selectedCountryCode = "LT"
-            self?.viewState.isCountryLoading = false
             self?.getCharityList(forCountryCode: "LT")
         }.catch { [weak self] error in
             self?.handleError(error)
@@ -133,7 +131,7 @@ class PaymentViewModel: ObservableObject {
         viewState.isPaymentInProgress = true
         
         useCase.initiate(
-            amount: viewState.amountString,
+            amount: viewState.amount,
             email: viewState.email,
             iban: viewState.selectedCharity!.iban,
             creditorName: viewState.selectedCharity!.name
@@ -163,7 +161,7 @@ class PaymentViewModel: ObservableObject {
         viewState.isPaymentInProgress = true
         
         InitiateLinkedBankPaymentUseCase.shared.initiate(
-            amount: viewState.amountString,
+            amount: viewState.amount,
             email: viewState.email,
             iban: viewState.selectedCharity!.iban,
             creditorName: viewState.selectedCharity!.name,
@@ -197,7 +195,6 @@ class PaymentViewModel: ObservableObject {
     }
     
     private func showErrorMessage(_ errorMessage: String?) {
-        viewState.isCountryLoading = false
         viewState.isCharityLoading = false
         viewState.isPaymentInProgress = false
 
@@ -219,7 +216,7 @@ class PaymentViewModel: ObservableObject {
             getCharityList(forCountryCode: "LT")
         }
         viewState.email = ""
-        viewState.amountString = ""
+        viewState.amount = 0.0
         viewState.isAgreementChecked = false
         viewState.showMessage = true
         viewState.messageTitle = "kevin_success_alert_title".localized()

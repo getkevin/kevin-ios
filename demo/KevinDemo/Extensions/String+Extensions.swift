@@ -14,18 +14,4 @@ extension String {
         let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailFormat)
         return emailPredicate.evaluate(with: self)
     }
-
-    func toCurrencyFormat() -> String {
-        let decimalSeparator = Locale.current.decimalSeparator!
-        let parts = self.split(separator: ".")
-        if parts.count == 1 {
-            if self.hasSuffix(decimalSeparator) {
-                return self.replacingOccurrences(of: decimalSeparator, with: ".")
-            }
-            return self
-        } else if parts.count == 2 {
-            return "\(parts.first!).\(parts.last!.prefix(2))"
-        }
-        return ""
-    }
 }

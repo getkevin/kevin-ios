@@ -8,5 +8,5 @@
 import Combine
 
 public protocol InitiateLinkedPaymentProtocol {
-    func initiate(amount: String, email: String, iban: String, creditorName: String, bankId: String) -> AnyPublisher<KevinInitiationState, Error>
+    func initiate(amount: Double, email: String, iban: String, creditorName: String, bankId: String) -> AnyPublisher<KevinInitiationState, Error>
 }

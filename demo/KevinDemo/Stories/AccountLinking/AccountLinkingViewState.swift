@@ -8,11 +8,11 @@
 import RealmSwift
 
 public struct AccountLinkingViewState {
-    var isLoading: Bool = false
+    var isLoading = false
     var notificationToken: NotificationToken?
     var linkedBanks: Results<LinkedBank>?
-    var openKevin: Bool = false
-    var showMessage: Bool = false
+    var openKevin = false
+    var showMessage = false
     var messageTitle: String? = nil
     var messageDescription: String? = nil
 }

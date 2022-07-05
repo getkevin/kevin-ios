@@ -66,7 +66,7 @@ public class AccountLinkingViewModel: ObservableObject {
         LinkedBankRepository.delete(linkedBank)
     }
 
-    public func onKevinAccountLinkingStarted(_ controller: UIViewController) {
+    private func onKevinAccountLinkingStarted(_ controller: UIViewController) {
         kevinController = controller
         viewState.openKevin = true
     }

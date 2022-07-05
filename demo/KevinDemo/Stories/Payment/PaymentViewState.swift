@@ -11,7 +11,6 @@ import SwiftUI
 import RealmSwift
 
 struct PaymentViewState {
-    var isCountryLoading = false
     var isCharityLoading = false
     var isPaymentInProgress = false
     var countryCodes: [String] = []
@@ -20,7 +19,7 @@ struct PaymentViewState {
     var charities: [ApiCharity] = []
     var selectedCharity: ApiCharity?
     var email = ""
-    var amountString = ""
+    var amount = 0.0
     var isAgreementChecked = false
     var openKevin = false
     var showMessage = false

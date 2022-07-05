@@ -13,7 +13,7 @@ public class InitiateBankPaymentUseCase: BasePaymentInitiationUseCase, InitiateP
     public static let shared = InitiateBankPaymentUseCase()
 
     public func initiate(
-        amount: String,
+        amount: Double,
         email: String,
         iban: String,
         creditorName: String
@@ -24,13 +24,13 @@ public class InitiateBankPaymentUseCase: BasePaymentInitiationUseCase, InitiateP
     }
     
     private func invokeBankPaymentInitiationSession(
-        amount: String,
+        amount: Double,
         email: String,
         iban: String,
         creditorName: String
     ) {
         apiClient.initializeBankPayment(
-            amount: amount,
+            amount: String(format: "%.2f", amount),
             email: email,
             iban: iban,
             creditorName: creditorName

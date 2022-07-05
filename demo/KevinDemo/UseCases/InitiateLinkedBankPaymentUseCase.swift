@@ -13,7 +13,7 @@ public class InitiateLinkedBankPaymentUseCase: BasePaymentInitiationUseCase, Ini
     public static let shared = InitiateLinkedBankPaymentUseCase()
 
     public func initiate(
-        amount: String,
+        amount: Double,
         email: String,
         iban: String,
         creditorName: String,
@@ -25,7 +25,7 @@ public class InitiateLinkedBankPaymentUseCase: BasePaymentInitiationUseCase, Ini
     }
     
     private func initiatePayment(
-        amount: String,
+        amount: Double,
         email: String,
         iban: String,
         creditorName: String,
@@ -38,7 +38,7 @@ public class InitiateLinkedBankPaymentUseCase: BasePaymentInitiationUseCase, Ini
         }
         
         apiClient.initializeLinkedBankPayment(
-            amount: amount,
+            amount: String(format: "%.2f", amount),
             email: email,
             iban: iban,
             creditorName: creditorName,
@@ -70,7 +70,7 @@ public class InitiateLinkedBankPaymentUseCase: BasePaymentInitiationUseCase, Ini
     
     private func handleError(
         _ error: Error,
-        amount: String,
+        amount: Double,
         email: String,
         iban: String,
         creditorName: String,
@@ -91,7 +91,7 @@ public class InitiateLinkedBankPaymentUseCase: BasePaymentInitiationUseCase, Ini
     }
     
     private func refreshToken(
-        amount: String,
+        amount: Double,
         email: String,
         iban: String,
         creditorName: String,

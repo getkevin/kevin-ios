@@ -81,20 +81,14 @@ struct PaymentView: View {
                                 .style(.textFieldName)
                                 .padding(.top, 8.0)
                             
-                            KevinTextField(
-                                text: $viewModel.viewState.email,
-                                type: .email
-                            )
+                            KevinEmailTextField(text: $viewModel.viewState.email)
                             
                             Text("kevin_window_main_amount_label".localized())
                                 .style(.textFieldName)
                                 .padding(.top, 20.0)
                             
                             ZStack(alignment: .trailing) {
-                                KevinTextField(
-                                    text: $viewModel.viewState.amountString,
-                                    type: .amount
-                                )
+                                KevinCurrencyTextField(value: $viewModel.viewState.amount)
                                 
                                 Text("kevin_window_main_amount_field_currency".localized())
                                     .style(.currencyHint)
@@ -110,7 +104,7 @@ struct PaymentView: View {
                         } label: {
                             Text(String(
                                 format: "kevin_window_main_proceed_button".localized(),
-                                viewModel.viewState.amountString == "" ? "0.00" : viewModel.viewState.amountString,
+                                KevinFormatter.getCurrencyFormatter().string(from: viewModel.viewState.amount as NSNumber)!,
                                 "kevin_window_main_amount_field_currency".localized())
                             ).style(.buttonTitle)
                                 .frame(minWidth: 0, maxWidth: .infinity)
