@@ -10,12 +10,21 @@
       }
     },
     {
+      "identity" : "attributedtext",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/gonzalezreal/AttributedText",
+      "state" : {
+        "revision" : "2dc2d7864e0fee4b524a5850d7d7cf9a7eeda0fc",
+        "version" : "1.0.0"
+      }
+    },
+    {
       "identity" : "halfasheet",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/PocketDaniel/HalfASheet",
       "state" : {
-        "branch" : "develop",
-        "revision" : "8ff2052760ba06f351ab1652e226bcec7dc49509"
+        "revision" : "1a2a7c6128fb96b4aeaf6ad19a183a12aebb7c51",
+        "version" : "1.0.3"
       }
     },
     {
@@ -32,8 +41,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/getkevin/kevin-ios",
       "state" : {
-        "revision" : "b9646cfa0f4cbfd83c1b0cdb0f9ca28970ca0a1e",
-        "version" : "2.1.0"
+        "revision" : "3e2d7630105f1f63fa78dd0ae48fb674b29368ba",
+        "version" : "2.1.1"
       }
     },
     {
@@ -64,12 +73,30 @@
       }
     },
     {
+      "identity" : "realm-cocoa",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/realm/realm-cocoa",
+      "state" : {
+        "revision" : "d3aaab84885e0de9a7a49955874cee160adee164",
+        "version" : "10.28.1"
+      }
+    },
+    {
+      "identity" : "realm-core",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/realm/realm-core",
+      "state" : {
+        "revision" : "fd48276f88f3d55dbdcdc9e8cbf32541811d5865",
+        "version" : "12.1.0"
+      }
+    },
+    {
       "identity" : "sdwebimage",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SDWebImage/SDWebImage.git",
       "state" : {
-        "revision" : "2e63d0061da449ad0ed130768d05dceb1496de44",
-        "version" : "5.12.5"
+        "revision" : "b729cc14f65e1412efc781a4cc46bd7f4720a3ae",
+        "version" : "5.12.6"
       }
     },
     {
@@ -79,6 +106,15 @@
       "state" : {
         "revision" : "cd8625b7cf11a97698e180d28bb7d5d357196678",
         "version" : "2.0.2"
+      }
+    },
+    {
+      "identity" : "swiftkeychainwrapper",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jrendel/SwiftKeychainWrapper",
+      "state" : {
+        "revision" : "185a3165346a03767101c4f62e9a545a0fe0530f",
+        "version" : "4.0.1"
       }
     }
   ],

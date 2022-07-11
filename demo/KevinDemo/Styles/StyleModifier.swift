@@ -16,6 +16,5 @@ struct StyleModifier: ViewModifier {
         content
             .font(style.font)
             .foregroundColor(style.color)
-            .textCase(style.textCase)
     }
 }

@@ -7,37 +7,73 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C005FAA2861C856003C767F /* KevinLinkedBankCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C005FA92861C856003C767F /* KevinLinkedBankCell.swift */; };
 		0C08545027B268220036EE48 /* Text+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08544F27B268220036EE48 /* Text+Extensions.swift */; };
 		0C08545227B268830036EE48 /* TextStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08545127B268830036EE48 /* TextStyles.swift */; };
-		0C08545427B289B70036EE48 /* SegmentedControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08545327B289B70036EE48 /* SegmentedControlView.swift */; };
-		0C08545727B28A360036EE48 /* RectPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08545627B28A360036EE48 /* RectPreferences.swift */; };
-		0C08545927B28AAE0036EE48 /* SegmentedControlUnderlineModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08545827B28AAE0036EE48 /* SegmentedControlUnderlineModifier.swift */; };
-		0C08545C27B3E1270036EE48 /* KevinCountrySelectionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08545B27B3E1270036EE48 /* KevinCountrySelectionRowView.swift */; };
-		0C08546227B52C610036EE48 /* TapableText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08546127B52C610036EE48 /* TapableText.swift */; };
+		0C08545C27B3E1270036EE48 /* KevinCountrySelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08545B27B3E1270036EE48 /* KevinCountrySelectionCell.swift */; };
 		0C08546427B557FE0036EE48 /* ApiCountries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08546327B557FE0036EE48 /* ApiCountries.swift */; };
 		0C08546627B55AA70036EE48 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08546527B55AA70036EE48 /* View+Extensions.swift */; };
 		0C08546827B55BA30036EE48 /* ApiCharity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08546727B55BA30036EE48 /* ApiCharity.swift */; };
 		0C08546A27B55C680036EE48 /* CharityListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08546927B55C680036EE48 /* CharityListRequest.swift */; };
 		0C08546C27B55ED60036EE48 /* ApiCharities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08546B27B55ED60036EE48 /* ApiCharities.swift */; };
-		0C14500527C369CE00FB3A3E /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C14500427C369CD00FB3A3E /* ModalView.swift */; };
+		0C0C13A128590F6500607CE9 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0C0C13A028590F6500607CE9 /* SDWebImageSwiftUI */; };
+		0C0C13AD2859FC8700607CE9 /* FontWeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0C13AC2859FC8700607CE9 /* FontWeight.swift */; };
+		0C14500527C369CE00FB3A3E /* KevinModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C14500427C369CD00FB3A3E /* KevinModalView.swift */; };
 		0C14500F27C3B74900FB3A3E /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C14500E27C3B74900FB3A3E /* String+Extensions.swift */; };
-		0CE4995B27B67A09005E32D4 /* KevinScreenTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE4995A27B67A09005E32D4 /* KevinScreenTitle.swift */; };
-		0CE4995D27B67AC8005E32D4 /* KevinTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE4995C27B67AC8005E32D4 /* KevinTextField.swift */; };
+		0C630C02285A410600E6FAD1 /* AttributedText in Frameworks */ = {isa = PBXBuildFile; productRef = 0C630C01285A410600E6FAD1 /* AttributedText */; };
+		0C630C04285A435700E6FAD1 /* KevinPaymentTypeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C630C03285A435700E6FAD1 /* KevinPaymentTypeSelector.swift */; };
+		0C630C0B285B2B8600E6FAD1 /* InitiateCardPaymentUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C630C06285B2B8600E6FAD1 /* InitiateCardPaymentUseCase.swift */; };
+		0C630C0C285B2B8600E6FAD1 /* InitiateBankPaymentUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C630C07285B2B8600E6FAD1 /* InitiateBankPaymentUseCase.swift */; };
+		0C630C0D285B2B8600E6FAD1 /* BasePaymentInitiationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C630C08285B2B8600E6FAD1 /* BasePaymentInitiationUseCase.swift */; };
+		0C630C0E285B2B8600E6FAD1 /* LinkAccountUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C630C09285B2B8600E6FAD1 /* LinkAccountUseCase.swift */; };
+		0C630C0F285B2B8600E6FAD1 /* InitiateLinkedBankPaymentUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C630C0A285B2B8600E6FAD1 /* InitiateLinkedBankPaymentUseCase.swift */; };
+		0C630C11285B2BC500E6FAD1 /* BasePublishingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C630C10285B2BC500E6FAD1 /* BasePublishingUseCase.swift */; };
+		0C630C13285B2BE500E6FAD1 /* KevinInitiationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C630C12285B2BE500E6FAD1 /* KevinInitiationState.swift */; };
+		0C630C1A285B2E7900E6FAD1 /* InitiatePaymentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C630C18285B2E7900E6FAD1 /* InitiatePaymentProtocol.swift */; };
+		0C630C1B285B2E7900E6FAD1 /* InitiateLinkedPaymentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C630C19285B2E7900E6FAD1 /* InitiateLinkedPaymentProtocol.swift */; };
+		0C6FAC182873249C00B31EDF /* KevinCurrencyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6FAC172873249C00B31EDF /* KevinCurrencyTextField.swift */; };
+		0C6FAC1C2874226A00B31EDF /* CharacterSet+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6FAC1B2874226A00B31EDF /* CharacterSet+Extensions.swift */; };
+		0C6FAC1F2874246800B31EDF /* KevinFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6FAC1E2874246800B31EDF /* KevinFormatter.swift */; };
+		0C6FAC2128743B7500B31EDF /* ApiCharityAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6FAC2028743B7500B31EDF /* ApiCharityAccount.swift */; };
+		0C850BA92858A0E900194293 /* InitiateAccountLinkingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C850BA82858A0E900194293 /* InitiateAccountLinkingRequest.swift */; };
+		0C850BAC2858A6BA00194293 /* LinkedBankRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C850BAB2858A6BA00194293 /* LinkedBankRepository.swift */; };
+		0C850BAF2858A8BE00194293 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 0C850BAE2858A8BE00194293 /* Realm */; };
+		0C850BB12858A8BE00194293 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0C850BB02858A8BE00194293 /* RealmSwift */; };
+		0C850BB42858A99100194293 /* LinkedBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C850BB32858A99100194293 /* LinkedBank.swift */; };
+		0C850BB62858AA0800194293 /* BankCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C850BB52858AA0800194293 /* BankCredentials.swift */; };
+		0C850BB92858AAB200194293 /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 0C850BB82858AAB200194293 /* SwiftKeychainWrapper */; };
+		0C850BBD2858B11E00194293 /* AccountsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C850BBC2858B11E00194293 /* AccountsView.swift */; };
+		0C850BBF2858B5FD00194293 /* Result+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C850BBE2858B5FD00194293 /* Result+Extensions.swift */; };
+		0C850BC12858B84B00194293 /* AccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C850BC02858B84B00194293 /* AccountCell.swift */; };
+		0C850BC32858B9D700194293 /* NewAccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C850BC22858B9D700194293 /* NewAccountCell.swift */; };
+		0CE4995D27B67AC8005E32D4 /* KevinEmailTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE4995C27B67AC8005E32D4 /* KevinEmailTextField.swift */; };
 		0CE4996027B67D1F005E32D4 /* KevinAgreementCheckMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE4995F27B67D1F005E32D4 /* KevinAgreementCheckMark.swift */; };
 		0CE4996227BA659C005E32D4 /* KevinCharityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE4996127BA659C005E32D4 /* KevinCharityView.swift */; };
 		0CE4996527BA65D8005E32D4 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0CE4996427BA65D8005E32D4 /* SDWebImageSwiftUI */; };
 		0CE4996A27BA9EC4005E32D4 /* KevinCountrySelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE4996927BA9EC4005E32D4 /* KevinCountrySelector.swift */; };
 		0CE4996D27BBE0F8005E32D4 /* PaymentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE4996C27BBE0F8005E32D4 /* PaymentType.swift */; };
-		0CE4996F27BBE8A3005E32D4 /* SegmentedControlElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE4996E27BBE8A3005E32D4 /* SegmentedControlElement.swift */; };
-		0CE4997327BBE974005E32D4 /* SegmentedControlButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE4997227BBE974005E32D4 /* SegmentedControlButtonView.swift */; };
 		0CE7379C27C781BA0010C934 /* HalfASheet in Frameworks */ = {isa = PBXBuildFile; productRef = 0CE7379B27C781BA0010C934 /* HalfASheet */; };
+		0CF565952857663B00853D8A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF565942857663B00853D8A /* MainView.swift */; };
+		0CF5659F285767F000853D8A /* ApplicationTabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF5659E285767F000853D8A /* ApplicationTabs.swift */; };
+		0CF565A1285777DD00853D8A /* AccountLinkingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF565A0285777DD00853D8A /* AccountLinkingView.swift */; };
+		0CF565A42857789600853D8A /* NoAccountsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF565A32857789600853D8A /* NoAccountsView.swift */; };
+		0CF565A62857858800853D8A /* MainButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF565A52857858800853D8A /* MainButtonStyle.swift */; };
+		0CF565A8285786A600853D8A /* AccountLinkingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF565A7285786A600853D8A /* AccountLinkingViewModel.swift */; };
+		0CF565AA285786B100853D8A /* AccountLinkingViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF565A9285786B100853D8A /* AccountLinkingViewState.swift */; };
+		0CF565AC285876B100853D8A /* BankCredentialsPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF565AB285876B100853D8A /* BankCredentialsPreferences.swift */; };
+		0CF565AE285878E100853D8A /* GetAccessTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF565AD285878E100853D8A /* GetAccessTokenRequest.swift */; };
+		0CF565B02858794000853D8A /* RefreshAccessTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF565AF2858794000853D8A /* RefreshAccessTokenRequest.swift */; };
+		0CF565B228587A5500853D8A /* ApiAccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CF565B128587A5500853D8A /* ApiAccessToken.swift */; };
+		0CFAE6A5285B574300F55F74 /* KevinLinkedBankSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFAE6A4285B574300F55F74 /* KevinLinkedBankSelector.swift */; };
+		0CFAE6A7285B8B4000F55F74 /* KevinBankError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFAE6A6285B8B4000F55F74 /* KevinBankError.swift */; };
+		0CFAE6C3285B959C00F55F74 /* HalfASheetConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFAE6C2285B959C00F55F74 /* HalfASheetConfiguration.swift */; };
 		272CA8E626B4404F00978AA7 /* KevinViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272CA8E526B4404F00978AA7 /* KevinViewControllerRepresentable.swift */; };
 		272CA8EF26B456A500978AA7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 272CA8ED26B456A500978AA7 /* Localizable.strings */; };
 		272CA8F226B4575200978AA7 /* Localize_Swift in Frameworks */ = {isa = PBXBuildFile; productRef = 272CA8F126B4575200978AA7 /* Localize_Swift */; };
-		272CA8F426B45E4E00978AA7 /* MainViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272CA8F326B45E4E00978AA7 /* MainViewState.swift */; };
+		272CA8F426B45E4E00978AA7 /* PaymentViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272CA8F326B45E4E00978AA7 /* PaymentViewState.swift */; };
 		2782B44E2778912D004A9E05 /* GetAuthStateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2782B44D2778912D004A9E05 /* GetAuthStateRequest.swift */; };
 		2782B450277892D6004A9E05 /* InitiatePaymentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2782B44F277892D6004A9E05 /* InitiatePaymentRequest.swift */; };
-		27B1808A26807338001E0C50 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B1808926807338001E0C50 /* MainViewModel.swift */; };
+		27B1808A26807338001E0C50 /* PaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B1808926807338001E0C50 /* PaymentViewModel.swift */; };
 		27B1809226807898001E0C50 /* PromiseKit in Frameworks */ = {isa = PBXBuildFile; productRef = 27B1809126807898001E0C50 /* PromiseKit */; };
 		27B18095268078CE001E0C50 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 27B18094268078CE001E0C50 /* Alamofire */; };
 		27B18098268078F5001E0C50 /* ObjectMapper in Frameworks */ = {isa = PBXBuildFile; productRef = 27B18097268078F5001E0C50 /* ObjectMapper */; };
@@ -57,7 +93,7 @@
 		27B180B9268080E2001E0C50 /* DemoApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B180B8268080E2001E0C50 /* DemoApiClient.swift */; };
 		27B180BB26808147001E0C50 /* DemoApiClientFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B180BA26808147001E0C50 /* DemoApiClientFactory.swift */; };
 		27C350F9267372FA00A3A17F /* KevinDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C350F8267372FA00A3A17F /* KevinDemoApp.swift */; };
-		27C350FB267372FA00A3A17F /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C350FA267372FA00A3A17F /* MainView.swift */; };
+		27C350FB267372FA00A3A17F /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C350FA267372FA00A3A17F /* PaymentView.swift */; };
 		27C350FD267372FB00A3A17F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27C350FC267372FB00A3A17F /* Assets.xcassets */; };
 		27C3510B267372FB00A3A17F /* KevinDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C3510A267372FB00A3A17F /* KevinDemoTests.swift */; };
 		27C35116267372FB00A3A17F /* KevinDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C35115267372FB00A3A17F /* KevinDemoUITests.swift */; };
@@ -84,34 +120,65 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C005FA92861C856003C767F /* KevinLinkedBankCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KevinLinkedBankCell.swift; sourceTree = "<group>"; };
 		0C08544F27B268220036EE48 /* Text+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+Extensions.swift"; sourceTree = "<group>"; };
 		0C08545127B268830036EE48 /* TextStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyles.swift; sourceTree = "<group>"; };
-		0C08545327B289B70036EE48 /* SegmentedControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControlView.swift; sourceTree = "<group>"; };
-		0C08545627B28A360036EE48 /* RectPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectPreferences.swift; sourceTree = "<group>"; };
-		0C08545827B28AAE0036EE48 /* SegmentedControlUnderlineModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlUnderlineModifier.swift; sourceTree = "<group>"; };
-		0C08545B27B3E1270036EE48 /* KevinCountrySelectionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KevinCountrySelectionRowView.swift; sourceTree = "<group>"; };
-		0C08546127B52C610036EE48 /* TapableText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapableText.swift; sourceTree = "<group>"; };
+		0C08545B27B3E1270036EE48 /* KevinCountrySelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KevinCountrySelectionCell.swift; sourceTree = "<group>"; };
 		0C08546327B557FE0036EE48 /* ApiCountries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCountries.swift; sourceTree = "<group>"; };
 		0C08546527B55AA70036EE48 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		0C08546727B55BA30036EE48 /* ApiCharity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCharity.swift; sourceTree = "<group>"; };
 		0C08546927B55C680036EE48 /* CharityListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharityListRequest.swift; sourceTree = "<group>"; };
 		0C08546B27B55ED60036EE48 /* ApiCharities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCharities.swift; sourceTree = "<group>"; };
-		0C14500427C369CD00FB3A3E /* ModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
+		0C0C13AC2859FC8700607CE9 /* FontWeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontWeight.swift; sourceTree = "<group>"; };
+		0C14500427C369CD00FB3A3E /* KevinModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KevinModalView.swift; sourceTree = "<group>"; };
 		0C14500E27C3B74900FB3A3E /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
-		0CE4995A27B67A09005E32D4 /* KevinScreenTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KevinScreenTitle.swift; sourceTree = "<group>"; };
-		0CE4995C27B67AC8005E32D4 /* KevinTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KevinTextField.swift; sourceTree = "<group>"; };
+		0C630C03285A435700E6FAD1 /* KevinPaymentTypeSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KevinPaymentTypeSelector.swift; sourceTree = "<group>"; };
+		0C630C06285B2B8600E6FAD1 /* InitiateCardPaymentUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitiateCardPaymentUseCase.swift; sourceTree = "<group>"; };
+		0C630C07285B2B8600E6FAD1 /* InitiateBankPaymentUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitiateBankPaymentUseCase.swift; sourceTree = "<group>"; };
+		0C630C08285B2B8600E6FAD1 /* BasePaymentInitiationUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePaymentInitiationUseCase.swift; sourceTree = "<group>"; };
+		0C630C09285B2B8600E6FAD1 /* LinkAccountUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkAccountUseCase.swift; sourceTree = "<group>"; };
+		0C630C0A285B2B8600E6FAD1 /* InitiateLinkedBankPaymentUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitiateLinkedBankPaymentUseCase.swift; sourceTree = "<group>"; };
+		0C630C10285B2BC500E6FAD1 /* BasePublishingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePublishingUseCase.swift; sourceTree = "<group>"; };
+		0C630C12285B2BE500E6FAD1 /* KevinInitiationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KevinInitiationState.swift; sourceTree = "<group>"; };
+		0C630C18285B2E7900E6FAD1 /* InitiatePaymentProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitiatePaymentProtocol.swift; sourceTree = "<group>"; };
+		0C630C19285B2E7900E6FAD1 /* InitiateLinkedPaymentProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitiateLinkedPaymentProtocol.swift; sourceTree = "<group>"; };
+		0C6FAC172873249C00B31EDF /* KevinCurrencyTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KevinCurrencyTextField.swift; sourceTree = "<group>"; };
+		0C6FAC1B2874226A00B31EDF /* CharacterSet+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterSet+Extensions.swift"; sourceTree = "<group>"; };
+		0C6FAC1E2874246800B31EDF /* KevinFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KevinFormatter.swift; sourceTree = "<group>"; };
+		0C6FAC2028743B7500B31EDF /* ApiCharityAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCharityAccount.swift; sourceTree = "<group>"; };
+		0C850BA82858A0E900194293 /* InitiateAccountLinkingRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitiateAccountLinkingRequest.swift; sourceTree = "<group>"; };
+		0C850BAB2858A6BA00194293 /* LinkedBankRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedBankRepository.swift; sourceTree = "<group>"; };
+		0C850BB32858A99100194293 /* LinkedBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedBank.swift; sourceTree = "<group>"; };
+		0C850BB52858AA0800194293 /* BankCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankCredentials.swift; sourceTree = "<group>"; };
+		0C850BBC2858B11E00194293 /* AccountsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsView.swift; sourceTree = "<group>"; };
+		0C850BBE2858B5FD00194293 /* Result+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+Extensions.swift"; sourceTree = "<group>"; };
+		0C850BC02858B84B00194293 /* AccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCell.swift; sourceTree = "<group>"; };
+		0C850BC22858B9D700194293 /* NewAccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAccountCell.swift; sourceTree = "<group>"; };
+		0CE4995C27B67AC8005E32D4 /* KevinEmailTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KevinEmailTextField.swift; sourceTree = "<group>"; };
 		0CE4995F27B67D1F005E32D4 /* KevinAgreementCheckMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KevinAgreementCheckMark.swift; sourceTree = "<group>"; };
 		0CE4996127BA659C005E32D4 /* KevinCharityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KevinCharityView.swift; sourceTree = "<group>"; };
 		0CE4996927BA9EC4005E32D4 /* KevinCountrySelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KevinCountrySelector.swift; sourceTree = "<group>"; };
 		0CE4996C27BBE0F8005E32D4 /* PaymentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentType.swift; sourceTree = "<group>"; };
-		0CE4996E27BBE8A3005E32D4 /* SegmentedControlElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlElement.swift; sourceTree = "<group>"; };
-		0CE4997227BBE974005E32D4 /* SegmentedControlButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlButtonView.swift; sourceTree = "<group>"; };
+		0CF565942857663B00853D8A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		0CF5659E285767F000853D8A /* ApplicationTabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationTabs.swift; sourceTree = "<group>"; };
+		0CF565A0285777DD00853D8A /* AccountLinkingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountLinkingView.swift; sourceTree = "<group>"; };
+		0CF565A32857789600853D8A /* NoAccountsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoAccountsView.swift; sourceTree = "<group>"; };
+		0CF565A52857858800853D8A /* MainButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButtonStyle.swift; sourceTree = "<group>"; };
+		0CF565A7285786A600853D8A /* AccountLinkingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountLinkingViewModel.swift; sourceTree = "<group>"; };
+		0CF565A9285786B100853D8A /* AccountLinkingViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountLinkingViewState.swift; sourceTree = "<group>"; };
+		0CF565AB285876B100853D8A /* BankCredentialsPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankCredentialsPreferences.swift; sourceTree = "<group>"; };
+		0CF565AD285878E100853D8A /* GetAccessTokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAccessTokenRequest.swift; sourceTree = "<group>"; };
+		0CF565AF2858794000853D8A /* RefreshAccessTokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshAccessTokenRequest.swift; sourceTree = "<group>"; };
+		0CF565B128587A5500853D8A /* ApiAccessToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiAccessToken.swift; sourceTree = "<group>"; };
+		0CFAE6A4285B574300F55F74 /* KevinLinkedBankSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KevinLinkedBankSelector.swift; sourceTree = "<group>"; };
+		0CFAE6A6285B8B4000F55F74 /* KevinBankError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KevinBankError.swift; sourceTree = "<group>"; };
+		0CFAE6C2285B959C00F55F74 /* HalfASheetConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfASheetConfiguration.swift; sourceTree = "<group>"; };
 		272CA8E526B4404F00978AA7 /* KevinViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KevinViewControllerRepresentable.swift; sourceTree = "<group>"; };
 		272CA8EE26B456A500978AA7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
-		272CA8F326B45E4E00978AA7 /* MainViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewState.swift; sourceTree = "<group>"; };
+		272CA8F326B45E4E00978AA7 /* PaymentViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewState.swift; sourceTree = "<group>"; };
 		2782B44D2778912D004A9E05 /* GetAuthStateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAuthStateRequest.swift; sourceTree = "<group>"; };
 		2782B44F277892D6004A9E05 /* InitiatePaymentRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitiatePaymentRequest.swift; sourceTree = "<group>"; };
-		27B1808926807338001E0C50 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		27B1808926807338001E0C50 /* PaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewModel.swift; sourceTree = "<group>"; };
 		27B1809926807920001E0C50 /* BaseApiRequestAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApiRequestAdapter.swift; sourceTree = "<group>"; };
 		27B1809B26807949001E0C50 /* RequestHeaders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHeaders.swift; sourceTree = "<group>"; };
 		27B1809D26807984001E0C50 /* URLRequestHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestHeader.swift; sourceTree = "<group>"; };
@@ -128,7 +195,7 @@
 		27B180BA26808147001E0C50 /* DemoApiClientFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoApiClientFactory.swift; sourceTree = "<group>"; };
 		27C350F5267372FA00A3A17F /* KevinDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KevinDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27C350F8267372FA00A3A17F /* KevinDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KevinDemoApp.swift; sourceTree = "<group>"; };
-		27C350FA267372FA00A3A17F /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		27C350FA267372FA00A3A17F /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
 		27C350FC267372FB00A3A17F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		27C35101267372FB00A3A17F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		27C35106267372FB00A3A17F /* KevinDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KevinDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,13 +213,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C0C13A128590F6500607CE9 /* SDWebImageSwiftUI in Frameworks */,
 				0CE4996527BA65D8005E32D4 /* SDWebImageSwiftUI in Frameworks */,
 				27B18098268078F5001E0C50 /* ObjectMapper in Frameworks */,
 				27EF269026B806D90085FDC7 /* .kevin in Frameworks */,
 				27B18095268078CE001E0C50 /* Alamofire in Frameworks */,
+				0C630C02285A410600E6FAD1 /* AttributedText in Frameworks */,
 				272CA8F226B4575200978AA7 /* Localize_Swift in Frameworks */,
 				27B180A826807EA2001E0C50 /* JWTDecode in Frameworks */,
+				0C850BAF2858A8BE00194293 /* Realm in Frameworks */,
 				27B1809226807898001E0C50 /* PromiseKit in Frameworks */,
+				0C850BB12858A8BE00194293 /* RealmSwift in Frameworks */,
+				0C850BB92858AAB200194293 /* SwiftKeychainWrapper in Frameworks */,
 				0CE7379C27C781BA0010C934 /* HalfASheet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -174,12 +246,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C005FA62861C5E6003C767F /* KevinTextField */ = {
+			isa = PBXGroup;
+			children = (
+				0C6FAC172873249C00B31EDF /* KevinCurrencyTextField.swift */,
+				0CE4995C27B67AC8005E32D4 /* KevinEmailTextField.swift */,
+			);
+			path = KevinTextField;
+			sourceTree = "<group>";
+		};
 		0C08544E27B2680C0036EE48 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				0C14500E27C3B74900FB3A3E /* String+Extensions.swift */,
 				0C08544F27B268220036EE48 /* Text+Extensions.swift */,
 				0C08546527B55AA70036EE48 /* View+Extensions.swift */,
+				0C850BBE2858B5FD00194293 /* Result+Extensions.swift */,
+				0C6FAC1B2874226A00B31EDF /* CharacterSet+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -187,20 +270,79 @@
 		0C08545527B28A210036EE48 /* Preferences */ = {
 			isa = PBXGroup;
 			children = (
-				0C08545627B28A360036EE48 /* RectPreferences.swift */,
+				0CF565AB285876B100853D8A /* BankCredentialsPreferences.swift */,
 			);
 			path = Preferences;
 			sourceTree = "<group>";
 		};
-		0C08545A27B28ACF0036EE48 /* SegmentedControl */ = {
+		0C0C13A22859EBBF00607CE9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				0CE4997227BBE974005E32D4 /* SegmentedControlButtonView.swift */,
-				0CE4996E27BBE8A3005E32D4 /* SegmentedControlElement.swift */,
-				0C08545827B28AAE0036EE48 /* SegmentedControlUnderlineModifier.swift */,
-				0C08545327B289B70036EE48 /* SegmentedControlView.swift */,
+				0C005FA62861C5E6003C767F /* KevinTextField */,
+				0C08545B27B3E1270036EE48 /* KevinCountrySelectionCell.swift */,
+				0CE4996127BA659C005E32D4 /* KevinCharityView.swift */,
+				0CE4996927BA9EC4005E32D4 /* KevinCountrySelector.swift */,
+				0CE4995F27B67D1F005E32D4 /* KevinAgreementCheckMark.swift */,
+				0C630C03285A435700E6FAD1 /* KevinPaymentTypeSelector.swift */,
+				0CFAE6A4285B574300F55F74 /* KevinLinkedBankSelector.swift */,
+				0C005FA92861C856003C767F /* KevinLinkedBankCell.swift */,
 			);
-			path = SegmentedControl;
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0C630C05285B2B4000E6FAD1 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				0C630C08285B2B8600E6FAD1 /* BasePaymentInitiationUseCase.swift */,
+				0C630C10285B2BC500E6FAD1 /* BasePublishingUseCase.swift */,
+				0C630C07285B2B8600E6FAD1 /* InitiateBankPaymentUseCase.swift */,
+				0C630C06285B2B8600E6FAD1 /* InitiateCardPaymentUseCase.swift */,
+				0C630C0A285B2B8600E6FAD1 /* InitiateLinkedBankPaymentUseCase.swift */,
+				0C630C09285B2B8600E6FAD1 /* LinkAccountUseCase.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		0C630C14285B2C1300E6FAD1 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				0CFAE6A6285B8B4000F55F74 /* KevinBankError.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
+		0C630C17285B2E6200E6FAD1 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				0C630C19285B2E7900E6FAD1 /* InitiateLinkedPaymentProtocol.swift */,
+				0C630C18285B2E7900E6FAD1 /* InitiatePaymentProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		0C6FAC1D2874245C00B31EDF /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				0C6FAC1E2874246800B31EDF /* KevinFormatter.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		0C850BAA2858A6A800194293 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				0C850BAB2858A6BA00194293 /* LinkedBankRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		0C850BB22858A98900194293 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				0C850BB32858A99100194293 /* LinkedBank.swift */,
+				0C850BB52858AA0800194293 /* BankCredentials.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 		0CE4995927B679E9005E32D4 /* Views */ = {
@@ -208,12 +350,6 @@
 			children = (
 				27EF25D526B6734D0085FDC7 /* Custom */,
 				272CA8E426B4402200978AA7 /* Representables */,
-				0CE4995F27B67D1F005E32D4 /* KevinAgreementCheckMark.swift */,
-				0CE4996127BA659C005E32D4 /* KevinCharityView.swift */,
-				0C08545B27B3E1270036EE48 /* KevinCountrySelectionRowView.swift */,
-				0CE4996927BA9EC4005E32D4 /* KevinCountrySelector.swift */,
-				0CE4995A27B67A09005E32D4 /* KevinScreenTitle.swift */,
-				0CE4995C27B67AC8005E32D4 /* KevinTextField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -221,9 +357,63 @@
 		0CE4996B27BBE06B005E32D4 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				0CF5659E285767F000853D8A /* ApplicationTabs.swift */,
 				0CE4996C27BBE0F8005E32D4 /* PaymentType.swift */,
+				0C0C13AC2859FC8700607CE9 /* FontWeight.swift */,
+				0C630C12285B2BE500E6FAD1 /* KevinInitiationState.swift */,
 			);
 			path = Enums;
+			sourceTree = "<group>";
+		};
+		0CF56596285766B400853D8A /* Stories */ = {
+			isa = PBXGroup;
+			children = (
+				0CF56598285766D200853D8A /* AccountLinking */,
+				0CF56599285766DC00853D8A /* Payment */,
+				0CF56597285766C400853D8A /* MainView */,
+			);
+			path = Stories;
+			sourceTree = "<group>";
+		};
+		0CF56597285766C400853D8A /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				0CF565942857663B00853D8A /* MainView.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		0CF56598285766D200853D8A /* AccountLinking */ = {
+			isa = PBXGroup;
+			children = (
+				0CF565A22857788700853D8A /* Views */,
+				0CF565A0285777DD00853D8A /* AccountLinkingView.swift */,
+				0CF565A7285786A600853D8A /* AccountLinkingViewModel.swift */,
+				0CF565A9285786B100853D8A /* AccountLinkingViewState.swift */,
+			);
+			path = AccountLinking;
+			sourceTree = "<group>";
+		};
+		0CF56599285766DC00853D8A /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				0C0C13A22859EBBF00607CE9 /* Views */,
+				27C350FA267372FA00A3A17F /* PaymentView.swift */,
+				27B1808926807338001E0C50 /* PaymentViewModel.swift */,
+				272CA8F326B45E4E00978AA7 /* PaymentViewState.swift */,
+			);
+			path = Payment;
+			sourceTree = "<group>";
+		};
+		0CF565A22857788700853D8A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0CF565A32857789600853D8A /* NoAccountsView.swift */,
+				0C850BBC2858B11E00194293 /* AccountsView.swift */,
+				0C850BC02858B84B00194293 /* AccountCell.swift */,
+				0C850BC22858B9D700194293 /* NewAccountCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		272CA8E126B426C300978AA7 /* Styles */ = {
@@ -232,6 +422,8 @@
 				27D384FC27651C13001395C0 /* DemoKevinTheme.swift */,
 				27F1220E27CA488200D1DFFB /* StyleModifier.swift */,
 				0C08545127B268830036EE48 /* TextStyles.swift */,
+				0CF565A52857858800853D8A /* MainButtonStyle.swift */,
+				0CFAE6C2285B959C00F55F74 /* HalfASheetConfiguration.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -268,6 +460,9 @@
 				0C08546927B55C680036EE48 /* CharityListRequest.swift */,
 				2782B44D2778912D004A9E05 /* GetAuthStateRequest.swift */,
 				2782B44F277892D6004A9E05 /* InitiatePaymentRequest.swift */,
+				0CF565AD285878E100853D8A /* GetAccessTokenRequest.swift */,
+				0CF565AF2858794000853D8A /* RefreshAccessTokenRequest.swift */,
+				0C850BA82858A0E900194293 /* InitiateAccountLinkingRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -323,8 +518,10 @@
 				27B180B42680805B001E0C50 /* ApiAuthState.swift */,
 				0C08546B27B55ED60036EE48 /* ApiCharities.swift */,
 				0C08546727B55BA30036EE48 /* ApiCharity.swift */,
+				0C6FAC2028743B7500B31EDF /* ApiCharityAccount.swift */,
 				0C08546327B557FE0036EE48 /* ApiCountries.swift */,
 				27B180B62680809B001E0C50 /* ApiPayment.swift */,
+				0CF565B128587A5500853D8A /* ApiAccessToken.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -353,17 +550,21 @@
 		27C350F7267372FA00A3A17F /* KevinDemo */ = {
 			isa = PBXGroup;
 			children = (
+				0C6FAC1D2874245C00B31EDF /* Utils */,
+				0C850BB22858A98900194293 /* Entities */,
 				0CE4996B27BBE06B005E32D4 /* Enums */,
+				0C630C14285B2C1300E6FAD1 /* Errors */,
 				0C08544E27B2680C0036EE48 /* Extensions */,
 				27B1808B26807606001E0C50 /* Networking */,
 				0C08545527B28A210036EE48 /* Preferences */,
+				0C630C17285B2E6200E6FAD1 /* Protocols */,
+				0C850BAA2858A6A800194293 /* Repositories */,
 				272CA8EB26B4560600978AA7 /* Resources */,
+				0CF56596285766B400853D8A /* Stories */,
 				272CA8E126B426C300978AA7 /* Styles */,
+				0C630C05285B2B4000E6FAD1 /* UseCases */,
 				0CE4995927B679E9005E32D4 /* Views */,
 				27C350F8267372FA00A3A17F /* KevinDemoApp.swift */,
-				27C350FA267372FA00A3A17F /* MainView.swift */,
-				27B1808926807338001E0C50 /* MainViewModel.swift */,
-				272CA8F326B45E4E00978AA7 /* MainViewState.swift */,
 			);
 			path = KevinDemo;
 			sourceTree = "<group>";
@@ -396,9 +597,7 @@
 		27EF25D526B6734D0085FDC7 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
-				0C08545A27B28ACF0036EE48 /* SegmentedControl */,
-				0C14500427C369CD00FB3A3E /* ModalView.swift */,
-				0C08546127B52C610036EE48 /* TapableText.swift */,
+				0C14500427C369CD00FB3A3E /* KevinModalView.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -428,6 +627,11 @@
 				27EF268F26B806D90085FDC7 /* .kevin */,
 				0CE4996427BA65D8005E32D4 /* SDWebImageSwiftUI */,
 				0CE7379B27C781BA0010C934 /* HalfASheet */,
+				0C850BAE2858A8BE00194293 /* Realm */,
+				0C850BB02858A8BE00194293 /* RealmSwift */,
+				0C850BB82858AAB200194293 /* SwiftKeychainWrapper */,
+				0C0C13A028590F6500607CE9 /* SDWebImageSwiftUI */,
+				0C630C01285A410600E6FAD1 /* AttributedText */,
 			);
 			productName = KevinDemo;
 			productReference = 27C350F5267372FA00A3A17F /* KevinDemo.app */;
@@ -509,6 +713,10 @@
 				27EF268E26B806D90085FDC7 /* XCRemoteSwiftPackageReference "kevin-ios" */,
 				0CE4996327BA65D8005E32D4 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				0CE7379A27C781BA0010C934 /* XCRemoteSwiftPackageReference "HalfASheet" */,
+				0C850BAD2858A8BE00194293 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+				0C850BB72858AAB200194293 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */,
+				0C0C139F28590F6500607CE9 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				0C630C00285A410600E6FAD1 /* XCRemoteSwiftPackageReference "AttributedText" */,
 			);
 			productRefGroup = 27C350F6267372FA00A3A17F /* Products */;
 			projectDirPath = "";
@@ -552,50 +760,81 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0CE4997327BBE974005E32D4 /* SegmentedControlButtonView.swift in Sources */,
-				0C08545C27B3E1270036EE48 /* KevinCountrySelectionRowView.swift in Sources */,
+				0C850BA92858A0E900194293 /* InitiateAccountLinkingRequest.swift in Sources */,
+				0C08545C27B3E1270036EE48 /* KevinCountrySelectionCell.swift in Sources */,
+				0CF5659F285767F000853D8A /* ApplicationTabs.swift in Sources */,
+				0C6FAC1C2874226A00B31EDF /* CharacterSet+Extensions.swift in Sources */,
+				0C850BBD2858B11E00194293 /* AccountsView.swift in Sources */,
 				0CE4996A27BA9EC4005E32D4 /* KevinCountrySelector.swift in Sources */,
 				27B180B72680809B001E0C50 /* ApiPayment.swift in Sources */,
-				0C08545427B289B70036EE48 /* SegmentedControlView.swift in Sources */,
 				27B180AB26807EF3001E0C50 /* JWTCredentials.swift in Sources */,
 				0CE4996027B67D1F005E32D4 /* KevinAgreementCheckMark.swift in Sources */,
+				0CF565A1285777DD00853D8A /* AccountLinkingView.swift in Sources */,
 				27B1809C26807949001E0C50 /* RequestHeaders.swift in Sources */,
+				0C6FAC2128743B7500B31EDF /* ApiCharityAccount.swift in Sources */,
+				0C005FAA2861C856003C767F /* KevinLinkedBankCell.swift in Sources */,
+				0CF565AE285878E100853D8A /* GetAccessTokenRequest.swift in Sources */,
+				0CF565B02858794000853D8A /* RefreshAccessTokenRequest.swift in Sources */,
+				0CFAE6C3285B959C00F55F74 /* HalfASheetConfiguration.swift in Sources */,
 				27B1809A26807920001E0C50 /* BaseApiRequestAdapter.swift in Sources */,
+				0C850BB62858AA0800194293 /* BankCredentials.swift in Sources */,
 				2782B44E2778912D004A9E05 /* GetAuthStateRequest.swift in Sources */,
-				272CA8F426B45E4E00978AA7 /* MainViewState.swift in Sources */,
+				272CA8F426B45E4E00978AA7 /* PaymentViewState.swift in Sources */,
+				0C630C0D285B2B8600E6FAD1 /* BasePaymentInitiationUseCase.swift in Sources */,
 				0CE4996227BA659C005E32D4 /* KevinCharityView.swift in Sources */,
 				27B180A326807D78001E0C50 /* BaseApiClient.swift in Sources */,
+				0C850BB42858A99100194293 /* LinkedBank.swift in Sources */,
+				0CF565A42857789600853D8A /* NoAccountsView.swift in Sources */,
+				0C630C13285B2BE500E6FAD1 /* KevinInitiationState.swift in Sources */,
 				27B180B026807F86001E0C50 /* TokenRefresherProtocol.swift in Sources */,
-				0C08546227B52C610036EE48 /* TapableText.swift in Sources */,
 				27B180A126807C13001E0C50 /* DemoApiRequestRouter.swift in Sources */,
 				0C08546A27B55C680036EE48 /* CharityListRequest.swift in Sources */,
 				272CA8E626B4404F00978AA7 /* KevinViewControllerRepresentable.swift in Sources */,
-				27C350FB267372FA00A3A17F /* MainView.swift in Sources */,
+				0C630C0B285B2B8600E6FAD1 /* InitiateCardPaymentUseCase.swift in Sources */,
+				27C350FB267372FA00A3A17F /* PaymentView.swift in Sources */,
 				0C08546827B55BA30036EE48 /* ApiCharity.swift in Sources */,
+				0CF565952857663B00853D8A /* MainView.swift in Sources */,
 				27B180A526807E1E001E0C50 /* ApiError.swift in Sources */,
 				27B180B52680805B001E0C50 /* ApiAuthState.swift in Sources */,
-				0CE4995D27B67AC8005E32D4 /* KevinTextField.swift in Sources */,
-				0CE4995B27B67A09005E32D4 /* KevinScreenTitle.swift in Sources */,
-				0C14500527C369CE00FB3A3E /* ModalView.swift in Sources */,
+				0CE4995D27B67AC8005E32D4 /* KevinEmailTextField.swift in Sources */,
+				0C14500527C369CE00FB3A3E /* KevinModalView.swift in Sources */,
 				0C08546C27B55ED60036EE48 /* ApiCharities.swift in Sources */,
+				0C0C13AD2859FC8700607CE9 /* FontWeight.swift in Sources */,
 				2782B450277892D6004A9E05 /* InitiatePaymentRequest.swift in Sources */,
 				27D384FD27651C13001395C0 /* DemoKevinTheme.swift in Sources */,
 				27C350F9267372FA00A3A17F /* KevinDemoApp.swift in Sources */,
 				27B1809E26807984001E0C50 /* URLRequestHeader.swift in Sources */,
+				0CF565B228587A5500853D8A /* ApiAccessToken.swift in Sources */,
+				0C630C1B285B2E7900E6FAD1 /* InitiateLinkedPaymentProtocol.swift in Sources */,
+				0CFAE6A5285B574300F55F74 /* KevinLinkedBankSelector.swift in Sources */,
 				27B180B9268080E2001E0C50 /* DemoApiClient.swift in Sources */,
 				27B180AD26807F14001E0C50 /* ApiRequest.swift in Sources */,
+				0C630C0F285B2B8600E6FAD1 /* InitiateLinkedBankPaymentUseCase.swift in Sources */,
+				0CFAE6A7285B8B4000F55F74 /* KevinBankError.swift in Sources */,
 				0C08546627B55AA70036EE48 /* View+Extensions.swift in Sources */,
-				27B1808A26807338001E0C50 /* MainViewModel.swift in Sources */,
-				0C08545927B28AAE0036EE48 /* SegmentedControlUnderlineModifier.swift in Sources */,
+				0CF565A8285786A600853D8A /* AccountLinkingViewModel.swift in Sources */,
+				27B1808A26807338001E0C50 /* PaymentViewModel.swift in Sources */,
 				0C08545227B268830036EE48 /* TextStyles.swift in Sources */,
-				0C08545727B28A360036EE48 /* RectPreferences.swift in Sources */,
+				0C630C0C285B2B8600E6FAD1 /* InitiateBankPaymentUseCase.swift in Sources */,
+				0CF565A62857858800853D8A /* MainButtonStyle.swift in Sources */,
+				0C850BC32858B9D700194293 /* NewAccountCell.swift in Sources */,
 				27B180B226807FA3001E0C50 /* LoggerProtocol.swift in Sources */,
+				0C6FAC182873249C00B31EDF /* KevinCurrencyTextField.swift in Sources */,
 				0CE4996D27BBE0F8005E32D4 /* PaymentType.swift in Sources */,
+				0C6FAC1F2874246800B31EDF /* KevinFormatter.swift in Sources */,
+				0C630C11285B2BC500E6FAD1 /* BasePublishingUseCase.swift in Sources */,
+				0CF565AC285876B100853D8A /* BankCredentialsPreferences.swift in Sources */,
+				0C630C1A285B2E7900E6FAD1 /* InitiatePaymentProtocol.swift in Sources */,
 				27B180BB26808147001E0C50 /* DemoApiClientFactory.swift in Sources */,
 				0C14500F27C3B74900FB3A3E /* String+Extensions.swift in Sources */,
+				0C630C0E285B2B8600E6FAD1 /* LinkAccountUseCase.swift in Sources */,
+				0C850BAC2858A6BA00194293 /* LinkedBankRepository.swift in Sources */,
+				0C630C04285A435700E6FAD1 /* KevinPaymentTypeSelector.swift in Sources */,
+				0C850BC12858B84B00194293 /* AccountCell.swift in Sources */,
 				0C08546427B557FE0036EE48 /* ApiCountries.swift in Sources */,
 				0C08545027B268220036EE48 /* Text+Extensions.swift in Sources */,
-				0CE4996F27BBE8A3005E32D4 /* SegmentedControlElement.swift in Sources */,
+				0CF565AA285786B100853D8A /* AccountLinkingViewState.swift in Sources */,
+				0C850BBF2858B5FD00194293 /* Result+Extensions.swift in Sources */,
 				27F1220F27CA488200D1DFFB /* StyleModifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -925,6 +1164,38 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		0C0C139F28590F6500607CE9 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		0C630C00285A410600E6FAD1 /* XCRemoteSwiftPackageReference "AttributedText" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/gonzalezreal/AttributedText";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		0C850BAD2858A8BE00194293 /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.20.2;
+			};
+		};
+		0C850BB72858AAB200194293 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jrendel/SwiftKeychainWrapper";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 		0CE4996327BA65D8005E32D4 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
@@ -937,8 +1208,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/PocketDaniel/HalfASheet";
 			requirement = {
-				branch = develop;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
 			};
 		};
 		272CA8F026B4575200978AA7 /* XCRemoteSwiftPackageReference "Localize-Swift" */ = {
@@ -986,12 +1257,37 @@
 			repositoryURL = "https://github.com/getkevin/kevin-ios";
 			requirement = {
 				kind = exactVersion;
-				version = 2.1.0;
+				version = 2.1.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0C0C13A028590F6500607CE9 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0CE4996327BA65D8005E32D4 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+		0C630C01285A410600E6FAD1 /* AttributedText */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0C630C00285A410600E6FAD1 /* XCRemoteSwiftPackageReference "AttributedText" */;
+			productName = AttributedText;
+		};
+		0C850BAE2858A8BE00194293 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0C850BAD2858A8BE00194293 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = Realm;
+		};
+		0C850BB02858A8BE00194293 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0C850BAD2858A8BE00194293 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
+		};
+		0C850BB82858AAB200194293 /* SwiftKeychainWrapper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0C850BB72858AAB200194293 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */;
+			productName = SwiftKeychainWrapper;
+		};
 		0CE4996427BA65D8005E32D4 /* SDWebImageSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0CE4996327BA65D8005E32D4 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
