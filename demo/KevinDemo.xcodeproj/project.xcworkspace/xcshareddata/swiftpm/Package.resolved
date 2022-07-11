@@ -41,8 +41,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/getkevin/kevin-ios",
       "state" : {
-        "revision" : "b9646cfa0f4cbfd83c1b0cdb0f9ca28970ca0a1e",
-        "version" : "2.1.0"
+        "revision" : "3e2d7630105f1f63fa78dd0ae48fb674b29368ba",
+        "version" : "2.1.1"
       }
     },
     {

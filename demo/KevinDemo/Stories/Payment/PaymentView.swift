@@ -124,6 +124,7 @@ struct PaymentView: View {
             }
             .navigationBarTitle("kevin_window_main_title_label".localized(), displayMode: .large)
         }
+        .navigationViewStyle(.stack)
         .halfASheet(
             isPresented: $viewModel.viewState.isCountrySelectorPresented,
             content: {
