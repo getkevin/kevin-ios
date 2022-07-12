@@ -5,19 +5,12 @@
 //  Created by Daniel Klinge on 13/06/2022.
 //
 
-import ObjectMapper
+import Foundation
 
-public final class InitiateAccountLinkingRequest: Mappable {
+public final class InitiateAccountLinkingRequest: Codable {
+    public let scopes: [String]
     
-    public var scopes: [String]!
-
     public init(scopes: [String]) {
         self.scopes = scopes
-    }
-    
-    required public init?(map: Map) { }
-    
-    public func mapping(map: Map) {
-        scopes <- map["scopes"]
     }
 }

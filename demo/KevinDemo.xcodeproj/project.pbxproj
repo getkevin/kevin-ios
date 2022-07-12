@@ -18,6 +18,7 @@
 		0C08546C27B55ED60036EE48 /* ApiCharities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08546B27B55ED60036EE48 /* ApiCharities.swift */; };
 		0C0C13A128590F6500607CE9 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0C0C13A028590F6500607CE9 /* SDWebImageSwiftUI */; };
 		0C0C13AD2859FC8700607CE9 /* FontWeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0C13AC2859FC8700607CE9 /* FontWeight.swift */; };
+		0C0C85ED287D7DA20079AEF2 /* Encodable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0C85EC287D7DA20079AEF2 /* Encodable+Extensions.swift */; };
 		0C14500527C369CE00FB3A3E /* KevinModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C14500427C369CD00FB3A3E /* KevinModalView.swift */; };
 		0C14500F27C3B74900FB3A3E /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C14500E27C3B74900FB3A3E /* String+Extensions.swift */; };
 		0C630C02285A410600E6FAD1 /* AttributedText in Frameworks */ = {isa = PBXBuildFile; productRef = 0C630C01285A410600E6FAD1 /* AttributedText */; };
@@ -76,7 +77,6 @@
 		27B1808A26807338001E0C50 /* PaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B1808926807338001E0C50 /* PaymentViewModel.swift */; };
 		27B1809226807898001E0C50 /* PromiseKit in Frameworks */ = {isa = PBXBuildFile; productRef = 27B1809126807898001E0C50 /* PromiseKit */; };
 		27B18095268078CE001E0C50 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 27B18094268078CE001E0C50 /* Alamofire */; };
-		27B18098268078F5001E0C50 /* ObjectMapper in Frameworks */ = {isa = PBXBuildFile; productRef = 27B18097268078F5001E0C50 /* ObjectMapper */; };
 		27B1809A26807920001E0C50 /* BaseApiRequestAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B1809926807920001E0C50 /* BaseApiRequestAdapter.swift */; };
 		27B1809C26807949001E0C50 /* RequestHeaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B1809B26807949001E0C50 /* RequestHeaders.swift */; };
 		27B1809E26807984001E0C50 /* URLRequestHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B1809D26807984001E0C50 /* URLRequestHeader.swift */; };
@@ -130,6 +130,7 @@
 		0C08546927B55C680036EE48 /* CharityListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharityListRequest.swift; sourceTree = "<group>"; };
 		0C08546B27B55ED60036EE48 /* ApiCharities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCharities.swift; sourceTree = "<group>"; };
 		0C0C13AC2859FC8700607CE9 /* FontWeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontWeight.swift; sourceTree = "<group>"; };
+		0C0C85EC287D7DA20079AEF2 /* Encodable+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extensions.swift"; sourceTree = "<group>"; };
 		0C14500427C369CD00FB3A3E /* KevinModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KevinModalView.swift; sourceTree = "<group>"; };
 		0C14500E27C3B74900FB3A3E /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		0C630C03285A435700E6FAD1 /* KevinPaymentTypeSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KevinPaymentTypeSelector.swift; sourceTree = "<group>"; };
@@ -215,7 +216,6 @@
 			files = (
 				0C0C13A128590F6500607CE9 /* SDWebImageSwiftUI in Frameworks */,
 				0CE4996527BA65D8005E32D4 /* SDWebImageSwiftUI in Frameworks */,
-				27B18098268078F5001E0C50 /* ObjectMapper in Frameworks */,
 				27EF269026B806D90085FDC7 /* .kevin in Frameworks */,
 				27B18095268078CE001E0C50 /* Alamofire in Frameworks */,
 				0C630C02285A410600E6FAD1 /* AttributedText in Frameworks */,
@@ -263,6 +263,7 @@
 				0C08546527B55AA70036EE48 /* View+Extensions.swift */,
 				0C850BBE2858B5FD00194293 /* Result+Extensions.swift */,
 				0C6FAC1B2874226A00B31EDF /* CharacterSet+Extensions.swift */,
+				0C0C85EC287D7DA20079AEF2 /* Encodable+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -621,7 +622,6 @@
 			packageProductDependencies = (
 				27B1809126807898001E0C50 /* PromiseKit */,
 				27B18094268078CE001E0C50 /* Alamofire */,
-				27B18097268078F5001E0C50 /* ObjectMapper */,
 				27B180A726807EA2001E0C50 /* JWTDecode */,
 				272CA8F126B4575200978AA7 /* Localize_Swift */,
 				27EF268F26B806D90085FDC7 /* .kevin */,
@@ -707,7 +707,6 @@
 			packageReferences = (
 				27B1809026807898001E0C50 /* XCRemoteSwiftPackageReference "PromiseKit" */,
 				27B18093268078CE001E0C50 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				27B18096268078F5001E0C50 /* XCRemoteSwiftPackageReference "ObjectMapper" */,
 				27B180A626807EA2001E0C50 /* XCRemoteSwiftPackageReference "JWTDecode" */,
 				272CA8F026B4575200978AA7 /* XCRemoteSwiftPackageReference "Localize-Swift" */,
 				27EF268E26B806D90085FDC7 /* XCRemoteSwiftPackageReference "kevin-ios" */,
@@ -763,6 +762,7 @@
 				0C850BA92858A0E900194293 /* InitiateAccountLinkingRequest.swift in Sources */,
 				0C08545C27B3E1270036EE48 /* KevinCountrySelectionCell.swift in Sources */,
 				0CF5659F285767F000853D8A /* ApplicationTabs.swift in Sources */,
+				0C0C85ED287D7DA20079AEF2 /* Encodable+Extensions.swift in Sources */,
 				0C6FAC1C2874226A00B31EDF /* CharacterSet+Extensions.swift in Sources */,
 				0C850BBD2858B11E00194293 /* AccountsView.swift in Sources */,
 				0CE4996A27BA9EC4005E32D4 /* KevinCountrySelector.swift in Sources */,
@@ -1236,14 +1236,6 @@
 				minimumVersion = 5.4.3;
 			};
 		};
-		27B18096268078F5001E0C50 /* XCRemoteSwiftPackageReference "ObjectMapper" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/tristanhimmelman/ObjectMapper";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.2.0;
-			};
-		};
 		27B180A626807EA2001E0C50 /* XCRemoteSwiftPackageReference "JWTDecode" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/auth0/JWTDecode.swift";
@@ -1312,11 +1304,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 27B18093268078CE001E0C50 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
-		};
-		27B18097268078F5001E0C50 /* ObjectMapper */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 27B18096268078F5001E0C50 /* XCRemoteSwiftPackageReference "ObjectMapper" */;
-			productName = ObjectMapper;
 		};
 		27B180A726807EA2001E0C50 /* JWTDecode */ = {
 			isa = XCSwiftPackageProductDependency;

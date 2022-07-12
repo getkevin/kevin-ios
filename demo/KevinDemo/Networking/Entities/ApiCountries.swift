@@ -5,17 +5,12 @@
 //  Created by Daniel Klinge on 10/02/2022.
 //
 
-import ObjectMapper
+import Foundation
 
-public class ApiCountries: Mappable {
-    
-    public var list: [String]!
+public class ApiCountries: Codable {
+    public let list: [String]
 
-    public init() {}
-    
-    required public init?(map: Map) {}
-    
-    public func mapping(map: Map) {
-        list   <- map["data"]
+    enum CodingKeys: String, CodingKey {
+        case list = "data"
     }
 }

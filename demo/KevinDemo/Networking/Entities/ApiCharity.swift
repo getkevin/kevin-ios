@@ -5,35 +5,18 @@
 //  Created by Daniel Klinge on 10/02/2022.
 //
 
-import ObjectMapper
+import Foundation
 
-public class ApiCharity: Mappable {
+public class ApiCharity: Codable {
     
-    public var id: String!
-    public var name: String!
-    public var logo: String!
-    public var informationUnstructured: String!
-    public var country: String!
-    public var website: String!
-    public var phone: String!
-    public var email: String!
-    public var address: String!
-    public var accounts: [ApiCharityAccount]!
-
-    public init() {}
-    
-    required public init?(map: Map) {}
-    
-    public func mapping(map: Map) {
-        id                          <- map["id"]
-        name                        <- map["name"]
-        logo                        <- map["logo"]
-        informationUnstructured     <- map["informationUnstructured"]
-        country                     <- map["country"]
-        website                     <- map["website"]
-        phone                       <- map["phone"]
-        email                       <- map["email"]
-        address                     <- map["address"]
-        accounts                    <- map["accounts"]
-    }
+    public let id: String
+    public let name: String
+    public let logo: String
+    public let informationUnstructured: String
+    public let country: String
+    public let website: String
+    public let phone: String
+    public let email: String
+    public let address: String
+    public let accounts: [ApiCharityAccount]
 }

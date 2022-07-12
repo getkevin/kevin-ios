@@ -7,26 +7,23 @@
 //
 
 import Foundation
-import ObjectMapper
 
-public class ApiError: Mappable, Error {
+public class ApiError: Codable, Error {
     
     public var error: String?
     public var statusCode: Int?
     public var description: String?
     
+    enum CodingKeys: String, CodingKey {
+        case error
+        case statusCode = "status"
+        case description = "error_description"
+    }
+
     public init(error: String? = nil, description: String? = nil, statusCode: Int? = nil) {
         self.error = error
         self.description = description
         self.statusCode = statusCode
-    }
-    
-    required public init?(map: Map) {
-    }
-    
-    public func mapping(map: Map) {
-        error       <- map["error"]
-        description <- map["error_description"]
     }
     
     public func isUnauthorized() -> Bool {

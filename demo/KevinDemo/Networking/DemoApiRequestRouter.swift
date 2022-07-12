@@ -61,22 +61,26 @@ enum DemoApiRequestRouter {
     }
     
     private var parameters: Parameters? {
-        switch self {
-        case .getCharityList(let request):
-            return request.toJSON()
-        case .initializeAccountLinking(let request):
-            return request.toJSON()
-        case .getAccessToken(let request):
-            return request.toJSON()
-        case .refreshAccessToken(let request):
-            return request.toJSON()
-        case .initializeBankPayment(let request):
-            return request.toJSON()
-        case .initializeLinkedBankPayment(let request, _):
-            return request.toJSON()
-        case .initializeCardPayment(let request):
-            return request.toJSON()
-        default:
+        do {
+            switch self {
+            case .getCharityList(let request):
+                return try request.toDictionary()
+            case .initializeAccountLinking(let request):
+                return try request.toDictionary()
+            case .getAccessToken(let request):
+                return try request.toDictionary()
+            case .refreshAccessToken(let request):
+                return try request.toDictionary()
+            case .initializeBankPayment(let request):
+                return try request.toDictionary()
+            case .initializeLinkedBankPayment(let request, _):
+                return try request.toDictionary()
+            case .initializeCardPayment(let request):
+                return try request.toDictionary()
+            default:
+                return nil
+            }
+        } catch {
             return nil
         }
     }

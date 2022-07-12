@@ -8,7 +8,6 @@
 
 import Alamofire
 import Foundation
-import ObjectMapper
 import PromiseKit
 
 open class PSBaseApiClient {
@@ -38,7 +37,7 @@ open class PSBaseApiClient {
         session.cancelAllRequests()
     }
     
-    public func doRequest<RC: URLRequestConvertible, E: Mappable>(requestRouter: RC) -> Promise<[E]> {
+    public func doRequest<RC: URLRequestConvertible, E: Codable>(requestRouter: RC) -> Promise<[E]> {
         let request = createRequest(requestRouter)
         executeRequest(request)
         
@@ -46,14 +45,17 @@ open class PSBaseApiClient {
             .pendingPromise
             .promise
             .map(on: workQueue) { body in
-                guard let objects = Mapper<E>().mapArray(JSONObject: body) else {
+                do {
+                    let decoder = JSONDecoder()
+                    let data = try JSONSerialization.data(withJSONObject: body, options: [])
+                    return try decoder.decode([E].self, from: data)
+                } catch {
                     throw self.mapError(body: body)
                 }
-                return objects
             }
     }
     
-    public func doRequest<RC: URLRequestConvertible, E: Mappable>(requestRouter: RC) -> Promise<E> {
+    public func doRequest<RC: URLRequestConvertible, E: Codable>(requestRouter: RC) -> Promise<E> {
         let request = createRequest(requestRouter)
         executeRequest(request)
         
@@ -61,10 +63,13 @@ open class PSBaseApiClient {
             .pendingPromise
             .promise
             .map(on: workQueue) { body in
-                guard let object = Mapper<E>().map(JSONObject: body) else {
+                do {
+                    let decoder = JSONDecoder()
+                    let data = try JSONSerialization.data(withJSONObject: body, options: [])
+                    return try decoder.decode(E.self, from: data)
+                } catch {
                     throw self.mapError(body: body)
                 }
-                return object
             }
     }
     
@@ -196,7 +201,17 @@ open class PSBaseApiClient {
     }
     
     private func mapError(body: Any?) -> ApiError {
-        Mapper<ApiError>().map(JSONObject: body) ?? .unknown()
+        guard let body = body else {
+            return .unknown()
+        }
+
+        do {
+            let decoder = JSONDecoder()
+            let data = try JSONSerialization.data(withJSONObject: body, options: [])
+            return try decoder.decode(ApiError.self, from: data)
+        } catch {
+            return .unknown()
+        }
     }
     
     private func refreshToken() {

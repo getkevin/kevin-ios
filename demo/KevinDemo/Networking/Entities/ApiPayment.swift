@@ -6,17 +6,8 @@
 //  Copyright © 2021 kevin.. All rights reserved.
 //
 
-import ObjectMapper
+import Foundation
 
-public class ApiPayment: Mappable {
-    
-    public var id: String!
-
-    public init() {}
-    
-    required public init?(map: Map) {}
-    
-    public func mapping(map: Map) {
-        id   <- map["id"]
-    }
+public class ApiPayment: Codable {
+    public let id: String
 }

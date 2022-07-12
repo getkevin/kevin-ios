@@ -6,7 +6,7 @@
 //  Copyright © 2021 kevin.. All rights reserved.
 //
 
-import ObjectMapper
+import Foundation
 
 public class RequestHeaders {
     
