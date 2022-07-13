@@ -21,6 +21,8 @@ open class PSBaseApiClient {
     private var refreshPromise: Promise<Bool>?
     private let workQueue = DispatchQueue(label: "\(PSBaseApiClient.self)")
     
+    private let responseDecoder = ResponseDecoder()
+    
     public init(
         session: Session,
         credentials: JWTCredentials?,
@@ -37,24 +39,6 @@ open class PSBaseApiClient {
         session.cancelAllRequests()
     }
     
-    public func doRequest<RC: URLRequestConvertible, E: Codable>(requestRouter: RC) -> Promise<[E]> {
-        let request = createRequest(requestRouter)
-        executeRequest(request)
-        
-        return request
-            .pendingPromise
-            .promise
-            .map(on: workQueue) { body in
-                do {
-                    let decoder = JSONDecoder()
-                    let data = try JSONSerialization.data(withJSONObject: body, options: [])
-                    return try decoder.decode([E].self, from: data)
-                } catch {
-                    throw self.mapError(body: body)
-                }
-            }
-    }
-    
     public func doRequest<RC: URLRequestConvertible, E: Codable>(requestRouter: RC) -> Promise<E> {
         let request = createRequest(requestRouter)
         executeRequest(request)
@@ -62,14 +46,8 @@ open class PSBaseApiClient {
         return request
             .pendingPromise
             .promise
-            .map(on: workQueue) { body in
-                do {
-                    let decoder = JSONDecoder()
-                    let data = try JSONSerialization.data(withJSONObject: body, options: [])
-                    return try decoder.decode(E.self, from: data)
-                } catch {
-                    throw self.mapError(body: body)
-                }
+            .map(on: workQueue) { [weak self] body in
+                try (self?.responseDecoder.decodeRequest(with: body))!
             }
     }
     

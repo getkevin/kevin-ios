@@ -19,6 +19,7 @@
 		0C0C13A128590F6500607CE9 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0C0C13A028590F6500607CE9 /* SDWebImageSwiftUI */; };
 		0C0C13AD2859FC8700607CE9 /* FontWeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0C13AC2859FC8700607CE9 /* FontWeight.swift */; };
 		0C0C85ED287D7DA20079AEF2 /* Encodable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0C85EC287D7DA20079AEF2 /* Encodable+Extensions.swift */; };
+		0C0C85F0287EDF840079AEF2 /* ResponseDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0C85EF287EDF840079AEF2 /* ResponseDecoder.swift */; };
 		0C14500527C369CE00FB3A3E /* KevinModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C14500427C369CD00FB3A3E /* KevinModalView.swift */; };
 		0C14500F27C3B74900FB3A3E /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C14500E27C3B74900FB3A3E /* String+Extensions.swift */; };
 		0C630C02285A410600E6FAD1 /* AttributedText in Frameworks */ = {isa = PBXBuildFile; productRef = 0C630C01285A410600E6FAD1 /* AttributedText */; };
@@ -131,6 +132,7 @@
 		0C08546B27B55ED60036EE48 /* ApiCharities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCharities.swift; sourceTree = "<group>"; };
 		0C0C13AC2859FC8700607CE9 /* FontWeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontWeight.swift; sourceTree = "<group>"; };
 		0C0C85EC287D7DA20079AEF2 /* Encodable+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extensions.swift"; sourceTree = "<group>"; };
+		0C0C85EF287EDF840079AEF2 /* ResponseDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseDecoder.swift; sourceTree = "<group>"; };
 		0C14500427C369CD00FB3A3E /* KevinModalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KevinModalView.swift; sourceTree = "<group>"; };
 		0C14500E27C3B74900FB3A3E /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		0C630C03285A435700E6FAD1 /* KevinPaymentTypeSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KevinPaymentTypeSelector.swift; sourceTree = "<group>"; };
@@ -289,6 +291,14 @@
 				0C005FA92861C856003C767F /* KevinLinkedBankCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		0C0C85EE287EDF720079AEF2 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				0C0C85EF287EDF840079AEF2 /* ResponseDecoder.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		0C630C05285B2B4000E6FAD1 /* UseCases */ = {
@@ -484,6 +494,7 @@
 		27B1809F26807BFB001E0C50 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				0C0C85EE287EDF720079AEF2 /* Utils */,
 				27B180A926807EB2001E0C50 /* Entities */,
 				27B180AE26807F72001E0C50 /* Protocols */,
 				27B180A226807D78001E0C50 /* BaseApiClient.swift */,
@@ -808,6 +819,7 @@
 				0C630C1B285B2E7900E6FAD1 /* InitiateLinkedPaymentProtocol.swift in Sources */,
 				0CFAE6A5285B574300F55F74 /* KevinLinkedBankSelector.swift in Sources */,
 				27B180B9268080E2001E0C50 /* DemoApiClient.swift in Sources */,
+				0C0C85F0287EDF840079AEF2 /* ResponseDecoder.swift in Sources */,
 				27B180AD26807F14001E0C50 /* ApiRequest.swift in Sources */,
 				0C630C0F285B2B8600E6FAD1 /* InitiateLinkedBankPaymentUseCase.swift in Sources */,
 				0CFAE6A7285B8B4000F55F74 /* KevinBankError.swift in Sources */,
