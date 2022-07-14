@@ -47,7 +47,9 @@ open class PSBaseApiClient {
             .pendingPromise
             .promise
             .map(on: workQueue) { [weak self] body in
-                guard let `self` = self else { throw ApiError.unknown() }
+                guard let `self` = self else {
+                    throw ApiError.unknown()
+                }
                 return try self.responseDecoder.decodeRequest(with: body)
             }
     }
@@ -161,7 +163,9 @@ open class PSBaseApiClient {
     }
     
     private func mapError(body: Any?) -> ApiError {
-        guard let body = body, let data = try? responseDecoder.makeData(with: body) else { return .unknown() }
+        guard let body = body, let data = try? responseDecoder.makeData(with: body) else {
+            return .unknown()
+        }
         return responseDecoder.makeError(with: data)
     }
     
