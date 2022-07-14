@@ -12,7 +12,7 @@ class ResponseDecoder {
     
     private let decoder = JSONDecoder()
     
-    func decodeRequest<E: Codable>(with body: Any) throws -> E {
+    func decodeRequest<E: Decodable>(with body: Any) throws -> E {
         let data = try makeData(with: body)
         do {
             return try decoder.decode(E.self, from: data)
@@ -21,7 +21,7 @@ class ResponseDecoder {
         }
     }
     
-    private func makeData(with body: Any) throws -> Data {
+    func makeData(with body: Any) throws -> Data {
         do {
             return try JSONSerialization.data(withJSONObject: body, options: [])
         } catch {
@@ -29,7 +29,7 @@ class ResponseDecoder {
         }
     }
     
-    private func makeError(with data: Data) -> ApiError {
+    func makeError(with data: Data) -> ApiError {
         let error = try? decoder.decode(ApiError.self, from: data)
         return error ?? .unknown()
     }

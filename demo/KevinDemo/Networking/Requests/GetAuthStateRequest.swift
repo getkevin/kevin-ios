@@ -7,7 +7,7 @@
 
 import Foundation
 
-public final class GetAuthStateRequest: Codable {
+public final class GetAuthStateRequest: Encodable {
     public let scopes: [String]
     
     public init(scopes: [String]) {

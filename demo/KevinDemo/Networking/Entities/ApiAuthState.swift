@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class ApiAuthState: Codable {
+public class ApiAuthState: Decodable {
     public let authorizationLink: String
     public let state: String
 }

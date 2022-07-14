@@ -7,7 +7,7 @@
 
 import Foundation
 
-public final class RefreshAccessTokenRequest: Codable {
+public final class RefreshAccessTokenRequest: Encodable {
     public let refreshToken: String
     
     public init(refreshToken: String) {

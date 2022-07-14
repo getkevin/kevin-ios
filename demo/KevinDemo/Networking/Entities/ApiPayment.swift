@@ -8,6 +8,6 @@
 
 import Foundation
 
-public class ApiPayment: Codable {
+public class ApiPayment: Decodable {
     public let id: String
 }

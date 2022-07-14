@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class ApiCountries: Codable {
+public class ApiCountries: Decodable {
     public let list: [String]
 
     enum CodingKeys: String, CodingKey {

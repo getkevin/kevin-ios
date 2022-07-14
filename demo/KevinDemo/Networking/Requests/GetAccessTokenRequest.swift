@@ -7,7 +7,7 @@
 
 import Foundation
 
-public final class GetAccessTokenRequest: Codable {    
+public final class GetAccessTokenRequest: Encodable {    
     public let authorizationCode: String
     
     public init(authorizationCode: String) {

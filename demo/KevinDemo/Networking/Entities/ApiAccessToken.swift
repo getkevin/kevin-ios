@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class ApiAccessToken: Codable {
+public class ApiAccessToken: Decodable {
     public let tokenType: String
     public let accessToken: String
     public let accessTokenExpiresIn: Double

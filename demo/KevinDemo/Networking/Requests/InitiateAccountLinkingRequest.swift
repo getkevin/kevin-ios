@@ -7,7 +7,7 @@
 
 import Foundation
 
-public final class InitiateAccountLinkingRequest: Codable {
+public final class InitiateAccountLinkingRequest: Encodable {
     public let scopes: [String]
     
     public init(scopes: [String]) {

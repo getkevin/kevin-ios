@@ -7,8 +7,7 @@
 
 import Foundation
 
-public class ApiCharity: Codable {
-    
+public class ApiCharity: Decodable {
     public let id: String
     public let name: String
     public let logo: String

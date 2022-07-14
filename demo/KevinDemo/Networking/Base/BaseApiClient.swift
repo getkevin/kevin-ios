@@ -39,37 +39,19 @@ open class PSBaseApiClient {
         session.cancelAllRequests()
     }
     
-    public func doRequest<RC: URLRequestConvertible, E: Codable>(requestRouter: RC) -> Promise<E> {
+    public func doRequest<RC: URLRequestConvertible, E: Decodable>(requestRouter: RC) -> Promise<E> {
         let request = createRequest(requestRouter)
         executeRequest(request)
-        
+
         return request
             .pendingPromise
             .promise
             .map(on: workQueue) { [weak self] body in
-                try (self?.responseDecoder.decodeRequest(with: body))!
+                guard let `self` = self else { throw ApiError.unknown() }
+                return try self.responseDecoder.decodeRequest(with: body)
             }
     }
-    
-    public func doRequest<RC: URLRequestConvertible>(requestRouter: RC) -> Promise<Any> {
-        let request = createRequest(requestRouter)
-        executeRequest(request)
         
-        return request
-            .pendingPromise
-            .promise
-    }
-    
-    public func doRequest<RC: URLRequestConvertible>(requestRouter: RC) -> Promise<Void> {
-        let request = createRequest(requestRouter)
-        executeRequest(request)
-        
-        return request
-            .pendingPromise
-            .promise
-            .asVoid()
-    }
-    
     private func createRequest<RC: URLRequestConvertible>(_ endpoint: RC) -> ApiRequest {
         ApiRequest(pendingPromise: Promise<Any>.pending(), requestEndPoint: endpoint)
     }
@@ -179,17 +161,8 @@ open class PSBaseApiClient {
     }
     
     private func mapError(body: Any?) -> ApiError {
-        guard let body = body else {
-            return .unknown()
-        }
-
-        do {
-            let decoder = JSONDecoder()
-            let data = try JSONSerialization.data(withJSONObject: body, options: [])
-            return try decoder.decode(ApiError.self, from: data)
-        } catch {
-            return .unknown()
-        }
+        guard let body = body, let data = try? responseDecoder.makeData(with: body) else { return .unknown() }
+        return responseDecoder.makeError(with: data)
     }
     
     private func refreshToken() {

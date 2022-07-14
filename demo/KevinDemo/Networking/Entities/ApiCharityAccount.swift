@@ -7,8 +7,7 @@
 
 import Foundation
 
-public class ApiCharityAccount: Codable {
-    
+public class ApiCharityAccount: Decodable {
     public let currencyCode: String
     public let iban: String
 }

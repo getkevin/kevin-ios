@@ -7,7 +7,7 @@
 
 import Foundation
 
-public final class CharityListRequest: Codable {
+public final class CharityListRequest: Encodable {
     public let countryCode: String
     
     public init(countryCode: String) {

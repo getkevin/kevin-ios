@@ -7,7 +7,7 @@
 
 import Foundation
 
-public final class InitiatePaymentRequest: Codable {    
+public final class InitiatePaymentRequest: Encodable {    
     public let amount: String
     public let email: String
     public let iban: String

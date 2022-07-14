@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class ApiCharities: Codable {
+public class ApiCharities: Decodable {
     public let list: [ApiCharity]
     
     enum CodingKeys: String, CodingKey {
