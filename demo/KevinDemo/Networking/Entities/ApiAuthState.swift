@@ -6,19 +6,9 @@
 //  Copyright © 2021 kevin.. All rights reserved.
 //
 
-import ObjectMapper
+import Foundation
 
-public class ApiAuthState: Mappable {
-    
-    public var authorizationLink: String!
-    public var state: String!
-
-    public init() {}
-    
-    required public init?(map: Map) {}
-    
-    public func mapping(map: Map) {
-        authorizationLink   <- map["authorizationLink"]
-        state               <- map["state"]
-    }
+public class ApiAuthState: Decodable {
+    public let authorizationLink: String
+    public let state: String
 }

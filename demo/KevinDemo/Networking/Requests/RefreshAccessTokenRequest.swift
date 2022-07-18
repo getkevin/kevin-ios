@@ -5,19 +5,12 @@
 //  Created by Daniel Klinge on 14/06/2022.
 //
 
-import ObjectMapper
+import Foundation
 
-public final class RefreshAccessTokenRequest: Mappable {
+public final class RefreshAccessTokenRequest: Encodable {
+    public let refreshToken: String
     
-    public var refreshToken: String!
-
     public init(refreshToken: String) {
         self.refreshToken = refreshToken
-    }
-    
-    required public init?(map: Map) { }
-    
-    public func mapping(map: Map) {
-        refreshToken <- map["refreshToken"]
     }
 }

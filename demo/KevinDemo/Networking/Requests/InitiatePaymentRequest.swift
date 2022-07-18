@@ -5,15 +5,14 @@
 //  Created by Edgar Žigis on 2021-12-26.
 //
 
-import ObjectMapper
+import Foundation
 
-public final class InitiatePaymentRequest: Mappable {
+public final class InitiatePaymentRequest: Encodable {    
+    public let amount: String
+    public let email: String
+    public let iban: String
+    public let creditorName: String
     
-    public var amount: String!
-    public var email: String!
-    public var iban: String!
-    public var creditorName: String!
-
     public init(
         amount: String,
         email: String,
@@ -24,14 +23,5 @@ public final class InitiatePaymentRequest: Mappable {
         self.email = email
         self.iban = iban
         self.creditorName = creditorName
-    }
-    
-    required public init?(map: Map) { }
-    
-    public func mapping(map: Map) {
-        amount        <- map["amount"]
-        email         <- map["email"]
-        iban          <- map["iban"]
-        creditorName  <- map["creditorName"]
     }
 }

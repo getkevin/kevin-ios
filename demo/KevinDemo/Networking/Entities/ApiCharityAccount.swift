@@ -5,19 +5,9 @@
 //  Created by Daniel Klinge on 05/07/2022.
 //
 
-import ObjectMapper
+import Foundation
 
-public class ApiCharityAccount: Mappable {
-    
-    public var currencyCode: String!
-    public var iban: String!
-    
-    public init() {}
-    
-    required public init?(map: Map) {}
-    
-    public func mapping(map: Map) {
-        currencyCode <- map["currencyCode"]
-        iban         <- map["iban"]
-    }
+public class ApiCharityAccount: Decodable {
+    public let currencyCode: String
+    public let iban: String
 }

@@ -8,7 +8,6 @@
 
 import Alamofire
 import Foundation
-import ObjectMapper
 import PromiseKit
 
 open class PSBaseApiClient {
@@ -21,6 +20,8 @@ open class PSBaseApiClient {
     
     private var refreshPromise: Promise<Bool>?
     private let workQueue = DispatchQueue(label: "\(PSBaseApiClient.self)")
+    
+    private let responseDecoder = ResponseDecoder()
     
     public init(
         session: Session,
@@ -38,55 +39,21 @@ open class PSBaseApiClient {
         session.cancelAllRequests()
     }
     
-    public func doRequest<RC: URLRequestConvertible, E: Mappable>(requestRouter: RC) -> Promise<[E]> {
+    public func doRequest<RC: URLRequestConvertible, E: Decodable>(requestRouter: RC) -> Promise<E> {
         let request = createRequest(requestRouter)
         executeRequest(request)
-        
+
         return request
             .pendingPromise
             .promise
-            .map(on: workQueue) { body in
-                guard let objects = Mapper<E>().mapArray(JSONObject: body) else {
-                    throw self.mapError(body: body)
+            .map(on: workQueue) { [weak self] body in
+                guard let `self` = self else {
+                    throw ApiError.unknown()
                 }
-                return objects
+                return try self.responseDecoder.decodeRequest(with: body)
             }
     }
-    
-    public func doRequest<RC: URLRequestConvertible, E: Mappable>(requestRouter: RC) -> Promise<E> {
-        let request = createRequest(requestRouter)
-        executeRequest(request)
         
-        return request
-            .pendingPromise
-            .promise
-            .map(on: workQueue) { body in
-                guard let object = Mapper<E>().map(JSONObject: body) else {
-                    throw self.mapError(body: body)
-                }
-                return object
-            }
-    }
-    
-    public func doRequest<RC: URLRequestConvertible>(requestRouter: RC) -> Promise<Any> {
-        let request = createRequest(requestRouter)
-        executeRequest(request)
-        
-        return request
-            .pendingPromise
-            .promise
-    }
-    
-    public func doRequest<RC: URLRequestConvertible>(requestRouter: RC) -> Promise<Void> {
-        let request = createRequest(requestRouter)
-        executeRequest(request)
-        
-        return request
-            .pendingPromise
-            .promise
-            .asVoid()
-    }
-    
     private func createRequest<RC: URLRequestConvertible>(_ endpoint: RC) -> ApiRequest {
         ApiRequest(pendingPromise: Promise<Any>.pending(), requestEndPoint: endpoint)
     }
@@ -196,7 +163,10 @@ open class PSBaseApiClient {
     }
     
     private func mapError(body: Any?) -> ApiError {
-        Mapper<ApiError>().map(JSONObject: body) ?? .unknown()
+        guard let body = body, let data = try? responseDecoder.makeData(with: body) else {
+            return .unknown()
+        }
+        return responseDecoder.makeError(with: data)
     }
     
     private func refreshToken() {
