@@ -80,7 +80,11 @@ final public class KevinAccountLinkingSession {
                     }
                 }
             } else {
-                delegate?.onKevinAccountLinkingStarted(controller: initializeBankSelection(configuration: configuration))
+                do {
+                    delegate?.onKevinAccountLinkingStarted(controller: try initializeBankSelection(configuration: configuration))
+                } catch {
+                    self.delegate?.onKevinAccountLinkingCanceled(error: error)
+                }
             }
         }
     }
@@ -105,7 +109,7 @@ final public class KevinAccountLinkingSession {
     
     private func initializeBankSelection(
         configuration: KevinAccountLinkingSessionConfiguration
-    ) -> UINavigationController {
+    ) throws -> UINavigationController {
         let controller = KevinBankSelectionViewController()
         controller.configuration = KevinBankSelectionConfiguration(
             selectedCountry: configuration.preselectedCountry ?? KevinCountry.lithuania,
@@ -113,7 +117,8 @@ final public class KevinAccountLinkingSession {
             countryFilter: configuration.countryFilter,
             selectedBankId: configuration.preselectedBank,
             authState: configuration.state,
-            exitSlug: "dialog_exit_confirmation_accounts_message"
+            exitSlug: "dialog_exit_confirmation_accounts_message",
+            showOnlyAccountLinkingSupportedBanks: try !KevinAccountsPlugin.shared.isShowUnsupportedBanks()
         )
         controller.onContinuation = { [weak self] bankId, country in
             controller.show(
