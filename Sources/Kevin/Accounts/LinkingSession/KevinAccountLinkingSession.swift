@@ -83,7 +83,7 @@ final public class KevinAccountLinkingSession {
                 do {
                     delegate?.onKevinAccountLinkingStarted(controller: try initializeBankSelection(configuration: configuration))
                 } catch {
-                    self.delegate?.onKevinAccountLinkingCanceled(error: error)
+                    delegate?.onKevinAccountLinkingCanceled(error: error)
                 }
             }
         }
@@ -118,7 +118,7 @@ final public class KevinAccountLinkingSession {
             selectedBankId: configuration.preselectedBank,
             authState: configuration.state,
             exitSlug: "dialog_exit_confirmation_accounts_message",
-            showOnlyAccountLinkingSupportedBanks: try !KevinAccountsPlugin.shared.isShowUnsupportedBanks()
+            excludeBanksWithoutAccountLinkingSupport: try KevinAccountsPlugin.shared.shouldExcludeBanksWithoutAccountLinkingSupport()
         )
         controller.onContinuation = { [weak self] bankId, country in
             controller.show(

@@ -39,7 +39,7 @@ internal class KevinBankSelectionViewModel : KevinViewModel<KevinBankSelectionSt
                 
                 var filtredBankItems = bankItems
                 
-                if configuration.showOnlyAccountLinkingSupportedBanks {
+                if configuration.excludeBanksWithoutAccountLinkingSupport {
                     filtredBankItems = filtredBankItems.filter { $0.isAccountLinkingSupported }
                 }
                 

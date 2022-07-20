@@ -24,14 +24,15 @@ public class KevinAccountsConfiguration {
     public class Builder {
         
         private let callbackUrl: URL
-        private let showUnsupportedBanks: Bool
+        private var showUnsupportedBanks = false
 
-        public init(
-            callbackUrl: URL,
-            showUnsupportedBanks: Bool = false
-        ) {
+        public init(callbackUrl: URL) {
             self.callbackUrl = callbackUrl
-            self.showUnsupportedBanks = showUnsupportedBanks
+        }
+        
+        public func setShowUnsupportedBanks(_ show: Bool) -> Builder {
+            showUnsupportedBanks = show
+            return self
         }
         
         public func build() -> KevinAccountsConfiguration {
