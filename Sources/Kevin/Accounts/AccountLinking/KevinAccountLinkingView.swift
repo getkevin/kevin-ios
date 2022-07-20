@@ -86,7 +86,9 @@ extension KevinAccountLinkingView: WKNavigationDelegate {
     }
 
     func webView(_ webView: WKWebView, didFailProvisionalNavigation: WKNavigation!, withError: Error) {
-        guard let url = webView.url else { return }
+        guard let url = webView.url else {
+            return
+        }
 
         delegate?.onAccountLinkingCompleted(callbackUrl: url, error: withError)
     }
