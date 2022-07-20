@@ -84,8 +84,16 @@ extension KevinAccountLinkingView: WKNavigationDelegate {
             decisionHandler(.allow)
         }
     }
+
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation: WKNavigation!, withError: Error) {
+        guard let url = webView.url else {
+            return
+        }
+
+        delegate?.onAccountLinkingCompleted(callbackUrl: url, error: withError)
+    }
     
-    func shouldProcessExternally(url: URL?) -> Bool {
+    private func shouldProcessExternally(url: URL?) -> Bool {
         guard let url = url else {
             return false
         }
