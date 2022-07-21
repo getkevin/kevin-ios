@@ -37,7 +37,11 @@ internal class KevinBankSelectionViewModel : KevinViewModel<KevinBankSelectionSt
         ) { [weak self] bankItems, error in
             if let bankItems = bankItems {
                 
-                let filtredBankItems = bankItems.filter { $0.isAccountLinkingSupported }
+                var filtredBankItems = bankItems
+                
+                if configuration.excludeBanksWithoutAccountLinkingSupport {
+                    filtredBankItems = filtredBankItems.filter { $0.isAccountLinkingSupported }
+                }
                 
                 let newState = KevinBankSelectionState(
                     selectedCountry: code,

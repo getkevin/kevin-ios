@@ -90,7 +90,8 @@ final public class KevinPaymentSession {
             countryFilter: configuration.countryFilter,
             selectedBankId: configuration.preselectedBank,
             authState: configuration.paymentId,
-            exitSlug: "dialog_exit_confirmation_payments_message"
+            exitSlug: "dialog_exit_confirmation_payments_message",
+            excludeBanksWithoutAccountLinkingSupport: true
         )
         controller.onContinuation = { [weak self] bankId, _ in
             controller.show(

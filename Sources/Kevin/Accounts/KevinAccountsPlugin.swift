@@ -32,6 +32,13 @@ public class KevinAccountsPlugin: KevinPlugin {
         return configuration.callbackUrl
     }
     
+    public func shouldExcludeBanksWithoutAccountLinkingSupport() throws -> Bool {
+        guard let configuration = configuration else {
+            throw KevinError(description: "KevinAccountsPlugin was not configured!")
+        }
+        return !configuration.showUnsupportedBanks
+    }
+
     //MARK: KevinPlugin
     
     public func isConfigured() -> Bool {

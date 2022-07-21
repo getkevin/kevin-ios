@@ -11,24 +11,34 @@ import Foundation
 public class KevinAccountsConfiguration {
     
     let callbackUrl: URL
-    
+    let showUnsupportedBanks: Bool
+
     private init(
-        callbackUrl: URL
+        callbackUrl: URL,
+        showUnsupportedBanks: Bool
     ) {
         self.callbackUrl = callbackUrl
+        self.showUnsupportedBanks = showUnsupportedBanks
     }
     
     public class Builder {
         
         private let callbackUrl: URL
-        
-       public init(callbackUrl: URL) {
+        private var showUnsupportedBanks = false
+
+        public init(callbackUrl: URL) {
             self.callbackUrl = callbackUrl
+        }
+        
+        public func setShowUnsupportedBanks(_ show: Bool) -> Builder {
+            showUnsupportedBanks = show
+            return self
         }
         
         public func build() -> KevinAccountsConfiguration {
             return KevinAccountsConfiguration(
-                callbackUrl: callbackUrl
+                callbackUrl: callbackUrl,
+                showUnsupportedBanks: showUnsupportedBanks
             )
         }
     }
