@@ -36,11 +36,6 @@ internal class KevinPaymentConfirmationViewController :
         super.viewWillAppear(animated)
         if configuration.skipAuthentication || configuration.paymentType == .card {
             uiStateHandler?.setNavigationController(navigationController: navigationController)
-            uiStateHandler?.setNavigationBarColor(
-                UIApplication.shared.isLightThemedInterface ?
-                Kevin.shared.theme.navigationBarStyle.backgroundColorLightMode :
-                    Kevin.shared.theme.navigationBarStyle.backgroundColorDarkMode
-            )
         }
     }
     
@@ -55,7 +50,6 @@ internal class KevinPaymentConfirmationViewController :
                         error: KevinCancelationError(description: "Payment was canceled!")
                     )
                 )
-                uiStateHandler?.resetState()
             }
         }
     }
