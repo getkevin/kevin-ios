@@ -18,4 +18,10 @@ Pod::Spec.new do |spec|
   spec.source       = { :git => "https://github.com/getkevin/kevin-ios.git", :tag => "#{spec.version}" }
 
   spec.source_files  = "Sources/Kevin/**/*.{swift}"
+  spec.resource_bundles = {
+    'Kevin_Kevin' => [ 
+       'Sources/Kevin/Resources/*.lproj',
+       'Sources/Kevin/Resources/Assets.xcassets'
+    ]
+  }
 end
