@@ -100,7 +100,7 @@ extension KevinCountrySelectionView: UITableViewDataSource {
         }
         
         cell!.backgroundOverlay.isHidden = !(countryItems[indexPath.row].uppercased() == selectedCountry.uppercased())
-        cell!.iconImageView.image = UIImage(named: "flag\(countryItems[indexPath.row].uppercased())", in: Bundle.module, compatibleWith: nil)
+        cell!.iconImageView.image = UIImage(named: "flag\(countryItems[indexPath.row].uppercased())", in: Bundle.current, compatibleWith: nil)
         cell!.titleLabel.text = "country_name_\(countryItems[indexPath.row].lowercased())".localized(for: Kevin.shared.locale.identifier)
         
         return cell!

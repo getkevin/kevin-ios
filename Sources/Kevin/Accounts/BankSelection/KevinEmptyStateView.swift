@@ -11,7 +11,7 @@ final internal class KevinEmptyStateView: UIView {
     }()
     
     private let iconImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "error", in: .module, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate))
+        let imageView = UIImageView(image: UIImage(named: "error", in: .current, compatibleWith: nil)?.withRenderingMode(.alwaysTemplate))
         imageView.tintColor = Kevin.shared.theme.emptyStateStyle.iconTintColor
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
