@@ -27,7 +27,7 @@ internal class KevinBankSelectionView : KevinView<KevinBankSelectionState> {
     private var selectedBankId: String!
     
     public override func render(state: KevinBankSelectionState) {
-        countrySelectionIconView.image = UIImage(named: "flag\(state.selectedCountry.uppercased())", in: Bundle.module, compatibleWith: nil)
+        countrySelectionIconView.image = UIImage(named: "flag\(state.selectedCountry.uppercased())", in: Bundle.current, compatibleWith: nil)
         let countryName = "country_name_\(state.selectedCountry)".localized(for: Kevin.shared.locale.identifier)
         countrySelectionCountryLabel.text = countryName
         bankItems = state.bankItems

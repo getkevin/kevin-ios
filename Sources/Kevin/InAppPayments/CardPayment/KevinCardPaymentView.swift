@@ -127,7 +127,7 @@ internal class KevinCardPaymentView: KevinView<KevinCardPaymentState> {
     
     private func initAmountContainer() {
         cardFormContainerView.addSubview(cardIconView)
-        cardIconView.image = UIImage(named: "card", in: Bundle.module, compatibleWith: nil)
+        cardIconView.image = UIImage(named: "card", in: Bundle.current, compatibleWith: nil)
         cardIconView.translatesAutoresizingMaskIntoConstraints = false
         cardIconView.centerXAnchor.constraint(equalTo: cardFormContainerView.centerXAnchor).isActive = true
         cardIconView.topAnchor.constraint(equalTo: cardFormContainerView.topAnchor, constant: 24).isActive = true
@@ -280,7 +280,7 @@ internal class KevinCardPaymentView: KevinView<KevinCardPaymentState> {
         cvvLabel.setContentHuggingPriority(.defaultHigh, for: .horizontal)
 
         cvvContainer.addSubview(cvvLabelHint)
-        cvvLabelHint.image = UIImage(named: "questionMark", in: Bundle.module, compatibleWith: nil)
+        cvvLabelHint.image = UIImage(named: "questionMark", in: Bundle.current, compatibleWith: nil)
         cvvLabelHint.translatesAutoresizingMaskIntoConstraints = false
         cvvLabelHint.leftAnchor.constraint(equalTo: cvvLabel.rightAnchor, constant: 4).isActive = true
         cvvLabelHint.rightAnchor.constraint(lessThanOrEqualTo: cvvContainer.rightAnchor).isActive = true
@@ -326,7 +326,7 @@ internal class KevinCardPaymentView: KevinView<KevinCardPaymentState> {
     
     private func initPaymentNoticeLabel() {
         cardFormContainerView.addSubview(paymentNoticeIcon)
-        paymentNoticeIcon.image = UIImage(named: "warning", in: Bundle.module, compatibleWith: nil)
+        paymentNoticeIcon.image = UIImage(named: "warning", in: Bundle.current, compatibleWith: nil)
         paymentNoticeIcon.translatesAutoresizingMaskIntoConstraints = false
         paymentNoticeIcon.leftAnchor.constraint(equalTo: cardFormContainerView.leftAnchor, constant: 18).isActive = true
         paymentNoticeIcon.widthAnchor.constraint(equalToConstant: 20).isActive = true

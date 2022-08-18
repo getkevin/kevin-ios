@@ -36,8 +36,8 @@ open class KevinTheme {
         public var tintColor = UIColor.white
         public var backgroundColorLightMode = UIColor(red: 1, green: 0, blue: 32/255, alpha: 1)
         public var backgroundColorDarkMode = UIColor(red: 1, green: 0, blue: 32/255, alpha: 1)
-        public var backButtonImage = UIImage(named: "backButtonIcon", in: Bundle.module, compatibleWith: nil)
-        public var closeButtonImage = UIImage(named: "closeButtonIcon", in: Bundle.module, compatibleWith: nil)
+        public var backButtonImage = UIImage(named: "backButtonIcon", in: Bundle.current, compatibleWith: nil)
+        public var closeButtonImage = UIImage(named: "closeButtonIcon", in: Bundle.current, compatibleWith: nil)
         
         public init() { }
     }
@@ -71,7 +71,7 @@ open class KevinTheme {
         public var cellBackgroundColor = UIColor.white
         public var cellSelectedBackgroundColor = UIColor(red: 226/255, green: 225/255, blue: 234/255, alpha: 1)
         public var titleLabelFont = UIFont.systemFont(ofSize: 15, weight: .semibold)
-        public var chevronImage: UIImage? = UIImage(named: "chevronIcon", in: Bundle.module, compatibleWith: nil)
+        public var chevronImage: UIImage? = UIImage(named: "chevronIcon", in: Bundle.current, compatibleWith: nil)
         
         public init() { }
     }
@@ -83,7 +83,7 @@ open class KevinTheme {
         public var cornerRadius: CGFloat = 10
         public var borderWidth: CGFloat = 0
         public var borderColor = UIColor(red: 226/255, green: 225/255, blue: 234/255, alpha: 1)
-        public var chevronImage: UIImage? = UIImage(named: "chevronIcon", in: Bundle.module, compatibleWith: nil)
+        public var chevronImage: UIImage? = UIImage(named: "chevronIcon", in: Bundle.current, compatibleWith: nil)
         
         public init() { }
     }

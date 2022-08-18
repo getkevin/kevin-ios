@@ -65,7 +65,7 @@ internal class KevinBankTransferPromptView: UIView {
         containerViewTopConstraint?.isActive = true
 
         containerView.addSubview(bankIcon)
-        bankIcon.image = UIImage(named: "bank", in: Bundle.module, compatibleWith: nil)
+        bankIcon.image = UIImage(named: "bank", in: Bundle.current, compatibleWith: nil)
         bankIcon.translatesAutoresizingMaskIntoConstraints = false
         bankIcon.centerXAnchor.constraint(equalTo: containerView.centerXAnchor).isActive = true
         bankIcon.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 50).isActive = true
