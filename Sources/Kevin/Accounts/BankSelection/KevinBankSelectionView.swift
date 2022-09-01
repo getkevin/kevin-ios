@@ -37,18 +37,16 @@ internal class KevinBankSelectionView : KevinView<KevinBankSelectionState> {
         
         tableView.reloadData()
         
-        let countryName = "country_name_\(state.selectedCountry)".localized(for: Kevin.shared.locale.identifier)
-        
         if !state.isLoading {
-            showEmptyState(state.bankItems.isEmpty, for: countryName)
+            hideControls(state.bankItems.isEmpty)
             loadingIndicator.stopAnimating()
         } else {
-            showEmptyState(false, for: countryName)
+            hideControls(false)
             loadingIndicator.startAnimating()
         }
     }
     
-    private func showEmptyState(_ show: Bool, for country: String) {
+    private func hideControls(_ show: Bool) {
         continueButton.isHidden = show
         agreementLabel.isHidden = show
     }
