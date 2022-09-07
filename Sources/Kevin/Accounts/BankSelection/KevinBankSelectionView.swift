@@ -87,7 +87,6 @@ internal class KevinBankSelectionView : KevinView<KevinBankSelectionState> {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         tableView.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     }
     
     private func initAgreementLabel() {        
@@ -179,7 +178,8 @@ extension KevinBankSelectionView : UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        if KevinBankSelectionSections(rawValue: indexPath.section) == .countrySelection
+        if
+            KevinBankSelectionSections(rawValue: indexPath.section) == .countrySelection
             && state?.isCountrySelectionDisabled == true {
             return nil
         } else {

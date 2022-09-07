@@ -1,9 +1,9 @@
 //
 //  BankCell.swift
+//  kevin.iOS
 //
-//
-//  Created by Bio:Matic on 09/03/2017.
-//  Copyright © 2017 Edgar Žigis. All rights reserved.
+//  Created by Arthur Alehna on 01/09/2022.
+//  Copyright © 2022 kevin.. All rights reserved.
 //
 
 import UIKit
