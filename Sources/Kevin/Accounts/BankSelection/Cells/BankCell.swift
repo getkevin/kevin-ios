@@ -1,12 +1,11 @@
 //
-//  GalleryCell.swift
-//  NoteMe
+//  BankCell.swift
+//  kevin.iOS
 //
-//  Created by Bio:Matic on 09/03/2017.
-//  Copyright © 2017 Edgar Žigis. All rights reserved.
+//  Created by Arthur Alehna on 01/09/2022.
+//  Copyright © 2022 kevin.. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 internal class BankCell : UITableViewCell {
@@ -19,11 +18,19 @@ internal class BankCell : UITableViewCell {
     let leftOverlay = UIView()
     let rightOverlay = UIView()
     
+    private let containerView = UIView()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.backgroundColor = Kevin.shared.theme.generalStyle.primaryBackgroundColor
+        
         configureLeftAsset()
         configureRightAsset()
+        configureContainerView()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
     
     func selectLeftItem(_ isSelected: Bool) {
@@ -42,51 +49,67 @@ internal class BankCell : UITableViewCell {
         }
     }
     
+    private func configureContainerView() {
+        addSubview(containerView)
+
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        containerView.addSubview(leftOverlay)
+        containerView.addSubview(rightOverlay)
+        
+        NSLayoutConstraint.activate([
+            containerView.leftAnchor.constraint(equalTo: leftAnchor, constant: Kevin.shared.theme.insets.left),
+            containerView.rightAnchor.constraint(equalTo: rightAnchor, constant: -Kevin.shared.theme.insets.right),
+            containerView.topAnchor.constraint(equalTo: topAnchor),
+            containerView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
+            containerView.heightAnchor.constraint(equalToConstant: 60),
+            
+            leftOverlay.widthAnchor.constraint(
+                equalToConstant: (rowWidth - 16 - Kevin.shared.theme.insets.left - Kevin.shared.theme.insets.right) / 2
+            ),
+            leftOverlay.topAnchor.constraint(equalTo: containerView.topAnchor),
+            leftOverlay.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+            leftOverlay.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            
+            rightOverlay.widthAnchor.constraint(equalTo: leftOverlay.widthAnchor),
+            rightOverlay.topAnchor.constraint(equalTo: containerView.topAnchor),
+            rightOverlay.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+            rightOverlay.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)
+        ])
+    }
+    
     private func configureLeftAsset() {
         leftOverlay.backgroundColor = Kevin.shared.theme.gridTableStyle.cellSelectedBackgroundColor
         leftOverlay.layer.cornerRadius = Kevin.shared.theme.gridTableStyle.cellCornerRadius
         leftOverlay.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(leftOverlay)
 
         leftAsset.contentMode = .scaleAspectFit
         leftAsset.isUserInteractionEnabled = true
         leftAsset.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(leftAsset)
-        leftAsset.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: Kevin.shared.theme.insets.left).isActive = true
-        leftAsset.widthAnchor.constraint(
-            equalToConstant: (rowWidth - 16 - Kevin.shared.theme.insets.left - Kevin.shared.theme.insets.right) / 2
-        ).isActive = true
-        leftAsset.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        leftOverlay.addSubview(leftAsset)
         
-        leftOverlay.topAnchor.constraint(equalTo: leftAsset.topAnchor).isActive = true
-        leftOverlay.leftAnchor.constraint(equalTo: leftAsset.leftAnchor).isActive = true
-        leftOverlay.widthAnchor.constraint(equalTo: leftAsset.widthAnchor).isActive = true
-        leftOverlay.heightAnchor.constraint(equalTo: leftAsset.heightAnchor).isActive = true
+        NSLayoutConstraint.activate([
+            leftAsset.topAnchor.constraint(equalTo: leftOverlay.topAnchor),
+            leftAsset.leftAnchor.constraint(equalTo: leftOverlay.leftAnchor),
+            leftAsset.rightAnchor.constraint(equalTo: leftOverlay.rightAnchor),
+            leftAsset.bottomAnchor.constraint(equalTo: leftOverlay.bottomAnchor)
+        ])
     }
     
     private func configureRightAsset() {
         rightOverlay.backgroundColor = Kevin.shared.theme.gridTableStyle.cellSelectedBackgroundColor
         rightOverlay.layer.cornerRadius = Kevin.shared.theme.gridTableStyle.cellCornerRadius
         rightOverlay.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(rightOverlay)
         
         rightAsset.contentMode = .scaleAspectFit
         rightAsset.isUserInteractionEnabled = true
         rightAsset.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(rightAsset)
-        rightAsset.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -Kevin.shared.theme.insets.right).isActive = true
-        rightAsset.widthAnchor.constraint(
-            equalToConstant: (rowWidth - 16 - Kevin.shared.theme.insets.left - Kevin.shared.theme.insets.right) / 2
-        ).isActive = true
-        rightAsset.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        rightOverlay.addSubview(rightAsset)
         
-        rightOverlay.topAnchor.constraint(equalTo: rightAsset.topAnchor).isActive = true
-        rightOverlay.leftAnchor.constraint(equalTo: rightAsset.leftAnchor).isActive = true
-        rightOverlay.widthAnchor.constraint(equalTo: rightAsset.widthAnchor).isActive = true
-        rightOverlay.heightAnchor.constraint(equalTo: rightAsset.heightAnchor).isActive = true
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        NSLayoutConstraint.activate([
+            rightAsset.topAnchor.constraint(equalTo: rightOverlay.topAnchor),
+            rightAsset.leftAnchor.constraint(equalTo: rightOverlay.leftAnchor),
+            rightAsset.rightAnchor.constraint(equalTo: rightOverlay.rightAnchor),
+            rightAsset.bottomAnchor.constraint(equalTo: rightOverlay.bottomAnchor)
+        ])
     }
 }

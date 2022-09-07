@@ -8,59 +8,52 @@
 
 import UIKit
 
+internal enum KevinBankSelectionSections: Int, CaseIterable {
+    case countrySelection
+    case bankHeader
+    case banks
+    case empty
+}
+
 internal class KevinBankSelectionView : KevinView<KevinBankSelectionState> {
     
     weak var delegate: KevinBankSelectionViewDelegate?
     
     private let loadingIndicator = UIActivityIndicatorView()
-    private let countrySelectionContainer = UIView()
-    private let countrySelectionIconView = UIImageView()
-    private let countrySelectionCountryLabel = UILabel()
-    private let bankTableView = UITableView()
-    private let countrySelectionLabel = UILabel()
-    private let bankSelectionLabel = UILabel()
+    private let tableView = UITableView()
+    
     private let agreementLabel = KevinClickableUILabel()
     private let continueButton = KevinButton(type: .custom)
-    private let emptyStateView = KevinEmptyStateView()
-    
+
     private var bankItems: Array<ApiBank> = []
     private var selectedBankId: String!
     
+    private var state: KevinBankSelectionState?
+    
     public override func render(state: KevinBankSelectionState) {
-        countrySelectionIconView.image = UIImage(named: "flag\(state.selectedCountry.uppercased())", in: Bundle.current, compatibleWith: nil)
-        let countryName = "country_name_\(state.selectedCountry)".localized(for: Kevin.shared.locale.identifier)
-        countrySelectionCountryLabel.text = countryName
+        self.state = state
         bankItems = state.bankItems
         selectedBankId = state.selectedBankId
-        bankTableView.reloadData()
         
-        if state.isCountrySelectionDisabled {
-            countrySelectionContainer.gestureRecognizers?.removeAll()
-        }
+        tableView.reloadData()
         
         if !state.isLoading {
-            showEmptyState(state.bankItems.isEmpty, for: countryName)
+            hideControls(state.bankItems.isEmpty)
             loadingIndicator.stopAnimating()
         } else {
-            showEmptyState(false, for: countryName)
+            hideControls(false)
             loadingIndicator.startAnimating()
         }
     }
     
-    private func showEmptyState(_ show: Bool, for country: String) {
-        emptyStateView.country = country
-        emptyStateView.isHidden = !show
+    private func hideControls(_ show: Bool) {
         continueButton.isHidden = show
-        bankTableView.isHidden = show
-        bankSelectionLabel.isHidden = show
         agreementLabel.isHidden = show
     }
     
     public override func viewDidLoad() {
         backgroundColor = Kevin.shared.theme.generalStyle.primaryBackgroundColor
-        initCountrySelection()
-        initBankSelection()
-        setupEmptyStateView()
+        initTableView()
         initAgreementLabel()
         initContinueButton()
         initLoadingIndicator()
@@ -74,78 +67,26 @@ internal class KevinBankSelectionView : KevinView<KevinBankSelectionState> {
         loadingIndicator.startAnimating()
     }
     
-    private func initCountrySelection() {
-        countrySelectionLabel.text = "window_bank_selection_select_country_label".localized(for: Kevin.shared.locale.identifier).uppercased()
-        countrySelectionLabel.font = Kevin.shared.theme.sectionStyle.titleLabelFont
-        countrySelectionLabel.textColor = Kevin.shared.theme.generalStyle.secondaryTextColor
-        addSubview(countrySelectionLabel)
-        countrySelectionLabel.translatesAutoresizingMaskIntoConstraints = false
-        countrySelectionLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: Kevin.shared.theme.insets.top).isActive = true
-        countrySelectionLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: Kevin.shared.theme.insets.left).isActive = true
-        countrySelectionLabel.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
-        countrySelectionLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+    private func initTableView() {
+        tableView.backgroundColor = Kevin.shared.theme.generalStyle.primaryBackgroundColor
+
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.estimatedRowHeight = 88
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.allowsSelection = true
+        tableView.separatorStyle = .none
         
-        countrySelectionContainer.layer.cornerRadius = Kevin.shared.theme.navigationLinkStyle.cornerRadius
-        countrySelectionContainer.layer.borderWidth = Kevin.shared.theme.navigationLinkStyle.borderWidth
-        countrySelectionContainer.backgroundColor = Kevin.shared.theme.navigationLinkStyle.backgroundColor
-        countrySelectionContainer.layer.borderColor = Kevin.shared.theme.navigationLinkStyle.borderColor.cgColor
-        addSubview(countrySelectionContainer)
-        countrySelectionContainer.translatesAutoresizingMaskIntoConstraints = false
-        countrySelectionContainer.topAnchor.constraint(equalTo: countrySelectionLabel.bottomAnchor, constant: 16).isActive = true
-        countrySelectionContainer.leftAnchor.constraint(equalTo: self.leftAnchor, constant: Kevin.shared.theme.insets.left).isActive = true
-        countrySelectionContainer.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -Kevin.shared.theme.insets.right).isActive = true
-        countrySelectionContainer.heightAnchor.constraint(equalToConstant: 54).isActive = true
+        tableView.register(CountrySelectionCell.self, forCellReuseIdentifier: "CountrySelectionCell")
+        tableView.register(BankCell.self, forCellReuseIdentifier: "BankCell")
+        tableView.register(BankHeaderCell.self, forCellReuseIdentifier: "BankHeaderCell")
+        tableView.register(EmptyStateCell.self, forCellReuseIdentifier: "EmptyStateCell")
         
-        countrySelectionContainer.addSubview(countrySelectionIconView)
-        countrySelectionIconView.translatesAutoresizingMaskIntoConstraints = false
-        countrySelectionIconView.centerYAnchor.constraint(equalTo: countrySelectionContainer.centerYAnchor).isActive = true
-        countrySelectionIconView.leftAnchor.constraint(equalTo: countrySelectionContainer.leftAnchor, constant: 16).isActive = true
-        countrySelectionIconView.widthAnchor.constraint(equalToConstant: 32).isActive = true
-        countrySelectionIconView.heightAnchor.constraint(equalToConstant: 32).isActive = true
+        addSubview(tableView)
         
-        countrySelectionCountryLabel.font = Kevin.shared.theme.navigationLinkStyle.titleLabelFont
-        countrySelectionCountryLabel.textColor = Kevin.shared.theme.generalStyle.primaryTextColor
-        countrySelectionContainer.addSubview(countrySelectionCountryLabel)
-        countrySelectionCountryLabel.translatesAutoresizingMaskIntoConstraints = false
-        countrySelectionCountryLabel.centerYAnchor.constraint(equalTo: countrySelectionContainer.centerYAnchor).isActive = true
-        countrySelectionCountryLabel.leftAnchor.constraint(equalTo: countrySelectionIconView.rightAnchor, constant: 26).isActive = true
-        countrySelectionCountryLabel.widthAnchor.constraint(equalTo: countrySelectionContainer.widthAnchor, multiplier: 0.5).isActive = true
-        countrySelectionCountryLabel.heightAnchor.constraint(equalTo: countrySelectionContainer.heightAnchor).isActive = true
-        
-        let chevron = UIImageView(image: Kevin.shared.theme.navigationLinkStyle.chevronImage)
-        countrySelectionContainer.addSubview(chevron)
-        chevron.translatesAutoresizingMaskIntoConstraints = false
-        chevron.centerYAnchor.constraint(equalTo: countrySelectionContainer.centerYAnchor).isActive = true
-        chevron.rightAnchor.constraint(equalTo: countrySelectionContainer.rightAnchor, constant: -18).isActive = true
-        chevron.widthAnchor.constraint(equalToConstant: 14).isActive = true
-        chevron.heightAnchor.constraint(equalToConstant: 14).isActive = true
-        
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.onCountrySelectionClicked(_:)))
-        countrySelectionContainer.addGestureRecognizer(tapRecognizer)
-    }
-    
-    private func initBankSelection() {
-        bankSelectionLabel.text = "window_bank_selection_select_bank_label".localized(for: Kevin.shared.locale.identifier).uppercased()
-        bankSelectionLabel.font = Kevin.shared.theme.sectionStyle.titleLabelFont
-        bankSelectionLabel.textColor = Kevin.shared.theme.generalStyle.secondaryTextColor
-        addSubview(bankSelectionLabel)
-        bankSelectionLabel.translatesAutoresizingMaskIntoConstraints = false
-        bankSelectionLabel.topAnchor.constraint(equalTo: countrySelectionContainer.bottomAnchor, constant: 25).isActive = true
-        bankSelectionLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: Kevin.shared.theme.insets.left).isActive = true
-        bankSelectionLabel.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
-        bankSelectionLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        
-        bankTableView.backgroundColor = Kevin.shared.theme.generalStyle.primaryBackgroundColor
-        bankTableView.rowHeight = 76
-        bankTableView.dataSource = self
-        bankTableView.estimatedRowHeight = 76
-        bankTableView.allowsSelection = false
-        bankTableView.separatorStyle = .none
-        addSubview(bankTableView)
-        
-        bankTableView.translatesAutoresizingMaskIntoConstraints = false
-        bankTableView.topAnchor.constraint(equalTo: bankSelectionLabel.bottomAnchor, constant: 16).isActive = true
-        bankTableView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        tableView.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
     }
     
     private func initAgreementLabel() {        
@@ -169,7 +110,7 @@ internal class KevinBankSelectionView : KevinView<KevinBankSelectionState> {
         addSubview(agreementLabel)
         
         agreementLabel.translatesAutoresizingMaskIntoConstraints = false
-        agreementLabel.topAnchor.constraint(equalTo: bankTableView.bottomAnchor, constant: 20).isActive = true
+        agreementLabel.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 20).isActive = true
         agreementLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16).isActive = true
         agreementLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16).isActive = true
     }
@@ -197,29 +138,6 @@ internal class KevinBankSelectionView : KevinView<KevinBankSelectionState> {
         continueButton.addTarget(self, action: #selector(self.onContinueClicked(_:)), for: .touchUpInside)
     }
     
-    private func setupEmptyStateView() {
-        emptyStateView.translatesAutoresizingMaskIntoConstraints = false
-        emptyStateView.isHidden = true
-        addSubview(emptyStateView)
-        
-        NSLayoutConstraint.activate([
-            emptyStateView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            emptyStateView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            emptyStateView.centerYAnchor.constraint(equalTo: centerYAnchor)
-        ])
-    }
-    
-    @objc private func onCountrySelectionClicked(_ recognizer: UITapGestureRecognizer) {
-        UIView.animate(withDuration: 0.20, delay: 0.0, options: .curveEaseOut, animations: {
-            self.countrySelectionContainer.backgroundColor = Kevin.shared.theme.navigationLinkStyle.selectedBackgroundColor
-        }, completion: { [weak self] _ in
-            self?.delegate?.openCountrySelection()
-            UIView.animate(withDuration: 0.20, delay: 0.0, options: .curveEaseOut, animations: {
-                self?.countrySelectionContainer.backgroundColor = Kevin.shared.theme.navigationLinkStyle.backgroundColor
-            })
-        })
-    }
-    
     @objc func onContinueClicked(_ sender: UIButton) {
         delegate?.invokeContinuation(bankId: selectedBankId)
     }
@@ -235,21 +153,77 @@ extension KevinBankSelectionView : KevinClickableUILabelDelegate {
     }
 }
 
-extension KevinBankSelectionView : UITableViewDataSource {
+extension KevinBankSelectionView : UITableViewDataSource, UITableViewDelegate {
+    
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch KevinBankSelectionSections(rawValue: section) {
+        case .countrySelection:
+            return 1
+        case .bankHeader:
+            return bankItems.isEmpty ? 0 : 1
+        case .banks:
+            return Int(ceil(CGFloat(bankItems.count) / 2.0))
+        case .empty:
+            let isLoading = state?.isLoading == true
+            let isEmpty = state?.bankItems.isEmpty == true
+            let shouldShow = !isLoading && isEmpty
+            return shouldShow ? 1 : 0
+        case .none:
+            return 0
+        }
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        KevinBankSelectionSections.allCases.count
+    }
+    
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        if
+            KevinBankSelectionSections(rawValue: indexPath.section) == .countrySelection
+            && state?.isCountrySelectionDisabled == true {
+            return nil
+        } else {
+            return indexPath
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        if indexPath.section == 0 {
+            delegate?.openCountrySelection()
+        }
+    }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "cell") as? BankCell
-        if cell == nil {
-            cell = BankCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "cell")
+        switch KevinBankSelectionSections(rawValue: indexPath.section) {
+        case .countrySelection:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CountrySelectionCell") as? CountrySelectionCell
+            cell?.setup(with: state?.selectedCountry ?? "")
+            return cell!
+        case .bankHeader:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "BankHeaderCell") as? BankHeaderCell
+            return cell!
+        case .banks:
+            return setupBankCell(tableView, indexPath)
+        case .empty:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "EmptyStateCell") as? EmptyStateCell
+            cell?.setup(with: state?.selectedCountry ?? "", heightToOccupy: tableView.bounds.height) 
+            return cell!
+        default:
+            return UITableViewCell()
         }
-
+    }
+    
+    private func setupBankCell(_ tableView: UITableView, _ indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BankCell") as? BankCell
+        
         let leftIndex = indexPath.row * 2
         let rightIndex = indexPath.row * 2 + 1
         
         let leftAsset = bankItems[leftIndex]
         cell!.leftAsset.loadImageUsingCache(withUrl: getBankLogo(for: leftAsset))
         cell!.leftAsset.tag = leftIndex
-        cell!.selectLeftItem(leftAsset.id == self.selectedBankId)
+        cell!.selectLeftItem(leftAsset.id == selectedBankId)
         
         let leftRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.onBankSelected(_:)))
         cell!.leftAsset.gestureRecognizers?.removeAll()
@@ -259,7 +233,7 @@ extension KevinBankSelectionView : UITableViewDataSource {
             let rightAsset = bankItems[rightIndex]
             cell!.rightAsset.loadImageUsingCache(withUrl: getBankLogo(for: rightAsset))
             cell!.rightAsset.tag = rightIndex
-            cell!.selectRightItem(rightAsset.id == self.selectedBankId)
+            cell!.selectRightItem(rightAsset.id == selectedBankId)
             
             let rightRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.onBankSelected(_:)))
             cell!.rightAsset.gestureRecognizers?.removeAll()
@@ -270,17 +244,12 @@ extension KevinBankSelectionView : UITableViewDataSource {
             cell!.rightOverlay.isHidden = true
             cell!.rightAsset.gestureRecognizers?.removeAll()
         }
-        
         return cell!
     }
     
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Int(ceil(CGFloat(bankItems.count) / 2.0))
-    }
-    
     @objc private func onBankSelected(_ recognizer: UITapGestureRecognizer) {
-        self.selectedBankId = self.bankItems[recognizer.view?.tag ?? 0].id
-        bankTableView.reloadData()
+        selectedBankId = bankItems[recognizer.view?.tag ?? 0].id
+        tableView.reloadData()
     }
     
     private func getBankLogo(for bank: ApiBank) -> String {
