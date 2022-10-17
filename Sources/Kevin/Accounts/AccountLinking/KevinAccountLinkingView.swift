@@ -33,6 +33,7 @@ internal class KevinAccountLinkingView: KevinView<KevinAccountLinkingState> {
         webView.navigationDelegate = self
         webView.allowsBackForwardNavigationGestures = true
         webView.allowsLinkPreview = true
+        webView.customUserAgent = UserAgent.defaultUserAgent
     }
     
     private func initLoadingIndicator() {
