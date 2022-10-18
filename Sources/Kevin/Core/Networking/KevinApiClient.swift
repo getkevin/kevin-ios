@@ -80,7 +80,7 @@ internal class KevinApiClient {
     
     private func defaultHeaders() -> [String: String] {
         var defaultHeaders: [String: String] = [:]
-        defaultHeaders["User-Agent"] = UserAgent.defaultUserAgent
+        defaultHeaders["User-Agent"] = UserAgent.userAgentString
         defaultHeaders["Content-Type"] = "application/json"
         return defaultHeaders
     }

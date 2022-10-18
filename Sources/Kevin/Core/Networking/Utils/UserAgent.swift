@@ -7,10 +7,22 @@
 //  Copyright © 2022 kevin.. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct UserAgent {
-    static var defaultUserAgent: String {
-        "Kevin iOS SDK \(Constants.apiVersion)"
+    
+    static var userAgentString: String {
+        "Kevin iOS SDK \(Constants.apiVersion)/\(deviceName())/\(deviceVersion())"
+    }
+    
+    static private func deviceVersion() -> String {
+        let currentDevice = UIDevice.current
+        return "\(currentDevice.systemName)/\(currentDevice.systemVersion)"
+    }
+
+    static private func deviceName() -> String {
+        var sysinfo = utsname()
+        uname(&sysinfo)
+        return String(bytes: Data(bytes: &sysinfo.machine, count: Int(_SYS_NAMELEN)), encoding: .ascii)!.trimmingCharacters(in: .controlCharacters)
     }
 }
