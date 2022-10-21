@@ -10,7 +10,6 @@ import Foundation
 
 internal class KevinApiClient {
     
-    private let apiVersion = "1.0.0"
     private let urlSession = URLSession(configuration: URLSessionConfiguration.default)
     
     private var apiURL: URL {
@@ -81,7 +80,7 @@ internal class KevinApiClient {
     
     private func defaultHeaders() -> [String: String] {
         var defaultHeaders: [String: String] = [:]
-        defaultHeaders["User-Agent"] = "Kevin iOS SDK \(apiVersion)"
+        defaultHeaders["User-Agent"] = UserAgent.userAgentString
         defaultHeaders["Content-Type"] = "application/json"
         return defaultHeaders
     }
