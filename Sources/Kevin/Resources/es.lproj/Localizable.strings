@@ -81,6 +81,6 @@
 
 "yes" = "Sí";
 "no" = "No";
-"dialog_exit_confirmation_title" = "¡Atención!"
+"dialog_exit_confirmation_title" = "¡Atención!";
 "dialog_exit_confirmation_accounts_message" = "¿Seguro que quiere abortar la vinculación de cuenta?";
 "dialog_exit_confirmation_payments_message" = "¿Seguro que quiere cancelar este pago?";
