@@ -91,7 +91,7 @@ final public class KevinPaymentSession {
             selectedBankId: configuration.preselectedBank,
             authState: configuration.paymentId,
             exitSlug: "dialog_exit_confirmation_payments_message",
-            excludeBanksWithoutAccountLinkingSupport: true
+            excludeBanksWithoutAccountLinkingSupport: false
         )
         controller.onContinuation = { [weak self] bankId, _ in
             controller.show(
