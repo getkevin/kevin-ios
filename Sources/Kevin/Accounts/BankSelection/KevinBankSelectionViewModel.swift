@@ -38,6 +38,13 @@ internal class KevinBankSelectionViewModel : KevinViewModel<KevinBankSelectionSt
             if let bankItems = bankItems {
                 
                 var filtredBankItems = bankItems
+                let allowedBankIds = configuration.bankFilter.map { $0.uppercased() }
+                
+                if !allowedBankIds.isEmpty {
+                    filtredBankItems = filtredBankItems.filter { apiBank in
+                        allowedBankIds.contains(apiBank.id.uppercased())
+                    }
+                }
                 
                 if configuration.excludeBanksWithoutAccountLinkingSupport {
                     filtredBankItems = filtredBankItems.filter { $0.isAccountLinkingSupported }
