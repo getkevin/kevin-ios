@@ -15,6 +15,7 @@ public class KevinAccountLinkingSessionConfiguration {
     let preselectedCountry: KevinCountry?
     let disableCountrySelection: Bool
     let countryFilter: Array<KevinCountry>
+    let bankFilter: [String]
     let preselectedBank: String?
     let skipBankSelection: Bool
     let linkingType: KevinAccountLinkingType
@@ -24,6 +25,7 @@ public class KevinAccountLinkingSessionConfiguration {
         preselectedCountry: KevinCountry?,
         disableCountrySelection: Bool,
         countryFilter: Array<KevinCountry>,
+        bankFilter: [String],
         preselectedBank: String?,
         skipBankSelection: Bool,
         linkingType: KevinAccountLinkingType
@@ -32,6 +34,7 @@ public class KevinAccountLinkingSessionConfiguration {
         self.preselectedCountry = preselectedCountry
         self.disableCountrySelection = disableCountrySelection
         self.countryFilter = countryFilter
+        self.bankFilter = bankFilter
         self.preselectedBank = preselectedBank
         self.skipBankSelection = skipBankSelection
         self.linkingType = linkingType
@@ -55,6 +58,7 @@ public class KevinAccountLinkingSessionConfiguration {
         private var preselectedCountry: KevinCountry? = nil
         private var disableCountrySelection: Bool = false
         private var countryFilter: Array<KevinCountry> = []
+        private var bankFilter = [String]()
         private var preselectedBank: String? = nil
         private var skipBankSelection: Bool = false
         private var linkingType: KevinAccountLinkingType = .bank
@@ -95,6 +99,15 @@ public class KevinAccountLinkingSessionConfiguration {
             return self
         }
         
+        /// Allows to filter banks and show only selected ones to user. It accepts list of bank ids that should be show to user.
+        /// - Parameters:
+        ///    - bankFilter: bank ids that should be show to user
+        
+        public func setBankFilter(_ bankFilter: [String]) -> Builder {
+            self.bankFilter = bankFilter
+            return self
+        }
+        
         /// Preselects desired bank
         ///
         /// - Parameters:
@@ -129,6 +142,7 @@ public class KevinAccountLinkingSessionConfiguration {
                 preselectedCountry: preselectedCountry,
                 disableCountrySelection: disableCountrySelection,
                 countryFilter: countryFilter,
+                bankFilter: bankFilter,
                 preselectedBank: preselectedBank,
                 skipBankSelection: skipBankSelection,
                 linkingType: linkingType

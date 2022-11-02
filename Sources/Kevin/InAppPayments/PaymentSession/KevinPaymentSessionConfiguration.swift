@@ -15,7 +15,8 @@ public class KevinPaymentSessionConfiguration {
     let paymentType: KevinPaymentType
     let preselectedCountry: KevinCountry?
     let disableCountrySelection: Bool
-    let countryFilter: Array<KevinCountry>
+    let countryFilter: [KevinCountry]
+    let bankFilter: [String]
     let preselectedBank: String?
     let skipBankSelection: Bool
     let skipAuthentication: Bool
@@ -25,7 +26,8 @@ public class KevinPaymentSessionConfiguration {
         paymentType: KevinPaymentType,
         preselectedCountry: KevinCountry?,
         disableCountrySelection: Bool,
-        countryFilter: Array<KevinCountry>,
+        countryFilter: [KevinCountry],
+        bankFilter: [String],
         preselectedBank: String?,
         skipBankSelection: Bool,
         skipAuthentication: Bool
@@ -35,6 +37,7 @@ public class KevinPaymentSessionConfiguration {
         self.preselectedCountry = preselectedCountry
         self.disableCountrySelection = disableCountrySelection
         self.countryFilter = countryFilter
+        self.bankFilter = bankFilter
         self.preselectedBank = preselectedBank
         self.skipBankSelection = skipBankSelection
         self.skipAuthentication = skipAuthentication
@@ -63,6 +66,7 @@ public class KevinPaymentSessionConfiguration {
         private var disableCountrySelection: Bool = false
         private var countryFilter: Array<KevinCountry> = []
         private var preselectedBank: String? = nil
+        private var bankFilter = [String]()
         private var skipBankSelection: Bool = false
         private var skipAuthentication: Bool = false
         
@@ -111,6 +115,15 @@ public class KevinPaymentSessionConfiguration {
             return self
         }
         
+        /// Allows to filter banks and show only selected ones to user. It accepts list of bank ids that should be show to user.
+        /// - Parameters:
+        ///    - bankFilter: bank ids that should be show to user
+        
+        public func setBankFilter(_ bankFilter: [String]) -> Builder {
+            self.bankFilter = bankFilter
+            return self
+        }
+        
         /// Preselects desired bank
         ///
         /// - Parameters:
@@ -147,6 +160,7 @@ public class KevinPaymentSessionConfiguration {
                 preselectedCountry: preselectedCountry,
                 disableCountrySelection: disableCountrySelection,
                 countryFilter: countryFilter,
+                bankFilter: bankFilter,
                 preselectedBank: preselectedBank,
                 skipBankSelection: skipBankSelection,
                 skipAuthentication: skipAuthentication

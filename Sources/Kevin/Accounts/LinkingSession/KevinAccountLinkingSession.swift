@@ -118,6 +118,7 @@ final public class KevinAccountLinkingSession {
             selectedBankId: configuration.preselectedBank,
             authState: configuration.state,
             exitSlug: "dialog_exit_confirmation_accounts_message",
+            bankFilter: configuration.bankFilter,
             excludeBanksWithoutAccountLinkingSupport: try KevinAccountsPlugin.shared.shouldExcludeBanksWithoutAccountLinkingSupport()
         )
         controller.onContinuation = { [weak self] bankId, country in

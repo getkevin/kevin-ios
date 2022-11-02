@@ -16,6 +16,7 @@ internal struct KevinBankSelectionConfiguration {
     public let selectedBankId: String?
     public let authState: String
     public let exitSlug: String
+    public let bankFilter: [String]
     public let excludeBanksWithoutAccountLinkingSupport: Bool
     
     public init(
@@ -25,6 +26,7 @@ internal struct KevinBankSelectionConfiguration {
         selectedBankId: String?,
         authState: String,
         exitSlug: String,
+        bankFilter: [String],
         excludeBanksWithoutAccountLinkingSupport: Bool
     ) {
         self.selectedCountry = selectedCountry
@@ -33,6 +35,7 @@ internal struct KevinBankSelectionConfiguration {
         self.selectedBankId = selectedBankId
         self.authState = authState
         self.exitSlug = exitSlug
+        self.bankFilter = bankFilter
         self.excludeBanksWithoutAccountLinkingSupport = excludeBanksWithoutAccountLinkingSupport
     }
 }
