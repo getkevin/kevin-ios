@@ -70,6 +70,8 @@ class NSMutableURLRequestEncoder {
             for value in Array(set) {
                 components += queryComponents(fromKey: "\(key)", value: value)
             }
+        case Optional<Any>.none:
+            break
         default:
             let unwrappedValue = unwrap(value)
             components.append((key, escape("\(unwrappedValue)")))
