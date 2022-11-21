@@ -158,7 +158,7 @@ final public class KevinAccountLinkingSession {
             selectedCountry: selectedCountry ?? configuration.preselectedCountry,
             linkingType: configuration.linkingType
         )
-        controller.onExit = { [weak self] in
+        controller.onClose = { [weak self] in
             self?.delegate?.onKevinAccountLinkingCanceled(error: KevinCancelationError())
         }
         return controller

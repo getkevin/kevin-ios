@@ -13,7 +13,7 @@ internal class KevinAccountLinkingViewController :
     KevinViewController<KevinAccountLinkingViewModel, KevinAccountLinkingView, KevinAccountLinkingState, KevinAccountLinkingIntent> {
     
     var configuration: KevinAccountLinkingConfiguration!
-    var onExit: (() -> ())?
+    var onClose: (() -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +33,7 @@ internal class KevinAccountLinkingViewController :
     }
     
     override func onCloseTapped() {
-        dismiss(animated: true, completion: onExit)
+        dismiss(animated: true, completion: onClose)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
