@@ -132,7 +132,7 @@ final public class KevinAccountLinkingSession {
             )
         }
         controller.onExit = { [weak self] in
-            self?.delegate?.onKevinAccountLinkingCanceled(error: KevinCancelationError(description: "User has canceled the flow!"))
+            self?.delegate?.onKevinAccountLinkingCanceled(error: KevinCancelationError())
         }
         return KevinNavigationViewController(rootViewController: controller)
     }
@@ -142,28 +142,25 @@ final public class KevinAccountLinkingSession {
     private func initializeAccountLinkingConfirmation(
         configuration: KevinAccountLinkingSessionConfiguration
     ) -> UINavigationController {
-        let controller = KevinAccountLinkingViewController()
-        controller.configuration = KevinAccountLinkingConfiguration(
-            state: configuration.state,
-            selectedBankId: configuration.preselectedBank,
-            selectedCountry: configuration.preselectedCountry,
-            linkingType: configuration.linkingType
-        )
+        let controller = initializeAccountLinkingConfirmationController(configuration: configuration)
         return KevinNavigationViewController(rootViewController: controller)
     }
     
     private func initializeAccountLinkingConfirmationController(
         configuration: KevinAccountLinkingSessionConfiguration,
         selectedBank: String? = nil,
-        selectedCountry: KevinCountry?
+        selectedCountry: KevinCountry? = nil
     ) -> UIViewController {
         let controller = KevinAccountLinkingViewController()
         controller.configuration = KevinAccountLinkingConfiguration(
             state: configuration.state,
             selectedBankId: selectedBank ?? configuration.preselectedBank,
-            selectedCountry: selectedCountry,
+            selectedCountry: selectedCountry ?? configuration.preselectedCountry,
             linkingType: configuration.linkingType
         )
+        controller.onExit = { [weak self] in
+            self?.delegate?.onKevinAccountLinkingCanceled(error: KevinCancelationError())
+        }
         return controller
     }
 }

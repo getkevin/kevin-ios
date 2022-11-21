@@ -8,4 +8,8 @@
 
 import Foundation
 
-public class KevinCancelationError: KevinError { }
+public class KevinCancelationError: KevinError {
+    convenience init() {
+        self.init(description: "User has canceled the flow!")
+    }
+}
