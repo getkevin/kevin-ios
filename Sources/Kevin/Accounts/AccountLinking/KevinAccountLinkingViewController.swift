@@ -13,7 +13,7 @@ internal class KevinAccountLinkingViewController :
     KevinViewController<KevinAccountLinkingViewModel, KevinAccountLinkingView, KevinAccountLinkingState, KevinAccountLinkingIntent> {
     
     var configuration: KevinAccountLinkingConfiguration!
-    public var onExit: (() -> ())?
+    var onExit: (() -> ())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
