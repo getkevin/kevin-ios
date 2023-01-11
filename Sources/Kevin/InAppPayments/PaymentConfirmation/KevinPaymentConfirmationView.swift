@@ -28,11 +28,10 @@ internal class KevinPaymentConfirmationView: KevinView<KevinPaymentConfirmationS
     
     private func initWebView() {
         addSubview(webView)
+        webView.commonInit()
         webView.translatesAutoresizingMaskIntoConstraints = false
         webView.fill(in: self)
         webView.navigationDelegate = self
-        webView.allowsBackForwardNavigationGestures = true
-        webView.allowsLinkPreview = true
     }
     
     private func initLoadingIndicator() {

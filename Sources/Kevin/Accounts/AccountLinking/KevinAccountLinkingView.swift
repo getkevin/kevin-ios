@@ -28,6 +28,7 @@ internal class KevinAccountLinkingView: KevinView<KevinAccountLinkingState> {
     
     private func initWebView() {
         addSubview(webView)
+        webView.commonInit()
         webView.translatesAutoresizingMaskIntoConstraints = false
         webView.fill(in: self)
         webView.navigationDelegate = self

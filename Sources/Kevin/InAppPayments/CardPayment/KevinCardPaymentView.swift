@@ -95,6 +95,7 @@ internal class KevinCardPaymentView: KevinView<KevinCardPaymentState> {
         configuration.userContentController.add(self, name: handlerName)
 
         webView = WKWebView(frame: self.frame, configuration: configuration)
+        webView?.commonInit()
         if let webView = webView {
             addSubview(webView)
             webView.translatesAutoresizingMaskIntoConstraints = false
