@@ -32,8 +32,6 @@ internal class KevinAccountLinkingView: KevinView<KevinAccountLinkingState> {
         webView.translatesAutoresizingMaskIntoConstraints = false
         webView.fill(in: self)
         webView.navigationDelegate = self
-        webView.allowsBackForwardNavigationGestures = true
-        webView.allowsLinkPreview = true
     }
     
     private func initLoadingIndicator() {
