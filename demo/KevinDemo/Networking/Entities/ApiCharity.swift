@@ -8,7 +8,7 @@
 import Foundation
 
 public class ApiCharity: Decodable {
-    public let id: String
+    public let id: Int
     public let name: String
     public let logo: String
     public let informationUnstructured: String
@@ -16,6 +16,6 @@ public class ApiCharity: Decodable {
     public let website: String
     public let phone: String
     public let email: String
-    public let address: String
+    public let address: String?
     public let accounts: [ApiCharityAccount]
 }
