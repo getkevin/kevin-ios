@@ -5,7 +5,7 @@
 
 The kevin. iOS SDK enables to easily integrate AIS and PIS services in your mobile application. We provide neat, customisable UI screens so integration would be as quick as possible. We also expose the low-level APIs that power those UIs so that you can build fully custom experiences.
 
-Get started with our [SDK reference](https://developer.kevin.eu/mobile/) and checkout our [Demo App](https://github.com/getkevin/kevin-ios/tree/master/demo).
+Get started with our [SDK reference](https://developer.kevin.eu/home/mobile-sdk/getting-started) and checkout our [Demo App](https://github.com/getkevin/kevin-ios/tree/master/demo).
 
 ## Features
 
@@ -15,12 +15,12 @@ Get started with our [SDK reference](https://developer.kevin.eu/mobile/) and che
 
 ## Documentation
 
-- SDK documentation can be found [here](https://developer.kevin.eu/mobile/)
-- The API reference is located [here](https://docs.kevin.eu/)
+- iOS SDK documentation can be found [here](https://developer.kevin.eu/home/mobile-sdk/ios)
+- The API reference is located [here](https://api-reference.kevin.eu/public/platform/v0.3)
 
 ## Cross-platform support
 
-At the moment **Flutter** and **React Native** integrations are supported. Please check our [docs](https://developer.kevin.eu/mobile/) for a tutorial on how to do it.
+At the moment [Flutter](https://developer.kevin.eu/home/mobile-sdk/flutter) and [React Native](https://developer.kevin.eu/home/mobile-sdk/react-native) integrations are supported. Please check respective cross-platform documentation for a tutorial on how to do it.
 
 ## Contributing
 
