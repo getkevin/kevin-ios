@@ -33,7 +33,7 @@ internal class KevinAccountLinkingView: KevinView<KevinAccountLinkingState> {
             addSubview(webView)
             webView.translatesAutoresizingMaskIntoConstraints = false
             webView.fill(in: self)
-            webView.paymentCompletedCallback = { [weak self] url, error in
+            webView.completedCallback = { [weak self] url, error in
                 self?.delegate?.onAccountLinkingCompleted(callbackUrl: url, error: error)
             }
         } catch {

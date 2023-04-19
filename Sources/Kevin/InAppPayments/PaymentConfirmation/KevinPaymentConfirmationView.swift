@@ -33,7 +33,7 @@ internal class KevinPaymentConfirmationView: KevinView<KevinPaymentConfirmationS
             addSubview(webView)
             webView.translatesAutoresizingMaskIntoConstraints = false
             webView.fill(in: self)
-            webView.paymentCompletedCallback = { [weak self] url, error in
+            webView.completedCallback = { [weak self] url, error in
                 self?.delegate?.onPaymentCompleted(callbackUrl: url, error: error)
             }
         } catch {
