@@ -90,7 +90,7 @@ internal class KevinPaymentConfirmationViewController :
 
 extension KevinPaymentConfirmationViewController: KevinPaymentConfirmationViewDelegate {
     
-    func onPaymentCompleted(callbackUrl: URL, error: Error?) {
+    func onPaymentCompleted(callbackUrl: URL?, error: Error?) {
         guard let navigationController = navigationController else {
             self.offerIntent(
                 KevinPaymentConfirmationIntent.HandlePaymentCompleted(url: callbackUrl, error: error)

@@ -9,5 +9,5 @@
 import Foundation
 
 protocol KevinAccountLinkingViewDelegate: AnyObject {
-    func onAccountLinkingCompleted(callbackUrl: URL, error: Error?)
+    func onAccountLinkingCompleted(callbackUrl: URL?, error: Error?)
 }

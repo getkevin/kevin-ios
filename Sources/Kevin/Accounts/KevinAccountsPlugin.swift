@@ -27,7 +27,7 @@ public class KevinAccountsPlugin: KevinPlugin {
     
     public func getCallbackUrl() throws -> URL {
         guard let configuration = configuration else {
-            throw KevinError(description: "KevinAccountsPlugin was not configured!")
+            throw KevinError(description: "CallbackUrl in KevinAccountsPlugin was not configured!")
         }
         return configuration.callbackUrl
     }

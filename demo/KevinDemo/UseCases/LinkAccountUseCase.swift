@@ -29,9 +29,9 @@ public class LinkAccountUseCase: BasePublishingUseCase<KevinInitiationState>, Ke
                     configuration: KevinAccountLinkingSessionConfiguration.Builder(
                         state: state.state
                     )
-                        .setPreselectedCountry(.lithuania)
-                        .setSkipBankSelection(false)
-                        .build()
+                    .setPreselectedCountry(.lithuania)
+                    .setSkipBankSelection(false)
+                    .build()
                 )
             } catch {
                 self?.subject.send(completion: .failure(error))
