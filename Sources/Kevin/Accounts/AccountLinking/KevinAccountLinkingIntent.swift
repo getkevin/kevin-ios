@@ -21,11 +21,11 @@ internal class KevinAccountLinkingIntent: IKevinIntent {
 
     internal class HandleLinkingCompleted: KevinAccountLinkingIntent {
         
-        public let url: URL
+        public let url: URL?
         public let error: Error?
         public let configuration: KevinAccountLinkingConfiguration
         
-        init(url: URL, error: Error?, configuration: KevinAccountLinkingConfiguration) {
+        init(url: URL?, error: Error?, configuration: KevinAccountLinkingConfiguration) {
             self.url = url
             self.error = error
             self.configuration = configuration

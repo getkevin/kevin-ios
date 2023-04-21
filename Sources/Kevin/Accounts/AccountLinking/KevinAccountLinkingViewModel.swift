@@ -34,7 +34,7 @@ internal class KevinAccountLinkingViewModel : KevinViewModel<KevinAccountLinking
     }
     
     private func notifyLinkingCompletion(
-        callbackUrl: URL,
+        callbackUrl: URL?,
         error: Error?,
         configuration: KevinAccountLinkingConfiguration
     ) {
@@ -42,11 +42,11 @@ internal class KevinAccountLinkingViewModel : KevinViewModel<KevinAccountLinking
             KevinAccountLinkingSession.shared.notifyAccountLinkingCancelation(error: error)
             return
         }
-        guard let status = callbackUrl["status"] else {
+        guard let status = callbackUrl?["status"] else {
             return
         }
         if status == "success" {
-            if let code = callbackUrl["code"] {
+            if let code = callbackUrl?["code"] {
                 KevinAccountLinkingSession.shared.notifyAccountLinkingCompletion(
                     authorizationCode: code,
                     bankId: configuration.selectedBankId,

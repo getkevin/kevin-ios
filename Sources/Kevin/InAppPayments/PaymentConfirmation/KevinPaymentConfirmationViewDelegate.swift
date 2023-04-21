@@ -9,5 +9,5 @@
 import Foundation
 
 internal protocol KevinPaymentConfirmationViewDelegate: AnyObject {
-    func onPaymentCompleted(callbackUrl: URL, error: Error?)
+    func onPaymentCompleted(callbackUrl: URL?, error: Error?)
 }

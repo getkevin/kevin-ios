@@ -50,7 +50,7 @@ internal class KevinAccountLinkingViewController :
 
 extension KevinAccountLinkingViewController: KevinAccountLinkingViewDelegate {
     
-    func onAccountLinkingCompleted(callbackUrl: URL, error: Error?) {
+    func onAccountLinkingCompleted(callbackUrl: URL?, error: Error?) {
         guard let navigationController = navigationController else {
             self.offerIntent(
                 KevinAccountLinkingIntent.HandleLinkingCompleted(url: callbackUrl, error: error, configuration: self.configuration)
