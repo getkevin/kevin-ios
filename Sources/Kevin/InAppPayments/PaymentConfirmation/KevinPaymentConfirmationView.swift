@@ -26,7 +26,7 @@ internal class KevinPaymentConfirmationView: KevinView<KevinPaymentConfirmationS
     
     private func initWebView() {
         do {
-            let callbackUrl = try KevinAccountsPlugin.shared.getCallbackUrl()
+            let callbackUrl = try KevinInAppPaymentsPlugin.shared.getCallbackUrl()
             let webView = KevinWebView(callbackURL: callbackUrl)
             self.webView = webView
             
