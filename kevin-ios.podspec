@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = "kevin-ios"
-  spec.version      = "2.2.9"
+  spec.version      = "2.2.10"
   spec.summary      = "Simplified kevin. integration for the iOS clients."
 
   spec.homepage     = "https://github.com/getkevin/kevin-ios"
