@@ -50,25 +50,30 @@ internal class KevinWebView: WKWebView, WKNavigationDelegate {
             return
         }
         
-        func finalize(url: URL, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-            if url.absoluteString.starts(with: callbackURL.absoluteString) {
-                decisionHandler(.cancel)
-                completedCallback?(url, nil)
-            } else {
-                decisionHandler(.allow)
-            }
+        if url.absoluteString.starts(with: callbackURL.absoluteString) {
+            decisionHandler(.cancel)
+            completedCallback?(url, nil)
+        } else if shouldProcessExternally(url: url) {
+            processUrlExternally(url, decisionHandler: decisionHandler)
+        } else {
+            decisionHandler(.allow)
         }
-
-        if #available(iOS 10.0, *), shouldProcessExternally(url: url) {
+    }
+    
+    private func processUrlExternally(
+        _ url: URL,
+        decisionHandler: @escaping (WKNavigationActionPolicy) -> Void
+    ) {
+        if #available(iOS 10.0, *) {
             UIApplication.shared.open(url, options: [.universalLinksOnly: true]) { isSuccess in
                 if isSuccess {
                     decisionHandler(.cancel)
                 } else {
-                    finalize(url: url, decisionHandler: decisionHandler)
+                    decisionHandler(.allow)
                 }
             }
         } else {
-            finalize(url: url, decisionHandler: decisionHandler)
+            decisionHandler(.allow)
         }
     }
     
