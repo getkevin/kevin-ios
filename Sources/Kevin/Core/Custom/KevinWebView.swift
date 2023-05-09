@@ -59,17 +59,13 @@ internal class KevinWebView: WKWebView, WKNavigationDelegate {
             }
         }
 
-        if shouldProcessExternally(url: url) {
-            if #available(iOS 10.0, *) {
-                UIApplication.shared.open(url, options: [.universalLinksOnly: true]) { isSuccess in
-                    if isSuccess {
-                        decisionHandler(.cancel)
-                    } else {
-                        finalize(url: url, decisionHandler: decisionHandler)
-                    }
+        if #available(iOS 10.0, *), shouldProcessExternally(url: url) {
+            UIApplication.shared.open(url, options: [.universalLinksOnly: true]) { isSuccess in
+                if isSuccess {
+                    decisionHandler(.cancel)
+                } else {
+                    finalize(url: url, decisionHandler: decisionHandler)
                 }
-            } else {
-                finalize(url: url, decisionHandler: decisionHandler)
             }
         } else {
             finalize(url: url, decisionHandler: decisionHandler)
