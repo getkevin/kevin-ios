@@ -49,26 +49,31 @@ internal class KevinWebView: WKWebView, WKNavigationDelegate {
             decisionHandler(.allow)
             return
         }
-
-        if shouldProcessExternally(url: url) {
-            if #available(iOS 10.0, *) {
-                UIApplication.shared.open(url, options: [.universalLinksOnly: true]) { isSuccess in
-                    if isSuccess {
-                        decisionHandler(.cancel)
-                    } else {
-                        decisionHandler(.allow)
-                    }
+        
+        if url.absoluteString.starts(with: callbackURL.absoluteString) {
+            decisionHandler(.cancel)
+            completedCallback?(url, nil)
+        } else if shouldProcessExternally(url: url) {
+            processUrlExternally(url, decisionHandler: decisionHandler)
+        } else {
+            decisionHandler(.allow)
+        }
+    }
+    
+    private func processUrlExternally(
+        _ url: URL,
+        decisionHandler: @escaping (WKNavigationActionPolicy) -> Void
+    ) {
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url, options: [.universalLinksOnly: true]) { isSuccess in
+                if isSuccess {
+                    decisionHandler(.cancel)
+                } else {
+                    decisionHandler(.allow)
                 }
-            } else {
-                decisionHandler(.allow)
             }
         } else {
-            if isCallbackURL(url: url) {
-                decisionHandler(.cancel)
-                completedCallback?(url, nil)
-            } else {
-                decisionHandler(.allow)
-            }
+            decisionHandler(.allow)
         }
     }
     
@@ -82,9 +87,5 @@ internal class KevinWebView: WKWebView, WKNavigationDelegate {
         }
         
         return false
-    }
-    
-    private func isCallbackURL(url: URL) -> Bool {
-        url.absoluteString.starts(with: callbackURL.absoluteString)
     }
 }
