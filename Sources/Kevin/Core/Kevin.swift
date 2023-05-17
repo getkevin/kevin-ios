@@ -24,7 +24,14 @@ final public class Kevin {
 
     public static let shared = Kevin()
     
-    private init() { }
+    private init() {
+        if let preferredLanguage = Locale.preferredLanguages.first {
+            let languageIdentifier = String(preferredLanguage.prefix(2))
+            if KevinLocaleManager.supportedLocales.contains(languageIdentifier) {
+                locale = Locale(identifier: languageIdentifier)
+            }
+        }
+    }
     
     public func handleDeepLinking(url: URL) {
         NotificationCenter.default.post(
