@@ -104,7 +104,7 @@ internal class KevinWebView: WKWebView, WKNavigationDelegate {
 private extension URL {
     
     var isDeeplink: Bool {
-        scheme != "http" && scheme != "https" && scheme != "mailto" && scheme != "tel"
+        scheme != "http" && scheme != "https" && scheme != "mailto" && scheme != "tel" && scheme != "about"
     }
     
 }
