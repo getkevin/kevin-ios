@@ -50,6 +50,17 @@ internal class KevinWebView: WKWebView, WKNavigationDelegate {
             return
         }
         
+        guard !url.isDeeplink else {
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url)
+            } else {
+                completedCallback?(url, KevinError(description: "\(url.scheme ?? "Unknown") is not installed"))
+            }
+            
+            decisionHandler(.cancel)
+            return
+        }
+        
         if url.absoluteString.starts(with: callbackURL.absoluteString) {
             decisionHandler(.cancel)
             completedCallback?(url, nil)
@@ -88,4 +99,12 @@ internal class KevinWebView: WKWebView, WKNavigationDelegate {
         
         return false
     }
+}
+
+private extension URL {
+    
+    var isDeeplink: Bool {
+        scheme != "http" && scheme != "https" && scheme != "mailto" && scheme != "tel" && scheme != "about"
+    }
+    
 }
