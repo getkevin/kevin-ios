@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "kevin-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/getkevin/kevin-ios",
+      "state" : {
+        "revision" : "2da450668c6cc847730d95b598c54b5b0e925a13",
+        "version" : "2.2.11"
+      }
+    }
+  ],
+  "version" : 2
+}
