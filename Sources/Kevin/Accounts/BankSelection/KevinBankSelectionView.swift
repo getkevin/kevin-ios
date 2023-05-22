@@ -158,7 +158,7 @@ extension KevinBankSelectionView : UITableViewDataSource, UITableViewDelegate {
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch KevinBankSelectionSections(rawValue: section) {
         case .countrySelection:
-            return 1
+            return state?.isCountrySelectionDisabled == true ? 0 : 1
         case .bankHeader:
             return bankItems.isEmpty ? 0 : 1
         case .banks:
