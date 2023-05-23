@@ -1,0 +1,450 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E71C9E8D2A1773C20007A264 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71C9E8C2A1773C20007A264 /* AppDelegate.swift */; };
+		E71C9E8F2A1773C20007A264 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71C9E8E2A1773C20007A264 /* SceneDelegate.swift */; };
+		E71C9E912A1773C20007A264 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71C9E902A1773C20007A264 /* MainViewController.swift */; };
+		E71C9E962A1773C30007A264 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E71C9E952A1773C30007A264 /* Assets.xcassets */; };
+		E71C9E992A1773C30007A264 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E71C9E972A1773C30007A264 /* LaunchScreen.storyboard */; };
+		E71C9EA32A1775790007A264 /* .kevin in Frameworks */ = {isa = PBXBuildFile; productRef = E71C9EA22A1775790007A264 /* .kevin */; };
+		E71C9EA52A1783BE0007A264 /* BankPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71C9EA42A1783BE0007A264 /* BankPaymentViewController.swift */; };
+		E71C9EA92A179B550007A264 /* AuthStateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71C9EA82A179B550007A264 /* AuthStateRequest.swift */; };
+		E71C9EAB2A179B5D0007A264 /* AuthStateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71C9EAA2A179B5D0007A264 /* AuthStateResponse.swift */; };
+		E71C9EAE2A179BC40007A264 /* CreditorsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71C9EAD2A179BC40007A264 /* CreditorsResponse.swift */; };
+		E71C9EB02A179C0B0007A264 /* InitiatePaymentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71C9EAF2A179C0B0007A264 /* InitiatePaymentRequest.swift */; };
+		E71C9EB22A179C380007A264 /* InitiatePaymentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71C9EB12A179C380007A264 /* InitiatePaymentResponse.swift */; };
+		E71C9EB42A179CBE0007A264 /* DemoApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71C9EB32A179CBE0007A264 /* DemoApiService.swift */; };
+		E71C9EB62A1BA1DE0007A264 /* CardPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71C9EB52A1BA1DE0007A264 /* CardPaymentViewController.swift */; };
+		E71C9EB82A1BA5390007A264 /* AccountLinkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71C9EB72A1BA5390007A264 /* AccountLinkingViewController.swift */; };
+		E71C9EBA2A1BA8860007A264 /* UICustomistaionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71C9EB92A1BA8860007A264 /* UICustomistaionViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		E71C9E892A1773C20007A264 /* Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E71C9E8C2A1773C20007A264 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E71C9E8E2A1773C20007A264 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		E71C9E902A1773C20007A264 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		E71C9E952A1773C30007A264 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E71C9E982A1773C30007A264 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E71C9E9A2A1773C30007A264 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E71C9EA42A1783BE0007A264 /* BankPaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BankPaymentViewController.swift; path = ../../BankPaymentViewController.swift; sourceTree = "<group>"; };
+		E71C9EA82A179B550007A264 /* AuthStateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStateRequest.swift; sourceTree = "<group>"; };
+		E71C9EAA2A179B5D0007A264 /* AuthStateResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStateResponse.swift; sourceTree = "<group>"; };
+		E71C9EAD2A179BC40007A264 /* CreditorsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditorsResponse.swift; sourceTree = "<group>"; };
+		E71C9EAF2A179C0B0007A264 /* InitiatePaymentRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitiatePaymentRequest.swift; sourceTree = "<group>"; };
+		E71C9EB12A179C380007A264 /* InitiatePaymentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitiatePaymentResponse.swift; sourceTree = "<group>"; };
+		E71C9EB32A179CBE0007A264 /* DemoApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoApiService.swift; sourceTree = "<group>"; };
+		E71C9EB52A1BA1DE0007A264 /* CardPaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPaymentViewController.swift; sourceTree = "<group>"; };
+		E71C9EB72A1BA5390007A264 /* AccountLinkingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountLinkingViewController.swift; sourceTree = "<group>"; };
+		E71C9EB92A1BA8860007A264 /* UICustomistaionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICustomistaionViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E71C9E862A1773C20007A264 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E71C9EA32A1775790007A264 /* .kevin in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E71C9E802A1773C20007A264 = {
+			isa = PBXGroup;
+			children = (
+				E71C9E8B2A1773C20007A264 /* Sample */,
+				E71C9E8A2A1773C20007A264 /* Products */,
+				E71C9EA12A1775790007A264 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E71C9E8A2A1773C20007A264 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E71C9E892A1773C20007A264 /* Sample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E71C9E8B2A1773C20007A264 /* Sample */ = {
+			isa = PBXGroup;
+			children = (
+				E71C9E9A2A1773C30007A264 /* Info.plist */,
+				E71C9E8C2A1773C20007A264 /* AppDelegate.swift */,
+				E71C9EB72A1BA5390007A264 /* AccountLinkingViewController.swift */,
+				E71C9EA42A1783BE0007A264 /* BankPaymentViewController.swift */,
+				E71C9EB52A1BA1DE0007A264 /* CardPaymentViewController.swift */,
+				E71C9E902A1773C20007A264 /* MainViewController.swift */,
+				E71C9EB92A1BA8860007A264 /* UICustomistaionViewController.swift */,
+				E71C9E8E2A1773C20007A264 /* SceneDelegate.swift */,
+				E71C9E952A1773C30007A264 /* Assets.xcassets */,
+				E71C9E972A1773C30007A264 /* LaunchScreen.storyboard */,
+				E71C9EA62A179B3C0007A264 /* Networking */,
+			);
+			path = Sample;
+			sourceTree = "<group>";
+		};
+		E71C9EA12A1775790007A264 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E71C9EA62A179B3C0007A264 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				E71C9EAC2A179BA50007A264 /* Payments */,
+				E71C9EA72A179B440007A264 /* Authorization */,
+				E71C9EB32A179CBE0007A264 /* DemoApiService.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		E71C9EA72A179B440007A264 /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				E71C9EA82A179B550007A264 /* AuthStateRequest.swift */,
+				E71C9EAA2A179B5D0007A264 /* AuthStateResponse.swift */,
+			);
+			path = Authorization;
+			sourceTree = "<group>";
+		};
+		E71C9EAC2A179BA50007A264 /* Payments */ = {
+			isa = PBXGroup;
+			children = (
+				E71C9EAD2A179BC40007A264 /* CreditorsResponse.swift */,
+				E71C9EAF2A179C0B0007A264 /* InitiatePaymentRequest.swift */,
+				E71C9EB12A179C380007A264 /* InitiatePaymentResponse.swift */,
+			);
+			path = Payments;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E71C9E882A1773C20007A264 /* Sample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E71C9E9D2A1773C30007A264 /* Build configuration list for PBXNativeTarget "Sample" */;
+			buildPhases = (
+				E71C9E852A1773C20007A264 /* Sources */,
+				E71C9E862A1773C20007A264 /* Frameworks */,
+				E71C9E872A1773C20007A264 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Sample;
+			packageProductDependencies = (
+				E71C9EA22A1775790007A264 /* .kevin */,
+			);
+			productName = Sample;
+			productReference = E71C9E892A1773C20007A264 /* Sample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E71C9E812A1773C20007A264 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					E71C9E882A1773C20007A264 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = E71C9E842A1773C20007A264 /* Build configuration list for PBXProject "Sample" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E71C9E802A1773C20007A264;
+			packageReferences = (
+				E71C9EA02A1775290007A264 /* XCRemoteSwiftPackageReference "kevin-ios" */,
+			);
+			productRefGroup = E71C9E8A2A1773C20007A264 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E71C9E882A1773C20007A264 /* Sample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E71C9E872A1773C20007A264 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E71C9E992A1773C30007A264 /* LaunchScreen.storyboard in Resources */,
+				E71C9E962A1773C30007A264 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E71C9E852A1773C20007A264 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E71C9EAE2A179BC40007A264 /* CreditorsResponse.swift in Sources */,
+				E71C9E912A1773C20007A264 /* MainViewController.swift in Sources */,
+				E71C9E8D2A1773C20007A264 /* AppDelegate.swift in Sources */,
+				E71C9EB22A179C380007A264 /* InitiatePaymentResponse.swift in Sources */,
+				E71C9EB42A179CBE0007A264 /* DemoApiService.swift in Sources */,
+				E71C9EB62A1BA1DE0007A264 /* CardPaymentViewController.swift in Sources */,
+				E71C9E8F2A1773C20007A264 /* SceneDelegate.swift in Sources */,
+				E71C9EA92A179B550007A264 /* AuthStateRequest.swift in Sources */,
+				E71C9EB02A179C0B0007A264 /* InitiatePaymentRequest.swift in Sources */,
+				E71C9EBA2A1BA8860007A264 /* UICustomistaionViewController.swift in Sources */,
+				E71C9EB82A1BA5390007A264 /* AccountLinkingViewController.swift in Sources */,
+				E71C9EAB2A179B5D0007A264 /* AuthStateResponse.swift in Sources */,
+				E71C9EA52A1783BE0007A264 /* BankPaymentViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		E71C9E972A1773C30007A264 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E71C9E982A1773C30007A264 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E71C9E9B2A1773C30007A264 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E71C9E9C2A1773C30007A264 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E71C9E9E2A1773C30007A264 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Sample/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Kevin Sample";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = eu.kevin.Sample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E71C9E9F2A1773C30007A264 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Sample/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Kevin Sample";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = eu.kevin.Sample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E71C9E842A1773C20007A264 /* Build configuration list for PBXProject "Sample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E71C9E9B2A1773C30007A264 /* Debug */,
+				E71C9E9C2A1773C30007A264 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E71C9E9D2A1773C30007A264 /* Build configuration list for PBXNativeTarget "Sample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E71C9E9E2A1773C30007A264 /* Debug */,
+				E71C9E9F2A1773C30007A264 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E71C9EA02A1775290007A264 /* XCRemoteSwiftPackageReference "kevin-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/getkevin/kevin-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E71C9EA22A1775790007A264 /* .kevin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E71C9EA02A1775290007A264 /* XCRemoteSwiftPackageReference "kevin-ios" */;
+			productName = .kevin;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = E71C9E812A1773C20007A264 /* Project object */;
+}
