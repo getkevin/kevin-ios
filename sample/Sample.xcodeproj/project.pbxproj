@@ -13,7 +13,6 @@
 		E71C9E962A1773C30007A264 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E71C9E952A1773C30007A264 /* Assets.xcassets */; };
 		E71C9E992A1773C30007A264 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E71C9E972A1773C30007A264 /* LaunchScreen.storyboard */; };
 		E71C9EA32A1775790007A264 /* .kevin in Frameworks */ = {isa = PBXBuildFile; productRef = E71C9EA22A1775790007A264 /* .kevin */; };
-		E71C9EA52A1783BE0007A264 /* BankPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71C9EA42A1783BE0007A264 /* BankPaymentViewController.swift */; };
 		E71C9EA92A179B550007A264 /* AuthStateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71C9EA82A179B550007A264 /* AuthStateRequest.swift */; };
 		E71C9EAB2A179B5D0007A264 /* AuthStateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71C9EAA2A179B5D0007A264 /* AuthStateResponse.swift */; };
 		E71C9EAE2A179BC40007A264 /* CreditorsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71C9EAD2A179BC40007A264 /* CreditorsResponse.swift */; };
@@ -23,6 +22,7 @@
 		E71C9EB62A1BA1DE0007A264 /* CardPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71C9EB52A1BA1DE0007A264 /* CardPaymentViewController.swift */; };
 		E71C9EB82A1BA5390007A264 /* AccountLinkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71C9EB72A1BA5390007A264 /* AccountLinkingViewController.swift */; };
 		E71C9EBA2A1BA8860007A264 /* UICustomistaionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71C9EB92A1BA8860007A264 /* UICustomistaionViewController.swift */; };
+		E7867F122A1CDFA200DB464A /* BankPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7867F112A1CDFA200DB464A /* BankPaymentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +33,6 @@
 		E71C9E952A1773C30007A264 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E71C9E982A1773C30007A264 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E71C9E9A2A1773C30007A264 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E71C9EA42A1783BE0007A264 /* BankPaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BankPaymentViewController.swift; path = ../../BankPaymentViewController.swift; sourceTree = "<group>"; };
 		E71C9EA82A179B550007A264 /* AuthStateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStateRequest.swift; sourceTree = "<group>"; };
 		E71C9EAA2A179B5D0007A264 /* AuthStateResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStateResponse.swift; sourceTree = "<group>"; };
 		E71C9EAD2A179BC40007A264 /* CreditorsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditorsResponse.swift; sourceTree = "<group>"; };
@@ -43,6 +42,7 @@
 		E71C9EB52A1BA1DE0007A264 /* CardPaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPaymentViewController.swift; sourceTree = "<group>"; };
 		E71C9EB72A1BA5390007A264 /* AccountLinkingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountLinkingViewController.swift; sourceTree = "<group>"; };
 		E71C9EB92A1BA8860007A264 /* UICustomistaionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICustomistaionViewController.swift; sourceTree = "<group>"; };
+		E7867F112A1CDFA200DB464A /* BankPaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankPaymentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +80,7 @@
 				E71C9E9A2A1773C30007A264 /* Info.plist */,
 				E71C9E8C2A1773C20007A264 /* AppDelegate.swift */,
 				E71C9EB72A1BA5390007A264 /* AccountLinkingViewController.swift */,
-				E71C9EA42A1783BE0007A264 /* BankPaymentViewController.swift */,
+				E7867F112A1CDFA200DB464A /* BankPaymentViewController.swift */,
 				E71C9EB52A1BA1DE0007A264 /* CardPaymentViewController.swift */,
 				E71C9E902A1773C20007A264 /* MainViewController.swift */,
 				E71C9EB92A1BA8860007A264 /* UICustomistaionViewController.swift */,
@@ -213,10 +213,10 @@
 				E71C9E8F2A1773C20007A264 /* SceneDelegate.swift in Sources */,
 				E71C9EA92A179B550007A264 /* AuthStateRequest.swift in Sources */,
 				E71C9EB02A179C0B0007A264 /* InitiatePaymentRequest.swift in Sources */,
+				E7867F122A1CDFA200DB464A /* BankPaymentViewController.swift in Sources */,
 				E71C9EBA2A1BA8860007A264 /* UICustomistaionViewController.swift in Sources */,
 				E71C9EB82A1BA5390007A264 /* AccountLinkingViewController.swift in Sources */,
 				E71C9EAB2A179B5D0007A264 /* AuthStateResponse.swift in Sources */,
-				E71C9EA52A1783BE0007A264 /* BankPaymentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
