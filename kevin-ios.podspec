@@ -12,7 +12,7 @@ Pod::Spec.new do |spec|
   spec.author       = "kevin."
 
   spec.platform     = :ios
-  spec.ios.deployment_target = '9.0'
+  spec.ios.deployment_target = '11.0'
   spec.swift_version = '5.0'
   
   spec.source       = { :git => "https://github.com/getkevin/kevin-ios.git", :tag => "#{spec.version}" }
