@@ -53,8 +53,7 @@ class CardPaymentViewController: UIViewController {
     }
 
     /**
-     * Initiate unlinked card  payment process.
-     * Can be configured with various options like preselected country, bank and others.
+     * Initiate card payment process.
      *
      * For initialising card payment, you will need to obtain a paymentId.
      *

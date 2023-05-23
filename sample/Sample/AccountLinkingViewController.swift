@@ -73,7 +73,7 @@ class AccountLinkingViewController: UIViewController {
                     .build()
 
                 /**
-                 * Set the delegate to obtain payment  session result.
+                 * Set the delegate to obtain linking  session result.
                  */
                 KevinAccountLinkingSession.shared.delegate = self
                 KevinAccountLinkingSession.shared.initiateAccountLinking(configuration: configuration)
