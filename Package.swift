@@ -10,8 +10,7 @@ let package = Package(
         .iOS(.v11)
     ],
     products: [
-        .library(name: ".kevin", targets: ["Kevin"]),
-        .library(name: ".kevin-Dynamic", type: .dynamic, targets: ["Kevin"])
+        .library(name: ".kevin", targets: ["Kevin"])
     ],
     targets: [
         .target(name: "Kevin", resources: [.copy("Resources/Assets.xcassets")]),
