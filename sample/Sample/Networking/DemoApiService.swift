@@ -60,7 +60,7 @@ struct DemoApiService {
         }
 
         return InitiatePaymentRequest(
-            amount: "0.01",
+            amount: "0.01", // Some banks may refuse low amount transactions such as 0.01
             currencyCode: creditorAccount.currencyCode,
             email: "sample@sample.com",
             iban: creditorAccount.iban,
