@@ -29,17 +29,17 @@ struct DemoApiService {
     }
 
     func fetchAuthState(request: AuthStateRequest) async throws -> AuthStateResponse  {
-        let url = URL(string: baseApiURL + "auth/initiate?environment=SANDBOX&bankMode=TEST")!
+        let url = URL(string: baseApiURL + "auth/initiate")!
         return try await makePostRequest(url: url, requestData: request)
     }
 
     private func initiateBankPayment(request: InitiatePaymentRequest) async throws -> InitiatePaymentResponse  {
-        let url = URL(string: baseApiURL + "payments/bank?environment=SANDBOX&bankMode=TEST")!
+        let url = URL(string: baseApiURL + "payments/bank")!
         return try await makePostRequest(url: url, requestData: request)
     }
 
     private func initiateCardPayment(request: InitiatePaymentRequest) async throws -> InitiatePaymentResponse  {
-        let url = URL(string: baseApiURL + "payments/card?environment=SANDBOX&bankMode=TEST")!
+        let url = URL(string: baseApiURL + "payments/card")!
         return try await makePostRequest(url: url, requestData: request)
     }
 

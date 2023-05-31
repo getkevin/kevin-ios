@@ -26,10 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Kevin.shared.isDeepLinkingEnabled = true
 
         /*
-         For the sake of SDK samples we are using kevin. Sandbox environment
-         to avoid making a real money payment / account linking attempts.
+         Uncomment to use kevin. Sandbox environment to avoid making a real money payment / account linking attempts.
          */
-        Kevin.shared.isSandbox = true
+        Kevin.shared.isSandbox = false
 
         // Configure account linking plugin with callback url.
         let configurationAccounts = KevinAccountsConfiguration.Builder(
