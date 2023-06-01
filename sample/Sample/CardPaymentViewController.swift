@@ -32,6 +32,15 @@ class CardPaymentViewController: UIViewController {
         return label
     }()
 
+    lazy var noticeText: UILabel = {
+        let label = UILabel()
+        label.text = "In this sample we use live production banks, so by completing the payment flow 0.01 EUR will be deducted from your account."
+        label.numberOfLines = 0
+        label.font = .systemFont(ofSize: 12)
+        label.textAlignment = .center
+        return label
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -39,8 +48,10 @@ class CardPaymentViewController: UIViewController {
 
         let stackView = UIStackView(arrangedSubviews: [
             paymentStatusText,
-            cardPaymentButton
+            cardPaymentButton,
+            noticeText
         ])
+        stackView.spacing = 12
         stackView.distribution = .equalSpacing
         stackView.axis = .vertical
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -49,6 +60,8 @@ class CardPaymentViewController: UIViewController {
         view.addConstraints([
             stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 12),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -12)
         ])
     }
 
