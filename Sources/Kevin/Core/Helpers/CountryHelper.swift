@@ -21,8 +21,9 @@ internal struct CountryHelper {
     private static func countryBasedOnSIM() -> KevinCountry? {
         if #available(iOS 12.0, *) {
             let networkProviders = CTTelephonyNetworkInfo().serviceSubscriberCellularProviders
+            let simCountryCodes = networkProviders?.compactMap { $0.value.isoCountryCode }
             guard
-                let countryCode = networkProviders?.first?.value.isoCountryCode,
+                let countryCode = simCountryCodes?.first,
                 let kevinCountry = KevinCountry(rawValue: countryCode.lowercased())
             else {
                 return nil

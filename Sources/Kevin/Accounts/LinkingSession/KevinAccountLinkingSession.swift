@@ -71,13 +71,19 @@ final public class KevinAccountLinkingSession {
                     bankCode: configuration.preselectedBank!,
                     country: configuration.preselectedCountry
                 ) { [weak self] bank in
-                    if bank == nil {
+                    guard let bank = bank else {
                         self?.delegate?.onKevinAccountLinkingCanceled(error: KevinError(description: "Preselected bank is not available!"))
-                    } else {
-                        self?.delegate?.onKevinAccountLinkingStarted(
-                            controller: self!.initializeAccountLinkingConfirmation(configuration: configuration)
-                        )
+                        return
                     }
+                    
+                    if !bank.isAccountLinkingSupported {
+                        self?.delegate?.onKevinAccountLinkingCanceled(error: KevinError(description: "Preselected bank does not support account linking."))
+                        return
+                    }
+                    
+                    self?.delegate?.onKevinAccountLinkingStarted(
+                        controller: self!.initializeAccountLinkingConfirmation(configuration: configuration)
+                    )
                 }
             } else {
                 do {

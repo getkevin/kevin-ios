@@ -16,3 +16,9 @@ public class KevinError: Error {
         self.description = description
     }
 }
+
+extension KevinError: LocalizedError {
+    public var errorDescription: String? {
+        return description
+    }
+}
