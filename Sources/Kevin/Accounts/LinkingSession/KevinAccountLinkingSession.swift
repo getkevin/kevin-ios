@@ -112,7 +112,7 @@ final public class KevinAccountLinkingSession {
     ) throws -> UINavigationController {
         let controller = KevinBankSelectionViewController()
         controller.configuration = KevinBankSelectionConfiguration(
-            selectedCountry: configuration.preselectedCountry ?? KevinCountry.lithuania,
+            selectedCountry: configuration.preselectedCountry ?? CountryHelper.defaultCountry,
             isCountrySelectionDisabled: configuration.disableCountrySelection,
             countryFilter: configuration.countryFilter,
             selectedBankId: configuration.preselectedBank,
