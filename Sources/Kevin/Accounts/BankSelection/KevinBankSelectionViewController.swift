@@ -23,9 +23,8 @@ internal class KevinBankSelectionViewController :
         super.viewDidLoad()
         title = "window_bank_selection_title".localized(for: Kevin.shared.locale.identifier)
         getView().delegate = self
-        self.offerIntent(
-            KevinBankSelectionIntent.Initialize(configuration: configuration)
-        )
+        getViewModel().delegate = self
+        offerIntent(.initialize(configuration: configuration))
         uiStateHandler = KevinUIStateHandler()
     }
     
@@ -66,6 +65,15 @@ internal class KevinBankSelectionViewController :
     }
 }
 
+extension KevinBankSelectionViewController: KevinBankSelectionViewModelDelegate {
+
+    func didFailInitiatePayment(error: Error) {
+        dismiss(animated: true)
+        KevinPaymentSession.shared.notifyPaymentCancelation(error: error)
+    }
+    
+}
+
 extension KevinBankSelectionViewController: KevinBankSelectionViewDelegate {
     
     func openCountrySelection() {
@@ -90,10 +98,6 @@ extension KevinBankSelectionViewController: KevinCountrySelectionViewControllerD
     
     func onCountrySelected(countryCode: String) {
         configuration.selectedCountry = KevinCountry(rawValue: countryCode.lowercased())!
-        self.offerIntent(
-            KevinBankSelectionIntent.Initialize(
-                configuration: configuration
-            )
-        )
+        offerIntent(.initialize(configuration: configuration))
     }
 }
