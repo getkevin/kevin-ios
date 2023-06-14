@@ -11,7 +11,7 @@ import CoreTelephony
 
 internal struct CountryHelper {
     static var defaultCountry: KevinCountry {
-       let detected = [countryBasedOnSIM(), countryBasedOnLocale()]
+        let detected = [countryBasedOnSIM(), countryBasedOnLocale()]
             .compactMap { $0 }
             .first
         
