@@ -25,7 +25,11 @@ public class DemoKevinTheme : KevinTheme {
 
         self.gridTableStyle.cellBackgroundColor = UIColor(named: "SelectedOnPrimaryColor")!
         self.gridTableStyle.cellSelectedBackgroundColor = UIColor(named: "TableCellBackgroundColor")!
-
+        self.gridTableStyle.cellBorderWidth = 1
+        self.gridTableStyle.cellBorderColor = UIColor(named: "AccentColor")!
+        self.gridTableStyle.cellSelectedBorderWidth = 3
+        self.gridTableStyle.cellSelectedBorderColor = UIColor(named: "AccentColor")!
+        
         self.sheetPresentationStyle.backgroundColor = UIColor(named: "PrimaryBackgroundColor")!
 
         self.listTableStyle.cellSelectedBackgroundColor = UIColor(Color("TableCellBackgroundColor", bundle: nil))

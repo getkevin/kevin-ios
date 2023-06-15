@@ -60,12 +60,12 @@ open class KevinTheme {
     public struct GridTableStyle {
         public var cellBackgroundColor = UIColor.white
         public var cellCornerRadius: CGFloat = 10
-        public var cellBorderWidth: CGFloat = 1
-        public var cellBorderColor = UIColor.black
+        public var cellBorderWidth: CGFloat = 0
+        public var cellBorderColor = UIColor.clear
         
         public var cellSelectedBackgroundColor = UIColor(red: 226/255, green: 225/255, blue: 234/255, alpha: 1)
-        public var cellSelectedBorderWidth: CGFloat = 2
-        public var cellSelectedBorderColor = UIColor.red
+        public var cellSelectedBorderWidth: CGFloat = 0
+        public var cellSelectedBorderColor = UIColor.clear
         
         public init() { }
     }
