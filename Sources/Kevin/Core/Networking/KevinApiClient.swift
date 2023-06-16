@@ -123,7 +123,8 @@ internal class KevinApiClient {
             } catch { }
         }
 
-        if let responseObject = ResponseType.decodedObject(from: jsonDictionary) {
+        if (200..<300).contains(httpResponse!.statusCode),
+           let responseObject = ResponseType.decodedObject(from: jsonDictionary) {
             safeCompletion(responseObject, nil)
         } else {
             let error = KevinApiError(jsonDictionary: jsonDictionary, httpResponse: httpResponse)

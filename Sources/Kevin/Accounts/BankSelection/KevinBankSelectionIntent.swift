@@ -8,23 +8,6 @@
 
 import Foundation
 
-internal class KevinBankSelectionIntent: IKevinIntent {
-    
-    internal class Initialize: KevinBankSelectionIntent {
-        
-        let configuration: KevinBankSelectionConfiguration
-        
-        init(configuration: KevinBankSelectionConfiguration) {
-            self.configuration = configuration
-        }
-    }
-
-    internal class OpenCountrySelection: KevinBankSelectionIntent {
-        
-        let configuration: KevinBankSelectionConfiguration
-        
-        init(configuration: KevinBankSelectionConfiguration) {
-            self.configuration = configuration
-        }
-    }
+internal enum KevinBankSelectionIntent: IKevinIntent {
+    case initialize(configuration: KevinBankSelectionConfiguration)
 }

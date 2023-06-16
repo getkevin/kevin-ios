@@ -8,11 +8,18 @@
 
 import Foundation
 
+protocol KevinBankSelectionViewModelDelegate: AnyObject {
+    func didFailInitiatePayment(error: Error)
+}
+
 internal class KevinBankSelectionViewModel : KevinViewModel<KevinBankSelectionState, KevinBankSelectionIntent> {
     
+    weak var delegate: KevinBankSelectionViewModelDelegate?
+        
     override func offer(intent: KevinBankSelectionIntent) {
-        if let intent = intent as? KevinBankSelectionIntent.Initialize {
-            initialize(intent.configuration)
+        switch intent {
+        case .initialize(let configuration):
+            initialize(configuration)
         }
     }
     
@@ -30,36 +37,44 @@ internal class KevinBankSelectionViewModel : KevinViewModel<KevinBankSelectionSt
         loadBanksForCoutry(country, configuration: configuration)
     }
     
-    private func loadBanksForCoutry(_ code: String, configuration: KevinBankSelectionConfiguration) {
+    private func loadBanksForCoutry(
+        _ code: String,
+        configuration: KevinBankSelectionConfiguration
+    ) {
         KevinAccountsApiClient.shared.getSupportedBanks(
             token: configuration.authState,
             country: code
         ) { [weak self] bankItems, error in
-            if let bankItems = bankItems {
-                
-                var filtredBankItems = bankItems
-                let allowedBankIds = configuration.bankFilter.map { $0.uppercased() }
-                
-                if !allowedBankIds.isEmpty {
-                    filtredBankItems = filtredBankItems.filter { apiBank in
-                        allowedBankIds.contains(apiBank.id.uppercased())
-                    }
-                }
-                
-                if configuration.excludeBanksWithoutAccountLinkingSupport {
-                    filtredBankItems = filtredBankItems.filter { $0.isAccountLinkingSupported }
-                }
-                
-                let newState = KevinBankSelectionState(
-                    selectedCountry: code,
-                    selectedBankId: configuration.selectedBankId ?? filtredBankItems.first?.id,
-                    isCountrySelectionDisabled: configuration.isCountrySelectionDisabled,
-                    bankItems: filtredBankItems,
-                    isLoading: false
-                )
-                
-                self?.onStateChanged(newState)
+            
+            if let error {
+                self?.delegate?.didFailInitiatePayment(error: error)
+                return
             }
+            
+            guard let bankItems else { return }
+            
+            var filtredBankItems = bankItems
+            let allowedBankIds = configuration.bankFilter.map { $0.uppercased() }
+            
+            if !allowedBankIds.isEmpty {
+                filtredBankItems = filtredBankItems.filter { apiBank in
+                    allowedBankIds.contains(apiBank.id.uppercased())
+                }
+            }
+            
+            if configuration.excludeBanksWithoutAccountLinkingSupport {
+                filtredBankItems = filtredBankItems.filter { $0.isAccountLinkingSupported }
+            }
+            
+            let newState = KevinBankSelectionState(
+                selectedCountry: code,
+                selectedBankId: configuration.selectedBankId ?? filtredBankItems.first?.id,
+                isCountrySelectionDisabled: configuration.isCountrySelectionDisabled,
+                bankItems: filtredBankItems,
+                isLoading: false
+            )
+            
+            self?.onStateChanged(newState)
         }
     }
 }
