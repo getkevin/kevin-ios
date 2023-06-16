@@ -59,8 +59,13 @@ open class KevinTheme {
     
     public struct GridTableStyle {
         public var cellBackgroundColor = UIColor.white
-        public var cellSelectedBackgroundColor = UIColor(red: 226/255, green: 225/255, blue: 234/255, alpha: 1)
         public var cellCornerRadius: CGFloat = 10
+        public var cellBorderWidth: CGFloat = 0
+        public var cellBorderColor = UIColor.clear
+        
+        public var cellSelectedBackgroundColor = UIColor(red: 226/255, green: 225/255, blue: 234/255, alpha: 1)
+        public var cellSelectedBorderWidth: CGFloat = 0
+        public var cellSelectedBorderColor = UIColor.clear
         
         public init() { }
     }
@@ -70,6 +75,7 @@ open class KevinTheme {
         public var isOccupyingFullWidth = false
         public var cellBackgroundColor = UIColor.white
         public var cellSelectedBackgroundColor = UIColor(red: 226/255, green: 225/255, blue: 234/255, alpha: 1)
+        
         public var titleLabelFont = UIFont.systemFont(ofSize: 15, weight: .semibold)
         public var chevronImage: UIImage? = UIImage(named: "chevronIcon", in: Bundle.current, compatibleWith: nil)
         

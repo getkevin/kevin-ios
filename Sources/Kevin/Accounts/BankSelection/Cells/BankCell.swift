@@ -20,6 +20,10 @@ internal class BankCell : UITableViewCell {
     
     private let containerView = UIView()
     
+    private var gridTableStyle: KevinTheme.GridTableStyle {
+        return Kevin.shared.theme.gridTableStyle
+    }
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.backgroundColor = Kevin.shared.theme.generalStyle.primaryBackgroundColor
@@ -35,17 +39,25 @@ internal class BankCell : UITableViewCell {
     
     func selectLeftItem(_ isSelected: Bool) {
         if isSelected {
-            leftOverlay.backgroundColor = Kevin.shared.theme.gridTableStyle.cellSelectedBackgroundColor
+            leftOverlay.backgroundColor = gridTableStyle.cellSelectedBackgroundColor
+            leftOverlay.layer.borderColor = gridTableStyle.cellSelectedBorderColor.cgColor
+            leftOverlay.layer.borderWidth = gridTableStyle.cellSelectedBorderWidth
         } else {
-            leftOverlay.backgroundColor = Kevin.shared.theme.gridTableStyle.cellBackgroundColor
+            leftOverlay.backgroundColor = gridTableStyle.cellBackgroundColor
+            leftOverlay.layer.borderColor = gridTableStyle.cellBorderColor.cgColor
+            leftOverlay.layer.borderWidth = gridTableStyle.cellBorderWidth
         }
     }
     
     func selectRightItem(_ isSelected: Bool) {
         if isSelected {
-            rightOverlay.backgroundColor = Kevin.shared.theme.gridTableStyle.cellSelectedBackgroundColor
+            rightOverlay.backgroundColor = gridTableStyle.cellSelectedBackgroundColor
+            rightOverlay.layer.borderColor = gridTableStyle.cellSelectedBorderColor.cgColor
+            rightOverlay.layer.borderWidth = gridTableStyle.cellSelectedBorderWidth
         } else {
-            rightOverlay.backgroundColor = Kevin.shared.theme.gridTableStyle.cellBackgroundColor
+            rightOverlay.backgroundColor = gridTableStyle.cellBackgroundColor
+            rightOverlay.layer.borderColor = gridTableStyle.cellBorderColor.cgColor
+            rightOverlay.layer.borderWidth = gridTableStyle.cellBorderWidth
         }
     }
     
@@ -78,8 +90,11 @@ internal class BankCell : UITableViewCell {
     }
     
     private func configureLeftAsset() {
-        leftOverlay.backgroundColor = Kevin.shared.theme.gridTableStyle.cellSelectedBackgroundColor
-        leftOverlay.layer.cornerRadius = Kevin.shared.theme.gridTableStyle.cellCornerRadius
+        leftOverlay.backgroundColor = gridTableStyle.cellSelectedBackgroundColor
+        leftOverlay.layer.cornerRadius = gridTableStyle.cellCornerRadius
+        leftOverlay.layer.borderColor = gridTableStyle.cellBorderColor.cgColor
+        leftOverlay.layer.borderWidth = gridTableStyle.cellBorderWidth
+        
         leftOverlay.translatesAutoresizingMaskIntoConstraints = false
 
         leftAsset.contentMode = .scaleAspectFit
@@ -96,8 +111,11 @@ internal class BankCell : UITableViewCell {
     }
     
     private func configureRightAsset() {
-        rightOverlay.backgroundColor = Kevin.shared.theme.gridTableStyle.cellSelectedBackgroundColor
-        rightOverlay.layer.cornerRadius = Kevin.shared.theme.gridTableStyle.cellCornerRadius
+        rightOverlay.backgroundColor = gridTableStyle.cellSelectedBackgroundColor
+        rightOverlay.layer.cornerRadius = gridTableStyle.cellCornerRadius
+        rightOverlay.layer.borderColor = gridTableStyle.cellBorderColor.cgColor
+        rightOverlay.layer.borderWidth = gridTableStyle.cellBorderWidth
+        
         rightOverlay.translatesAutoresizingMaskIntoConstraints = false
         
         rightAsset.contentMode = .scaleAspectFit
