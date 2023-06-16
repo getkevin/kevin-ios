@@ -55,7 +55,6 @@ final public class KevinAccountLinkingSession {
             linkingType: .card
         )
     }
-
     
     private func notifyBankAccountLinkingCompletion(
         authorizationCode: String,
