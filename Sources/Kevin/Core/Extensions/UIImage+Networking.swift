@@ -20,6 +20,7 @@ extension UIImageView {
         
         if let cachedImage = imageCache.object(forKey: urlString as NSString)  {
             self.image = cachedImage
+            self.alpha = 1.0
             return
         }
         
