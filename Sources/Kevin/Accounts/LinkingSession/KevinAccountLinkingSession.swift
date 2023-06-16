@@ -16,8 +16,11 @@ final public class KevinAccountLinkingSession {
     public static let shared = KevinAccountLinkingSession()
     
     private var configuration: KevinAccountLinkingSessionConfiguration!
+    private let bankConfigurationValidator = ValidateBanksConfigurationUseCase()
     
     private init() { }
+    
+    // MARK: - Completion notifiers
     
     internal func notifyAccountLinkingCompletion(
         authorizationCode: String,
@@ -25,97 +28,170 @@ final public class KevinAccountLinkingSession {
         country: KevinCountry?,
         linkingType: KevinAccountLinkingType
     ) {
-        if linkingType == .bank {
-            getPreselectedBank(
-                state: configuration.state,
-                bankCode: bankId!,
-                country: country
-            ) { [weak self] bank in
-                if bank == nil {
-                    self?.delegate?.onKevinAccountLinkingCanceled(error: KevinError(description: "Preselected bank is not available!"))
-                } else {
-                    self?.delegate?.onKevinAccountLinkingSucceeded(
-                        authorizationCode: authorizationCode,
-                        bank: bank!,
-                        linkingType: linkingType
-                    )
-                }
-            }
-        } else {
-            delegate?.onKevinAccountLinkingSucceeded(
+        switch linkingType {
+        case .bank:
+            notifyBankAccountLinkingCompletion(
                 authorizationCode: authorizationCode,
-                bank: nil,
-                linkingType: linkingType
+                bankId: bankId,
+                country: country
+            )
+        case .card:
+            notifyCardAccountLinkingCompletion(
+                authorizationCode: authorizationCode,
+                bankId: bankId,
+                country: country
             )
         }
     }
     
+    private func notifyCardAccountLinkingCompletion(
+        authorizationCode: String,
+        bankId: String?,
+        country: KevinCountry?
+    ) {
+        delegate?.onKevinAccountLinkingSucceeded(
+            authorizationCode: authorizationCode,
+            bank: nil,
+            linkingType: .card
+        )
+    }
+    
+    private func notifyBankAccountLinkingCompletion(
+        authorizationCode: String,
+        bankId: String?,
+        country: KevinCountry?
+    ) {
+        func onValidationCompletion(selectedBank: ApiBank?) {
+            if let selectedBank {
+                delegate?.onKevinAccountLinkingSucceeded(
+                    authorizationCode: authorizationCode,
+                    bank: selectedBank,
+                    linkingType: .bank
+                )
+            } else {
+                let error = KevinError(description: "Provided preselected bank is not supported")
+                delegate?.onKevinAccountLinkingCanceled(error: error)
+            }
+        }
+
+        do {
+            let shouldExcludeBanksWithoutAccountLinkingSupport = try KevinAccountsPlugin.shared.shouldExcludeBanksWithoutAccountLinkingSupport()
+            
+            bankConfigurationValidator.validate(
+                token: configuration.state,
+                country: configuration.preselectedCountry,
+                preselectedBank: bankId,
+                bankFilter: configuration.bankFilter,
+                shouldExcludeBanksWithoutAccountLinkingSupport: shouldExcludeBanksWithoutAccountLinkingSupport
+            ) { [weak self] status in
+                self?.onBankConfigurationValidation(
+                    status: status
+                ) { selectedBank in
+                    onValidationCompletion(selectedBank: selectedBank)
+                }
+            }
+        } catch {
+            delegate?.onKevinAccountLinkingCanceled(error: error)
+        }
+    }
+
     internal func notifyAccountLinkingCancelation(error: Error?) {
         delegate?.onKevinAccountLinkingCanceled(error: error)
     }
     
+    // MARK: - Account linking initiation
+
     /// Inititates account linking flow
     ///
     /// - Parameters:
     ///   - configuration: account linking session configuration
     public func initiateAccountLinking(configuration: KevinAccountLinkingSessionConfiguration) {
         self.configuration = configuration
-        if configuration.linkingType == .card {
-            delegate?.onKevinAccountLinkingStarted(
-                controller: initializeAccountLinkingConfirmation(configuration: configuration)
-            )
-        } else {
-            if configuration.skipBankSelection {
-                getPreselectedBank(
-                    state: configuration.state,
-                    bankCode: configuration.preselectedBank!,
-                    country: configuration.preselectedCountry
-                ) { [weak self] bank in
-                    guard let bank = bank else {
-                        self?.delegate?.onKevinAccountLinkingCanceled(error: KevinError(description: "Preselected bank is not available!"))
-                        return
-                    }
-                    
-                    if !bank.isAccountLinkingSupported {
-                        self?.delegate?.onKevinAccountLinkingCanceled(error: KevinError(description: "Preselected bank does not support account linking."))
-                        return
-                    }
-                    
-                    self?.delegate?.onKevinAccountLinkingStarted(
-                        controller: self!.initializeAccountLinkingConfirmation(configuration: configuration)
+        
+        switch configuration.linkingType {
+        case .bank:
+            initializeBankLinking(configuration: configuration)
+        case .card:
+            initializeCardLinking(configuration: configuration)
+        }
+    }
+    
+    private func initializeCardLinking(configuration: KevinAccountLinkingSessionConfiguration) {
+        delegate?.onKevinAccountLinkingStarted(
+            controller: initializeAccountLinkingConfirmation(configuration: configuration)
+        )
+    }
+    
+    private func initializeBankLinking(configuration: KevinAccountLinkingSessionConfiguration) {
+        func onValidationCompletion(
+            selectedBank: ApiBank?,
+            shouldExcludeBanksWithoutAccountLinkingSupport: Bool
+        ) {
+            if let _ = selectedBank, configuration.skipBankSelection {
+                delegate?.onKevinAccountLinkingStarted(
+                    controller: initializeAccountLinkingConfirmation(configuration: configuration)
+                )
+            } else {
+                delegate?.onKevinAccountLinkingStarted(
+                    controller: initializeBankSelection(
+                        configuration: configuration,
+                        shouldExcludeBanksWithoutAccountLinkingSupport: shouldExcludeBanksWithoutAccountLinkingSupport
+                    )
+                )
+            }
+        }
+        
+        do {
+            let shouldExcludeBanksWithoutAccountLinkingSupport = try KevinAccountsPlugin.shared.shouldExcludeBanksWithoutAccountLinkingSupport()
+            
+            bankConfigurationValidator.validate(
+                token: configuration.state,
+                country: configuration.preselectedCountry,
+                preselectedBank: configuration.preselectedBank,
+                bankFilter: configuration.bankFilter,
+                shouldExcludeBanksWithoutAccountLinkingSupport: shouldExcludeBanksWithoutAccountLinkingSupport
+            ) { [weak self] status in
+                self?.onBankConfigurationValidation(
+                    status: status
+                ) { selectedBank in
+                    onValidationCompletion(
+                        selectedBank: selectedBank,
+                        shouldExcludeBanksWithoutAccountLinkingSupport: shouldExcludeBanksWithoutAccountLinkingSupport
                     )
                 }
-            } else {
-                do {
-                    delegate?.onKevinAccountLinkingStarted(controller: try initializeBankSelection(configuration: configuration))
-                } catch {
-                    delegate?.onKevinAccountLinkingCanceled(error: error)
-                }
             }
+        } catch {
+            delegate?.onKevinAccountLinkingCanceled(error: error)
         }
     }
     
-    private func getPreselectedBank(
-        state: String,
-        bankCode: String,
-        country: KevinCountry?,
+    private func onBankConfigurationValidation(
+        status: ValidateBanksConfigurationUseCase.Status,
         completion: @escaping (ApiBank?) -> Void
     ) {
-        KevinAccountsApiClient.shared.getSupportedBanks(
-            token: state,
-            country: country?.rawValue
-        ) { [weak self] response, error in
-            if let error = error {
-                self?.delegate?.onKevinAccountLinkingCanceled(error: error)
-            } else {
-                completion(response?.first { $0.id == bankCode })
-            }
+        switch status {
+        case .valid(let selectedBank):
+            completion(selectedBank)
+            
+        case .invalidFilter:
+            let error = KevinError(description: "Provided bank filter does not contain supported banks")
+            delegate?.onKevinAccountLinkingCanceled(error: error)
+            
+        case .invalidPreselectedBank:
+            let error = KevinError(description: "Provided preselected bank is not supported")
+            delegate?.onKevinAccountLinkingCanceled(error: error)
+            
+        case .unknown(let error):
+            delegate?.onKevinAccountLinkingCanceled(error: error)
         }
     }
     
+    // MARK: - View initializations
+    
     private func initializeBankSelection(
-        configuration: KevinAccountLinkingSessionConfiguration
-    ) throws -> UINavigationController {
+        configuration: KevinAccountLinkingSessionConfiguration,
+        shouldExcludeBanksWithoutAccountLinkingSupport: Bool
+    ) -> UINavigationController {
         let controller = KevinBankSelectionViewController()
         controller.configuration = KevinBankSelectionConfiguration(
             selectedCountry: configuration.preselectedCountry ?? CountryHelper.defaultCountry,
@@ -125,7 +201,7 @@ final public class KevinAccountLinkingSession {
             authState: configuration.state,
             exitSlug: "dialog_exit_confirmation_accounts_message",
             bankFilter: configuration.bankFilter,
-            excludeBanksWithoutAccountLinkingSupport: try KevinAccountsPlugin.shared.shouldExcludeBanksWithoutAccountLinkingSupport()
+            excludeBanksWithoutAccountLinkingSupport: shouldExcludeBanksWithoutAccountLinkingSupport
         )
         controller.onContinuation = { [weak self] bankId, country in
             controller.show(
@@ -142,9 +218,7 @@ final public class KevinAccountLinkingSession {
         }
         return KevinNavigationViewController(rootViewController: controller)
     }
-    
-    //MARK: AccountLinkingConfirmation
-    
+        
     private func initializeAccountLinkingConfirmation(
         configuration: KevinAccountLinkingSessionConfiguration
     ) -> UINavigationController {

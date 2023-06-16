@@ -15,8 +15,12 @@ final public class KevinPaymentSession {
     
     public static let shared = KevinPaymentSession()
     
+    private let bankConfigurationValidator = ValidateBanksConfigurationUseCase()
+
     private init() { }
     
+    // MARK: - Completion notifiers
+
     internal func notifyPaymentCompletion(paymentId: String, status: KevinPaymentStatus) {
         delegate?.onKevinPaymentSucceeded(paymentId: paymentId, status: status)
     }
@@ -25,61 +29,84 @@ final public class KevinPaymentSession {
         delegate?.onKevinPaymentCanceled(error: error)
     }
     
+    // MARK: - Payment initiation
+
     /// Inititates the payment flow
     ///
     /// - Parameters:
     ///   - configuration: payment session configuration
     public func initiatePayment(configuration: KevinPaymentSessionConfiguration) {
-        if configuration.paymentType == .bank {
+        switch configuration.paymentType {
+        case .bank:
             initiateBankPayment(configuration: configuration)
-        } else if configuration.paymentType == .card {
+        case .card:
             initiateCardPayment(configuration: configuration)
         }
     }
     
     private func initiateBankPayment(configuration: KevinPaymentSessionConfiguration) {
+        func onValidationCompletion(selectedBank: ApiBank?) {
+            if let _ = selectedBank, configuration.skipBankSelection {
+                delegate?.onKevinPaymentInitiationStarted(
+                    controller: initializePaymentConfirmation(configuration: configuration)
+                )
+            } else {
+                delegate?.onKevinPaymentInitiationStarted(
+                    controller: initializeBankSelection(configuration: configuration)
+                )
+            }
+        }
+
         if configuration.skipAuthentication {
-            self.delegate?.onKevinPaymentInitiationStarted(
-                controller: self.initializePaymentConfirmation(configuration: configuration)
+            delegate?.onKevinPaymentInitiationStarted(
+                controller: initializePaymentConfirmation(configuration: configuration)
             )
-        } else if configuration.skipBankSelection {
-            getPreselectedBank(bankCode: configuration.preselectedBank!, configuration: configuration) { [weak self] bank in
-                if bank == nil {
-                    self?.delegate?.onKevinPaymentCanceled(error: KevinError(description: "Preselected bank is not available!"))
-                } else {
-                    self?.delegate?.onKevinPaymentInitiationStarted(
-                        controller: self!.initializePaymentConfirmation(configuration: configuration)
-                    )
+        } else {
+            bankConfigurationValidator.validate(
+                token: configuration.paymentId,
+                country: configuration.preselectedCountry,
+                preselectedBank: configuration.preselectedBank,
+                bankFilter: configuration.bankFilter,
+                shouldExcludeBanksWithoutAccountLinkingSupport: false
+            ) { [weak self] status in
+                self?.onBankConfigurationValidation(
+                    status: status
+                ) { selectedBank in
+                    onValidationCompletion(selectedBank: selectedBank)
                 }
             }
-        } else {
-            delegate?.onKevinPaymentInitiationStarted(controller: initializeBankSelection(configuration: configuration))
         }
     }
 
     private func initiateCardPayment(configuration: KevinPaymentSessionConfiguration) {
-        delegate?.onKevinPaymentInitiationStarted(controller: initializeCardPayment(configuration: configuration))
+        delegate?.onKevinPaymentInitiationStarted(
+            controller: initializeCardPayment(configuration: configuration)
+        )
     }
     
-    //MARK: BankPaymentFlow
-    
-    private func getPreselectedBank(
-        bankCode: String,
-        configuration: KevinPaymentSessionConfiguration,
+    private func onBankConfigurationValidation(
+        status: ValidateBanksConfigurationUseCase.Status,
         completion: @escaping (ApiBank?) -> Void
     ) {
-        KevinAccountsApiClient.shared.getSupportedBanks(
-            token: configuration.paymentId,
-            country: configuration.preselectedCountry?.rawValue
-        ) { [weak self] response, error in
-            if let error = error {
-                self?.delegate?.onKevinPaymentCanceled(error: error)
-            } else {
-                completion(response?.first { $0.id == bankCode })
-            }
+        switch status {
+        case .valid(let selectedBank):
+            completion(selectedBank)
+            
+        case .invalidFilter:
+            let error = KevinError(description: "Provided bank filter does not contain supported banks")
+            delegate?.onKevinPaymentCanceled(error: error)
+            
+        case .invalidPreselectedBank:
+            let error = KevinError(description: "Provided preselected bank is not supported")
+            delegate?.onKevinPaymentCanceled(error: error)
+            
+        case .unknown(let error):
+            delegate?.onKevinPaymentCanceled(error: error)
         }
     }
     
+    // MARK: - View initializations
+
     private func initializeBankSelection(
         configuration: KevinPaymentSessionConfiguration
     ) -> UINavigationController {
@@ -119,8 +146,6 @@ final public class KevinPaymentSession {
         }
         return KevinNavigationViewController(rootViewController: controller)
     }
-
-    //MARK: PaymentConfirmation
     
     private func initializePaymentConfirmation(
         configuration: KevinPaymentSessionConfiguration
