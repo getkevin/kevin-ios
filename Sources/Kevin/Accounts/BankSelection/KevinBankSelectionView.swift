@@ -30,6 +30,12 @@ internal class KevinBankSelectionView : KevinView<KevinBankSelectionState> {
     
     private var state: KevinBankSelectionState?
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        tableView.reloadData()
+    }
+
     public override func render(state: KevinBankSelectionState) {
         self.state = state
         bankItems = state.bankItems
