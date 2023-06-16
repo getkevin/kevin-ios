@@ -13,10 +13,14 @@ final public class Kevin {
     public var theme = KevinTheme()
     public var locale = Locale(identifier: "en") {
         didSet {
-            if !KevinLocaleManager.supportedLocales.contains(locale.identifier) {
+            var identifier = String(locale.identifier.prefix(2))
+            
+            if !KevinLocaleManager.supportedLocales.contains(identifier) {
                 NSLog("Locale is not supported! Fallbacking to English locale.")
-                locale = Locale(identifier: "en")
+                identifier = "en"
             }
+            
+            locale = Locale(identifier: identifier)
         }
     }
     public var isDeepLinkingEnabled = false
