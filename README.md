@@ -38,7 +38,7 @@ let configuration = try KevinPaymentSessionConfiguration.Builder(paymentId: paym
     .setPaymentType(.bank)
     .build()
 
-KevinPaymentSession.shared.delegate = self #  Set the delegate to obtain payment  session result
+KevinPaymentSession.shared.delegate = self // Set the delegate to obtain payment session result
 KevinPaymentSession.shared.initiatePayment(configuration: configuration)
 ```
 
