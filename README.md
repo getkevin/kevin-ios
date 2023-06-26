@@ -32,7 +32,7 @@ Optionally:
 ```
 import Kevin
 
-let paymentID = # your payment ID
+let paymentID = "UUID" // Put your actual payment's ID here
 
 let configuration = try KevinPaymentSessionConfiguration.Builder(paymentId: paymentID)
     .setPaymentType(.bank)
