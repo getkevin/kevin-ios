@@ -27,7 +27,7 @@ Optionally:
 
 ## Usage example
 
-### Initiate payment
+### Initiate Bank Payment
 
 ```
 import Kevin
@@ -40,6 +40,26 @@ let configuration = try KevinPaymentSessionConfiguration.Builder(paymentId: paym
 
 KevinPaymentSession.shared.delegate = self // Set the delegate to obtain payment session result
 KevinPaymentSession.shared.initiatePayment(configuration: configuration)
+
+```
+
+### Implement KevinPaymentSessionDelegate
+
+```
+extension YourClassName: KevinPaymentSessionDelegate {
+    func onKevinPaymentInitiationStarted(controller: UINavigationController) {
+        // Present payment controller
+        present(controller, animated: true)
+    }
+
+    func onKevinPaymentCanceled(error: Error?) {
+        // Handle errors
+    }
+
+    func onKevinPaymentSucceeded(paymentId: String, status: KevinPaymentStatus) {
+        // Handle success
+    }
+}
 ```
 
 See more [samples](https://github.com/getkevin/kevin-ios/tree/master/sample) to check the most common use cases.
