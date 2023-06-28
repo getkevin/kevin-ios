@@ -78,26 +78,6 @@ internal class KevinPaymentConfirmationViewModel : KevinViewModel<KevinPaymentCo
     }
     
     private func appendUrlParameters(urlString: String) -> URL {
-        let customStyle = [
-            "bc": Kevin.shared.theme.generalStyle.primaryBackgroundColor.hexString,
-            "bsc": Kevin.shared.theme.generalStyle.primaryBackgroundColor.hexString,
-            "hc": Kevin.shared.theme.generalStyle.primaryTextColor.hexString,
-            "fc": Kevin.shared.theme.generalStyle.primaryTextColor.hexString,
-            "bic": UIApplication.shared.isLightThemedInterface ? "default" : "white",
-            "dbc": Kevin.shared.theme.mainButtonStyle.backgroundColor.hexString
-        ]
-
-        let jsonData = try! JSONEncoder().encode(customStyle)
-        let jsonString = String(data: jsonData, encoding: String.Encoding.utf8)!
-
-        let queryItems = [
-            URLQueryItem(name: "lang", value: Kevin.shared.locale.identifier.lowercased()),
-            URLQueryItem(name: "cs", value: jsonString)
-        ]
-        var urlComponents = URLComponents(string: urlString)!
-        urlComponents.queryItems = queryItems
-        let result = urlComponents.url!
-        
-        return result
+        return FrameCustomisationHelper.appendUrlParameters(urlString: urlString)
     }
 }
