@@ -24,29 +24,30 @@ internal class KevinPaymentConfirmationViewModel : KevinViewModel<KevinPaymentCo
     }
     
     private func initialize(_ configuration: KevinPaymentConfirmationConfiguration) {
-        var confirmationUrl: URL!
+        var confirmationUrlString: String!
         if configuration.paymentType == .card {
-            confirmationUrl = appendUrlParameters(urlString: String(
+            confirmationUrlString =  String(
                 format: KevinApiPaths.cardPaymentUrl,
                 configuration.paymentId,
                 Kevin.shared.locale.identifier.lowercased()
-            ))
+            )
         } else if configuration.paymentType == .bank {
             if configuration.skipAuthentication {
-                confirmationUrl = appendUrlParameters(urlString: String(
+                confirmationUrlString = String(
                     format: KevinApiPaths.bankPaymentAuthenticatedUrl,
                     configuration.paymentId,
                     Kevin.shared.locale.identifier.lowercased()
-                ))
+                )
             } else {
-                confirmationUrl = appendUrlParameters(urlString: String(
+                confirmationUrlString = String(
                     format: KevinApiPaths.bankPaymentUrl,
                     configuration.paymentId,
                     configuration.selectedBank!,
                     Kevin.shared.locale.identifier.lowercased()
-                ))
+                )
             }
         }
+        let confirmationUrl = FrameCustomisationHelper.appendUrlParameters(urlString: confirmationUrlString)
         onStateChanged(KevinPaymentConfirmationState(url: confirmationUrl))
     }
     
@@ -75,9 +76,5 @@ internal class KevinPaymentConfirmationViewModel : KevinViewModel<KevinPaymentCo
             }
             flowHasBeenProcessed = true
         }
-    }
-    
-    private func appendUrlParameters(urlString: String) -> URL {
-        return FrameCustomisationHelper.appendUrlParameters(urlString: urlString)
     }
 }

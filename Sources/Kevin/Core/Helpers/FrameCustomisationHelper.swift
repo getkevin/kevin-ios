@@ -34,7 +34,7 @@ internal struct FrameCustomisationHelper {
             defaultButtonFontColor: theme.mainButtonStyle.titleLabelTextColor.hexString,
             buttonRadius: "\(theme.mainButtonStyle.cornerRadius)px",
             inputBorderColor: theme.generalStyle.primaryTextColor.hexString,
-            customLayout: customLayoutElements
+            customLayout: ["hl"]
         )
 
         let jsonData = try! JSONEncoder().encode(customStyle)
@@ -64,11 +64,6 @@ internal struct FrameCustomisationHelper {
             case buttonRadius = "br"
             case inputBorderColor = "ibc"
             case customLayout = "cl"
-
         }
-    }
-
-    private static var customLayoutElements: [String] {
-        return ["hl"]
     }
 }
