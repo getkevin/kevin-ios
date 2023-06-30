@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-final public class KevinAccountLinkingSession {
+final public class KevinAccountLinkingSession: NSObject {
     
     public weak var delegate: KevinAccountLinkingSessionDelegate?
     
@@ -17,8 +17,10 @@ final public class KevinAccountLinkingSession {
     
     private var configuration: KevinAccountLinkingSessionConfiguration!
     private let bankConfigurationValidator = ValidateBanksConfigurationUseCase()
-    
-    private init() { }
+
+    private weak var kevinNavigationController: KevinNavigationViewController?
+
+    private override init() { }
     
     // MARK: - Completion notifiers
     
@@ -171,8 +173,10 @@ final public class KevinAccountLinkingSession {
             excludeBanksWithoutAccountLinkingSupport: shouldExcludeBanksWithoutAccountLinkingSupport
         )
         controller.onContinuation = { [weak self] bankId, country in
+            guard let self = self else { return }
+            self.enableSwipeDismissConfirmation(whenTypeEquals: .afterBankSelection)
             controller.show(
-                self!.initializeAccountLinkingConfirmationController(
+                self.initializeAccountLinkingConfirmationController(
                     configuration: configuration,
                     selectedBank: bankId,
                     selectedCountry: country
@@ -183,7 +187,10 @@ final public class KevinAccountLinkingSession {
         controller.onExit = { [weak self] in
             self?.delegate?.onKevinAccountLinkingCanceled(error: KevinCancelationError())
         }
-        return KevinNavigationViewController(rootViewController: controller)
+        let knvc = KevinNavigationViewController(rootViewController: controller)
+        kevinNavigationController = knvc
+        enableSwipeDismissConfirmation(whenTypeEquals: .always)
+        return knvc
     }
         
     private func initializeAccountLinkingConfirmation(
@@ -209,5 +216,40 @@ final public class KevinAccountLinkingSession {
             self?.delegate?.onKevinAccountLinkingCanceled(error: KevinCancelationError())
         }
         return controller
+    }
+}
+
+extension KevinAccountLinkingSession: UIAdaptivePresentationControllerDelegate {
+
+    fileprivate func enableSwipeDismissConfirmation(whenTypeEquals type: KevinConfirmInteractiveDismissType) {
+        if type == configuration.confirmInteractiveDismiss {
+            kevinNavigationController?.presentationController?.delegate = self
+            if #available(iOS 13.0, *) {
+                kevinNavigationController?.isModalInPresentation = true
+            }
+        }
+    }
+
+    public func presentationControllerDidAttemptToDismiss(_ presentationController: UIPresentationController) {
+        let alert = UIAlertController(
+            title: "dialog_exit_confirmation_title".localized(for: Kevin.shared.locale.identifier),
+            message: "dialog_exit_confirmation_accounts_message".localized(for: Kevin.shared.locale.identifier),
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(
+            title: "no".localized(for: Kevin.shared.locale.identifier),
+            style: .cancel,
+            handler: nil
+        ))
+        alert.addAction(UIAlertAction(
+            title: "yes".localized(for: Kevin.shared.locale.identifier),
+            style: .default,
+            handler: { [weak self] _ in
+                self?.kevinNavigationController?.dismiss(animated: true)
+                self?.delegate?.onKevinAccountLinkingCanceled(error: KevinCancelationError())
+            }
+        ))
+
+        kevinNavigationController?.present(alert, animated: true)
     }
 }
