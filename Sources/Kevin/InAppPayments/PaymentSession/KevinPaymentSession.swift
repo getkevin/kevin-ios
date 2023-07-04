@@ -36,12 +36,7 @@ final public class KevinPaymentSession {
     /// - Parameters:
     ///   - configuration: payment session configuration
     public func initiatePayment(configuration: KevinPaymentSessionConfiguration) {
-        switch configuration.paymentType {
-        case .bank:
-            initiateBankPayment(configuration: configuration)
-        case .card:
-            initiateCardPayment(configuration: configuration)
-        }
+        initiateBankPayment(configuration: configuration)
     }
     
     private func initiateBankPayment(configuration: KevinPaymentSessionConfiguration) {
@@ -78,12 +73,6 @@ final public class KevinPaymentSession {
         }
     }
 
-    private func initiateCardPayment(configuration: KevinPaymentSessionConfiguration) {
-        delegate?.onKevinPaymentInitiationStarted(
-            controller: initializeCardPayment(configuration: configuration)
-        )
-    }
-    
     private func onBankConfigurationValidation(
         status: ValidateBanksConfigurationUseCase.Status,
         completion: @escaping (ApiBank?) -> Void
@@ -127,20 +116,6 @@ final public class KevinPaymentSession {
                 sender: nil
             )
         }
-        controller.onExit = { [weak self] in
-            self?.delegate?.onKevinPaymentCanceled(error: KevinCancelationError())
-        }
-        return KevinNavigationViewController(rootViewController: controller)
-    }
-
-    private func initializeCardPayment(
-        configuration: KevinPaymentSessionConfiguration
-    ) -> UINavigationController {
-        let controller = KevinCardPaymentViewController()
-        controller.configuration = KevinCardPaymentConfiguration(
-            paymentId: configuration.paymentId,
-            exitSlug: "dialog_exit_confirmation_payments_message"
-        )
         controller.onExit = { [weak self] in
             self?.delegate?.onKevinPaymentCanceled(error: KevinCancelationError())
         }

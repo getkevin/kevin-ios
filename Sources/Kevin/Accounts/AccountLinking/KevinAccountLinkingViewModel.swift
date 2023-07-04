@@ -21,9 +21,7 @@ internal class KevinAccountLinkingViewModel : KevinViewModel<KevinAccountLinking
     }
     
     private func initialize(_ configuration: KevinAccountLinkingConfiguration) {
-        let baseUrl = configuration.linkingType == .bank ?
-            String(format: KevinApiPaths.bankLinkingUrl, configuration.state, configuration.selectedBankId!) :
-            String(format: KevinApiPaths.cardLinkingUrl, configuration.state)
+        let baseUrl = String(format: KevinApiPaths.bankLinkingUrl, configuration.state, configuration.selectedBankId!)
         
         onStateChanged(
             KevinAccountLinkingState(

@@ -11,8 +11,6 @@ import Foundation
 class KevinApiPaths {
     
     static let bankLinkingUrl = "https://\(host)/login/%@/%@/preview"
-    static let cardLinkingUrl = "https://\(host)/card-details/%@"
-    static let cardPaymentUrl = "https://\(host)/card-details/%@"
     static let bankPaymentUrl = "https://\(host)/login/%@/%@/preview"
     static let bankPaymentAuthenticatedUrl = "https://\(host)/payments/%@/processing"
 

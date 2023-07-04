@@ -20,14 +20,6 @@ struct DemoApiService {
         return initiatePaymentResponse.id
     }
 
-    func fetchCardPaymentID(country: KevinCountry) async throws -> String? {
-        guard let request = try await preparePaymentRequest(country: country) else {
-            return nil
-        }
-        let initiatePaymentResponse = try await initiateCardPayment(request: request)
-        return initiatePaymentResponse.id
-    }
-
     func fetchAuthState(request: AuthStateRequest) async throws -> AuthStateResponse  {
         let url = URL(string: baseApiURL + "auth/initiate")!
         return try await makePostRequest(url: url, requestData: request)
@@ -35,11 +27,6 @@ struct DemoApiService {
 
     private func initiateBankPayment(request: InitiatePaymentRequest) async throws -> InitiatePaymentResponse  {
         let url = URL(string: baseApiURL + "payments/bank")!
-        return try await makePostRequest(url: url, requestData: request)
-    }
-
-    private func initiateCardPayment(request: InitiatePaymentRequest) async throws -> InitiatePaymentResponse  {
-        let url = URL(string: baseApiURL + "payments/card")!
         return try await makePostRequest(url: url, requestData: request)
     }
 

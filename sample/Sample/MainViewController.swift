@@ -35,19 +35,6 @@ class MainViewController: UIViewController {
         return button
     }()
 
-    lazy var cardPaymentButton: UIButton = {
-        let button = UIButton(
-            type: .system,
-            primaryAction: UIAction(
-                title: "Card payment",
-                handler: { [weak self] _ in
-                    self?.openCardPayment()
-                }
-            )
-        )
-        return button
-    }()
-
     lazy var uiCustomisationButton: UIButton = {
         let button = UIButton(
             type: .system,
@@ -68,7 +55,6 @@ class MainViewController: UIViewController {
         let stackView = UIStackView(arrangedSubviews: [
             accountLinkingButton,
             bankPaymentButton,
-            cardPaymentButton,
             uiCustomisationButton
         ])
         stackView.distribution = .equalSpacing
@@ -84,10 +70,6 @@ class MainViewController: UIViewController {
 
     @objc func openAccountLinking() {
         navigationController?.pushViewController(AccountLinkingViewController(), animated: true)
-    }
-
-    @objc func openCardPayment() {
-        navigationController?.pushViewController(CardPaymentViewController(), animated: true)
     }
 
     @objc func openBankPayment() {

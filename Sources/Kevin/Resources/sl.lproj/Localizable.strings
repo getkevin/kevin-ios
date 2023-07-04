@@ -40,7 +40,6 @@
 "country_name_li" = "Lihtenštajn";
 
 "window_account_linking_title" = "Povezovanje z računom";
-"window_account_linking_card_title" = "Povezovanje s kartico";
 "window_country_selection_title" = "Izberite državo";
 "window_bank_selection_title" = "Izbira banke";
 "window_bank_selection_select_country_label" = "Izberite državo";
@@ -50,28 +49,6 @@
 
 "Continue" = "Nadaljevanje";
 
-"window_card_payment_label" = "Plačilo s kartico";
-"window_card_payment_cardholder_name_label" = "Ime imetnika kartice";
-"window_card_payment_cardholder_name_hint" = "John Appleseed";
-"window_card_payment_card_number_label" = "Številka kartice";
-"window_card_payment_card_number_hint" = "1234 5678 9012 3456";
-"window_card_payment_expiry_date_label" = "Datum poteka veljavnosti";
-"window_card_payment_expiry_date_hint" = "MM/YY";
-"window_card_payment_cvv_label" = "CVV / CVC";
-"window_card_payment_cvv_hint" = "123";
-"window_card_payment_notice" = "kevin. ne shranjuje vaših osebnih podatkov ali podatkov o kartici.";
-"window_card_payment_cvv_tooltip" = "Varnostna koda CVV je trištevilčna koda, navedena na zadnji strani kartice";
-"error_no_cardholder_name" = "Vnesite ime imetnika kartice";
-"error_invalid_cvv" = "Vnesite veljavno varnostno kodo CVV";
-"error_no_cvv" = "Vnesite varnostno kodo CVV";
-"error_invalid_expiry_date" = "Datum poteka veljavnosti ni veljaven";
-"error_no_expiry_date" = "Vnesite datum poteka veljavnosti";
-"error_card_expired" = "Kartica je potekla";
-"error_invalid_card_number" = "Številka kartice ni veljavna";
-"error_no_card_number" = "Vnesite številko kartice";
-"window_card_payment_redirect_title" = "Nadaljevanje plačila z bančnim nakazilom?";
-"window_card_payment_redirect_subtitle" = "Želite nadaljevati s plačilom z bančnim nakazilom?";
-"window_card_payment_bank_redirect_subtitle" = "Opazili smo, da je bila vaša plačilna kartica izdana pri %@. Želite nadaljevati s plačilom z bančnim nakazilom?";
 "window_bank_selection_terms_and_conditions_text" = "S pritiskom na Nadaljuj preberem in se strinjam z določili in pogoji ter politiko zasebnosti";
 "window_bank_selection_terms_clickable_text" = "pogoji";
 "window_bank_selection_privacy_clickable_text" = "politiko zasebnosti";

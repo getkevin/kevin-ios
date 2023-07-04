@@ -40,7 +40,6 @@
 "country_name_li" = "Lichtenštejnsko";
 
 "window_account_linking_title" = "Propojení účtů";
-"window_account_linking_card_title" = "Propojení karet";
 "window_country_selection_title" = "Vyberte zemi";
 "window_bank_selection_title" = "Výběr banky";
 "window_bank_selection_select_country_label" = "Vyberte zemi";
@@ -51,28 +50,6 @@
 
 "Continue" = "Pokračovat";
 
-"window_card_payment_label" = "Platba kartou";
-"window_card_payment_cardholder_name_label" = "Jméno držitele karty";
-"window_card_payment_cardholder_name_hint" = "Jan Novák";
-"window_card_payment_card_number_label" = "Číslo karty";
-"window_card_payment_card_number_hint" = "1234 5678 9012 3456";
-"window_card_payment_expiry_date_label" = "Datum expirace";
-"window_card_payment_expiry_date_hint" = "MM/YY";
-"window_card_payment_cvv_label" = "CVV / CVC";
-"window_card_payment_cvv_hint" = "123";
-"window_card_payment_notice" = "kevin. neukládá žádné vaše osobní údaje ani detaily karty.";
-"window_card_payment_cvv_tooltip" = "CVV je třímístný kód uvedený na zadní straně karty.";
-"error_no_cardholder_name" = "Musí být zadáno jméno držitele karty";
-"error_invalid_cvv" = "Zadejte platný kód CVV";
-"error_no_cvv" = "CVV musí být zadáno";
-"error_invalid_expiry_date" = "Datum expirace je neplatné";
-"error_no_expiry_date" = "Musí být zadáno datum expirace";
-"error_card_expired" = "Platnost karty vypršela";
-"error_invalid_card_number" = "Číslo karty je neplatné";
-"error_no_card_number" = "Musí být zadáno číslo karty";
-"window_card_payment_redirect_title" = "Pokračovat v platbě bankovním převodem?";
-"window_card_payment_redirect_subtitle" = "Chcete pokračovat v platbě bankovním převodem?";
-"window_card_payment_bank_redirect_subtitle" = "Zjistili jsme, že vaše platební karta je vydána společností %@. Chcete pokračovat v platbě bankovním převodem?";
 "window_bank_selection_terms_and_conditions_text" = "Stisknutím tlačítka Pokračovat čtu a souhlasím s Podmínkami a Zásadami ochrany osobních údajů";
 "window_bank_selection_terms_clickable_text" = "Podmínkami";
 "window_bank_selection_privacy_clickable_text" = "Zásadami ochrany osobních údajů";

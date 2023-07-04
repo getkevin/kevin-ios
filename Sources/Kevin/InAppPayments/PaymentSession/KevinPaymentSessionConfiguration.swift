@@ -41,10 +41,7 @@ public class KevinPaymentSessionConfiguration {
         self.preselectedBank = preselectedBank
         self.skipBankSelection = skipBankSelection
         self.skipAuthentication = skipAuthentication
-        
-        if skipAuthentication && paymentType == .card {
-            throw KevinError(description: "Skipping authentication is only allowed for bank payments!")
-        }
+       
         if skipBankSelection && preselectedBank == nil {
             throw KevinError(description: "If skipBankSelection is true, preselectedBank must be provided!")
         }

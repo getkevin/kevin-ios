@@ -35,7 +35,6 @@
 "country_name_li" = "Liechtenstein";
 
 "window_account_linking_title" = "Reikningstenging";
-"window_account_linking_card_title" = "Kortatenging";
 "window_country_selection_title" = "Veldu land";
 "window_bank_selection_title" = "Bankaval";
 "window_bank_selection_select_country_label" = "Veldu land";
@@ -46,28 +45,6 @@
 
 "Continue" = "Halda áfram";
 
-"window_card_payment_label" = "Kortagreiðsla";
-"window_card_payment_cardholder_name_label" = "Nafn eiganda kortsins";
-"window_card_payment_cardholder_name_hint" = "John Appleseed";
-"window_card_payment_card_number_label" = "Kortanúmer";
-"window_card_payment_card_number_hint" = "1234 5678 9012 3456";
-"window_card_payment_expiry_date_label" = "Gildistími";
-"window_card_payment_expiry_date_hint" = "MM/YY";
-"window_card_payment_cvv_label" = "CVV / CVC";
-"window_card_payment_cvv_hint" = "123";
-"window_card_payment_notice" = "kevin. geymir engar persónu- eða kortaupplýsingar";
-"window_card_payment_cvv_tooltip" = "CVV er 3 tölustafir á bakhliðinni á kortinu";
-"error_no_cardholder_name" = "Gefa þarf upp nafn eiganda kortsins";
-"error_invalid_cvv" = "Gefðu upp gilt CVV";
-"error_no_cvv" = "Gefa þarf upp CVV";
-"error_invalid_expiry_date" = "Gildistími er ógildur";
-"error_no_expiry_date" = "Gefa þarf upp gildistíma";
-"error_card_expired" = "Kortið er útrunnið";
-"error_invalid_card_number" = "Kortanúmerið er ógilt";
-"error_no_card_number" = "Gefa þarf upp kortanúmer";
-"window_card_payment_redirect_title" = "Halda áfram að greiða með bankafærslu?";
-"window_card_payment_redirect_subtitle" = "Viltu halda áfram að greiða með bankafærslu?";
-"window_card_payment_bank_redirect_subtitle" = "Við höfum tekið eftir því að greiðslukortið þitt er gefið út af %@. Viltu halda áfram að greiða með bankafærslu?";
 "window_bank_selection_terms_and_conditions_text" = "Með því að ýta á Halda áfram les ég og samþykki skilmála og persónuverndarstefnu";
 "window_bank_selection_terms_clickable_text" = "skilmála";
 "window_bank_selection_privacy_clickable_text" = "persónuverndarstefnu";

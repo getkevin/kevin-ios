@@ -25,13 +25,7 @@ internal class KevinPaymentConfirmationViewModel : KevinViewModel<KevinPaymentCo
     
     private func initialize(_ configuration: KevinPaymentConfirmationConfiguration) {
         var confirmationUrlString: String!
-        if configuration.paymentType == .card {
-            confirmationUrlString =  String(
-                format: KevinApiPaths.cardPaymentUrl,
-                configuration.paymentId,
-                Kevin.shared.locale.identifier.lowercased()
-            )
-        } else if configuration.paymentType == .bank {
+        if configuration.paymentType == .bank {
             if configuration.skipAuthentication {
                 confirmationUrlString = String(
                     format: KevinApiPaths.bankPaymentAuthenticatedUrl,

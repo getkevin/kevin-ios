@@ -40,7 +40,6 @@
 "country_name_li" = "Liechtenstein";
 
 "window_account_linking_title" = "Lier des comptes";
-"window_account_linking_card_title" = "Lier des cartes";
 "window_country_selection_title" = "Sélectionnez le pays";
 "window_bank_selection_title" = "Sélection de la banque";
 "window_bank_selection_select_country_label" = "Sélectionnez le pays";
@@ -51,28 +50,6 @@
 
 "Continue" = "Continuer";
 
-"window_card_payment_label" = "Paiement par carte";
-"window_card_payment_cardholder_name_label" = "Nom du titulaire de la carte";
-"window_card_payment_cardholder_name_hint" = "John Appleseed";
-"window_card_payment_card_number_label" = "Numéro de la carte";
-"window_card_payment_card_number_hint" = "1234 5678 9012 3456";
-"window_card_payment_expiry_date_label" = "Date d'expiration";
-"window_card_payment_expiry_date_hint" = "MM/YY";
-"window_card_payment_cvv_label" = "CVV / CVC";
-"window_card_payment_cvv_hint" = "123";
-"window_card_payment_notice" = "kevin. ne stocke aucune de vos données personnelles ou des détails de votre carte.";
-"window_card_payment_cvv_tooltip" = "Le CVV est un code à trois chiffres situé au dos de votre carte.";
-"error_no_cardholder_name" = "Le nom du titulaire de la carte doit être saisi";
-"error_invalid_cvv" = "Saisissez un CVV valide";
-"error_no_cvv" = "Le CVV doit être saisi";
-"error_invalid_expiry_date" = "La date d'expiration n'est pas valide";
-"error_no_expiry_date" = "La date d'expiration doit être saisie";
-"error_card_expired" = "La carte est expirée";
-"error_invalid_card_number" = "Le numéro de la carte n'est pas valide";
-"error_no_card_number" = "Le numéro de la carte doit être saisi";
-"window_card_payment_redirect_title" = "Poursuivre le paiement par virement bancaire ?";
-"window_card_payment_redirect_subtitle" = "Souhaitez-vous poursuivre le paiement par virement bancaire ?";
-"window_card_payment_bank_redirect_subtitle" = "Nous avons remarqué que votre carte de paiement est émise par %@. Souhaitez-vous poursuivre le paiement par virement bancaire ?";
 "window_bank_selection_terms_and_conditions_text" = "En appuyant sur Continuer, j'ai lu et j'accepte les termes et conditions et la politique de confidentialité";
 "window_bank_selection_terms_clickable_text" = "termes et conditions";
 "window_bank_selection_privacy_clickable_text" = "politique de confidentialité";

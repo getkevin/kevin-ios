@@ -28,34 +28,13 @@ final public class KevinAccountLinkingSession {
         country: KevinCountry?,
         linkingType: KevinAccountLinkingType
     ) {
-        switch linkingType {
-        case .bank:
-            notifyBankAccountLinkingCompletion(
-                authorizationCode: authorizationCode,
-                bankId: bankId,
-                country: country
-            )
-        case .card:
-            notifyCardAccountLinkingCompletion(
-                authorizationCode: authorizationCode,
-                bankId: bankId,
-                country: country
-            )
-        }
-    }
-    
-    private func notifyCardAccountLinkingCompletion(
-        authorizationCode: String,
-        bankId: String?,
-        country: KevinCountry?
-    ) {
-        delegate?.onKevinAccountLinkingSucceeded(
+        notifyBankAccountLinkingCompletion(
             authorizationCode: authorizationCode,
-            bank: nil,
-            linkingType: .card
+            bankId: bankId,
+            country: country
         )
     }
-    
+
     private func notifyBankAccountLinkingCompletion(
         authorizationCode: String,
         bankId: String?,
@@ -107,21 +86,9 @@ final public class KevinAccountLinkingSession {
     ///   - configuration: account linking session configuration
     public func initiateAccountLinking(configuration: KevinAccountLinkingSessionConfiguration) {
         self.configuration = configuration
+        initializeBankLinking(configuration: configuration)
+    }
         
-        switch configuration.linkingType {
-        case .bank:
-            initializeBankLinking(configuration: configuration)
-        case .card:
-            initializeCardLinking(configuration: configuration)
-        }
-    }
-    
-    private func initializeCardLinking(configuration: KevinAccountLinkingSessionConfiguration) {
-        delegate?.onKevinAccountLinkingStarted(
-            controller: initializeAccountLinkingConfirmation(configuration: configuration)
-        )
-    }
-    
     private func initializeBankLinking(configuration: KevinAccountLinkingSessionConfiguration) {
         func onValidationCompletion(
             selectedBank: ApiBank?,
