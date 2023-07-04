@@ -50,11 +50,6 @@
 
 "Continue" = "Продължи";
 
-
-"error_invalid_cvv" = "Въведете валиден CW код";
-"error_no_cvv" = "Трябва да бъде въведен CW код";
-"error_invalid_expiry_date" = "Датата на валидност е невалидна";
-"error_no_expiry_date" = "Трябва да бъде въведена дата на валидност";
 "window_bank_selection_terms_and_conditions_text" = "С натискането на Продължи чета и се съгласявам с Общите условия и Политиката за поверителност";
 "window_bank_selection_terms_clickable_text" = "Общите условия";
 "window_bank_selection_privacy_clickable_text" = "Политиката за поверителност";
