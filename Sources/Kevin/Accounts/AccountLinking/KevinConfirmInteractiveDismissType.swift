@@ -1,8 +1,8 @@
 //
-//  KevinAccountLinkingIntent.swift
+//  KevinConfirmInteractiveDismissType.swift
 //  kevin.iOS
 //
-//  Created by Kacper Dziube on 30/06/23.
+//  Created by Kacper Dziubek on 30/06/23.
 //  Copyright © 2021 kevin.. All rights reserved.
 //
 
