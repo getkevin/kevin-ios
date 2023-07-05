@@ -40,7 +40,6 @@
 "country_name_li" = "Лихтенщайн";
 
 "window_account_linking_title" = "Свързване на профил";
-"window_account_linking_card_title" = "Свързване на карта";
 "window_country_selection_title" = "Изберете държава";
 "window_bank_selection_title" = "Избор на банка";
 "window_bank_selection_select_country_label" = "Изберете държава";
@@ -51,28 +50,6 @@
 
 "Continue" = "Продължи";
 
-"window_card_payment_label" = "Картово плащане";
-"window_card_payment_cardholder_name_label" = "Име на картодържателя";
-"window_card_payment_cardholder_name_hint" = "Присъединете се към Appleseed";
-"window_card_payment_card_number_label" = "Карта номер";
-"window_card_payment_card_number_hint" = "1234 5678 9012 3456";
-"window_card_payment_expiry_date_label" = "Дата на валидност";
-"window_card_payment_expiry_date_hint" = "MM/YY";
-"window_card_payment_cvv_label" = "CVV / CVC";
-"window_card_payment_cvv_hint" = "123";
-"window_card_payment_notice" = "kevin. Не съхранява никаква част от данните на картата ви.";
-"window_card_payment_cvv_tooltip" = "CW е 3-цифрен код, изписан на гърба на картата";
-"error_no_cardholder_name" = "Трябва да бъде въведено име на картодържателя";
-"error_invalid_cvv" = "Въведете валиден CW код";
-"error_no_cvv" = "Трябва да бъде въведен CW код";
-"error_invalid_expiry_date" = "Датата на валидност е невалидна";
-"error_no_expiry_date" = "Трябва да бъде въведена дата на валидност";
-"error_card_expired" = "Картата е изтекла";
-"error_invalid_card_number" = "Номерът на картата е невалиден";
-"error_no_card_number" = "Трябва да бъде въведен номер на карта";
-"window_card_payment_redirect_title" = "Продължете плащането с банков трансфер?";
-"window_card_payment_redirect_subtitle" = "Искате ли да продължите плащането с Банков трансфер?";
-"window_card_payment_bank_redirect_subtitle" = "Забелязахме, че картата ви за разплащания е издадена от %@. Искате ли да продължите плащането с банков трансфер?";
 "window_bank_selection_terms_and_conditions_text" = "С натискането на Продължи чета и се съгласявам с Общите условия и Политиката за поверителност";
 "window_bank_selection_terms_clickable_text" = "Общите условия";
 "window_bank_selection_privacy_clickable_text" = "Политиката за поверителност";

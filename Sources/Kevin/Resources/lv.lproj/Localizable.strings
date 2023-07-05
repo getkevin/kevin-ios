@@ -40,7 +40,6 @@
 "country_name_li" = "Lihtenšteina";
 
 "window_account_linking_title" = "Doties uz kontu";
-"window_account_linking_card_title" = "Pievienot karti";
 "window_country_selection_title" = "Izvēlieties valsti";
 "window_bank_selection_title" = "Izvēlieties banku";
 "window_bank_selection_select_country_label" = "Izvēlieties valsti";
@@ -51,28 +50,6 @@
 
 "Continue" = "Turpināt";
 
-"window_card_payment_label" = "Maksājums ar karti";
-"window_card_payment_cardholder_name_label" = "Kartes īpašnieka vārds";
-"window_card_payment_cardholder_name_hint" = "Kārlis Bērziņš";
-"window_card_payment_card_number_label" = "Kartes numurs";
-"window_card_payment_card_number_hint" = "1234 5678 9012 3456";
-"window_card_payment_expiry_date_label" = "Derīguma termiņš";
-"window_card_payment_expiry_date_hint" = "MM/YY";
-"window_card_payment_cvv_label" = "CVV / CVC";
-"window_card_payment_cvv_hint" = "123";
-"window_card_payment_notice" = "Lietotne kevin. neglabā jūsu personīgo informāciju un bankas kartes datus";
-"window_card_payment_cvv_tooltip" = "CVV kods ir trīs zīmju kods, kas redzams jūsu kartes aizmugurē";
-"error_no_cardholder_name" = "Jānorāda kartes īpašnieka vārds";
-"error_invalid_cvv" = "Ievadiet derīgu CVV kodu";
-"error_no_cvv" = "Jānorāda CVV kods";
-"error_invalid_expiry_date" = "Nederīgs derīguma termiņš";
-"error_no_expiry_date" = "Jānorāda derīguma termiņš";
-"error_card_expired" = "Kartes derīguma termiņš ir beidzies";
-"error_invalid_card_number" = "Nederīgs kartes numurs";
-"error_no_card_number" = "Jānorāda kartes numurs";
-"window_card_payment_redirect_title" = "Veikt maksājumu, izmantojot bankas pārskaitījumu?";
-"window_card_payment_redirect_subtitle" = "Vai vēlaties veikt maksājumu, izmantojot bankas pārskaitījumu?";
-"window_card_payment_bank_redirect_subtitle" = "Ievērojām, ka karti izsniegusi %@. Vai vēlaties veikt maksājumu, izmantojot bankas pārskaitījumu?";
 "window_bank_selection_terms_and_conditions_text" = "Nospiežot Turpināt, es izlasīju un piekrītu Noteikumiem un nosacījumiem un Privātuma politikai";
 "window_bank_selection_terms_clickable_text" = "Noteikumiem un nosacījumiem";
 "window_bank_selection_privacy_clickable_text" = "Privātuma politikai";

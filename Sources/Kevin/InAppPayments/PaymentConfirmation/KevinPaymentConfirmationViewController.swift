@@ -34,7 +34,7 @@ internal class KevinPaymentConfirmationViewController :
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if configuration.skipAuthentication || configuration.paymentType == .card {
+        if configuration.skipAuthentication {
             uiStateHandler?.setNavigationController(navigationController: navigationController)
         }
     }
@@ -43,7 +43,7 @@ internal class KevinPaymentConfirmationViewController :
         super.viewDidDisappear(animated)
         if uiStateHandler?.isCancellationInvoked ?? false {
             NotificationCenter.default.removeObserver(self)
-            if configuration.skipAuthentication || configuration.paymentType == .card {
+            if configuration.skipAuthentication {
                 self.offerIntent(
                     KevinPaymentConfirmationIntent.HandlePaymentCompleted(
                         url: nil,

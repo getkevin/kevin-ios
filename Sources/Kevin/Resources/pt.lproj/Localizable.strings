@@ -40,7 +40,6 @@
 "country_name_li" = "Liechtenstein";
 
 "window_account_linking_title" = "Associação da conta";
-"window_account_linking_card_title" = "Associação do cartão";
 "window_country_selection_title" = "Selecione o país";
 "window_bank_selection_title" = "Seleção do banco";
 "window_bank_selection_select_country_label" = "Selecione o país";
@@ -51,28 +50,6 @@
 
 "Continue" = "Continuar";
 
-"window_card_payment_label" = "Pagamento por cartão";
-"window_card_payment_cardholder_name_label" = "Nome do Titular do Cartão";
-"window_card_payment_cardholder_name_hint" = "John Appleseed";
-"window_card_payment_card_number_label" = "Número do cartão";
-"window_card_payment_card_number_hint" = "1234 5678 9012 3456";
-"window_card_payment_expiry_date_label" = "Data de expiração";
-"window_card_payment_expiry_date_hint" = "MM/YY";
-"window_card_payment_cvv_label" = "CVV / CVC";
-"window_card_payment_cvv_hint" = "123";
-"window_card_payment_notice" = "A kevin. não armazena nenhuma das suas informações pessoais ou dados do cartão.";
-"window_card_payment_cvv_tooltip" = "O CVV é um código de 3 dígitos que é exibido na parte de trás do seu cartão";
-"error_no_cardholder_name" = "É necessário introduzir o nome do titular do cartão";
-"error_invalid_cvv" = "Introduza um CVV válido";
-"error_no_cvv" = "É necessário introduzir o CVV";
-"error_invalid_expiry_date" = "A data de expiração é inválida";
-"error_no_expiry_date" = "É necessário introduzir a data de expiração";
-"error_card_expired" = "O cartão expirou";
-"error_invalid_card_number" = "O número do cartão é inválido";
-"error_no_card_number" = "É necessário introduzir o número do cartão";
-"window_card_payment_redirect_title" = "Continuar o pagamento por meio de transferência bancária?";
-"window_card_payment_redirect_subtitle" = "Gostaria de continuar o pagamento por meio de Transferência Bancária?";
-"window_card_payment_bank_redirect_subtitle" = "Reparámos que o seu cartão de pagamento foi emitido por %@. Gostaria de continuar o pagamento por meio de Transferência Bancária?";
 "window_bank_selection_terms_and_conditions_text" = "Ao pressionar Continuar, li e concordo com os Termos e Condições e a Política de Privacidade";
 "window_bank_selection_terms_clickable_text" = "Termos e Condições";
 "window_bank_selection_privacy_clickable_text" = "Política de Privacidade";

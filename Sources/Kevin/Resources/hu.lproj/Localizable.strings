@@ -40,7 +40,6 @@
 "country_name_li" = "Liechtenstein";
 
 "window_account_linking_title" = "Fiók összekapcsolása";
-"window_account_linking_card_title" = "Kártya összekapcsolása";
 "window_country_selection_title" = "Ország kiválasztása";
 "window_bank_selection_title" = "Bank kiválasztása";
 "window_bank_selection_select_country_label" = "Ország kiválasztása";
@@ -51,28 +50,6 @@
 
 "Continue" = "Folytatás";
 
-"window_card_payment_label" = "Kártyás fizetés";
-"window_card_payment_cardholder_name_label" = "Kártyatulajdonos neve";
-"window_card_payment_cardholder_name_hint" = "John Appleseed";
-"window_card_payment_card_number_label" = "Kártyaszám";
-"window_card_payment_card_number_hint" = "1234 5678 9012 3456";
-"window_card_payment_expiry_date_label" = "Lejárat dátuma";
-"window_card_payment_expiry_date_hint" = "MM/YY";
-"window_card_payment_cvv_label" = "CVV / CVC";
-"window_card_payment_cvv_hint" = "123";
-"window_card_payment_notice" = "A kevin. nem tárolja el semmilyen személyes információját vagy kártyaadatát.";
-"window_card_payment_cvv_tooltip" = "A CVV egy három számjegyű kód, ami a kártya hátsó részén jelenik meg";
-"error_no_cardholder_name" = "Meg kell adni a kártyatulajdonos nevét";
-"error_invalid_cvv" = "Adjon meg egy érvényes CVV számot";
-"error_no_cvv" = "Meg kell adni a CVV számot";
-"error_invalid_expiry_date" = "A lejárat dátuma érvénytelen";
-"error_no_expiry_date" = "Meg kell adni a lejárat dátumát";
-"error_card_expired" = "A kártya lejárt";
-"error_invalid_card_number" = "A kártyaszám érvénytelen";
-"error_no_card_number" = "Meg kell adni a kártyaszámot";
-"window_card_payment_redirect_title" = "Folytatja a fizetést banki átutalással?";
-"window_card_payment_redirect_subtitle" = "Szeretné banki átutalással folytatni?";
-"window_card_payment_bank_redirect_subtitle" = "Észrevettük, hogy kártyáját %@ bocsátotta ki. Szeretné banki átutalással folytatni?";
 "window_bank_selection_terms_and_conditions_text" = "A Folytatás gomb megnyomásával elolvasom és elfogadom az Általános Szerződési Feltételeket és az Adatvédelmi szabályzatot";
 "window_bank_selection_terms_clickable_text" = "Általános Szerződési Feltételeket";
 "window_bank_selection_privacy_clickable_text" = "Adatvédelmi szabályzatot";

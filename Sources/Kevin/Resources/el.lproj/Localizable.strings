@@ -40,7 +40,6 @@
 "country_name_li" = "Λιχτενστάιν";
 
 "window_account_linking_title" = "Σύνδεση λογαριασμού";
-"window_account_linking_card_title" = "Σύνδεση κάρτας";
 "window_country_selection_title" = "Επιλέξτε χώρα";
 "window_bank_selection_title" = "Επιλογή τράπεζας";
 "window_bank_selection_select_country_label" = "Επιλογή χώρας";
@@ -51,28 +50,6 @@
 
 "Continue" = "Συνέχεια";
 
-"window_card_payment_label" = "Πληρωμή με κάρτα";
-"window_card_payment_cardholder_name_label" = "Όνομα κατόχου κάρτας";
-"window_card_payment_cardholder_name_hint" = "John Appleseed";
-"window_card_payment_card_number_label" = "Αριθμός κάρτας";
-"window_card_payment_card_number_hint" = "1234 5678 9012 3456";
-"window_card_payment_expiry_date_label" = "Ημερομηνία λήξης";
-"window_card_payment_expiry_date_hint" = "MM/YY";
-"window_card_payment_cvv_label" = "CVV / CVC";
-"window_card_payment_cvv_hint" = "123";
-"window_card_payment_notice" = "H kevin. δεν αποθηκεύει τα προσωπικά σας στοιχεία ή τα στοιχεία της κάρτας σας.";
-"window_card_payment_cvv_tooltip" = "Ο κωδικός CVV είναι ένας 3ψήφιος κωδικός που αναγράφεται στο πίσω μέρος της κάρτας σας";
-"error_no_cardholder_name" = "Πρέπει να εισαχθεί το όνομα του κατόχου κάρτας";
-"error_invalid_cvv" = "Πληκτρολογήστε έναν έγκυρο κωδικό CVV";
-"error_no_cvv" = "Πρέπει να εισαχθεί ο κωδικός CVV";
-"error_invalid_expiry_date" = "Η ημερομηνία λήξης δεν είναι έγκυρη";
-"error_no_expiry_date" = "Πρέπει να εισαχθεί η ημερομηνία λήξης";
-"error_card_expired" = "Η κάρτα έχει λήξει";
-"error_invalid_card_number" = "Ο αριθμός κάρτας δεν είναι έγκυρος";
-"error_no_card_number" = "Πρέπει να εισαχθεί ο αριθμός της κάρτας";
-"window_card_payment_redirect_title" = "Συνέχεια της πληρωμής μέσω τραπεζικής μεταφοράς;";
-"window_card_payment_redirect_subtitle" = "Επιθυμείτε να συνεχίσετε την πληρωμή μέσω τραπεζικής μεταφοράς;";
-"window_card_payment_bank_redirect_subtitle" = "Παρατηρήσαμε ότι η κάρτα πληρωμής σας έχει εκδοθεί από την %@. Επιθυμείτε να συνεχίσετε την πληρωμή μέσω Τραπεζικής Μεταφοράς;";
 "window_bank_selection_terms_and_conditions_text" = "Πατώντας Συνέχεια, διαβάζω και συμφωνώ με τους Όρους και Προϋποθέσεις και την Πολιτική Απορρήτου";
 "window_bank_selection_terms_clickable_text" = "Όρους και Προϋποθέσεις";
 "window_bank_selection_privacy_clickable_text" = "Πολιτική Απορρήτου";

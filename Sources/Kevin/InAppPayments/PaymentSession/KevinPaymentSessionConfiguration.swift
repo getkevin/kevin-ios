@@ -41,10 +41,7 @@ public class KevinPaymentSessionConfiguration {
         self.preselectedBank = preselectedBank
         self.skipBankSelection = skipBankSelection
         self.skipAuthentication = skipAuthentication
-        
-        if skipAuthentication && paymentType == .card {
-            throw KevinError(description: "Skipping authentication is only allowed for bank payments!")
-        }
+       
         if skipBankSelection && preselectedBank == nil {
             throw KevinError(description: "If skipBankSelection is true, preselectedBank must be provided!")
         }
@@ -82,6 +79,7 @@ public class KevinPaymentSessionConfiguration {
         ///
         /// - Parameters:
         ///   - paymentType: desired payment type
+        @available(*, deprecated, message: "This method will be removed in the future versions of the SDK. You can safely remove it from you configuration.")
         public func setPaymentType(_ paymentType: KevinPaymentType) -> Builder {
             self.paymentType = paymentType
             return self

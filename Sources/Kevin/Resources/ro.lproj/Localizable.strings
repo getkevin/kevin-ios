@@ -40,7 +40,6 @@
 "country_name_li" = "Liechtenstein";
 
 "window_account_linking_title" = "Conectarea contului";
-"window_account_linking_card_title" = "Conectarea cardului";
 "window_country_selection_title" = "Selectați țara";
 "window_bank_selection_title" = "Selectarea băncii";
 "window_bank_selection_select_country_label" = "Selectați țara";
@@ -51,28 +50,6 @@
 
 "Continue" = "Continuă";
 
-"window_card_payment_label" = "Plată cu cardul";
-"window_card_payment_cardholder_name_label" = "Numele titularului de card";
-"window_card_payment_cardholder_name_hint" = "Ion Popescu";
-"window_card_payment_card_number_label" = "Numărul cardului";
-"window_card_payment_card_number_hint" = "1234 5678 9012 3456";
-"window_card_payment_expiry_date_label" = "Data de expirare";
-"window_card_payment_expiry_date_hint" = "MM/YY";
-"window_card_payment_cvv_label" = "CVV / CVC";
-"window_card_payment_cvv_hint" = "123";
-"window_card_payment_notice" = "kevin. nu păstrează informațiile dvs. personale sau datele cardului.";
-"window_card_payment_cvv_tooltip" = "CVV este un cod de 3 cifre pe care-l puteți găsi pe reversul cardului dvs.";
-"error_no_cardholder_name" = "Completarea numelui titularului este obligatorie";
-"error_invalid_cvv" = "Introduceți un cod CVV valid";
-"error_no_cvv" = "Completarea codului CVV este obligatorie";
-"error_invalid_expiry_date" = "Data de expirare nu este validă";
-"error_no_expiry_date" = "Completarea datei de expirare este obligatorie";
-"error_card_expired" = "Cardul a expirat";
-"error_invalid_card_number" = "Numărul cardului nu este valid";
-"error_no_card_number" = "Completarea numărului cardului este obligatorie";
-"window_card_payment_redirect_title" = "Continuați cu plata prin transfer bancar?";
-"window_card_payment_redirect_subtitle" = "Doriți să continuați efectuarea plății prin transfer bancar?";
-"window_card_payment_bank_redirect_subtitle" = "Am observat că ați folosit un card emis de %@. Doriți să continuați efectuarea plății prin transfer bancar?";
 "window_bank_selection_terms_and_conditions_text" = "Apăsând pe Continuare, citesc și sunt de acord cu Termenii și condițiile și cu Politica de confidențialitate";
 "window_bank_selection_terms_clickable_text" = "Termenii și condițiile";
 "window_bank_selection_privacy_clickable_text" = "Politica de confidențialitate";

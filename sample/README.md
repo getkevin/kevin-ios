@@ -1,6 +1,6 @@
 ![kevin.](../images/logo.png)
 
-This sample app provides a basic example of how you can use kevin. Mobile SDK as an easy solution to link bank accountsand initiate bank/card payments.
+This sample app provides a basic example of how you can use kevin. Mobile SDK as an easy solution to link bank accounts and initiate bank payments.
 
 ## More Info
 

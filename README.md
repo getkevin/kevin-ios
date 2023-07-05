@@ -19,7 +19,6 @@ Optionally:
 
 - **Account linking** - we provide an easy solution to authenticate and manage user bank accounts.
 - **Bank payments** - we provide a possibility to integrate bank payments in your app with both SCA and non-SCA options.
-- **Card payments** - we also provide card payments with a hybrid payment support, so the payment would be performed via bank if we detect that the card belongs to one of our supported banks.
 
 ## Installation
 - **Swift Package Manager** - kevin. iOS SDK supports [Swift Package Manager](https://www.swift.org/package-manager/), which is the recommended option. Add a dependency to your project with: `.package(url: "https://github.com/getkevin/kevin-ios", from: "2.2.12")`

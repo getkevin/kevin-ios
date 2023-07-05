@@ -40,7 +40,6 @@
 "country_name_li" = "Liechtenstein";
 
 "window_account_linking_title" = "Rekening koppelen";
-"window_account_linking_card_title" = "Kaart koppelen";
 "window_country_selection_title" = "Selecteer land";
 "window_bank_selection_title" = "Selecteer bank";
 "window_bank_selection_select_country_label" = "Selecteer land";
@@ -51,28 +50,6 @@
 
 "Continue" = "Doorgaan";
 
-"window_card_payment_label" = "Kaartbetaling";
-"window_card_payment_cardholder_name_label" = "Naam kaarthouder";
-"window_card_payment_cardholder_name_hint" = "Jan Appelzaad";
-"window_card_payment_card_number_label" = "Kaartnummer";
-"window_card_payment_card_number_hint" = "1234 5678 9012 3456";
-"window_card_payment_expiry_date_label" = "Vervaldatum";
-"window_card_payment_expiry_date_hint" = "MM/YY";
-"window_card_payment_cvv_label" = "CVV / CVC";
-"window_card_payment_cvv_hint" = "123";
-"window_card_payment_notice" = "kevin. slaat geen van uw persoonsgegevens of kaartgegevens op.";
-"window_card_payment_cvv_tooltip" = "CVV is een 3-cijferige code die u vindt op de achterkant van uw kaart";
-"error_no_cardholder_name" = "Naam kaarthouder moet worden ingevuld";
-"error_invalid_cvv" = "Vul een geldig CVV in";
-"error_no_cvv" = "CVV moet worden ingevuld";
-"error_invalid_expiry_date" = "Vervaldatum is ongeldig";
-"error_no_expiry_date" = "Vervaldatum moet worden ingevuld";
-"error_card_expired" = "Kaart is verlopen";
-"error_invalid_card_number" = "Kaartnummer is ongeldig";
-"error_no_card_number" = "Kaartnummer moet worden ingevuld";
-"window_card_payment_redirect_title" = "Betaling voltooien via bankoverschrijving?";
-"window_card_payment_redirect_subtitle" = "Wilt u de betaling voltooien via Bankoverschrijving?";
-"window_card_payment_bank_redirect_subtitle" = "We hebben vastgesteld dat uw betaalkaart is uitgegeven door %@. Wilt u de betaling voltooien via bankoverschrijving?";
 "window_bank_selection_terms_and_conditions_text" = "Door op Doorgaan te drukken, lees ik en ga ik akkoord met de algemene voorwaarden en het privacybeleid";
 "window_bank_selection_terms_clickable_text" = "voorwaarden";
 "window_bank_selection_privacy_clickable_text" = "privacybeleid";

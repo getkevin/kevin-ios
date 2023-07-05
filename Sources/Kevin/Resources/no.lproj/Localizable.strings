@@ -40,7 +40,6 @@
 "country_name_li" = "Liechtenstein";
 
 "window_account_linking_title" = "Kontolenking";
-"window_account_linking_card_title" = "Kortlenking";
 "window_country_selection_title" = "Velg land";
 "window_bank_selection_title" = "Bankvalg";
 "window_bank_selection_select_country_label" = "Velg land";
@@ -50,28 +49,6 @@
 
 "Continue" = "Fortsett";
 
-"window_card_payment_label" = "Kortbetaling";
-"window_card_payment_cardholder_name_label" = "Kortholdernavn";
-"window_card_payment_cardholder_name_hint" = "John Appleseed";
-"window_card_payment_card_number_label" = "Kortnummer";
-"window_card_payment_card_number_hint" = "1234 5678 9012 3456";
-"window_card_payment_expiry_date_label" = "Utløpsdato";
-"window_card_payment_expiry_date_hint" = "MM/YY";
-"window_card_payment_cvv_label" = "CVV / CVC";
-"window_card_payment_cvv_hint" = "123";
-"window_card_payment_notice" = "kevin. lagrer ikke noen av de personlige eller kortopplysningene dine.";
-"window_card_payment_cvv_tooltip" = "CVV er en tresifret kode vist på baksiden av kortet ditt";
-"error_no_cardholder_name" = "Kortholdernavn må legges inn";
-"error_invalid_cvv" = "Legg inn gyldig CVV";
-"error_no_cvv" = "CVV må legges inn";
-"error_invalid_expiry_date" = "Utløpsdatoen er ugyldig";
-"error_no_expiry_date" = "Utløpsdato må legges inn";
-"error_card_expired" = "Kortet er utløpt";
-"error_invalid_card_number" = "Kortnummeret er ugyldig";
-"error_no_card_number" = "Kortnummeret må legges inn";
-"window_card_payment_redirect_title" = "Fortsette betaling via bankoverføring?";
-"window_card_payment_redirect_subtitle" = "Vil du fortsette betaling via bankoverføring?";
-"window_card_payment_bank_redirect_subtitle" = "Vi ser at betalingskortet ditt er utstedt av av %@. Vil du fortsette betaling via bankoverføring?";
 "window_bank_selection_terms_and_conditions_text" = "Ved å trykke på Fortsett leser og godtar jeg vilkårene og personvernreglene";
 "window_bank_selection_terms_clickable_text" = "vilkårene";
 "window_bank_selection_privacy_clickable_text" = "personvernreglene";

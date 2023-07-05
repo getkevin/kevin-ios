@@ -25,28 +25,22 @@ internal class KevinPaymentConfirmationViewModel : KevinViewModel<KevinPaymentCo
     
     private func initialize(_ configuration: KevinPaymentConfirmationConfiguration) {
         var confirmationUrlString: String!
-        if configuration.paymentType == .card {
-            confirmationUrlString =  String(
-                format: KevinApiPaths.cardPaymentUrl,
+
+        if configuration.skipAuthentication {
+            confirmationUrlString = String(
+                format: KevinApiPaths.bankPaymentAuthenticatedUrl,
                 configuration.paymentId,
                 Kevin.shared.locale.identifier.lowercased()
             )
-        } else if configuration.paymentType == .bank {
-            if configuration.skipAuthentication {
-                confirmationUrlString = String(
-                    format: KevinApiPaths.bankPaymentAuthenticatedUrl,
-                    configuration.paymentId,
-                    Kevin.shared.locale.identifier.lowercased()
-                )
-            } else {
-                confirmationUrlString = String(
-                    format: KevinApiPaths.bankPaymentUrl,
-                    configuration.paymentId,
-                    configuration.selectedBank!,
-                    Kevin.shared.locale.identifier.lowercased()
-                )
-            }
+        } else {
+            confirmationUrlString = String(
+                format: KevinApiPaths.bankPaymentUrl,
+                configuration.paymentId,
+                configuration.selectedBank!,
+                Kevin.shared.locale.identifier.lowercased()
+            )
         }
+        
         let confirmationUrl = FrameCustomisationHelper.appendUrlParameters(urlString: confirmationUrlString)
         onStateChanged(KevinPaymentConfirmationState(url: confirmationUrl))
     }

@@ -131,6 +131,7 @@ public class KevinAccountLinkingSessionConfiguration {
         ///
         /// - Parameters:
         ///   - type: desired linking type.
+        @available(*, deprecated, message: "This method will be removed in the future versions of the SDK. You can safely remove it from your configuration.")
         public func setLinkingType(_ type: KevinAccountLinkingType) -> Builder {
             self.linkingType = type
             return self

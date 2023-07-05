@@ -1,5 +1,5 @@
 //
-//  KevinCardLoadingState.swift
+//  KevinLoadingState.swift
 //  kevin.iOS
 //
 //  Created by Daniel Klinge on 11/03/2022.

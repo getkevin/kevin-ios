@@ -40,7 +40,6 @@
 "country_name_li" = "Lichtenstein";
 
 "window_account_linking_title" = "Kontokoppling";
-"window_account_linking_card_title" = "Kortkoppling";
 "window_country_selection_title" = "Välj land";
 "window_bank_selection_title" = "Bankval";
 "window_bank_selection_select_country_label" = "Välj land";
@@ -51,28 +50,6 @@
 
 "Continue" = "Fortsätt";
 
-"window_card_payment_label" = "Kortbetalning";
-"window_card_payment_cardholder_name_label" = "Kortinnehavarens namn";
-"window_card_payment_cardholder_name_hint" = "John Appleseed";
-"window_card_payment_card_number_label" = "Kortnummer";
-"window_card_payment_card_number_hint" = "1234 5678 9012 3456";
-"window_card_payment_expiry_date_label" = "Utgångsdatum";
-"window_card_payment_expiry_date_hint" = "MM/YY";
-"window_card_payment_cvv_label" = "CVV / CVC";
-"window_card_payment_cvv_hint" = "123";
-"window_card_payment_notice" = "kevin. lagrar inte några personuppgifter eller kortuppgifter.";
-"window_card_payment_cvv_tooltip" = "CVV är ett 3-siffrigt nummer som står på baksidan av kortet";
-"error_no_cardholder_name" = "Kortinnehavarens namn måste anges";
-"error_invalid_cvv" = "Ange giltigt CVV";
-"error_no_cvv" = "CVV måste anges";
-"error_invalid_expiry_date" = "Utgångsdatumet är ogiltigt";
-"error_no_expiry_date" = "Utgångsdatum måste anges";
-"error_card_expired" = "Kortet har gått ut";
-"error_invalid_card_number" = "Kortnumret är ogiltigt";
-"error_no_card_number" = "Kortnummer måste anges";
-"window_card_payment_redirect_title" = "Fortsätt betalning via banköverföring?";
-"window_card_payment_redirect_subtitle" = "Vill du fortsätta betalningen via banköverföring?";
-"window_card_payment_bank_redirect_subtitle" = "Vi har lagt märke till att ditt betalkort är utfärdat av %@. Vill du fortsätta betalningen via banköverföring?";
 "window_bank_selection_terms_and_conditions_text" = "Genom att trycka på Fortsätt läser jag och godkänner Villkoren och Integritetspolicyn";
 "window_bank_selection_terms_clickable_text" = "Villkoren";
 "window_bank_selection_privacy_clickable_text" = "Integritetspolicyn";

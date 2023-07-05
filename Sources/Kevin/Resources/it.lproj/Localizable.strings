@@ -40,7 +40,6 @@
 "country_name_li" = "Liechtenstein";
 
 "window_account_linking_title" = "Collegamento conto";
-"window_account_linking_card_title" = "Collegamento carta";
 "window_country_selection_title" = "Seleziona Paese";
 "window_bank_selection_title" = "Selezione banca";
 "window_bank_selection_select_country_label" = "Seleziona Paese";
@@ -51,28 +50,6 @@
 
 "Continue" = "Continua";
 
-"window_card_payment_label" = "Pagamento tramite carta";
-"window_card_payment_cardholder_name_label" = "Nome del titolare della carta";
-"window_card_payment_cardholder_name_hint" = "John Appleseed";
-"window_card_payment_card_number_label" = "Numero della carta";
-"window_card_payment_card_number_hint" = "1234 5678 9012 3456";
-"window_card_payment_expiry_date_label" = "Data di scadenza";
-"window_card_payment_expiry_date_hint" = "MM/YY";
-"window_card_payment_cvv_label" = "CVV / CVC";
-"window_card_payment_cvv_hint" = "123";
-"window_card_payment_notice" = "kevin. non memorizza le tue informazioni personali o i dettagli della tua carta.";
-"window_card_payment_cvv_tooltip" = "Il CVV è un codice a 3 cifre che si trova sul retro della carta";
-"error_no_cardholder_name" = "Deve essere inserito il nome del titolare della carta";
-"error_invalid_cvv" = "Inserisci un CVV valido";
-"error_no_cvv" = "Deve essere inserito il CVV";
-"error_invalid_expiry_date" = "La data di scadenza non è valida";
-"error_no_expiry_date" = " Deve essere inserita la data di scadenza";
-"error_card_expired" = "La carta è scaduta";
-"error_invalid_card_number" = "Il numero della carta non è valido";
-"error_no_card_number" = " Deve essere inserito il numero della carta";
-"window_card_payment_redirect_title" = "Continuare il pagamento tramite bonifico bancario?";
-"window_card_payment_redirect_subtitle" = "Vuoi continuare il pagamento tramite bonifico bancario?";
-"window_card_payment_bank_redirect_subtitle" = "Abbiamo notato che la tua carta di pagamento è emessa da %@. Vuoi continuare il pagamento tramite bonifico bancario?";
 "window_bank_selection_terms_and_conditions_text" = "Premendo Continua, ho letto e accetto Termini e Condizioni e l'Informativa sulla Privacy";
 "window_bank_selection_terms_clickable_text" = "Termini e Condizioni";
 "window_bank_selection_privacy_clickable_text" = "Informativa sulla Privacy";

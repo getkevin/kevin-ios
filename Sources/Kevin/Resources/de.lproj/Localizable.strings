@@ -40,7 +40,6 @@
 "country_name_li" = "Liechtenstein";
 
 "window_account_linking_title" = "Kontoverknüpfung";
-"window_account_linking_card_title" = "Kartenverknüpfung";
 "window_country_selection_title" = "Bitte wählen Sie ein Land aus";
 "window_bank_selection_title" = "Bankauswahl";
 "window_bank_selection_select_country_label" = "Bitte wählen Sie ein Land aus";
@@ -51,28 +50,6 @@
 
 "Continue" = "Fortfahren";
 
-"window_card_payment_label" = "Kartenzahlung";
-"window_card_payment_cardholder_name_label" = "Karteninhaber";
-"window_card_payment_cardholder_name_hint" = "Max Mustermann";
-"window_card_payment_card_number_label" = "Kartennummer";
-"window_card_payment_card_number_hint" = "1234 5678 9012 3456";
-"window_card_payment_expiry_date_label" = "Ablaufdatum";
-"window_card_payment_expiry_date_hint" = "MM/YY";
-"window_card_payment_cvv_label" = "CVV / CVC";
-"window_card_payment_cvv_hint" = "123";
-"window_card_payment_notice" = "kevin. speichert keinerlei persönliche oder Karten Informationen.";
-"window_card_payment_cvv_tooltip" = "CVV ist ein dreistelliger Code auf der Kartenrückseite.";
-"error_no_cardholder_name" = "Karteninhaber muss angegeben werden";
-"error_invalid_cvv" = "Geben Sie eine gültige CVV ein";
-"error_no_cvv" = "CVV muss angegeben werden";
-"error_invalid_expiry_date" = "Ungültiges Ablaufdatum";
-"error_no_expiry_date" = "Ablaufdatum muss eingegeben werden";
-"error_card_expired" = "Die Karte ist abgelaufen.";
-"error_invalid_card_number" = "Ungültige Kartennummer";
-"error_no_card_number" = "Die Kartennummer muss eingegeben werden.";
-"window_card_payment_redirect_title" = "Zahlung per Banküberweisung fortsetzen?";
-"window_card_payment_redirect_subtitle" = "Wollen Sie die Zahlung per Banküberweisung fortsetzen?";
-"window_card_payment_bank_redirect_subtitle" = "Wir haben festgestellt, dass Ihre Karten von %@ ausgegeben wurde. Möchten Sie die Zahlung per Banküberweisung fortsetzen?";
 "window_bank_selection_terms_and_conditions_text" = "Indem ich auf Weiter klicke, habe ich die Allgemeinen Geschäftsbedingungen und die Datenschutzrichtlinie gelesen und stimme ihnen zu";
 "window_bank_selection_terms_clickable_text" = "Geschäftsbedingungen";
 "window_bank_selection_privacy_clickable_text" = "Datenschutzrichtlinie";
