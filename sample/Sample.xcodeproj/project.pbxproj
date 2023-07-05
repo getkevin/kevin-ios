@@ -19,7 +19,6 @@
 		E71C9EB02A179C0B0007A264 /* InitiatePaymentRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71C9EAF2A179C0B0007A264 /* InitiatePaymentRequest.swift */; };
 		E71C9EB22A179C380007A264 /* InitiatePaymentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71C9EB12A179C380007A264 /* InitiatePaymentResponse.swift */; };
 		E71C9EB42A179CBE0007A264 /* DemoApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71C9EB32A179CBE0007A264 /* DemoApiService.swift */; };
-		E71C9EB62A1BA1DE0007A264 /* CardPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71C9EB52A1BA1DE0007A264 /* CardPaymentViewController.swift */; };
 		E71C9EB82A1BA5390007A264 /* AccountLinkingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71C9EB72A1BA5390007A264 /* AccountLinkingViewController.swift */; };
 		E71C9EBA2A1BA8860007A264 /* UICustomistaionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71C9EB92A1BA8860007A264 /* UICustomistaionViewController.swift */; };
 		E7867F122A1CDFA200DB464A /* BankPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7867F112A1CDFA200DB464A /* BankPaymentViewController.swift */; };
@@ -39,7 +38,6 @@
 		E71C9EAF2A179C0B0007A264 /* InitiatePaymentRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitiatePaymentRequest.swift; sourceTree = "<group>"; };
 		E71C9EB12A179C380007A264 /* InitiatePaymentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitiatePaymentResponse.swift; sourceTree = "<group>"; };
 		E71C9EB32A179CBE0007A264 /* DemoApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoApiService.swift; sourceTree = "<group>"; };
-		E71C9EB52A1BA1DE0007A264 /* CardPaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPaymentViewController.swift; sourceTree = "<group>"; };
 		E71C9EB72A1BA5390007A264 /* AccountLinkingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountLinkingViewController.swift; sourceTree = "<group>"; };
 		E71C9EB92A1BA8860007A264 /* UICustomistaionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICustomistaionViewController.swift; sourceTree = "<group>"; };
 		E7867F112A1CDFA200DB464A /* BankPaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankPaymentViewController.swift; sourceTree = "<group>"; };
@@ -81,7 +79,6 @@
 				E71C9E8C2A1773C20007A264 /* AppDelegate.swift */,
 				E71C9EB72A1BA5390007A264 /* AccountLinkingViewController.swift */,
 				E7867F112A1CDFA200DB464A /* BankPaymentViewController.swift */,
-				E71C9EB52A1BA1DE0007A264 /* CardPaymentViewController.swift */,
 				E71C9E902A1773C20007A264 /* MainViewController.swift */,
 				E71C9EB92A1BA8860007A264 /* UICustomistaionViewController.swift */,
 				E71C9E8E2A1773C20007A264 /* SceneDelegate.swift */,
@@ -209,7 +206,6 @@
 				E71C9E8D2A1773C20007A264 /* AppDelegate.swift in Sources */,
 				E71C9EB22A179C380007A264 /* InitiatePaymentResponse.swift in Sources */,
 				E71C9EB42A179CBE0007A264 /* DemoApiService.swift in Sources */,
-				E71C9EB62A1BA1DE0007A264 /* CardPaymentViewController.swift in Sources */,
 				E71C9E8F2A1773C20007A264 /* SceneDelegate.swift in Sources */,
 				E71C9EA92A179B550007A264 /* AuthStateRequest.swift in Sources */,
 				E71C9EB02A179C0B0007A264 /* InitiatePaymentRequest.swift in Sources */,
