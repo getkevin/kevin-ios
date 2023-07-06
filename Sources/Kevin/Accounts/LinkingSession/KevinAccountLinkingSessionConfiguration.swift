@@ -19,6 +19,7 @@ public class KevinAccountLinkingSessionConfiguration {
     let preselectedBank: String?
     let skipBankSelection: Bool
     let linkingType: KevinAccountLinkingType
+    let confirmInteractiveDismiss: KevinConfirmInteractiveDismissType
     
     init(
         state: String,
@@ -28,7 +29,8 @@ public class KevinAccountLinkingSessionConfiguration {
         bankFilter: [String],
         preselectedBank: String?,
         skipBankSelection: Bool,
-        linkingType: KevinAccountLinkingType
+        linkingType: KevinAccountLinkingType,
+        confirmInteractiveDismiss: KevinConfirmInteractiveDismissType
     ) throws {
         self.state = state
         self.preselectedCountry = preselectedCountry
@@ -38,6 +40,7 @@ public class KevinAccountLinkingSessionConfiguration {
         self.preselectedBank = preselectedBank
         self.skipBankSelection = skipBankSelection
         self.linkingType = linkingType
+        self.confirmInteractiveDismiss = confirmInteractiveDismiss
 
         if skipBankSelection && preselectedBank == nil {
             throw KevinError(description: "If skipBankSelection is true, preselectedBank must be provided!")
@@ -62,6 +65,7 @@ public class KevinAccountLinkingSessionConfiguration {
         private var preselectedBank: String? = nil
         private var skipBankSelection: Bool = false
         private var linkingType: KevinAccountLinkingType = .bank
+        private var confirmInteractiveDismiss: KevinConfirmInteractiveDismissType = .afterBankSelection
         
         /// Creates an instance with the given state.
         ///
@@ -137,6 +141,20 @@ public class KevinAccountLinkingSessionConfiguration {
             return self
         }
 
+        /// Allows to display an alert confirmation on an attempt to interactively (by swipe) dismiss the SDK navigation controller.
+        ///
+        /// Possible options to use:
+        ///  - `.never` - will never ask for confirmation
+        ///  - `.always` - will always ask for confirmation
+        ///  - `.afterBankSelection` (default) will ask for confirmation only when user proceed through bank selection
+        ///
+        /// - Parameters:
+        ///   - type: KevinConfirmInteractiveDismissType.
+        public func setConfirmInteractiveDismiss(_ type: KevinConfirmInteractiveDismissType) -> Builder {
+            self.confirmInteractiveDismiss = type
+            return self
+        }
+
         public func build() throws -> KevinAccountLinkingSessionConfiguration {
             return try KevinAccountLinkingSessionConfiguration(
                 state: state,
@@ -146,7 +164,8 @@ public class KevinAccountLinkingSessionConfiguration {
                 bankFilter: bankFilter,
                 preselectedBank: preselectedBank,
                 skipBankSelection: skipBankSelection,
-                linkingType: linkingType
+                linkingType: linkingType,
+                confirmInteractiveDismiss: confirmInteractiveDismiss
             )
         }
     }

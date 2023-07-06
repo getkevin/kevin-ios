@@ -20,7 +20,8 @@ public class KevinPaymentSessionConfiguration {
     let preselectedBank: String?
     let skipBankSelection: Bool
     let skipAuthentication: Bool
-    
+    let confirmInteractiveDismiss: KevinConfirmInteractiveDismissType
+
     init(
         paymentId: String,
         paymentType: KevinPaymentType,
@@ -30,7 +31,8 @@ public class KevinPaymentSessionConfiguration {
         bankFilter: [String],
         preselectedBank: String?,
         skipBankSelection: Bool,
-        skipAuthentication: Bool
+        skipAuthentication: Bool,
+        confirmInteractiveDismiss: KevinConfirmInteractiveDismissType
     ) throws {
         self.paymentId = paymentId
         self.paymentType = paymentType
@@ -41,7 +43,8 @@ public class KevinPaymentSessionConfiguration {
         self.preselectedBank = preselectedBank
         self.skipBankSelection = skipBankSelection
         self.skipAuthentication = skipAuthentication
-       
+        self.confirmInteractiveDismiss = confirmInteractiveDismiss
+
         if skipBankSelection && preselectedBank == nil {
             throw KevinError(description: "If skipBankSelection is true, preselectedBank must be provided!")
         }
@@ -66,7 +69,8 @@ public class KevinPaymentSessionConfiguration {
         private var bankFilter = [String]()
         private var skipBankSelection: Bool = false
         private var skipAuthentication: Bool = false
-        
+        private var confirmInteractiveDismiss: KevinConfirmInteractiveDismissType = .afterBankSelection
+
         /// Creates an instance with the given paymentid and payment type.
         ///
         /// - Parameters:
@@ -150,7 +154,21 @@ public class KevinPaymentSessionConfiguration {
             self.skipAuthentication = skip
             return self
         }
-        
+
+        /// Allows to display an alert confirmation on an attempt to interactively (by swipe) dismiss the SDK navigation controller.
+        ///
+        /// Possible options to use:
+        ///  - `.never` - will never ask for confirmation
+        ///  - `.always` - will always ask for confirmation
+        ///  - `.afterBankSelection` (default) will ask for confirmation only when user proceed through bank selection
+        ///
+        /// - Parameters:
+        ///   - type: KevinConfirmInteractiveDismissType.
+        public func setConfirmInteractiveDismiss(_ type: KevinConfirmInteractiveDismissType) -> Builder {
+            self.confirmInteractiveDismiss = type
+            return self
+        }
+
         public func build() throws -> KevinPaymentSessionConfiguration {
             return try KevinPaymentSessionConfiguration(
                 paymentId: paymentId,
@@ -161,7 +179,8 @@ public class KevinPaymentSessionConfiguration {
                 bankFilter: bankFilter,
                 preselectedBank: preselectedBank,
                 skipBankSelection: skipBankSelection,
-                skipAuthentication: skipAuthentication
+                skipAuthentication: skipAuthentication,
+                confirmInteractiveDismiss: confirmInteractiveDismiss
             )
         }
     }
