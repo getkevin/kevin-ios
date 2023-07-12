@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		064B805D2A5E813800B2D07D /* .kevin in Frameworks */ = {isa = PBXBuildFile; productRef = 064B805C2A5E813800B2D07D /* .kevin */; };
 		E71C9E8D2A1773C20007A264 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71C9E8C2A1773C20007A264 /* AppDelegate.swift */; };
 		E71C9E8F2A1773C20007A264 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71C9E8E2A1773C20007A264 /* SceneDelegate.swift */; };
 		E71C9E912A1773C20007A264 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71C9E902A1773C20007A264 /* MainViewController.swift */; };
 		E71C9E962A1773C30007A264 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E71C9E952A1773C30007A264 /* Assets.xcassets */; };
 		E71C9E992A1773C30007A264 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E71C9E972A1773C30007A264 /* LaunchScreen.storyboard */; };
-		E71C9EA32A1775790007A264 /* .kevin in Frameworks */ = {isa = PBXBuildFile; productRef = E71C9EA22A1775790007A264 /* .kevin */; };
 		E71C9EA92A179B550007A264 /* AuthStateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71C9EA82A179B550007A264 /* AuthStateRequest.swift */; };
 		E71C9EAB2A179B5D0007A264 /* AuthStateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71C9EAA2A179B5D0007A264 /* AuthStateResponse.swift */; };
 		E71C9EAE2A179BC40007A264 /* CreditorsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71C9EAD2A179BC40007A264 /* CreditorsResponse.swift */; };
@@ -25,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		064B805B2A5E812D00B2D07D /* kevin-ios */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "kevin-ios"; path = ..; sourceTree = "<group>"; };
 		E71C9E892A1773C20007A264 /* Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E71C9E8C2A1773C20007A264 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E71C9E8E2A1773C20007A264 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,16 +49,25 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E71C9EA32A1775790007A264 /* .kevin in Frameworks */,
+				064B805D2A5E813800B2D07D /* .kevin in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		064B805A2A5E812D00B2D07D /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				064B805B2A5E812D00B2D07D /* kevin-ios */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
 		E71C9E802A1773C20007A264 = {
 			isa = PBXGroup;
 			children = (
+				064B805A2A5E812D00B2D07D /* Packages */,
 				E71C9E8B2A1773C20007A264 /* Sample */,
 				E71C9E8A2A1773C20007A264 /* Products */,
 				E71C9EA12A1775790007A264 /* Frameworks */,
@@ -142,7 +152,7 @@
 			);
 			name = Sample;
 			packageProductDependencies = (
-				E71C9EA22A1775790007A264 /* .kevin */,
+				064B805C2A5E813800B2D07D /* .kevin */,
 			);
 			productName = Sample;
 			productReference = E71C9E892A1773C20007A264 /* Sample.app */;
@@ -173,7 +183,6 @@
 			);
 			mainGroup = E71C9E802A1773C20007A264;
 			packageReferences = (
-				E71C9EA02A1775290007A264 /* XCRemoteSwiftPackageReference "kevin-ios" */,
 			);
 			productRefGroup = E71C9E8A2A1773C20007A264 /* Products */;
 			projectDirPath = "";
@@ -423,21 +432,9 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		E71C9EA02A1775290007A264 /* XCRemoteSwiftPackageReference "kevin-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/getkevin/kevin-ios";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
 /* Begin XCSwiftPackageProductDependency section */
-		E71C9EA22A1775790007A264 /* .kevin */ = {
+		064B805C2A5E813800B2D07D /* .kevin */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E71C9EA02A1775290007A264 /* XCRemoteSwiftPackageReference "kevin-ios" */;
 			productName = .kevin;
 		};
 /* End XCSwiftPackageProductDependency section */

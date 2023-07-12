@@ -86,7 +86,6 @@ class BankPaymentViewController: UIViewController {
                 }
 
                 let configuration = try KevinPaymentSessionConfiguration.Builder(paymentId: paymentID)
-                    .setPaymentType(.bank)
                     .setPreselectedCountry(country)
                     .setSkipBankSelection(false)
                     .build()
