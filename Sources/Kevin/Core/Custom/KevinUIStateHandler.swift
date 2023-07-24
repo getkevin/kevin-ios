@@ -20,7 +20,7 @@ internal class KevinUIStateHandler {
         }
     }
 
-    private var navigationController: UINavigationController?
+    private weak var navigationController: UINavigationController?
     
     func setNavigationController(navigationController: UINavigationController?) {
         self.navigationController = navigationController
