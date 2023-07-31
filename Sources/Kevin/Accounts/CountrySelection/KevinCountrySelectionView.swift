@@ -98,11 +98,15 @@ extension KevinCountrySelectionView: UITableViewDataSource {
         if cell == nil {
             cell = CountryCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "cell")
         }
-        
-        cell!.backgroundOverlay.isHidden = !(countryItems[indexPath.row].uppercased() == selectedCountry.uppercased())
-        cell!.iconImageView.image = UIImage(named: "flag\(countryItems[indexPath.row].uppercased())", in: Bundle.current, compatibleWith: nil)
-        cell!.titleLabel.text = "country_name_\(countryItems[indexPath.row].lowercased())".localized(for: Kevin.shared.locale.identifier)
-        
+
+        let country = countryItems[indexPath.row]
+
+        cell!.backgroundOverlay.isHidden = !(country.uppercased() == selectedCountry.uppercased())
+        cell!.iconImageView.image = UIImage(named: "flag\(country.uppercased())", in: Bundle.current, compatibleWith: nil)
+        cell!.titleLabel.text = "country_name_\(country.lowercased())".localized(for: Kevin.shared.locale.identifier)
+
+
+        cell!.accessibilityIdentifier = "country_\(country.lowercased())"
         return cell!
     }
     
