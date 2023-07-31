@@ -142,6 +142,7 @@ internal class KevinBankSelectionView : KevinView<KevinBankSelectionState> {
         continueButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         
         continueButton.addTarget(self, action: #selector(self.onContinueClicked(_:)), for: .touchUpInside)
+        continueButton.accessibilityIdentifier = "continueButton"
     }
     
     @objc func onContinueClicked(_ sender: UIButton) {
@@ -205,6 +206,7 @@ extension KevinBankSelectionView : UITableViewDataSource, UITableViewDelegate {
         case .countrySelection:
             let cell = tableView.dequeueReusableCell(withIdentifier: "CountrySelectionCell") as? CountrySelectionCell
             cell?.setup(with: state?.selectedCountry ?? "")
+            cell?.accessibilityIdentifier = "change_country"
             return cell!
         case .bankHeader:
             let cell = tableView.dequeueReusableCell(withIdentifier: "BankHeaderCell") as? BankHeaderCell
@@ -234,18 +236,21 @@ extension KevinBankSelectionView : UITableViewDataSource, UITableViewDelegate {
         let leftRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.onBankSelected(_:)))
         cell!.leftAsset.gestureRecognizers?.removeAll()
         cell!.leftAsset.addGestureRecognizer(leftRecognizer)
-        
+        cell!.leftAsset.accessibilityIdentifier = leftAsset.id
+
         if rightIndex < bankItems.count {
             let rightAsset = bankItems[rightIndex]
             cell!.rightAsset.loadImageUsingCache(withUrl: getBankLogo(for: rightAsset))
             cell!.rightAsset.tag = rightIndex
             cell!.selectRightItem(rightAsset.id == selectedBankId)
-            
+
             let rightRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.onBankSelected(_:)))
             cell!.rightAsset.gestureRecognizers?.removeAll()
             cell!.rightOverlay.isHidden = false
             cell!.rightAsset.addGestureRecognizer(rightRecognizer)
+            cell!.rightAsset.accessibilityIdentifier = rightAsset.id
         } else {
+            cell!.rightAsset.accessibilityIdentifier = nil
             cell!.rightAsset.image = nil
             cell!.rightOverlay.isHidden = true
             cell!.rightAsset.gestureRecognizers?.removeAll()
