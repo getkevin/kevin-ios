@@ -142,7 +142,7 @@ internal class KevinBankSelectionView : KevinView<KevinBankSelectionState> {
         continueButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         
         continueButton.addTarget(self, action: #selector(self.onContinueClicked(_:)), for: .touchUpInside)
-        continueButton.accessibilityIdentifier = "continueButton"
+        continueButton.accessibilityIdentifier = "continue_button"
     }
     
     @objc func onContinueClicked(_ sender: UIButton) {
