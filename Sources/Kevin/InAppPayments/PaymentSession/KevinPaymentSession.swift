@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-final public class KevinPaymentSession: NSObject {
+@MainActor final public class KevinPaymentSession: NSObject {
     
     public weak var delegate: KevinPaymentSessionDelegate?
     
