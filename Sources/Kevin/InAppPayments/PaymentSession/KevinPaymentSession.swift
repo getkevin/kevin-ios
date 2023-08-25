@@ -198,4 +198,8 @@ extension KevinPaymentSession: UIAdaptivePresentationControllerDelegate {
 
         kevinNavigationController?.present(alert, animated: true)
     }
+    
+    public func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        delegate?.onKevinPaymentCanceled(error: KevinCancelationError())
+    }
 }

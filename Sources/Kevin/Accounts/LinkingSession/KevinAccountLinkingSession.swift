@@ -256,4 +256,8 @@ extension KevinAccountLinkingSession: UIAdaptivePresentationControllerDelegate {
 
         kevinNavigationController?.present(alert, animated: true)
     }
+    
+    public func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        delegate?.onKevinAccountLinkingCanceled(error: KevinCancelationError())
+    }
 }
