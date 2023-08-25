@@ -170,7 +170,8 @@ final public class KevinAccountLinkingSession: NSObject {
             authState: configuration.state,
             exitSlug: "dialog_exit_confirmation_accounts_message",
             bankFilter: configuration.bankFilter,
-            excludeBanksWithoutAccountLinkingSupport: shouldExcludeBanksWithoutAccountLinkingSupport
+            excludeBanksWithoutAccountLinkingSupport: shouldExcludeBanksWithoutAccountLinkingSupport,
+            confirmInteractiveDismiss: configuration.confirmInteractiveDismiss
         )
         controller.onContinuation = { [weak self] bankId, country in
             guard let self = self else { return }

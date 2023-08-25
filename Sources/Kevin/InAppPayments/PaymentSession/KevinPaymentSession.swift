@@ -112,7 +112,8 @@ final public class KevinPaymentSession: NSObject {
             authState: configuration.paymentId,
             exitSlug: "dialog_exit_confirmation_payments_message",
             bankFilter: configuration.bankFilter,
-            excludeBanksWithoutAccountLinkingSupport: false
+            excludeBanksWithoutAccountLinkingSupport: false,
+            confirmInteractiveDismiss: configuration.confirmInteractiveDismiss
         )
         controller.onContinuation = { [weak self] bankId, _ in
             guard let self = self else { return }

@@ -55,6 +55,13 @@ internal class KevinPaymentConfirmationViewController :
     }
     
     override func onCloseTapped() {
+        switch configuration.confirmInteractiveDismiss {
+        case .always: presentCloseAlert()
+        case .never:  dismissView()
+        }
+    }
+    
+    private func presentCloseAlert() {
         let alert = UIAlertController(
             title: "dialog_exit_confirmation_title".localized(for: Kevin.shared.locale.identifier),
             message: "dialog_exit_confirmation_payments_message".localized(for: Kevin.shared.locale.identifier),
@@ -69,16 +76,20 @@ internal class KevinPaymentConfirmationViewController :
             title: "yes".localized(for: Kevin.shared.locale.identifier),
             style: .default,
             handler: { _ in
-                self.dismiss(animated: true, completion: nil)
-                self.offerIntent(
-                    KevinPaymentConfirmationIntent.HandlePaymentCompleted(
-                        url: nil,
-                        error: KevinCancelationError(description: "Payment was canceled!")
-                    )
-                )
+                self.dismissView()
             }
         ))
         present(alert, animated: true)
+    }
+    
+    private func dismissView() {
+        dismiss(animated: true, completion: nil)
+        offerIntent(
+            KevinPaymentConfirmationIntent.HandlePaymentCompleted(
+                url: nil,
+                error: KevinCancelationError(description: "Payment was canceled!")
+            )
+        )
     }
     
     @objc func handleNotification(notification: Notification) {

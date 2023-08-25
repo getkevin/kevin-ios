@@ -13,4 +13,5 @@ internal struct KevinPaymentConfirmationConfiguration {
     let paymentType: KevinPaymentType
     let selectedBank: String?
     let skipAuthentication: Bool
+    let confirmInteractiveDismiss: KevinConfirmInteractiveDismissType
 }
