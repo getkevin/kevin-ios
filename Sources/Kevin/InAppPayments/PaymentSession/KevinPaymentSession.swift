@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-@MainActor final public class KevinPaymentSession: NSObject {
+final public class KevinPaymentSession: NSObject {
     
     public weak var delegate: KevinPaymentSessionDelegate?
     
@@ -40,7 +40,9 @@ import UIKit
     ///   - configuration: payment session configuration
     public func initiatePayment(configuration: KevinPaymentSessionConfiguration) {
         self.configuration = configuration
-        initiateBankPayment(configuration: configuration)
+        DispatchQueue.main.async { [weak self] in
+            self?.initiateBankPayment(configuration: configuration)
+        }
     }
     
     private func initiateBankPayment(configuration: KevinPaymentSessionConfiguration) {
