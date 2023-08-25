@@ -186,9 +186,8 @@ final public class KevinAccountLinkingSession: NSObject {
         controller.onExit = { [weak self] in
             self?.delegate?.onKevinAccountLinkingCanceled(error: KevinCancelationError())
         }
-        let knvc = KevinNavigationViewController(rootViewController: controller)
+        let knvc = buildKevinNavigationController(withRootController: controller)
         kevinNavigationController = knvc
-        enableSwipeDismissConfirmation(whenTypeEquals: .always)
         return knvc
     }
         
@@ -196,7 +195,9 @@ final public class KevinAccountLinkingSession: NSObject {
         configuration: KevinAccountLinkingSessionConfiguration
     ) -> UINavigationController {
         let controller = initializeAccountLinkingConfirmationController(configuration: configuration)
-        return KevinNavigationViewController(rootViewController: controller)
+        let knvc = buildKevinNavigationController(withRootController: controller)
+        kevinNavigationController = knvc
+        return knvc
     }
     
     private func initializeAccountLinkingConfirmationController(
@@ -216,18 +217,22 @@ final public class KevinAccountLinkingSession: NSObject {
         }
         return controller
     }
+    
+    private func buildKevinNavigationController(
+        withRootController rootController: UIViewController
+    ) -> KevinNavigationViewController {
+        let knvc = KevinNavigationViewController(rootViewController: rootController)
+        knvc.presentationController?.delegate = self
+        
+        if #available(iOS 13.0, *), configuration.confirmInteractiveDismiss != .never {
+            knvc.isModalInPresentation = true
+        }
+
+        return knvc
+    }
 }
 
 extension KevinAccountLinkingSession: UIAdaptivePresentationControllerDelegate {
-
-    fileprivate func enableSwipeDismissConfirmation(whenTypeEquals type: KevinConfirmInteractiveDismissType) {
-        if type == configuration.confirmInteractiveDismiss {
-            kevinNavigationController?.presentationController?.delegate = self
-            if #available(iOS 13.0, *) {
-                kevinNavigationController?.isModalInPresentation = true
-            }
-        }
-    }
 
     public func presentationControllerDidAttemptToDismiss(_ presentationController: UIPresentationController) {
         let alert = UIAlertController(
