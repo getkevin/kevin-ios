@@ -116,7 +116,6 @@ final public class KevinPaymentSession: NSObject {
         )
         controller.onContinuation = { [weak self] bankId, _ in
             guard let self = self else { return }
-            self.enableSwipeDismissConfirmation(whenTypeEquals: .afterBankSelection)
             controller.show(
                 self.initializePaymentConfirmationController(configuration: configuration, selectedBank: bankId),
                 sender: nil

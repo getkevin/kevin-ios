@@ -174,7 +174,6 @@ final public class KevinAccountLinkingSession: NSObject {
         )
         controller.onContinuation = { [weak self] bankId, country in
             guard let self = self else { return }
-            self.enableSwipeDismissConfirmation(whenTypeEquals: .afterBankSelection)
             controller.show(
                 self.initializeAccountLinkingConfirmationController(
                     configuration: configuration,
