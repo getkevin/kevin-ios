@@ -40,7 +40,9 @@ final public class KevinPaymentSession: NSObject {
     ///   - configuration: payment session configuration
     public func initiatePayment(configuration: KevinPaymentSessionConfiguration) {
         self.configuration = configuration
-        initiateBankPayment(configuration: configuration)
+        DispatchQueue.main.async {
+            self.initiateBankPayment(configuration: configuration)
+        }
     }
     
     private func initiateBankPayment(configuration: KevinPaymentSessionConfiguration) {
