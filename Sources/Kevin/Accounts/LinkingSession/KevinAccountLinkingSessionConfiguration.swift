@@ -65,7 +65,7 @@ public class KevinAccountLinkingSessionConfiguration {
         private var preselectedBank: String? = nil
         private var skipBankSelection: Bool = false
         private var linkingType: KevinAccountLinkingType = .bank
-        private var confirmInteractiveDismiss: KevinConfirmInteractiveDismissType = .afterBankSelection
+        private var confirmInteractiveDismiss: KevinConfirmInteractiveDismissType = .always
         
         /// Creates an instance with the given state.
         ///
@@ -145,8 +145,7 @@ public class KevinAccountLinkingSessionConfiguration {
         ///
         /// Possible options to use:
         ///  - `.never` - will never ask for confirmation
-        ///  - `.always` - will always ask for confirmation
-        ///  - `.afterBankSelection` (default) will ask for confirmation only when user proceed through bank selection
+        ///  - `.always` - (default) will always ask for confirmation
         ///
         /// - Parameters:
         ///   - type: KevinConfirmInteractiveDismissType.

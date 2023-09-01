@@ -42,6 +42,13 @@ internal class KevinBankSelectionViewController :
     }
     
     override func onCloseTapped() {
+        switch configuration.confirmInteractiveDismiss {
+        case .always: presentCloseAlert()
+        case .never:  dismissView()
+        }
+    }
+    
+    private func presentCloseAlert() {
         let alert = UIAlertController(
             title: "dialog_exit_confirmation_title".localized(for: Kevin.shared.locale.identifier),
             message: configuration.exitSlug.localized(for: Kevin.shared.locale.identifier),
@@ -56,12 +63,16 @@ internal class KevinBankSelectionViewController :
             title: "yes".localized(for: Kevin.shared.locale.identifier),
             style: .default,
             handler: { _ in
-                self.uiStateHandler.forceStopCancellation = true
-                self.dismiss(animated: true, completion: nil)
-                self.onExit?()
+                self.dismissView()
             }
         ))
         present(alert, animated: true)
+    }
+    
+    private func dismissView() {
+        uiStateHandler.forceStopCancellation = true
+        dismiss(animated: true, completion: nil)
+        onExit?()
     }
 }
 

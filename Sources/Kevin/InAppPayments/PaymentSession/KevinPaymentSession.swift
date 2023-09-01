@@ -114,11 +114,11 @@ final public class KevinPaymentSession: NSObject {
             authState: configuration.paymentId,
             exitSlug: "dialog_exit_confirmation_payments_message",
             bankFilter: configuration.bankFilter,
-            excludeBanksWithoutAccountLinkingSupport: false
+            excludeBanksWithoutAccountLinkingSupport: false,
+            confirmInteractiveDismiss: configuration.confirmInteractiveDismiss
         )
         controller.onContinuation = { [weak self] bankId, _ in
             guard let self = self else { return }
-            self.enableSwipeDismissConfirmation(whenTypeEquals: .afterBankSelection)
             controller.show(
                 self.initializePaymentConfirmationController(configuration: configuration, selectedBank: bankId),
                 sender: nil
@@ -127,9 +127,8 @@ final public class KevinPaymentSession: NSObject {
         controller.onExit = { [weak self] in
             self?.delegate?.onKevinPaymentCanceled(error: KevinCancelationError())
         }
-        let knvc = KevinNavigationViewController(rootViewController: controller)
+        let knvc = buildKevinNavigationController(withRootController: controller)
         kevinNavigationController = knvc
-        enableSwipeDismissConfirmation(whenTypeEquals: .always)
         return knvc
     }
     
@@ -141,9 +140,12 @@ final public class KevinPaymentSession: NSObject {
             paymentId: configuration.paymentId,
             paymentType: configuration.paymentType,
             selectedBank: configuration.preselectedBank,
-            skipAuthentication: configuration.skipAuthentication
+            skipAuthentication: configuration.skipAuthentication,
+            confirmInteractiveDismiss: configuration.confirmInteractiveDismiss
         )
-        return KevinNavigationViewController(rootViewController: controller)
+        let knvc = buildKevinNavigationController(withRootController: controller)
+        kevinNavigationController = knvc
+        return knvc
     }
     
     private func initializePaymentConfirmationController(
@@ -155,22 +157,27 @@ final public class KevinPaymentSession: NSObject {
             paymentId: configuration.paymentId,
             paymentType: configuration.paymentType,
             selectedBank: selectedBank ?? configuration.preselectedBank,
-            skipAuthentication: configuration.skipAuthentication
+            skipAuthentication: configuration.skipAuthentication,
+            confirmInteractiveDismiss: configuration.confirmInteractiveDismiss
         )
         return controller
+    }
+    
+    private func buildKevinNavigationController(
+        withRootController rootController: UIViewController
+    ) -> KevinNavigationViewController {
+        let knvc = KevinNavigationViewController(rootViewController: rootController)
+        knvc.presentationController?.delegate = self
+        
+        if #available(iOS 13.0, *), configuration.confirmInteractiveDismiss != .never {
+            knvc.isModalInPresentation = true
+        }
+
+        return knvc
     }
 }
 
 extension KevinPaymentSession: UIAdaptivePresentationControllerDelegate {
-
-    fileprivate func enableSwipeDismissConfirmation(whenTypeEquals type: KevinConfirmInteractiveDismissType) {
-        if type == configuration.confirmInteractiveDismiss {
-            kevinNavigationController?.presentationController?.delegate = self
-            if #available(iOS 13.0, *) {
-                kevinNavigationController?.isModalInPresentation = true
-            }
-        }
-    }
 
     public func presentationControllerDidAttemptToDismiss(_ presentationController: UIPresentationController) {
         let alert = UIAlertController(
@@ -193,5 +200,9 @@ extension KevinPaymentSession: UIAdaptivePresentationControllerDelegate {
         ))
 
         kevinNavigationController?.present(alert, animated: true)
+    }
+    
+    public func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        delegate?.onKevinPaymentCanceled(error: KevinCancelationError())
     }
 }

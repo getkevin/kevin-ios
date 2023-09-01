@@ -8,6 +8,5 @@
 
 public enum KevinConfirmInteractiveDismissType {
     case never
-    case afterBankSelection
     case always
 }

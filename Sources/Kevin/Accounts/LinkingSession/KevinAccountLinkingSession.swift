@@ -170,11 +170,11 @@ final public class KevinAccountLinkingSession: NSObject {
             authState: configuration.state,
             exitSlug: "dialog_exit_confirmation_accounts_message",
             bankFilter: configuration.bankFilter,
-            excludeBanksWithoutAccountLinkingSupport: shouldExcludeBanksWithoutAccountLinkingSupport
+            excludeBanksWithoutAccountLinkingSupport: shouldExcludeBanksWithoutAccountLinkingSupport,
+            confirmInteractiveDismiss: configuration.confirmInteractiveDismiss
         )
         controller.onContinuation = { [weak self] bankId, country in
             guard let self = self else { return }
-            self.enableSwipeDismissConfirmation(whenTypeEquals: .afterBankSelection)
             controller.show(
                 self.initializeAccountLinkingConfirmationController(
                     configuration: configuration,
@@ -187,9 +187,8 @@ final public class KevinAccountLinkingSession: NSObject {
         controller.onExit = { [weak self] in
             self?.delegate?.onKevinAccountLinkingCanceled(error: KevinCancelationError())
         }
-        let knvc = KevinNavigationViewController(rootViewController: controller)
+        let knvc = buildKevinNavigationController(withRootController: controller)
         kevinNavigationController = knvc
-        enableSwipeDismissConfirmation(whenTypeEquals: .always)
         return knvc
     }
         
@@ -197,7 +196,9 @@ final public class KevinAccountLinkingSession: NSObject {
         configuration: KevinAccountLinkingSessionConfiguration
     ) -> UINavigationController {
         let controller = initializeAccountLinkingConfirmationController(configuration: configuration)
-        return KevinNavigationViewController(rootViewController: controller)
+        let knvc = buildKevinNavigationController(withRootController: controller)
+        kevinNavigationController = knvc
+        return knvc
     }
     
     private func initializeAccountLinkingConfirmationController(
@@ -217,18 +218,22 @@ final public class KevinAccountLinkingSession: NSObject {
         }
         return controller
     }
+    
+    private func buildKevinNavigationController(
+        withRootController rootController: UIViewController
+    ) -> KevinNavigationViewController {
+        let knvc = KevinNavigationViewController(rootViewController: rootController)
+        knvc.presentationController?.delegate = self
+        
+        if #available(iOS 13.0, *), configuration.confirmInteractiveDismiss != .never {
+            knvc.isModalInPresentation = true
+        }
+
+        return knvc
+    }
 }
 
 extension KevinAccountLinkingSession: UIAdaptivePresentationControllerDelegate {
-
-    fileprivate func enableSwipeDismissConfirmation(whenTypeEquals type: KevinConfirmInteractiveDismissType) {
-        if type == configuration.confirmInteractiveDismiss {
-            kevinNavigationController?.presentationController?.delegate = self
-            if #available(iOS 13.0, *) {
-                kevinNavigationController?.isModalInPresentation = true
-            }
-        }
-    }
 
     public func presentationControllerDidAttemptToDismiss(_ presentationController: UIPresentationController) {
         let alert = UIAlertController(
@@ -251,5 +256,9 @@ extension KevinAccountLinkingSession: UIAdaptivePresentationControllerDelegate {
         ))
 
         kevinNavigationController?.present(alert, animated: true)
+    }
+    
+    public func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        delegate?.onKevinAccountLinkingCanceled(error: KevinCancelationError())
     }
 }
