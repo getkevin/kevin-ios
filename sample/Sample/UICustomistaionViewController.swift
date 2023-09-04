@@ -36,13 +36,7 @@ public class DemoKevinTheme : KevinTheme {
         self.listTableStyle.cellBackgroundColor = UIColor(named: "SelectedOnPrimaryColor")!
 
         self.mainButtonStyle.backgroundColor = UIColor(named: "AccentColor")!
-        self.negativeButtonStyle.titleLabelTextColor = UIColor(named: "AccentColor")!
 
-        self.textFieldStyle.textColor = UIColor(named: "PrimaryTextColor")!
-        self.textFieldStyle.backgroundColor = UIColor(named: "PrimaryBackgroundColor")!
-        self.textFieldStyle.borderColor = UIColor(named: "SecondaryTextColor")!
-        self.textFieldStyle.errorBorderColor = UIColor.red
-        
         self.emptyStateStyle.titleTextColor = UIColor(named: "PrimaryTextColor")!
         self.emptyStateStyle.subtitleTextColor = UIColor(named: "SecondaryTextColor")!
         self.emptyStateStyle.iconTintColor = UIColor(named: "PrimaryTextColor")!
