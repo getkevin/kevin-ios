@@ -60,7 +60,7 @@ final public class KevinAccountLinkingSession: NSObject {
             
             bankConfigurationValidator.validate(
                 token: configuration.state,
-                country: configuration.preselectedCountry,
+                country: country,
                 preselectedBank: bankId,
                 bankFilter: configuration.bankFilter,
                 shouldExcludeBanksWithoutAccountLinkingSupport: shouldExcludeBanksWithoutAccountLinkingSupport
