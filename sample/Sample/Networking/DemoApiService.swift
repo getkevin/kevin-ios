@@ -31,7 +31,7 @@ struct DemoApiService {
     }
 
     private func getCreditors(countryCode: String) async throws -> CreditorsResponse {
-        var components = URLComponents(string: "https://api.getkevin.eu/demo/creditors")!
+        var components = URLComponents(string: "https://demo-api.kevin.eu/creditors")!
         components.queryItems = [URLQueryItem(name: "countryCode", value: countryCode)]
         return try await makeGetRequest(url: components.url!)
     }
