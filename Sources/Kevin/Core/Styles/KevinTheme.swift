@@ -101,10 +101,10 @@ open class KevinTheme {
         public var titleLabelTextColor = UIColor(named: "CTATextPrimary", in: Bundle.current, compatibleWith: nil)!
         public var titleLabelFont = UIFont.systemFont(ofSize: 16, weight: .medium)
         public var cornerRadius: CGFloat = 8
-        public var shadowRadius: CGFloat = 2
-        public var shadowOpacity: Float = 0.6
-        public var shadowOffset = CGSize(width: 1.0, height: 1.0)
-        public var shadowColor = UIColor(named: "CTABackgroundPrimary", in: Bundle.current, compatibleWith: nil)!
+        public var shadowRadius: CGFloat = 0
+        public var shadowOpacity: Float = 0
+        public var shadowOffset = CGSize.zero
+        public var shadowColor = UIColor.clear
 
         public init() { }
     }
