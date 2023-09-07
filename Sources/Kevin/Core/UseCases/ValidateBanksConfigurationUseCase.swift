@@ -8,6 +8,32 @@
 
 import Foundation
 
+enum BankConfigurationValidationStatus: Equatable {
+    case valid(selectedBank: ApiBank?)
+    case invalidFilter
+    case invalidPreselectedBank
+    case unknown(error: Error)
+    
+    static func == (lhs: BankConfigurationValidationStatus, rhs: BankConfigurationValidationStatus) -> Bool {
+        switch (lhs, rhs) {
+        case (.valid(let lhsType), .valid(let rhsType)):
+            return lhsType?.id == rhsType?.id
+            
+        case (.invalidFilter, .invalidFilter):
+            return true
+            
+        case (.invalidPreselectedBank, .invalidPreselectedBank):
+            return true
+            
+        case (.unknown(let lhsType), .unknown(let rhsType)):
+            return lhsType.localizedDescription == rhsType.localizedDescription
+            
+        default:
+            return false
+        }
+    }
+}
+
 class ValidateBanksConfigurationUseCase {
     
     enum Status {
@@ -23,7 +49,7 @@ class ValidateBanksConfigurationUseCase {
         preselectedBank: String?,
         bankFilter: [String],
         shouldExcludeBanksWithoutAccountLinkingSupport: Bool,
-        completion: @escaping (Status) -> Void
+        completion: @escaping (BankConfigurationValidationStatus) -> Void
     ) {
         KevinAccountsApiClient.shared.getSupportedBanks(
             token: token,

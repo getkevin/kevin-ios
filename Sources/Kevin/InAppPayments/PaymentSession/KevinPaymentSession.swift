@@ -80,7 +80,7 @@ final public class KevinPaymentSession: NSObject {
     }
 
     private func onBankConfigurationValidation(
-        status: ValidateBanksConfigurationUseCase.Status,
+        status: BankConfigurationValidationStatus,
         completion: @escaping (ApiBank?) -> Void
     ) {
         switch status {
