@@ -17,8 +17,9 @@ public class DemoKevinTheme : KevinTheme {
         self.generalStyle.primaryTextColor = UIColor(named: "PrimaryTextColor")!
         self.generalStyle.primaryBackgroundColor = UIColor(named: "PrimaryBackgroundColor")!
 
-        self.navigationBarStyle.backgroundColorDarkMode = UIColor(named: "AccentColor")!
-        self.navigationBarStyle.backgroundColorLightMode = UIColor(named: "AccentColor")!
+        self.navigationBarStyle.backgroundColorDarkMode = UIColor(named: "KevinDarkBlue")!
+        self.navigationBarStyle.backgroundColorLightMode = UIColor(named: "KevinDarkBlue")!
+        self.navigationBarStyle.titleColor = UIColor(named: "TextWhite")!
 
         self.navigationLinkStyle.backgroundColor = UIColor(named: "SelectedOnPrimaryColor")!
         self.navigationLinkStyle.selectedBackgroundColor = UIColor(named: "PrimaryBackgroundColor")!
@@ -26,27 +27,18 @@ public class DemoKevinTheme : KevinTheme {
         self.gridTableStyle.cellBackgroundColor = UIColor(named: "SelectedOnPrimaryColor")!
         self.gridTableStyle.cellSelectedBackgroundColor = UIColor(named: "TableCellBackgroundColor")!
         self.gridTableStyle.cellBorderWidth = 1
-        self.gridTableStyle.cellBorderColor = UIColor(named: "AccentColor")!
+        self.gridTableStyle.cellBorderColor = UIColor(named: "KevinRed")!
         self.gridTableStyle.cellSelectedBorderWidth = 3
-        self.gridTableStyle.cellSelectedBorderColor = UIColor(named: "AccentColor")!
-        
+        self.gridTableStyle.cellSelectedBorderColor = UIColor(named: "KevinRed")!
+
         self.sheetPresentationStyle.backgroundColor = UIColor(named: "PrimaryBackgroundColor")!
 
-        self.listTableStyle.cellSelectedBackgroundColor = UIColor(Color("TableCellBackgroundColor", bundle: nil))
         self.listTableStyle.cellBackgroundColor = UIColor(named: "SelectedOnPrimaryColor")!
 
-        self.mainButtonStyle.backgroundColor = UIColor(named: "AccentColor")!
-        self.negativeButtonStyle.titleLabelTextColor = UIColor(named: "AccentColor")!
-
-        self.textFieldStyle.textColor = UIColor(named: "PrimaryTextColor")!
-        self.textFieldStyle.backgroundColor = UIColor(named: "PrimaryBackgroundColor")!
-        self.textFieldStyle.borderColor = UIColor(named: "SecondaryTextColor")!
-        self.textFieldStyle.errorBorderColor = UIColor.red
+        self.mainButtonStyle.backgroundColor = UIColor(named: "KevinDarkBlue")!
+        self.mainButtonStyle.titleLabelTextColor = UIColor(named: "TextWhite")!
+        self.mainButtonStyle.shadowColor = UIColor(named: "KevinDarkBlue")!
         
-        self.emptyStateStyle.titleTextColor = UIColor(named: "PrimaryTextColor")!
-        self.emptyStateStyle.subtitleTextColor = UIColor(named: "SecondaryTextColor")!
-        self.emptyStateStyle.iconTintColor = UIColor(named: "PrimaryTextColor")!
-
         //  for more properties check KevinTheme class
     }
 }
