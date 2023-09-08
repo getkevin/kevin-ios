@@ -120,8 +120,8 @@ import XCTest
         waitForExpectations(timeout: 0.1)
 
         // 3. Assert
-        let resultError = try XCTUnwrap(error)
-        XCTAssertEqual(resultError.localizedDescription, "Provided preselected bank is not supported")
+        let resultError = try XCTUnwrap(error) as? KevinError
+        XCTAssertEqual(resultError, KevinErrors.preselectedBankNotSupported)
     }
     
     func testAccountLinkingInitiationWithErrorBankFilterIncorrect() throws {
@@ -138,8 +138,8 @@ import XCTest
         waitForExpectations(timeout: 0.1)
 
         // 3. Assert
-        let resultError = try XCTUnwrap(error)
-        XCTAssertEqual(resultError.localizedDescription, "Provided bank filter does not contain supported banks")
+        let resultError = try XCTUnwrap(error) as? KevinError
+        XCTAssertEqual(resultError, KevinErrors.filterInvalid)
     }
     
     func testAccountLinkingInitiationWithNetworkError() throws {
@@ -223,6 +223,104 @@ import XCTest
         let resultCancelationError = resultError as? KevinCancelationError
 
         XCTAssertNotNil(resultCancelationError)
+    }
+    
+    // MARK: - Linking completion
+    
+    func testLinkingCompletion() throws {
+        // 1. Assign
+        let bankId = "INDUSTRA_LT"
+        
+        KevinAccountLinkingSession.shared.delegate = self
+        let configuration = try KevinAccountLinkingSessionConfiguration.Builder(state: authStateMock)
+            .build()
+
+        // 2. Act
+        expectation = expectation(description: "Account linking initiates")
+        KevinAccountLinkingSession.shared.initiateAccountLinking(configuration: configuration)
+        
+        waitForExpectations(timeout: 0.1)
+
+        expectation = expectation(description: "Account linking completed")
+        KevinAccountLinkingSession.shared.notifyAccountLinkingCompletion(
+            authorizationCode: authStateMock,
+            bankId: bankId,
+            country: nil,
+            linkingType: .bank
+        )
+        
+        waitForExpectations(timeout: 0.1)
+        
+        // 3. Assert
+        let resultAuthorizationCode = try XCTUnwrap(authorizationCode)
+        let resultBank = try XCTUnwrap(bank)
+
+        XCTAssertEqual(resultAuthorizationCode, authStateMock)
+        XCTAssertEqual(resultBank.id, bankId)
+    }
+    
+    func testLinkingCompletionBankUnavailableError() throws {
+        // 1. Assign
+        let bankId = "UNAVAILABLE_BANK"
+        
+        KevinAccountLinkingSession.shared.delegate = self
+        let configuration = try KevinAccountLinkingSessionConfiguration.Builder(state: authStateMock)
+            .build()
+
+        // 2. Act
+        expectation = expectation(description: "Account linking initiates")
+        KevinAccountLinkingSession.shared.initiateAccountLinking(configuration: configuration)
+        
+        waitForExpectations(timeout: 0.1)
+
+        expectation = expectation(description: "Account linking completed")
+        KevinAccountLinkingSession.shared.notifyAccountLinkingCompletion(
+            authorizationCode: authStateMock,
+            bankId: bankId,
+            country: nil,
+            linkingType: .bank
+        )
+        
+        waitForExpectations(timeout: 0.1)
+        
+        // 3. Assert
+        let resultError = try XCTUnwrap(error) as? KevinError
+        XCTAssertEqual(resultError, KevinErrors.preselectedBankNotSupported)
+    }
+    
+    func testLinkingCompletionIncorrectBankCountryError() throws {
+        // 1. Assign
+        let bankId = "INDUSTRA_LT"
+        let country = KevinCountry.austria
+        
+        KevinAccountLinkingSession.shared.delegate = self
+        let configuration = try KevinAccountLinkingSessionConfiguration.Builder(state: authStateMock)
+            .build()
+        
+        MockURLProtocol.add(handler: MockRequestHandler(
+            url: URL.banks(with: authStateMock).absoluteString + "?countryCode=\(country.rawValue)",
+            jsonResponse: "" // NOTE: It doesn't matter if response is empty or not. It just shouldn't contain "INDUSTRA_LT" bank
+        ))
+        
+        // 2. Act
+        expectation = expectation(description: "Account linking initiates")
+        KevinAccountLinkingSession.shared.initiateAccountLinking(configuration: configuration)
+        
+        waitForExpectations(timeout: 0.1)
+
+        expectation = expectation(description: "Account linking completed")
+        KevinAccountLinkingSession.shared.notifyAccountLinkingCompletion(
+            authorizationCode: authStateMock,
+            bankId: bankId,
+            country: country,
+            linkingType: .bank
+        )
+        
+        waitForExpectations(timeout: 0.1)
+        
+        // 3. Assert
+        let resultError = try XCTUnwrap(error) as? KevinError
+        XCTAssertEqual(resultError, KevinErrors.preselectedBankNotSupported)
     }
 }
 
