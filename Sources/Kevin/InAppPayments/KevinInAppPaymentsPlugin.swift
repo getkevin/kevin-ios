@@ -27,7 +27,7 @@ public class KevinInAppPaymentsPlugin: KevinPlugin {
     
     public func getCallbackUrl() throws -> URL {
         guard let configuration = configuration else {
-            throw KevinError(description: "KevinInAppPaymentsPlugin was not configured!")
+            throw KevinErrors.paymentPluginNotConfigured
         }
         return configuration.callbackUrl
     }

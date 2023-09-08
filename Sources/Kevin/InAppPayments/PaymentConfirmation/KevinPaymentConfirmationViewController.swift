@@ -47,7 +47,7 @@ internal class KevinPaymentConfirmationViewController :
                 self.offerIntent(
                     KevinPaymentConfirmationIntent.HandlePaymentCompleted(
                         url: nil,
-                        error: KevinCancelationError(description: "Payment was canceled!")
+                        error: KevinErrors.paymentCanceled
                     )
                 )
             }
@@ -87,7 +87,7 @@ internal class KevinPaymentConfirmationViewController :
         offerIntent(
             KevinPaymentConfirmationIntent.HandlePaymentCompleted(
                 url: nil,
-                error: KevinCancelationError(description: "Payment was canceled!")
+                error: KevinErrors.paymentCanceled
             )
         )
     }
