@@ -69,6 +69,9 @@ class MockURLProtocol: URLProtocol {
         if let response = handler.jsonResponse {
             client?.urlProtocol(self, didLoad: response.data(using: .utf8)!)
         }
+        if let customHandler = handler.customHandler {
+            customHandler()
+        }
         client?.urlProtocolDidFinishLoading(self)
     }
 
