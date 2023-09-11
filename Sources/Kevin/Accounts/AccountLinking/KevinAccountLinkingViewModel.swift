@@ -41,6 +41,9 @@ internal class KevinAccountLinkingViewModel : KevinViewModel<KevinAccountLinking
             return
         }
         guard let status = callbackUrl?["status"] else {
+            KevinAccountLinkingSession.shared.notifyAccountLinkingCancelation(
+                error: KevinErrors.unknownLinkingStatus
+            )
             return
         }
         if status == "success" {

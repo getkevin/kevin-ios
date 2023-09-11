@@ -18,7 +18,8 @@ internal class KevinErrors {
     static let filterInvalid = KevinError(description: "Provided bank filter does not contain supported banks")
     static let preselectedCountryNotProvided = KevinError(description: "If disableCountrySelection is true, preselectedCountry must be provided!")
     static let preselectedCountryNoInTheFilter = KevinError(description: "PreselectedCountry has to be included in countryFilter!")
-    static let unknownPaymetnStatus = KevinError(description: "Unknown payment status received")
+    static let unknownPaymentStatus = KevinError(description: "Unknown payment status received")
+    static let unknownLinkingStatus = KevinError(description: "Unknown account linking status received")
 
     static let linkingCanceled = KevinCancelationError(description: "Account linking was canceled!")
     static let paymentCanceled = KevinCancelationError(description: "Payment was canceled!")
