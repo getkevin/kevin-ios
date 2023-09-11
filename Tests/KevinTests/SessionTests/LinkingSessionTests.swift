@@ -10,7 +10,7 @@ import XCTest
 
 @testable import Kevin
 
-@MainActor final class LinkingSessionTests: XCTestCase {
+final class LinkingSessionTests: XCTestCase {
     
     let authStateMock = "authStateMock"
     let redirectURLMock = "https://redirectURLMock.test/authorization.html"
@@ -21,7 +21,7 @@ import XCTest
     var authorizationCode: String?
     var bank: ApiBank?
     
-    override func setUpWithError() throws {
+    override func setUp() {
         KevinApiClient.shared.urlSession = mockURLSession
         
         let configurationAccounts = KevinAccountsConfiguration.Builder(
@@ -33,13 +33,10 @@ import XCTest
             url: URL.banks(with: authStateMock).absoluteString,
             jsonResponse: banksResponse
         ))
-
-        print("setUpWithError Linking Session Tests")
     }
     
-    override func tearDownWithError() throws {
+    override func tearDown() {
         MockURLProtocol.clearHandlers()
-        print("tearDownWithError Linking Session Tests")
     }
 
     // MARK: - Initiation
