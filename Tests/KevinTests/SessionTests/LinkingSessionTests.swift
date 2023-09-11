@@ -22,6 +22,8 @@ final class LinkingSessionTests: XCTestCase {
     var bank: ApiBank?
     
     override func setUp() {
+        super.setUp()
+        
         KevinApiClient.shared.urlSession = mockURLSession
         
         let configurationAccounts = KevinAccountsConfiguration.Builder(
@@ -36,6 +38,7 @@ final class LinkingSessionTests: XCTestCase {
     }
     
     override func tearDown() {
+        super.tearDown()
         MockURLProtocol.clearHandlers()
     }
 

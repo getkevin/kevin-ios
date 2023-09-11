@@ -22,6 +22,8 @@ final class PaymentSessionTests: XCTestCase {
     var status: KevinPaymentStatus?
     
     override func setUp() {
+        super.setUp()
+        
         KevinApiClient.shared.urlSession = mockURLSession
         
         let configurationPayments = KevinInAppPaymentsConfiguration.Builder(
@@ -36,6 +38,7 @@ final class PaymentSessionTests: XCTestCase {
     }
     
     override func tearDown() {
+        super.tearDown()
         MockURLProtocol.clearHandlers()
     }
 
