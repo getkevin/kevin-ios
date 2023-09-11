@@ -28,7 +28,7 @@ final class KevinCountrySelectionViewModelTests: XCTestCase {
             jsonResponse: countriesResponse,
             customHandler: {
                 // NOTE: Waiting 0.5 sec for API call to process by view model
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
                     self.expectation?.fulfill()
                     self.expectation = nil
                 })
@@ -62,7 +62,7 @@ final class KevinCountrySelectionViewModelTests: XCTestCase {
         // 2. Act
         viewModel.offer(intent: intent)
         
-        waitForExpectations(timeout: 1)
+        waitForExpectations(timeout: 0.5)
 
         // 3. Assert
         XCTAssertEqual(state?.isLoading, false)
@@ -90,7 +90,7 @@ final class KevinCountrySelectionViewModelTests: XCTestCase {
         // 2. Act
         viewModel.offer(intent: intent)
         
-        waitForExpectations(timeout: 1)
+        waitForExpectations(timeout: 0.5)
 
         // 3. Assert
         XCTAssertEqual(state?.isLoading, false)
