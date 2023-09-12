@@ -43,7 +43,8 @@ final class KevinAccountLinkingViewModelTests: XCTestCase {
             callbackUrl: URL(string: redirectURLMock)!
         ).build()
         KevinAccountsPlugin.shared.configure(configurationAccounts)
-        
+        KevinAccountLinkingSession.shared.delegate = self
+
         // MARK: Set up view model
         viewModel = KevinAccountLinkingViewModel()
         viewModel.onStateChanged = { [weak self] state in
@@ -81,7 +82,6 @@ final class KevinAccountLinkingViewModelTests: XCTestCase {
     
     func testViewModelLinkingCompletion() throws {
         // 1. Assign
-        KevinAccountLinkingSession.shared.delegate = self
         let sdkConfiguration = try KevinAccountLinkingSessionConfiguration.Builder(state: authStateMock)
             .build()
                 
@@ -124,7 +124,6 @@ final class KevinAccountLinkingViewModelTests: XCTestCase {
     
     func testViewModelLinkingCompletionWithMissingCode() throws {
         // 1. Assign
-        KevinAccountLinkingSession.shared.delegate = self
         let sdkConfiguration = try KevinAccountLinkingSessionConfiguration.Builder(state: authStateMock)
             .build()
                 
@@ -165,7 +164,6 @@ final class KevinAccountLinkingViewModelTests: XCTestCase {
     
     func testViewModelLinkingCompletionWithMissingStatus() throws {
         // 1. Assign
-        KevinAccountLinkingSession.shared.delegate = self
         let sdkConfiguration = try KevinAccountLinkingSessionConfiguration.Builder(state: authStateMock)
             .build()
                 
@@ -206,7 +204,6 @@ final class KevinAccountLinkingViewModelTests: XCTestCase {
     
     func testViewModelLinkingCompletionWithFailedStatus() throws {
         // 1. Assign
-        KevinAccountLinkingSession.shared.delegate = self
         let sdkConfiguration = try KevinAccountLinkingSessionConfiguration.Builder(state: authStateMock)
             .build()
                 
@@ -247,7 +244,6 @@ final class KevinAccountLinkingViewModelTests: XCTestCase {
     
     func testViewModelLinkingCompletionWithError() throws {
         // 1. Assign
-        KevinAccountLinkingSession.shared.delegate = self
         let sdkConfiguration = try KevinAccountLinkingSessionConfiguration.Builder(state: authStateMock)
             .build()
                 

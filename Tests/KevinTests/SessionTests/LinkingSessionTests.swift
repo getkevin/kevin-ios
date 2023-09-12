@@ -30,6 +30,7 @@ final class LinkingSessionTests: XCTestCase {
             callbackUrl: URL(string: redirectURLMock)!
         ).build()
         KevinAccountsPlugin.shared.configure(configurationAccounts)
+        KevinAccountLinkingSession.shared.delegate = self
 
         MockURLProtocol.add(handler: MockRequestHandler(
             url: URL.banks(with: authStateMock).absoluteString,
@@ -46,7 +47,6 @@ final class LinkingSessionTests: XCTestCase {
     
     func testAccountLinkingInitiationWithBankSelectionView() throws {
         // 1. Assign
-        KevinAccountLinkingSession.shared.delegate = self
         let configuration = try KevinAccountLinkingSessionConfiguration.Builder(state: authStateMock)
             .build()
 
@@ -67,7 +67,6 @@ final class LinkingSessionTests: XCTestCase {
     func testAccountLinkingInitiationWithBankSelectionViewWithPreselectedBank() throws {
         // 1. Assign
         let preselectedBankId = "INDUSTRA_LT"
-        KevinAccountLinkingSession.shared.delegate = self
         let configuration = try KevinAccountLinkingSessionConfiguration.Builder(state: authStateMock)
             .setPreselectedBank(preselectedBankId)
             .build()
@@ -89,7 +88,6 @@ final class LinkingSessionTests: XCTestCase {
 
     func testAccountLinkingInitiationWithAccountLinkingConfirmationView() throws {
         // 1. Assign
-        KevinAccountLinkingSession.shared.delegate = self
         let configuration = try KevinAccountLinkingSessionConfiguration.Builder(state: authStateMock)
             .setPreselectedBank("INDUSTRA_LT")
             .setSkipBankSelection(true)
@@ -108,7 +106,6 @@ final class LinkingSessionTests: XCTestCase {
     
     func testAccountLinkingInitiationWithErrorPreselectedBankIncorrect() throws {
         // 1. Assign
-        KevinAccountLinkingSession.shared.delegate = self
         let configuration = try KevinAccountLinkingSessionConfiguration.Builder(state: authStateMock)
             .setPreselectedBank("UNAVAILABLE_BANK")
             .build()
@@ -126,7 +123,6 @@ final class LinkingSessionTests: XCTestCase {
     
     func testAccountLinkingInitiationWithErrorBankFilterIncorrect() throws {
         // 1. Assign
-        KevinAccountLinkingSession.shared.delegate = self
         let configuration = try KevinAccountLinkingSessionConfiguration.Builder(state: authStateMock)
             .setBankFilter(["UNAVAILABLE_BANK"])
             .build()
@@ -144,7 +140,6 @@ final class LinkingSessionTests: XCTestCase {
     
     func testAccountLinkingInitiationWithNetworkError() throws {
         // 1. Assign
-        KevinAccountLinkingSession.shared.delegate = self
         let configuration = try KevinAccountLinkingSessionConfiguration.Builder(state: authStateMock)
             .build()
 
@@ -171,7 +166,6 @@ final class LinkingSessionTests: XCTestCase {
     
     func testLinkingCancelationOnBankSelectionView() throws {
         // 1. Assign
-        KevinAccountLinkingSession.shared.delegate = self
         let configuration = try KevinAccountLinkingSessionConfiguration.Builder(state: authStateMock)
             .build()
 
@@ -198,7 +192,6 @@ final class LinkingSessionTests: XCTestCase {
     
     func testLinkingCancelationOnAccountLinkingConfirmationView() throws {
         // 1. Assign
-        KevinAccountLinkingSession.shared.delegate = self
         let configuration = try KevinAccountLinkingSessionConfiguration.Builder(state: authStateMock)
             .setPreselectedBank("INDUSTRA_LT")
             .setSkipBankSelection(true)
@@ -231,7 +224,6 @@ final class LinkingSessionTests: XCTestCase {
         // 1. Assign
         let bankId = "INDUSTRA_LT"
         
-        KevinAccountLinkingSession.shared.delegate = self
         let configuration = try KevinAccountLinkingSessionConfiguration.Builder(state: authStateMock)
             .build()
 
@@ -263,7 +255,6 @@ final class LinkingSessionTests: XCTestCase {
         // 1. Assign
         let bankId = "UNAVAILABLE_BANK"
         
-        KevinAccountLinkingSession.shared.delegate = self
         let configuration = try KevinAccountLinkingSessionConfiguration.Builder(state: authStateMock)
             .build()
 
@@ -293,7 +284,6 @@ final class LinkingSessionTests: XCTestCase {
         let bankId = "INDUSTRA_LT"
         let country = KevinCountry.austria
         
-        KevinAccountLinkingSession.shared.delegate = self
         let configuration = try KevinAccountLinkingSessionConfiguration.Builder(state: authStateMock)
             .build()
         

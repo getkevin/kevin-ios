@@ -30,6 +30,7 @@ final class PaymentSessionTests: XCTestCase {
             callbackUrl: URL(string: redirectURLMock)!
         ).build()
         KevinInAppPaymentsPlugin.shared.configure(configurationPayments)
+        KevinPaymentSession.shared.delegate = self
 
         MockURLProtocol.add(handler: MockRequestHandler(
             url: URL.banks(with: paymentIdMock).absoluteString,
@@ -46,7 +47,6 @@ final class PaymentSessionTests: XCTestCase {
     
     func testPaymentInitiationWithBankSelectionView() throws {
         // 1. Assign
-        KevinPaymentSession.shared.delegate = self
         let configuration = try KevinPaymentSessionConfiguration.Builder(paymentId: paymentIdMock)
             .build()
 
@@ -67,7 +67,6 @@ final class PaymentSessionTests: XCTestCase {
     func testPaymentInitiationWithBankSelectionViewWithPreselectedBank() throws {
         // 1. Assign
         let preselectedBankId = "INDUSTRA_LT"
-        KevinPaymentSession.shared.delegate = self
         let configuration = try KevinPaymentSessionConfiguration.Builder(paymentId: paymentIdMock)
             .setPreselectedBank(preselectedBankId)
             .build()
@@ -89,7 +88,6 @@ final class PaymentSessionTests: XCTestCase {
 
     func testPaymentInitiationWithAccountLinkingConfirmationView() throws {
         // 1. Assign
-        KevinPaymentSession.shared.delegate = self
         let configuration = try KevinPaymentSessionConfiguration.Builder(paymentId: paymentIdMock)
             .setPreselectedBank("INDUSTRA_LT")
             .setSkipBankSelection(true)
@@ -108,7 +106,6 @@ final class PaymentSessionTests: XCTestCase {
 
     func testPaymentInitiationWithErrorPreselectedBankIncorrect() throws {
         // 1. Assign
-        KevinPaymentSession.shared.delegate = self
         let configuration = try KevinPaymentSessionConfiguration.Builder(paymentId: paymentIdMock)
             .setPreselectedBank("UNAVAILABLE_BANK")
             .build()
@@ -126,7 +123,6 @@ final class PaymentSessionTests: XCTestCase {
 
     func testPaymentInitiationWithErrorBankFilterIncorrect() throws {
         // 1. Assign
-        KevinPaymentSession.shared.delegate = self
         let configuration = try KevinPaymentSessionConfiguration.Builder(paymentId: paymentIdMock)
             .setBankFilter(["UNAVAILABLE_BANK"])
             .build()
@@ -144,7 +140,6 @@ final class PaymentSessionTests: XCTestCase {
 
     func testPaymentInitiationWithNetworkError() throws {
         // 1. Assign
-        KevinPaymentSession.shared.delegate = self
         let configuration = try KevinPaymentSessionConfiguration.Builder(paymentId: paymentIdMock)
             .build()
 
@@ -171,7 +166,6 @@ final class PaymentSessionTests: XCTestCase {
 
     func testPaymentCancelationOnBankSelectionView() throws {
         // 1. Assign
-        KevinPaymentSession.shared.delegate = self
         let configuration = try KevinPaymentSessionConfiguration.Builder(paymentId: paymentIdMock)
             .build()
 
@@ -202,7 +196,6 @@ final class PaymentSessionTests: XCTestCase {
         // 1. Assign
         let status = KevinPaymentStatus.completed
 
-        KevinPaymentSession.shared.delegate = self
         let configuration = try KevinPaymentSessionConfiguration.Builder(paymentId: paymentIdMock)
             .build()
 
@@ -232,7 +225,6 @@ final class PaymentSessionTests: XCTestCase {
         // 1. Assign
         let status = KevinPaymentStatus.pending
 
-        KevinPaymentSession.shared.delegate = self
         let configuration = try KevinPaymentSessionConfiguration.Builder(paymentId: paymentIdMock)
             .build()
 
@@ -262,7 +254,6 @@ final class PaymentSessionTests: XCTestCase {
         // 1. Assign
         let status = KevinPaymentStatus.unknown
 
-        KevinPaymentSession.shared.delegate = self
         let configuration = try KevinPaymentSessionConfiguration.Builder(paymentId: paymentIdMock)
             .build()
 
