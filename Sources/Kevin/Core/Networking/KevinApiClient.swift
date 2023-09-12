@@ -10,70 +10,26 @@ import Foundation
 
 internal class KevinApiClient {
     
-    private let urlSession = URLSession(configuration: URLSessionConfiguration.default)
-    
-    private var apiURL: URL {
-        get {
-            if Kevin.shared.isSandbox {
-                return URL(string: "https://sandbox-api.getkevin.eu/")!
-            } else {
-                return URL(string: "https://api.kevin.eu/")!
-            }
-        }
-    }
+    internal var urlSession = URLSession(configuration: URLSessionConfiguration.default)
 
     internal static let shared = KevinApiClient()
     
     internal func get<ResponseType: KevinApiResponseDecodable>(
         type: ResponseType.Type,
-        endpoint: String,
+        url: URL,
         additionalHeaders: [String: String] = [:],
-        parameters: [String: Any] = [:],
+        parameters: [String: Any?] = [:],
         completion: @escaping (ResponseType?, HTTPURLResponse?, Error?) -> Void
     ) {
-        let url = apiURL.appendingPathComponent(endpoint)
-
         let request = configuredRequest(for: url, additionalHeaders: additionalHeaders)
         request.httpMethod = "GET"
-        request.kAddParameters(toURL: parameters)
+        
+        let params = parameters.compactMapValues({ $0 })
+        if !params.isEmpty {
+            request.kAddParameters(toURL: params)
+        }
 
         urlSession.dataTask(with: request as URLRequest) { (data, response, error) -> Void in
-            self.parseResponse(response, body: data, error: error, completion: completion)
-        }.resume()
-    }
-    
-    internal func post<ResponseType: KevinApiResponseDecodable>(
-        type: ResponseType.Type,
-        endpoint: String,
-        additionalHeaders: [String: String] = [:],
-        jsonPayloadData: Data,
-        completion: @escaping (ResponseType?, HTTPURLResponse?, Error?) -> Void
-    ) {
-        let url = apiURL.appendingPathComponent(endpoint)
-
-        let request = configuredRequest(for: url, additionalHeaders: additionalHeaders)
-        request.httpMethod = "POST"
-        request.kAddJsonPayload(jsonPayloadData)
-
-        urlSession.dataTask(with: request as URLRequest) { (data, response, error) in
-            self.parseResponse(response, body: data, error: error, completion: completion)
-        }.resume()
-    }
-    
-    internal func delete<ResponseType: KevinApiResponseDecodable>(
-        type: ResponseType.Type,
-        endpoint: String,
-        additionalHeaders: [String: String] = [:],
-        parameters: [String: Any],
-        completion: @escaping (ResponseType?, HTTPURLResponse?, Error?) -> Void
-    ) {
-        let url = apiURL.appendingPathComponent(endpoint)
-
-        let request = configuredRequest(for: url, additionalHeaders: additionalHeaders)
-        request.httpMethod = "DELETE"
-        request.kAddParameters(toURL: parameters)
-        
-        urlSession.dataTask(with: request as URLRequest) { (data, response, error) in
             self.parseResponse(response, body: data, error: error, completion: completion)
         }.resume()
     }

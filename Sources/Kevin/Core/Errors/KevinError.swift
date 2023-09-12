@@ -22,3 +22,9 @@ extension KevinError: LocalizedError {
         return description
     }
 }
+
+extension KevinError: Equatable {
+    public static func == (lhs: KevinError, rhs: KevinError) -> Bool {
+        lhs.description == rhs.description
+    }
+}

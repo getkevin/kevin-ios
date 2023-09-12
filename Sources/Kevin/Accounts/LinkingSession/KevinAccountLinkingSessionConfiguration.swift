@@ -43,14 +43,14 @@ public class KevinAccountLinkingSessionConfiguration {
         self.confirmInteractiveDismiss = confirmInteractiveDismiss
 
         if skipBankSelection && preselectedBank == nil {
-            throw KevinError(description: "If skipBankSelection is true, preselectedBank must be provided!")
+            throw KevinErrors.preselectedBankNotProvided
         }
         if disableCountrySelection && preselectedCountry == nil {
-            throw KevinError(description: "If disableCountrySelection is true, preselectedCountry must be provided!")
+            throw KevinErrors.preselectedCountryNotProvided
         }
         if let preselectedCountry = preselectedCountry, !countryFilter.isEmpty {
             if !countryFilter.contains(preselectedCountry) {
-                throw KevinError(description: "PreselectedCountry has to be included in countryFilter!")
+                throw KevinErrors.preselectedCountryNoInTheFilter
             }
         }
     }

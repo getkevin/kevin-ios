@@ -41,6 +41,9 @@ internal class KevinAccountLinkingViewModel : KevinViewModel<KevinAccountLinking
             return
         }
         guard let status = callbackUrl?["status"] else {
+            KevinAccountLinkingSession.shared.notifyAccountLinkingCancelation(
+                error: KevinErrors.unknownLinkingStatus
+            )
             return
         }
         if status == "success" {
@@ -53,12 +56,12 @@ internal class KevinAccountLinkingViewModel : KevinViewModel<KevinAccountLinking
                 )
             } else {
                 KevinAccountLinkingSession.shared.notifyAccountLinkingCancelation(
-                    error: KevinError(description: "Account authorizationCode has not been returned!")
+                    error: KevinErrors.accountAuthCodeMissing
                 )
             }
         } else {
             KevinAccountLinkingSession.shared.notifyAccountLinkingCancelation(
-                error: KevinError(description: "Account linking was canceled!")
+                error: KevinErrors.linkingCanceled
             )
         }
     }

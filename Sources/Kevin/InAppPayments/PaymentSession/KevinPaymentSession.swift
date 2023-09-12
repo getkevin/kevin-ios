@@ -80,7 +80,7 @@ final public class KevinPaymentSession: NSObject {
     }
 
     private func onBankConfigurationValidation(
-        status: ValidateBanksConfigurationUseCase.Status,
+        status: BankConfigurationValidationStatus,
         completion: @escaping (ApiBank?) -> Void
     ) {
         switch status {
@@ -88,11 +88,11 @@ final public class KevinPaymentSession: NSObject {
             completion(selectedBank)
             
         case .invalidFilter:
-            let error = KevinError(description: "Provided bank filter does not contain supported banks")
+            let error = KevinErrors.filterInvalid
             delegate?.onKevinPaymentCanceled(error: error)
             
         case .invalidPreselectedBank:
-            let error = KevinError(description: "Provided preselected bank is not supported")
+            let error = KevinErrors.preselectedBankNotSupported
             delegate?.onKevinPaymentCanceled(error: error)
             
         case .unknown(let error):
