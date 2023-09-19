@@ -12,7 +12,7 @@ import UIKit
 struct UserAgent {
     
     static var userAgentString: String {
-        "KeviniOSSdk/\(Constants.apiVersion) iOSDeviceModel/\(deviceName()) \(deviceVersion())"
+        "KeviniOSSdk/\(Constants.skdVersion) iOSDeviceModel/\(deviceName()) \(deviceVersion())"
     }
     
     static private func deviceVersion() -> String {
