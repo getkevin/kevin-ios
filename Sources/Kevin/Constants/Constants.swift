@@ -10,5 +10,5 @@
 import Foundation
 
 struct Constants {
-    static let apiVersion = "2.4.1"
+    static let apiVersion = "2.5.0"
 }
